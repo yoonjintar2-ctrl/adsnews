@@ -23,12 +23,33 @@ HDR = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
        "Accept-Language": "ko-KR,ko;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
 
 
-def total_views(vid):
-    req = urllib.request.Request(f"https://www.youtube.com/watch?v={vid}&hl=ko&gl=KR", headers=HDR)
+DIAG = {}
+
+
+def _get(url):
+    req = urllib.request.Request(url, headers=HDR)
     with urllib.request.urlopen(req, timeout=20) as r:
-        x = r.read().decode("utf-8", "replace")
-    m = re.search(r'"videoDetails":\{.*?"viewCount":"(\d+)"', x, re.S) or re.search(r'"viewCount":"(\d+)"', x)
-    return int(m.group(1)) if m else None
+        return r.read().decode("utf-8", "replace")
+
+
+def total_views(vid):
+    try:
+        x = _get(f"https://www.youtube.com/watch?v={vid}&hl=ko&gl=KR")
+        m = re.search(r'"videoDetails":\{.*?"viewCount":"(\d+)"', x, re.S) or re.search(r'"viewCount":"(\d+)"', x)
+        if m:
+            DIAG["watch"] = DIAG.get("watch", 0) + 1
+            return int(m.group(1))
+        DIAG.setdefault("watch_miss", re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", x))[:160])
+    except Exception as e:
+        DIAG.setdefault("watch_err", str(e)[:120])
+    try:  # fallback: Return YouTube Dislike public API also reports viewCount
+        j = json.loads(_get(f"https://returnyoutubedislikeapi.com/votes?videoId={vid}"))
+        if j.get("viewCount"):
+            DIAG["ryd"] = DIAG.get("ryd", 0) + 1
+            return int(j["viewCount"])
+    except Exception as e:
+        DIAG.setdefault("ryd_err", str(e)[:120])
+    return None
 
 
 def order(pool, v):
@@ -84,6 +105,7 @@ def main():
     for key in ("cur", "base", "bt"):
         v[key] = {k: val for k, val in v[key].items() if k in keep}
     v["at"] = now.isoformat(timespec="minutes")
+    v["diag"] = DIAG
     print("views: read", ok, "of", len(ids))
     if ok == 0 and not new_day:
         return
