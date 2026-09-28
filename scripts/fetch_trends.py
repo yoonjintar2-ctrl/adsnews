@@ -22,7 +22,11 @@ def clean(items, n):
     out, seen = [], set()
     for t in items:
         t = html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
-        if t and t not in seen and len(t) <= 40:
+        if not t or not re.fullmatch(r"[\s\u0020-\u024f\uac00-\ud7a3\u3130-\u318f·]+", t):
+            continue  # drop other scripts (e.g. Thai "weather" rows in the Google feed)
+        if t.lower() in ("weather", "날씨"):
+            continue
+        if t not in seen and len(t) <= 40:
             seen.add(t); out.append(t)
     return out[:n]
 

@@ -18,6 +18,8 @@ jobs:
           python-version: "3.12"
       - name: Fetch trends
         run: python scripts/fetch_trends.py
+      - name: Fetch video views
+        run: python scripts/fetch_views.py || echo 'views step failed'
       - name: Commit
         run: |
           git config user.name "ad-radar-bot"

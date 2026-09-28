@@ -200,6 +200,7 @@ h1,h2,h3,h4,p{margin:0}
 .tcols .rk-t.sh{width:2.4rem}
 .rk-m .vw{display:block;font-family:var(--mono);font-size:.68rem;color:var(--red);margin-top:1px}
 .rk-m .vw small{color:var(--faint)}
+.rk-m .vw .cum{font-style:normal;color:var(--faint);font-size:.6rem}
 .xcol{background:var(--paper2);padding-inline:10px!important}
 .xsrc{font-size:.68rem;color:var(--faint)}
 .xl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
@@ -401,31 +402,51 @@ function boot(D){
   function ranked(hours,at){
     return (D.videos||[]).map(function(v){var r=gainOver(v,hours,at);return r?{v:v,g:r.g,full:r.full}:null}).filter(function(x){return x&&x.g>0}).sort(function(a,b){return b.g-a.g});
   }
+  function num(v){return parseFloat(String(v==null?'':v).replace(/,/g,''))||0}
+  function kstToday(){return new Date(Date.now()+9*36e5).toISOString().slice(0,10)}
+  function todayViews(){var V=D.views;return V&&V.date===kstToday()&&V.cur?V:null}
+  function mvHtml(m){m=String(m||'');return m==='new'?'<i class="flat">NEW</i>':/^up/.test(m)?'<i class="up">▲'+m.slice(2)+'</i>':/^down/.test(m)?'<i class="down">▼'+m.slice(4)+'</i>':'<i class="flat">–</i>'}
+  function dailyRows(pool,prev){
+    var V=todayViews(); if(!V) return null;
+    var rows=(pool||[]).filter(function(x){return V.cur[x.id]!=null}).map(function(x){var c=V.cur[x.id],b=V.base[x.id]!=null?V.base[x.id]:c;return {x:x,g:Math.max(0,c-b),c:c,bt:(V.bt||{})[x.id]}});
+    if(!rows.length) return null;
+    rows.sort(function(a,b){return b.g-a.g||num(b.x.pbViews)-num(a.x.pbViews)});
+    var seen={},out=[];
+    rows.forEach(function(r){if(out.length>=5||seen[r.x.channel])return;seen[r.x.channel]=1;out.push(r)});
+    return out.map(function(r,i){var p=(prev||[]).indexOf(r.x.id),m=p<0?(prev&&prev.length?'new':''):p===i?'same':p>i?'up'+(p-i):'down'+(i-p);
+      return {rank:i+1,move:m,id:r.x.id,title:r.x.title,url:r.x.url,channel:r.x.channel,format:r.x.format,main:'+'+shortNum(r.g),cum:r.c,note:r.bt?r.bt+'부터':''}});
+  }
   function renderTrendList(el,label,sub,list,limit){
     var rows=(list||[]).slice(0,limit).map(function(x){
-      var m=String(x.move||''), mv=m==='new'?'<i class="flat">NEW</i>':/^up/.test(m)?'<i class="up">▲'+m.slice(2)+'</i>':/^down/.test(m)?'<i class="down">▼'+m.slice(4)+'</i>':'<i class="flat">–</i>';
       var sh=x.format==='쇼츠', th='https://i.ytimg.com/vi/'+x.id+'/'+(sh?'hq2':'mqdefault')+'.jpg';
-      return '<div class="rk-row"><span class="rk-n">'+x.rank+mv+'</span><a class="rk-t'+(sh?' sh':'')+'" href="'+esc(x.url)+'" target="_blank" rel="noopener" style="background:#2b2b2b"><img src="'+th+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()"><span>▶</span></a>'+
-        '<div class="rk-m"><span class="ch">'+esc(x.channel)+'</span>'+link(x.url,esc(x.title))+'<span class="vw"><span class="fmt">'+esc(x.format||'영상')+'</span>'+shortNum(parseFloat(String(x.views).replace(/,/g,'')))+' <small>'+sub+'</small></span></div></div>';
+      return '<div class="rk-row"><span class="rk-n">'+x.rank+mvHtml(x.move)+'</span><a class="rk-t'+(sh?' sh':'')+'" href="'+esc(x.url)+'" target="_blank" rel="noopener" style="background:#2b2b2b"><img src="'+th+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()"><span>▶</span></a>'+
+        '<div class="rk-m"><span class="ch">'+esc(x.channel)+'</span>'+link(x.url,esc(x.title))+'<span class="vw"><span class="fmt">'+esc(x.format||'영상')+'</span><small>'+esc(x.mainLabel||sub)+'</small> '+esc(x.main)+(x.cum?' <em class="cum">누적 '+shortNum(x.cum)+'</em>':'')+(x.note?' <em class="cum">('+esc(x.note)+')</em>':'')+'</span></div></div>';
     }).join('');
-    el.insertAdjacentHTML('beforeend','<div class="sub-h">'+label+'<span>'+sub+' 조회수</span></div>'+(rows||'<p class="rk-empty">집계 중이에요.</p>'));
+    el.insertAdjacentHTML('beforeend','<div class="sub-h">'+label+'<span>'+esc(sub)+' 조회수</span></div>'+(rows||'<p class="rk-empty">집계 중이에요.</p>'));
   }
+  function fallbackRows(list,lab){var V=D.views||{};return (list||[]).map(function(x){return {rank:x.rank,move:x.move,id:x.id,title:x.title,url:x.url,channel:x.channel,format:x.format,main:shortNum(num(x.views)),mainLabel:lab,cum:(V.cur||{})[x.id]}})}
   function renderVids(){
     var T=D.trends; if(!T) return;
-    $('trsrc').textContent=(T.scope||'')+' · '+(T.updatedLabel||'');
+    var V=todayViews(), prev=(D.views&&D.views.prev)||{};
+    $('trsrc').textContent=(T.scope||'')+' · '+(V?'오늘 00시 이후 증가분 · '+String(D.views.at||'').slice(11,16)+' 기준':(T.updatedLabel||''));
     $('tc-mh').textContent='월간'+(T.monthLabel?' ('+T.monthLabel+')':'');
     ['tr-gd','tr-ad','tr-gm','tr-am'].forEach(function(id){$(id).innerHTML=''});
-    renderTrendList($('tr-gd'),'인기 영상 TOP 5','하루',T.generalDaily,5);
-    renderTrendList($('tr-ad'),'광고 영상 TOP 5','하루',T.adDaily,5);
-    renderTrendList($('tr-gm'),'인기 영상 TOP 5','월간',T.generalMonthly,5);
-    renderTrendList($('tr-am'),'광고 영상 TOP 5','월간',T.adMonthly,5);
+    var gd=dailyRows(T.poolDaily||T.generalDaily,prev.g), ad=dailyRows(T.adPoolDaily||T.adDaily,prev.a);
+    var pb=T.pbDate?T.pbDate+' 하루':'하루';
+    renderTrendList($('tr-gd'),'인기 영상 TOP 5',gd?'오늘':pb,gd||fallbackRows(T.generalDaily,pb),5);
+    renderTrendList($('tr-ad'),'광고 영상 TOP 5',ad?'오늘':pb,ad||fallbackRows(T.adDaily,pb),5);
+    renderTrendList($('tr-gm'),'인기 영상 TOP 5','월간',fallbackRows(T.generalMonthly,'월간'),5);
+    renderTrendList($('tr-am'),'광고 영상 TOP 5','월간',fallbackRows(T.adMonthly,'월간'),5);
   }
+  var JUNK=/^(날씨|weather|오늘 날씨|내일 날씨|로또|lotto)$/i;
+  var FIN=/주가|주식|증시|코스피|코스닥|나스닥|다우|s&p|상장|공모주|자사주|배당|수익률|금리|환율|채권|etf|비트코인|가상자산|코인|상한가|하한가|급등|급락|시총|시가총액|실적|매출|영업이익|순이익|투자|매입|인수|메모리테크|반도체주|금융|증권|은행|펀드|연준|fomc/i;
   function renderX(){
     var R=D.rtrends; if(!R) return;
     var S=R.sources||{}, order=['x','google','signal','nate','zum'], nk=function(s){return String(s).toLowerCase().replace(/[\s#·,.'"!?]/g,'')};
     var groups=[];
     order.forEach(function(k){var src=S[k]; if(!src) return; var n=(src.items||[]).length;
       (src.items||[]).forEach(function(t,i){
+        if(JUNK.test(t)||!/^[\s\u0020-\u024f\uac00-\ud7a3\u3130-\u318f#·'".,!?&()\-:~%+\/0-9]+$/.test(t)) return;
         var key=nk(t); if(!key) return; var sc=(n-i)/n+ (i<3?0.3:0);
         var tk=String(t).toLowerCase().replace(/[#,.'"!?]/g,'').split(/\s+/).filter(function(w){return w.length>=2});
         var g=groups.filter(function(g){return g.keys.some(function(q){return q===key||(Math.min(q.length,key.length)>=3&&(q.indexOf(key)>-1||key.indexOf(q)>-1))})||tk.filter(function(w){return g.toks.indexOf(w)>-1}).length>=2})[0];
@@ -436,13 +457,19 @@ function boot(D){
         g.best=Math.min(g.best,i+1);
       });
     });
-    groups.forEach(function(g){g.n=Object.keys(g.src).length;g.score+=(g.n-1)*1.2});
+    // 시그널·네이트·줌은 같은 뉴스 키워드 공급처를 공유해 셋이 겹쳐도 한 번만 가산
+    var FAM={x:'x',google:'google',signal:'portal',nate:'portal',zum:'portal'};
+    groups.forEach(function(g){g.n=Object.keys(g.src).length;var f={};Object.keys(g.src).forEach(function(k){f[FAM[k]]=1});g.fam=Object.keys(f).length;g.score+=(g.fam-1)*1.2;g.fin=FIN.test(g.label)||g.keys.some(function(k){return FIN.test(k)});if(g.fin)g.score*=0.75});
     groups.sort(function(a,b){return b.score-a.score||a.best-b.best});
+    // 증시·금융 키워드는 상위 10개 중 최대 2개까지만, 나머지는 아래로
+    var top=[],rest=[],nf=0;
+    groups.forEach(function(g){if(g.fin&&top.length<10){if(nf>=2){rest.push(g);return}nf++}top.push(g)});
+    groups=top.concat(rest);
     $('xsub').textContent=R.updatedLabel||'';
     $('xsrc').innerHTML='5개 사이트 종합 · '+order.filter(function(k){return S[k]}).map(function(k){return link(S[k].url,esc(S[k].label))}).join(' · ');
     $('xl').innerHTML=groups.slice(0,24).map(function(g,i){
       var badges=order.filter(function(k){return g.src[k]}).map(function(k){return '<span class="sb">'+esc(S[k].label)+' '+g.src[k]+'</span>'}).join('');
-      return '<li'+(g.n>1?' class="multi"':'')+'><b>'+(i+1)+'</b><span style="min-width:0">'+link('https://search.naver.com/search.naver?query='+encodeURIComponent(g.label.replace(/^#/,'')),esc(g.label))+'<small>'+badges+'</small></span></li>';
+      return '<li'+(g.fam>1?' class="multi"':'')+'><b>'+(i+1)+'</b><span style="min-width:0">'+link('https://search.naver.com/search.naver?query='+encodeURIComponent(g.label.replace(/^#/,'')),esc(g.label))+'<small>'+badges+'</small></span></li>';
     }).join('');
   }
   function renderReps(){$('reps').innerHTML=(D.reports||[]).map(function(r){return link(r.url,'<span class="d">'+esc(r.date)+'</span><span><b style="font-weight:700">'+esc(r.org)+'</b> '+esc(r.title)+'</span>')}).join('');}
@@ -569,13 +596,13 @@ function boot(D){
     dbRef.doc(id).delete().catch(function(){err('해제하지 못했어요. 잠시 후 다시 시도해 주세요.')});
   });
   fitAll();
-  window.__renderX=function(r){D.rtrends=r;renderX();if(wide())fit($('xl'));};
+  window.__renderX=function(r){D.rtrends=r;D.views=r.views;fitAll();};
 }
 (function(){
   var cur=null, curLive=null;
   function get(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
   Promise.all([get('data.json'),get('live.json').catch(function(){return null})]).then(function(a){
-    var D=a[0]; if(a[1]) D.rtrends=a[1]; cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
+    var D=a[0]; if(a[1]){D.rtrends=a[1];D.views=a[1].views;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
   }).catch(function(){document.body.insertAdjacentHTML('afterbegin','<p style="padding:16px">데이터를 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>')});
   setInterval(function(){get('data.json').then(function(D){if(cur&&D.updatedAt!==cur)location.reload()}).catch(function(){})},60000);
   setInterval(function(){get('live.json').then(function(L){if(L.updatedAt!==curLive&&window.__renderX){curLive=L.updatedAt;window.__renderX(L)}}).catch(function(){})},30000);
