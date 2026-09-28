@@ -33,22 +33,23 @@ def _get(url):
 
 
 def total_views(vid):
+    # 1) Return YouTube Dislike public API (works from GitHub's servers)
     try:
-        x = _get(f"https://www.youtube.com/watch?v={vid}&hl=ko&gl=KR")
-        m = re.search(r'"videoDetails":\{.*?"viewCount":"(\d+)"', x, re.S) or re.search(r'"viewCount":"(\d+)"', x)
-        if m:
-            DIAG["watch"] = DIAG.get("watch", 0) + 1
-            return int(m.group(1))
-        DIAG.setdefault("watch_miss", re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", x))[:160])
-    except Exception as e:
-        DIAG.setdefault("watch_err", str(e)[:120])
-    try:  # fallback: Return YouTube Dislike public API also reports viewCount
         j = json.loads(_get(f"https://returnyoutubedislikeapi.com/votes?videoId={vid}"))
         if j.get("viewCount"):
             DIAG["ryd"] = DIAG.get("ryd", 0) + 1
             return int(j["viewCount"])
     except Exception as e:
         DIAG.setdefault("ryd_err", str(e)[:120])
+    # 2) YouTube watch page (often answered with a consent/bot page on servers)
+    try:
+        x = _get(f"https://www.youtube.com/watch?v={vid}&hl=ko&gl=KR")
+        m = re.search(r'"videoDetails":\{.*?"viewCount":"(\d+)"', x, re.S)
+        if m:
+            DIAG["watch"] = DIAG.get("watch", 0) + 1
+            return int(m.group(1))
+    except Exception as e:
+        DIAG.setdefault("watch_err", str(e)[:120])
     return None
 
 
