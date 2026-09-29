@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-29T13:09+09:00",
- "updatedLabel": "9월 29일 13:09",
+ "updatedAt": "2026-09-29T13:14+09:00",
+ "updatedLabel": "9월 29일 13:14",
  "sources": {
   "x": {
    "label": "X",
@@ -30,9 +30,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-29T13:09+09:00",
+   "at": "2026-09-29T13:14+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "부부",
     "기초노령연금",
     "일본",
     "박성재",
@@ -41,13 +42,12 @@
     "아침",
     "윤종훈",
     "세무서",
-    "개그콘서트",
-    "장한별"
+    "개그콘서트"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-29T13:09+09:00",
+   "at": "2026-09-29T13:14+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "이재명 대통령 국무회의",
@@ -64,19 +64,19 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-29T13:09+09:00",
+   "at": "2026-09-29T13:14+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "아시안게임",
-    "최태원 젠슨 황",
-    "최종면접 조이현 김재원",
-    "한강버스 요금체계 공청회",
-    "공수처 통일교 의혹"
+    "암살자 제작진 허위사실",
+    "명문대 출신 정보카르텔",
+    "2026 서울 예산정책협의회에서",
+    "국감 증인",
+    "닛몰캐쉬"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-29T13:09+09:00",
+   "at": "2026-09-29T13:14+09:00",
    "url": "https://zum.com/",
    "items": [
     "이재명 DMZ 폭발 진상",
@@ -1009,12 +1009,6 @@
    "u": "https://v.daum.net/v/ZGzkbrb0he",
    "at": "2026-09-29T12:30+09:00"
   },
-  "장한별": {
-   "t": "‘치대 입학’ 0.1% 천재 장한별, 여전히 유창한 7개국어 “영어→불어까지”(아침마당)",
-   "s": "뉴스엔",
-   "u": "https://m.newsen.com/news_view.php?uid=202609290858056710",
-   "at": "2026-09-29T12:30+09:00"
-  },
   "이재명 대통령 국무회의": {
    "t": "",
    "s": "",
@@ -1063,24 +1057,6 @@
    "u": "https://v.daum.net/v/20260929041043250",
    "at": "2026-09-29T12:53+09:00"
   },
-  "한강버스 요금체계 공청회": {
-   "t": "한강버스 요금체계 개편 시민 공청회",
-   "s": "국민일보",
-   "u": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9UOHFyNkRHdVdPU2ljWjNVSG9PNHVxTnZVU0VnRHRpQWV0a1h3Qk8xZTdGTmFIaWVXR19xQ1hhT0ZPc0Y3MmdyZWVRSXM5VTV1OHBsVnNyS2h5MFFzOTI0Nk1VNWtCRXBLdk5MatIBbEFVX3lxTE9UOHFyNkRHdVdPU2ljWjNVSG9PNHVxTnZVU0VnRHRpQWV0a1h3Qk8xZTdGTmFIaWVXR19xQ1hhT0ZPc0Y3MmdyZWVRSXM5VTV1OHBsVnNyS2h5MFFzOTI0Nk1VNWtCRXBLdk5Mag?oc=5",
-   "at": "2026-09-29T12:58+09:00"
-  },
-  "최종면접 조이현 김재원": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-29T12:58+09:00"
-  },
-  "공수처 통일교 의혹": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-29T12:58+09:00"
-  },
   "욱일기 금지 사과 논란": {
    "t": "",
    "s": "",
@@ -1105,23 +1081,47 @@
    "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9tSzVTNG9kSy1DaHZuM1VTSm14T3FENUxfWlVzdXpNRktkd3puLUJjeW1ya1ZuTXd6UEpHWjNPRmxxcFFzTkVKdUk0Q1kyTENEY1Y1dU8yTUM5Vi02SFZScw?oc=5",
    "at": "2026-09-29T13:04+09:00"
   },
-  "아시안게임": {
-   "t": "2조5000억 쏟고도 관중석 텅텅…일본인들, 아시안게임 무관심 왜?",
-   "s": "조선일보",
-   "u": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5NQ3VNMFZkeWpUTUthYWFkZ240QTJ5dFVqWGg1SEJjZWtfaWNEbGhUWlI3cHhSVlpEdUY0YTZkeWR4bEN5Y0t1Z0c0S3Q0cnRXQ1BaVG9rcG9xN0lXYlNMblN1d1huRkRqamd0eGhmV0VuS0dwQi00?oc=5",
-   "at": "2026-09-29T13:04+09:00"
-  },
-  "최태원 젠슨 황": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-29T13:04+09:00"
-  },
   "엔비디아 자사주 매입": {
    "t": "\"AI 투자하고도 현금 남아\"…엔비디아 자사주 매입이 보낸 신호",
    "s": "연합인포맥스",
    "u": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBsREl0WjJubk5rR1d6WnY0Qlh3QTcyYk51R002SmJLSGY3VFU1WnF1bmdiZWpjRTAxZ194WnNEWkhOTzBaanlGQk95RW5idGRNbmxZcUZWTTgtNWFubGN5RmlKVXJ0SUZnMTE0ZmFiVjE?oc=5",
    "at": "2026-09-29T13:09+09:00"
+  },
+  "부부": {
+   "t": "아내 출산 장면 본 뒤 부부관계 외면한 남편…경리와 외도 들키자 역공",
+   "s": "뉴스1",
+   "u": "https://www.news1.kr/society/general-society/6304160",
+   "at": "2026-09-29T13:14+09:00"
+  },
+  "암살자 제작진 허위사실": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-29T13:14+09:00"
+  },
+  "명문대 출신 정보카르텔": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-29T13:14+09:00"
+  },
+  "2026 서울 예산정책협의회에서": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-29T13:14+09:00"
+  },
+  "국감 증인": {
+   "t": "\"비대면 약배송, 권영희 대한약사회장 국감 증인 나선다\"",
+   "s": "약사공론",
+   "u": "https://news.google.com/rss/articles/CBMibEFVX3lxTE93UjVkN3V0a2ZKenlUVmtBT1RTTERpVjZzbmg4OXg1M2dvQUZLUktoTTQwVURHMlJLWjd1Z2g5N2UzTTdDWlZNcWpoSUthMEd6M2h4MGktLTJjeWhSd1dEamlnRUR2Z1NFOF8zNQ?oc=5",
+   "at": "2026-09-29T13:14+09:00"
+  },
+  "닛몰캐쉬": {
+   "t": "닛몰캐쉬, 전 연인 폭언·폭행 논란에 활동 중단…소속사 \"피해자에 사과\"",
+   "s": "뉴스1",
+   "u": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1VdVJpMDZUd2xiWnNhNkJ2U2R3OGk3LUFrR1VQQWZPZ08wbVdUNlE0djB2OWlGQnFOOWJSTHo3SUk1QmNOaGpialV2N2llanhYa1ZTUTNPWDV1eGRUcWJZWjExN3bSAWpBVV95cUxOOF9uRC1tdjNVSWRROEVOZXoxeVBtcVFNYnZCZUxBcklXenhSWXYzRi1XdUx2aUU0bDhFR0llLWNuNUR0VzRUT2NqWHZ0V25ic1pOSS13T2dYWWJvcTF0RnFia1U5YWRWNHJR?oc=5",
+   "at": "2026-09-29T13:14+09:00"
   }
  },
  "disc": {
