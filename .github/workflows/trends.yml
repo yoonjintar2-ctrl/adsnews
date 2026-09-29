@@ -1,30 +1,43 @@
 name: 실시간 트렌드 갱신
+# GitHub's own */5 schedule often runs only every hour or two on new repos,
+# so each run loops for ~30 minutes (one refresh every 5 minutes) and then
+# starts the next run itself. The schedule below is only a safety net.
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: trends
   cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Fetch trends
-        run: python scripts/fetch_trends.py
-      - name: Fetch video views
-        run: python scripts/fetch_views.py || echo 'views step failed'
-      - name: Commit
+      - name: Refresh every 5 minutes
         run: |
           git config user.name "ad-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add live.json
-          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
-          git commit -m "실시간 트렌드 $(TZ=Asia/Seoul date '+%m/%d %H:%M')"
-          for i in 1 2 3; do git pull --rebase -X theirs origin main && git push && break; sleep 5; done
+          for round in 1 2 3 4 5 6; do
+            git pull -q --rebase origin main || true
+            python scripts/fetch_trends.py || echo "trends failed"
+            python scripts/fetch_views.py || echo "views failed"
+            git add live.json
+            if ! git diff --cached --quiet; then
+              git commit -q -m "실시간 트렌드 $(TZ=Asia/Seoul date '+%m/%d %H:%M')"
+              for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && break; sleep 5; done
+            fi
+            [ "$round" -lt 6 ] && sleep 290
+          done
+      - name: Start the next run
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run trends.yml --ref main -R "$GITHUB_REPOSITORY" || true

@@ -6,7 +6,7 @@
 <meta name="referrer" content="no-referrer">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>애드 레이더</title>
+<title>광고늬우스</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -180,7 +180,7 @@ h1,h2,h3,h4,p{margin:0}
 .trins{font-family:var(--body);font-size:.84rem;line-height:1.55;background:var(--tint);padding:6px 8px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .rk-t.sh{aspect-ratio:1/1;width:2.5rem;justify-self:center}
 .col>*:not(.grow),.fit>*{flex-shrink:0}
-.grow{flex:1 1 0;min-height:0}
+.grow{flex:none}
 .brand{display:inline-block;font-size:.6rem;color:#fff;background:var(--blue);padding:0 4px;margin-right:3px;vertical-align:.05rem}
 .rk-empty{font-size:.76rem;color:var(--muted);padding-block:4px}
 .bar2{display:grid;grid-template-columns:1fr;gap:18px;border-bottom:1px solid var(--rule);padding-block:5px;margin-top:4px}
@@ -192,11 +192,11 @@ h1,h2,h3,h4,p{margin:0}
 .roll li{height:1.6rem;line-height:1.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--serif);font-weight:700;font-size:.92rem}
 .roll li em{font-style:normal;font-family:var(--mono);font-weight:400;font-size:.72rem;color:var(--faint);margin-right:8px}
 .rsrc{flex:none;font-size:.66rem;color:var(--faint)}
-.tcols{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;flex:1 1 0;min-height:0}
+.tcols{display:flex;flex-direction:column;gap:10px}
 .tcol{display:flex;flex-direction:column;gap:4px;min-height:0;overflow:hidden;min-width:0}
 .tcol+.tcol{border-left:1px solid var(--rule-soft);padding-left:12px}
 .tcol-h{font-family:var(--serif);font-weight:900;font-size:1rem;text-align:center;border-bottom:2px solid var(--ink);padding-bottom:2px}
-.tcols .rk-row{grid-template-columns:1.3rem 3.4rem 1fr;gap:6px}
+.tcols .rk-row{grid-template-columns:1.6rem 5.2rem 1fr;gap:8px}
 .tcols .rk-t.sh{width:2.4rem}
 .rk-m .vw{display:block;font-family:var(--mono);font-size:.68rem;color:var(--red);margin-top:1px}
 .rk-m .vw small{color:var(--faint)}
@@ -246,14 +246,17 @@ h1,h2,h3,h4,p{margin:0}
 .pmsg{font-size:.8rem;color:var(--red)}
 @media (min-width:700px){.grid{grid-template-columns:1fr 1fr}}
 @media (min-width:1100px) and (min-height:600px), (min-width:880px) and (min-height:540px) and (orientation:landscape){
-  html{font-size:clamp(9.5px,min(1.24vh,.72vw),18px);height:100%}
+  html{font-size:clamp(10.5px,min(1.36vh,.8vw),19px);height:100%}
   body{height:100%;overflow:hidden;padding-block:0}
   .paper{height:100%}
-  .grid{flex:1;min-height:0;grid-template-columns:1fr 1.5fr 1.3fr .95fr .58fr;gap:0;padding-top:8px}
+  .grid{flex:1;min-height:0;grid-template-columns:1.05fr 1.55fr 1.2fr 1fr .46fr;gap:0;padding-top:8px}
   .col{padding-inline:12px;border-left:1px solid var(--rule);overflow:hidden}
   .col:first-child{padding-left:0;border-left:0}
   .col:last-child{padding-right:0}
-  .grow{flex:1}
+  .grow{flex:1 1 0;min-height:0}
+  .tcols{flex:1 1 0;min-height:0}
+  .tcols .tcol{flex:0 1 auto}
+  #reps{max-height:15rem}#anews{max-height:7.5rem}#plat{max-height:6rem}
   .pts,.camps{grid-template-columns:repeat(4,minmax(0,1fr))}
   .vids{grid-template-columns:repeat(4,minmax(0,1fr))}
   .camp p{-webkit-line-clamp:2}
@@ -269,7 +272,7 @@ h1,h2,h3,h4,p{margin:0}
 <div class="paper">
   <header class="mast">
     <div class="l"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트<br><span id="upd"></span><br><span id="ago"></span></div>
-    <h1>애드 레이더</h1>
+    <h1>광고늬우스</h1>
     <div class="r"><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="pref" id="dl-pref"></span><span>광고 · 미디어 기획자의 신문</span></div>
@@ -294,22 +297,22 @@ h1,h2,h3,h4,p{margin:0}
     <section class="col" id="trcol" aria-labelledby="k-trend">
       <div class="kick"><h2 id="k-trend">요즘 뜨는 영상</h2><span id="trsrc"></span></div>
       <div class="tcols">
-        <div class="tcol" id="tc-d"><div class="tcol-h">일간</div><div class="rk-sec" id="tr-gd"></div><div class="rk-sec" id="tr-ad"></div></div>
-        <div class="tcol" id="tc-m"><div class="tcol-h" id="tc-mh">월간</div><div class="rk-sec" id="tr-gm"></div><div class="rk-sec" id="tr-am"></div></div>
+        <div class="tcol" id="tc-d"><div class="rk-sec" id="tr-gd"></div></div>
+        <div class="tcol" id="tc-a"><div class="rk-sec" id="tr-ad"></div></div>
       </div>
     </section>
 
     <section class="col" aria-labelledby="k-fol">
-      <div class="kick"><h2 id="k-fol">팔로잉 브랜드</h2><span id="fcount"></span></div>
+      <div class="kick"><h2 id="k-fol">팔로잉 브랜드 소식</h2><span id="fcount"></span></div>
       <form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="브랜드 추가" maxlength="30"><button type="submit">팔로우</button></form>
       <p class="ferr" id="ferr" hidden></p>
       <div class="fit grow"><div class="fol" id="fol"></div></div>
       <div class="kick"><h2>리포트</h2><span>렙사 · 광고회사 · 기관</span></div>
-      <div class="blist fit" id="reps" style="max-height:15rem"></div>
+      <div class="blist fit" id="reps" ></div>
       <div class="kick"><h2>업계 소식</h2><span>광고회사 · 매체</span></div>
-      <div class="blist fit" id="anews" style="max-height:6rem"></div>
+      <div class="blist fit" id="anews"></div>
       <div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div>
-      <div class="fit" id="plat" style="max-height:6rem"></div>
+      <div class="fit" id="plat"></div>
     </section>
     <section class="col xcol" aria-labelledby="k-x">
       <div class="kick"><h2 id="k-x">실시간 트렌드</h2><span id="xsub"></span></div>
@@ -411,6 +414,7 @@ function boot(D){
     var rows=(pool||[]).filter(function(x){return V.cur[x.id]!=null}).map(function(x){var c=V.cur[x.id],b=V.base[x.id]!=null?V.base[x.id]:c;return {x:x,g:Math.max(0,c-b),c:c,bt:(V.bt||{})[x.id]}});
     if(!rows.length) return null;
     rows.sort(function(a,b){return b.g-a.g||num(b.x.pbViews)-num(a.x.pbViews)});
+    if(rows[0].g<1000) return null; // 자정 직후처럼 오늘 증가분이 아직 없으면 전일 차트로 대체
     var seen={},out=[];
     rows.forEach(function(r){if(out.length>=5||seen[r.x.channel])return;seen[r.x.channel]=1;out.push(r)});
     return out.map(function(r,i){var p=(prev||[]).indexOf(r.x.id),m=p<0?(prev&&prev.length?'new':''):p===i?'same':p>i?'up'+(p-i):'down'+(i-p);
@@ -429,14 +433,11 @@ function boot(D){
     var T=D.trends; if(!T) return;
     var V=todayViews(), prev=(D.views&&D.views.prev)||{};
     $('trsrc').textContent=(T.scope||'')+' · '+(V?'오늘 00시 이후 증가분 · '+String(D.views.at||'').slice(11,16)+' 기준':(T.updatedLabel||''));
-    $('tc-mh').textContent='월간'+(T.monthLabel?' ('+T.monthLabel+')':'');
-    ['tr-gd','tr-ad','tr-gm','tr-am'].forEach(function(id){$(id).innerHTML=''});
+    ['tr-gd','tr-ad'].forEach(function(id){$(id).innerHTML=''});
     var gd=dailyRows(T.poolDaily||T.generalDaily,prev.g), ad=dailyRows(T.adPoolDaily||T.adDaily,prev.a);
     var pb=T.pbDate?T.pbDate+' 하루':'하루';
     renderTrendList($('tr-gd'),'인기 영상 TOP 5',gd?'오늘':pb,gd||fallbackRows(T.generalDaily,pb),5);
     renderTrendList($('tr-ad'),'광고 영상 TOP 5',ad?'오늘':pb,ad||fallbackRows(T.adDaily,pb),5);
-    renderTrendList($('tr-gm'),'인기 영상 TOP 5','월간',fallbackRows(T.generalMonthly,'월간'),5);
-    renderTrendList($('tr-am'),'광고 영상 TOP 5','월간',fallbackRows(T.adMonthly,'월간'),5);
   }
   var JUNK=/^(날씨|weather|오늘 날씨|내일 날씨|로또|lotto)$/i;
   var FIN=/주가|주식|증시|코스피|코스닥|나스닥|다우|s&p|상장|공모주|자사주|배당|수익률|금리|환율|채권|etf|비트코인|가상자산|코인|상한가|하한가|급등|급락|시총|시가총액|실적|매출|영업이익|순이익|투자|매입|인수|메모리테크|반도체주|금융|증권|은행|펀드|연준|fomc/i;
@@ -521,14 +522,17 @@ function boot(D){
   function fit(el){
     if(!el) return;
     var box = el.classList.contains('fit') ? el : el.parentElement;
-    while(box.scrollHeight > box.clientHeight + 1 && el.children.length > 1){ el.removeChild(el.lastElementChild); }
+    while(el.children.length > 1){
+      var over = box.scrollHeight > box.clientHeight + 1 || el.lastElementChild.getBoundingClientRect().bottom > box.getBoundingClientRect().bottom + 1;
+      if(!over) break; el.removeChild(el.lastElementChild);
+    }
   }
   function renderFlow(){ renderLive(); renderVids(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
   function fitAll(){
     renderFlow();
     if(!wide()) return;
     ['live','fol','reps','anews','plat','xl'].forEach(function(id){fit($(id))});
-    ['tc-d','tc-m'].forEach(function(id){var tc=$(id),g=0;while(tc.scrollHeight>tc.clientHeight+1&&g++<20){var rows=tc.querySelectorAll('.rk-row');if(rows.length<=4)break;var sec=tc.querySelectorAll('.rk-sec');var a1=sec[0].querySelectorAll('.rk-row'),a2=sec[1].querySelectorAll('.rk-row');var t=(a2.length>=a1.length?a2:a1);t[t.length-1].remove();}});
+    ['tc-d','tc-a'].forEach(function(id){var tc=$(id),g=0;while(tc.scrollHeight>tc.clientHeight+1&&g++<20){var rows=tc.querySelectorAll('.rk-row');if(rows.length<=3)break;rows[rows.length-1].remove();}});
   }
   function renderPrefLine(){
     var all = prefs.media.concat(prefs.industries);
