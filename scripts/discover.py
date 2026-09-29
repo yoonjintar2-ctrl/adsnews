@@ -37,6 +37,21 @@ BRANDS = {"삼성전자": ["samsung"], "LG전자": ["lg global", "lg전자", "lg
           "넥슨": ["nexon"], "엔씨소프트": ["ncsoft"], "넷마블": ["netmarble"], "대한항공": ["korean air"], "동원": ["dongwon"],
           "빙그레": ["binggrae"], "오리온": ["orion"], "롯데웰푸드": [], "SK매직": [], "청호나이스": [], "바디프랜드": ["bodyfriend"]}
 THIS_MONTH = "EgIIBA%3D%3D"
+SHORTS = "EgIQCQ=="          # type: Shorts (relevance order; the page ranks by today's live gain)
+SHORTS_Q = ["ㅋㅋ", "#shorts 한국", "쇼츠 웃긴", "챌린지", "먹방 쇼츠", "예능 쇼츠", "축구 쇼츠", "아이돌 쇼츠"]
+_OE = {}
+
+
+def channel_of(vid):
+    if vid in _OE:
+        return _OE[vid]
+    try:
+        req = urllib.request.Request(f"https://www.youtube.com/oembed?url=https://www.youtube.com/shorts/{vid}&format=json", headers=HDR)
+        with urllib.request.urlopen(req, timeout=8) as r:
+            _OE[vid] = json.loads(r.read()).get("author_name", "")
+    except Exception:
+        _OE[vid] = ""
+    return _OE[vid]
 
 
 def brand_of(ch):
@@ -143,6 +158,28 @@ def main():
                                          "since0": h is not None and h < since_midnight}
             d["items"][vid] = it
             found += 1
+    # popular Korean Shorts (candidates; ranked on the page by views gained today)
+    for q in SHORTS_Q:
+        if time.time() - t0 > 120:
+            break
+        try:
+            j = post({"query": q, "params": SHORTS})
+        except Exception as e:
+            print("disc shorts", q, "failed:", e); continue
+        for lv in walk(j, "shortsLockupViewModel", [])[:10]:
+            m = re.search(r'"videoId":"([A-Za-z0-9_-]{11})"', json.dumps(lv))
+            acc = lv.get("accessibilityText") or ""
+            if not m:
+                continue
+            vid = m.group(1)
+            title = re.split(r",\s*조회수", acc)[0].strip()
+            if vid in d["items"] or not HANGUL.search(title) or KIDS.search(title):
+                continue
+            ch = channel_of(vid)
+            if KIDS.search(ch) or brand_of(ch) or ADW.search(title):
+                continue
+            d["items"][vid] = {"t": re.sub(r"#\S+", "", title).strip()[:80], "ch": ch[:40], "fmt": "쇼츠", "kind": "gen", "since0": False}
+            found += 1
     # sweep major advertisers' own channels (uploads this week)
     for b in BRANDS:
         if time.time() - t0 > 170:
@@ -165,8 +202,8 @@ def main():
                                    "since0": h < since_midnight}
                 found += 1
     # keep the list bounded: newest first discovered are kept
-    if len(d["items"]) > 160:
-        d["items"] = dict(list(d["items"].items())[-160:])
+    if len(d["items"]) > 220:
+        d["items"] = dict(list(d["items"].items())[-220:])
     d["at"] = now.isoformat(timespec="minutes")
     live["disc"] = d
     live["adMonth"] = M

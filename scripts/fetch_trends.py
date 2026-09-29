@@ -100,6 +100,15 @@ def update_reasons(live, now):
     print("reasons:", len(R), "of", len(kws))
 
 
+def xtrends():
+    """X(트위터) 한국 실시간 트렌드 — getdaytrends.com 'Now' 표 (로그인 불필요)."""
+    x = get("https://getdaytrends.com/korea/")
+    i = x.find('id="trends"')
+    seg = x[i:i + 60000] if i >= 0 else x
+    items = [urllib.parse.unquote(t) for t in re.findall(r'<td class="main"><a class="string" href="/korea/trend/[^"]+/">([^<]{1,60})</a>', seg)]
+    return clean(items, 20)
+
+
 def signal():
     x = json.loads(get("https://api.signal.bz/news/realtime"))
     rows = x.get("top10") or x.get("data") or []
@@ -128,7 +137,8 @@ def main():
     now = datetime.now(KST)
     iso = now.isoformat(timespec="minutes")
     changed = False
-    meta = {"google": ("구글", "https://trends.google.co.kr/trending?geo=KR&hours=4", google),
+    meta = {"x": ("X", "https://getdaytrends.com/korea/", xtrends),
+            "google": ("구글", "https://trends.google.co.kr/trending?geo=KR&hours=4", google),
             "signal": ("시그널", "https://www.signal.bz/", signal),
             "nate": ("네이트", "https://www.nate.com/", nate),
             "zum": ("줌", "https://zum.com/", zum)}
