@@ -49,16 +49,28 @@ def _next_web(vid):
     return None
 
 
-def total_views(vid):
+def total_views(vid, prefer=None):
+    """Return (count, source). Keeps one source per video for the whole day so
+    today's gain is never computed across two differently-timed counters."""
+    if prefer == "ryd":
+        n = _ryd(vid)
+        return (n, "ryd") if n else (None, None)
     # 1) YouTube's own web API (live count, same number the watch page shows)
     try:
         n = _next_web(vid)
         if n:
             DIAG["yt"] = DIAG.get("yt", 0) + 1
-            return n
+            return n, "yt"
     except Exception as e:
         DIAG.setdefault("yt_err", str(e)[:120])
-    # 2) Return YouTube Dislike public API (cached, can lag by hours)
+    if prefer == "yt":
+        return None, None
+    n = _ryd(vid)
+    return (n, "ryd") if n else (None, None)
+
+
+def _ryd(vid):
+    # Return YouTube Dislike public API (cached, can lag by hours)
     try:
         j = json.loads(_get(f"https://returnyoutubedislikeapi.com/votes?videoId={vid}"))
         if j.get("viewCount"):
@@ -86,7 +98,7 @@ def main():
     gpool = T.get("poolDaily") or T.get("generalDaily") or []
     apool = T.get("adPoolDaily") or T.get("adDaily") or []
     ids = []
-    for k in (gpool, apool, T.get("generalMonthly", []), T.get("adMonthly", []), T.get("generalDaily", []), T.get("adDaily", [])):
+    for k in (gpool, apool, T.get("generalDaily", []), T.get("adDaily", [])):
         for it in k:
             if it.get("id") and it["id"] not in ids:
                 ids.append(it["id"])
@@ -97,29 +109,31 @@ def main():
     new_day = v.get("date") != today
     if not new_day and v.get("at"):
         last = datetime.fromisoformat(v["at"])
-        if (now - last).total_seconds() < 14 * 60:
+        if (now - last).total_seconds() < 9 * 60:
             print("views: read", int((now - last).total_seconds() // 60), "min ago, skip"); return
 
     if new_day:
         prev = {"g": order(gpool, v), "a": order(apool, v)} if v.get("cur") else v.get("prev", {})
-        v = {"date": today, "base": {}, "bt": {}, "cur": {}, "prev": prev}
+        v = {"date": today, "base": {}, "bt": {}, "cur": {}, "src": {}, "prev": prev}
+    v.setdefault("src", {})
 
     ok = 0
     for vid in ids[:60]:
         try:
-            n = total_views(vid)
+            n, src = total_views(vid, v["src"].get(vid))
         except Exception as e:
             print("views", vid, "failed:", e); continue
         if n is None:
             print("views", vid, "no count"); continue
         ok += 1
         v["cur"][vid] = n
+        v["src"][vid] = src
         if vid not in v["base"]:
             v["base"][vid] = n
             if now.hour >= 1:
                 v["bt"][vid] = now.strftime("%H:%M")
     keep = set(ids)
-    for key in ("cur", "base", "bt"):
+    for key in ("cur", "base", "bt", "src"):
         v[key] = {k: val for k, val in v[key].items() if k in keep}
     v["at"] = now.isoformat(timespec="minutes")
     v["diag"] = DIAG
