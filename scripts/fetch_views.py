@@ -83,7 +83,8 @@ def main():
     gpool = gpool + [{"id": k, "channel": x.get("ch")} for k, x in ditems.items() if x.get("kind") == "gen"]
     apool = apool + [{"id": k, "channel": x.get("ch")} for k, x in ditems.items() if x.get("kind") == "ad"]
     ids = []
-    for k in (gpool, apool, T.get("generalDaily", []), T.get("adDaily", [])):
+    mpool = [{"id": k} for k in (live.get("adMonth") or {})]
+    for k in (gpool, apool, T.get("generalDaily", []), T.get("adDaily", []), mpool):
         for it in k:
             if it.get("id") and it["id"] not in ids:
                 ids.append(it["id"])
@@ -120,7 +121,7 @@ def main():
     ok = 0
     from concurrent.futures import ThreadPoolExecutor
     t0 = time.time()
-    todo = ids[:220]
+    todo = ids[:450]
 
     def read(vid):
         if time.time() - t0 > 150:      # hard time budget so the 5-minute loop never stalls

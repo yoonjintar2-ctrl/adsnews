@@ -79,7 +79,10 @@ h1,h2,h3,h4,p{margin:0}
 .lead .dek{font-family:var(--body);font-size:.98rem;color:var(--muted);margin-top:7px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lead{display:grid;grid-template-columns:1fr;gap:12px;align-items:start}
 .lead.has-toon{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
-.toon{margin:0;border:1px solid var(--ink);background:#f4f4f2;padding:4px}
+.toon{margin:0;border:1px solid var(--ink);background:#f4f4f2;padding:4px;cursor:zoom-in}
+.lead .dek{cursor:pointer}
+.modal-box.wide{max-width:900px}
+.modal-box .toon{cursor:default;margin-top:10px}
 .toon svg{display:block;width:100%;height:auto;filter:grayscale(1)}
 .toon figcaption{font-family:var(--serif);font-weight:700;font-size:.74rem;text-align:center;padding-top:3px}
 .pt{cursor:pointer}
@@ -96,7 +99,7 @@ h1,h2,h3,h4,p{margin:0}
 .pt{display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--rule);padding-top:6px}
 .pt .t{font-family:var(--serif);font-size:.68rem;font-weight:700;color:var(--red);letter-spacing:.06em}
 .pt h4{font-family:var(--serif);font-weight:700;font-size:1rem;line-height:1.35}
-.pt p{font-family:var(--body);font-size:.84rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pt p{font-family:var(--body);font-size:.84rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pt .act{font-size:.82rem;background:var(--tint);padding:4px 7px}
 .pt .act::before{content:"제안 ";font-weight:700;color:var(--blue)}
 .vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 12px;align-content:start}
@@ -292,13 +295,13 @@ h1,h2,h3,h4,p{margin:0}
   .col:last-child{padding-right:0}
   .grow{flex:none}
   .fol-scroll{max-height:24rem;overflow-y:auto;overscroll-behavior:contain}
-  .pts{grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr))}
+  .pts{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px}
   .camps{grid-template-columns:repeat(4,minmax(0,1fr))}
   .vids{grid-template-columns:repeat(4,minmax(0,1fr))}
   .camp p{-webkit-line-clamp:2}
   .foot{margin-top:5px;flex-wrap:nowrap;overflow:hidden;white-space:nowrap}
 }
-@media (min-width:880px) and (max-width:1399px) and (orientation:landscape){.pt p{-webkit-line-clamp:3}.lead.has-toon{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.lead .dek{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.lead h2{font-size:1.8rem}.camp p,.camp .cph{display:none}.onair .pop{display:none}}
+@media (min-width:880px) and (max-width:1399px) and (orientation:landscape){.pt p{-webkit-line-clamp:2}.lead.has-toon{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.lead .dek{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.lead h2{font-size:1.8rem}.camp p,.camp .cph{display:none}.onair .pop{display:none}}
 @media (max-width:620px){.mast{grid-template-columns:1fr}.mast .l,.mast .r{justify-content:center;text-align:center}.pts,.camps,.vids{grid-template-columns:1fr 1fr}.onair{flex-wrap:wrap}}
 @media (prefers-reduced-motion:reduce){.track{animation:none}.live-dot{animation:none}}
 </style>
@@ -309,7 +312,7 @@ h1,h2,h3,h4,p{margin:0}
   <header class="mast">
     <div class="l"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트<br><span id="upd"></span><br><span id="ago"></span></div>
     <h1>광고늬우스</h1>
-    <div class="r"><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog">⚙ 설정</button></div>
+    <div class="r"><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="pref" id="dl-pref"></span><span>광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -322,7 +325,7 @@ h1,h2,h3,h4,p{margin:0}
 
     <section class="col" aria-labelledby="k-brief">
       <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span>by 클로드 기자</span></div>
-      <article class="lead"><div class="lead-t"><h2 id="bh"></h2><p class="dek" id="bl"></p></div><figure class="toon" id="toon" hidden></figure></article>
+      <article class="lead"><div class="lead-t"><h2 id="bh"></h2><p class="dek" id="bl" role="button" tabindex="0" title="전문 보기"></p></div><figure class="toon" id="toon" hidden></figure></article>
       <div class="pts" id="pts"></div>
       <div class="kick"><h2>주목받는 캠페인</h2><span>소재 · 성과</span></div>
       <div class="fit grow"><div class="feat" id="camps"></div></div>
@@ -435,9 +438,13 @@ function boot(D){
   $('pts').innerHTML = D.brief.points.map(function(p,i){
     return '<div class="pt" role="button" tabindex="0" data-i="'+i+'"><span class="t">'+esc(p.tag)+'</span><h4>'+esc(p.title)+'</h4><p>'+esc(p.evidence)+'</p><span class="more">전문 보기</span></div>';
   }).join('');
-  function openPt(i){var p=D.brief.points[i];if(!p)return;$('mbody').innerHTML='<span class="t">'+esc(p.tag)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.full||p.evidence)+'</p>';$('modal').hidden=false;$('mclose').focus();}
+  function openPt(i){var p=D.brief.points[i];if(!p)return;openModal('<span class="t">'+esc(p.tag)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.full||p.evidence)+'</p>');}
   $('pts').addEventListener('click',function(e){var t=e.target.closest('.pt');if(t)openPt(+t.getAttribute('data-i'))});
   $('pts').addEventListener('keydown',function(e){var t=e.target.closest('.pt');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openPt(+t.getAttribute('data-i'))}});
+  function openModal(html,wide){$('mbody').innerHTML=html;$('modal').firstElementChild.classList.toggle('wide',!!wide);$('modal').hidden=false;$('mclose').focus();}
+  function toonHtml(){var T=D.brief.cartoon;return T&&T.svg&&!$('toon').hidden?'<figure class="toon">'+T.svg+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
+  $('toon').addEventListener('click',function(){openModal('<span class="t">광고늬우스 만평</span>'+toonHtml(),true)});
+  $('bl').addEventListener('click',function(){openModal('<span class="t">오늘의 미니 사설 · by 클로드 기자</span><h3>'+esc(D.brief.headline)+'</h3><p>'+esc(D.brief.lede)+'</p>'+(D.brief.body?'<p style="margin-top:8px">'+esc(D.brief.body)+'</p>':'')+toonHtml(),true)});
   $('mclose').addEventListener('click',function(){$('modal').hidden=true});
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')$('modal').hidden=true});
@@ -495,18 +502,18 @@ function boot(D){
       return {id:k,title:x.t,channel:x.ch,format:x.fmt||'영상',url:'https://www.youtube.com/watch?v='+k,pbViews:0}});
   }
   function monthlyAds(){
-    // 자체 누적(최근 30일)이 7일 이상 쌓이면 그걸 쓰고, 그 전에는 플레이보드 월간 차트를 광고주별로 묶은 값
-    var H=D.adHist||{}, days=Object.keys(H).sort(), V=todayViews();
-    if(days.length>=7){
-      var by={};
-      function add(ch,id,g,t){var k=String(ch||'').replace(/\s*(korea|코리아|global|official|공식)\s*$/i,'').trim()||ch; var b=by[k]||(by[k]={brand:k,views:0,ids:{},top:null});b.views+=g;b.ids[id]=1;if(!b.top||g>b.top.g)b.top={id:id,g:g,t:t}}
-      days.slice(-30).forEach(function(d){var day=H[d];Object.keys(day).forEach(function(id){add(day[id][1],id,day[id][0],day[id][2])})});
-      var list=Object.keys(by).map(function(k){return by[k]}).sort(function(a,b){return b.views-a.views}).slice(0,5);
-      return {label:'최근 '+Math.min(30,days.length)+'일 누적',rows:list.map(function(b,i){var n=Object.keys(b.ids).length;return {rank:i+1,id:b.top.id,title:b.top.t+(n>1?' 외 '+(n-1)+'편':''),channel:b.brand,format:'영상',url:'https://www.youtube.com/watch?v='+b.top.id,main:shortNum(b.views),mainLabel:'누적'}})};
-    }
-    var G=(D.trends||{}).adMonthlyGroup||[];
-    return {label:((D.trends||{}).adMonthlyLabel||'월간')+' · 광고주별',rows:G.slice(0,5).map(function(x){return {rank:x.rank,id:x.id,title:x.title+(x.count>1?' ('+x.count+'편)':''),channel:x.brand,format:x.format,url:x.url,main:shortNum(x.views),mainLabel:'월간'}})};
+    // 최근 30일 안에 올라온 광고 영상 중 누적 조회수 TOP 5 (같은 광고주는 가장 높은 1편만)
+    var V=D.views||{}, cur=V.cur||{}, now=new Date(Date.now()+9*36e5), cut=new Date(now.getTime()-30*864e5).toISOString().slice(0,10);
+    var C={};
+    function add(id,t,ch,ud,fmt){if(!id||!ud||ud<cut||cur[id]==null)return;var o=C[id]||(C[id]={id:id,t:t,ch:ch,ud:ud,fmt:fmt||'영상'});if(!o.t)o.t=t;}
+    var M=D.adMonth||{};Object.keys(M).forEach(function(k){add(k,M[k].t,M[k].ch,M[k].ud)});
+    ((D.trends||{}).adPoolDaily||[]).forEach(function(x){add(x.id,x.title,x.channel,String(x.date||'').replace(/\./g,'-'),x.format)});
+    var list=Object.keys(C).map(function(k){var o=C[k];o.v=cur[k];return o}).sort(function(a,b){return b.v-a.v});
+    var seen=[],out=[],ck=function(c){return String(c||'').toLowerCase().replace(/[\s·()\[\]]/g,'').replace(/(그룹|공식|official|korea|코리아|global)$/,'')};
+    list.forEach(function(o){if(out.length>=5)return;var c=ck(o.ch);if(seen.some(function(q){return q&&c&&(q===c||q.indexOf(c)===0||c.indexOf(q)===0)}))return;seen.push(c);out.push(o)});
+    return {label:'30일 내 업로드 · 누적',rows:out.map(function(o,i){return {rank:i+1,id:o.id,title:o.t,channel:o.ch,format:o.fmt,url:'https://www.youtube.com/watch?v='+o.id,main:shortNum(o.v),mainLabel:'누적',note:o.ud.slice(5).replace('-','.')+' 업로드'}})};
   }
+
   function renderVids(){
     var T=D.trends; if(!T) return;
     var V=todayViews(), prev=(D.views&&D.views.prev)||{};
@@ -518,7 +525,7 @@ function boot(D){
     renderTrendList($('tr-gd'),'인기 영상 TOP 5 (일간)',gd?'오늘':pb,gd||fallbackRows(T.generalDaily,pb),5);
     renderTrendList($('tr-ad'),'광고 영상 TOP 5 (일간)',ad?'오늘':pb,ad||fallbackRows(T.adDaily,pb),5);
     var M=monthlyAds();
-    if(M.rows.length) renderTrendList($('tr-ad'),'광고 영상 TOP 5 (월간)',M.label,M.rows,5);
+    renderTrendList($('tr-ad'),'광고 영상 TOP 5 (최근 1개월)',M.label,M.rows,5);
   }
 
   var JUNK=/^(날씨|weather|오늘 날씨|내일 날씨|로또|lotto)$/i;
@@ -558,7 +565,7 @@ function boot(D){
       return '<li'+(g.fam>1?' class="multi"':'')+' title="'+esc(tip+(rr&&rr.s?' · 기사: '+rr.s:''))+'"><b>'+(i+1)+'</b><span style="min-width:0">'+link('https://search.naver.com/search.naver?query='+encodeURIComponent(g.label.replace(/^#/,'')),esc(g.label))+why+'</span></li>';
     }).join('');
   }
-  function renderReps(){$('reps').innerHTML=(D.reports||[]).map(function(r){return link(r.url,'<span class="d">'+esc(r.date)+'</span><span><b style="font-weight:700">'+esc(r.org)+'</b> '+esc(r.title)+'</span>')}).join('');}
+  function renderReps(){$('reps').innerHTML=(D.reports||[]).slice(0,10).map(function(r){return link(r.url,'<span class="d">'+esc(r.date)+'</span><span><b style="font-weight:700">'+esc(r.org)+'</b> '+esc(r.title)+'</span>')}).join('');}
 
   function campCard(c,f){
     var yt = c.yt ? link('https://www.youtube.com/results?search_query='+encodeURIComponent(c.yt),'영상 보기 ↗') : '';
@@ -699,13 +706,13 @@ function boot(D){
   $('zin').addEventListener('click',function(){setZoom(zoom+.1)});
   $('zout').addEventListener('click',function(){setZoom(zoom-.1)});
   fitAll();
-  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;fitAll();};
+  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;fitAll();};
 }
 (function(){
   var cur=null, curLive=null;
   function get(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
   Promise.all([get('data.json'),get('live.json').catch(function(){return null})]).then(function(a){
-    var D=a[0]; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
+    var D=a[0]; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
   }).catch(function(){document.body.insertAdjacentHTML('afterbegin','<p style="padding:16px">데이터를 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>')});
   setInterval(function(){get('data.json').then(function(D){if(cur&&D.updatedAt!==cur)location.reload()}).catch(function(){})},60000);
   setInterval(function(){get('live.json').then(function(L){if(L.updatedAt!==curLive&&window.__renderX){curLive=L.updatedAt;window.__renderX(L)}}).catch(function(){})},30000);

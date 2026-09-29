@@ -36,7 +36,7 @@ BRANDS = {"삼성전자": ["samsung"], "LG전자": ["lg global", "lg전자", "lg
           "컬리": ["kurly"], "당근": ["daangn", "karrot"], "야놀자": ["yanolja"], "여기어때": [], "한국타이어": ["hankook tire"],
           "넥슨": ["nexon"], "엔씨소프트": ["ncsoft"], "넷마블": ["netmarble"], "대한항공": ["korean air"], "동원": ["dongwon"],
           "빙그레": ["binggrae"], "오리온": ["orion"], "롯데웰푸드": [], "SK매직": [], "청호나이스": [], "바디프랜드": ["bodyfriend"]}
-THIS_WEEK = "EgIIAw%3D%3D"
+THIS_MONTH = "EgIIBA%3D%3D"
 
 
 def brand_of(ch):
@@ -87,6 +87,16 @@ def hours_ago(s):
     return {"분": n / 60, "시간": n, "일": n * 24}[m.group(2)]
 
 
+def upload_date(pub, now):
+    """Approximate upload date (YYYY-MM-DD) from '3일 전', '2주 전', '1개월 전'."""
+    m = re.search(r"(\d+)\s*(분|시간|일|주|개월)", pub or "")
+    if not m:
+        return None
+    n = int(m.group(1))
+    h = {"분": n / 60, "시간": n, "일": n * 24, "주": n * 24 * 7, "개월": n * 24 * 30}[m.group(2)]
+    return (now - timedelta(hours=h)).strftime("%Y-%m-%d")
+
+
 def main():
     live = json.load(open("live.json", encoding="utf-8"))
     now = datetime.now(KST)
@@ -98,6 +108,10 @@ def main():
         print("disc: recent, skip"); return
     since_midnight = now.hour + now.minute / 60
     t0 = time.time()
+    # ad videos uploaded in the last 31 days (kept across days) for the 1-month ranking
+    M = live.get("adMonth") or {}
+    cutoff = (now - timedelta(days=31)).strftime("%Y-%m-%d")
+    M = {k: v for k, v in M.items() if v.get("ud", "") >= cutoff}
     found = 0
     for q, kind in [(q, "gen") for q in GEN_Q] + [(q, "ad") for q in AD_Q]:
         if time.time() - t0 > 90:
@@ -123,6 +137,8 @@ def main():
             if not k:
                 continue
             h = hours_ago(pub)
+            if k == "ad":
+                M[vid] = {"t": title[:80], "ch": brand_of(ch) or ch[:40], "ud": now.strftime("%Y-%m-%d")}
             it = d["items"].get(vid) or {"t": title[:80], "ch": ch[:40], "fmt": "영상", "kind": k,
                                          "since0": h is not None and h < since_midnight}
             d["items"][vid] = it
@@ -132,7 +148,7 @@ def main():
         if time.time() - t0 > 170:
             print("disc: time budget reached"); break
         try:
-            j = post({"query": b, "params": THIS_WEEK.replace("%3D", "=")})
+            j = post({"query": b, "params": THIS_MONTH.replace("%3D", "=")})
         except Exception as e:
             print("disc brand", b, "failed:", e); continue
         for v in walk(j, "videoRenderer", [])[:10]:
@@ -141,15 +157,19 @@ def main():
             if not vid or "스트리밍" in pub or brand_of(ch) != b:
                 continue
             h = hours_ago(pub)
-            if vid not in d["items"]:
+            ud = upload_date(pub, now)
+            if ud:
+                M[vid] = {"t": title[:80], "ch": b, "ud": ud}
+            if h is not None and h <= 24 * 7 and vid not in d["items"]:
                 d["items"][vid] = {"t": title[:80], "ch": b, "fmt": "영상", "kind": "ad",
-                                   "since0": h is not None and h < since_midnight}
+                                   "since0": h < since_midnight}
                 found += 1
     # keep the list bounded: newest first discovered are kept
     if len(d["items"]) > 160:
         d["items"] = dict(list(d["items"].items())[-160:])
     d["at"] = now.isoformat(timespec="minutes")
     live["disc"] = d
+    live["adMonth"] = M
     json.dump(live, open("live.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("disc:", found, "hits,", len(d["items"]), "kept")
 
