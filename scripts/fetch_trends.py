@@ -91,8 +91,11 @@ def update_reasons(live, now):
             r = why(k)
         except Exception as e:
             print("why", k, "failed:", e); continue
-        if r:
+        norm = lambda z: re.sub(r"[\s#·'\"‘’“”]", "", z).lower()
+        if r and norm(k) and norm(k)[:6] in norm(r["t"]):
             R[k] = dict(r, at=now.isoformat(timespec="minutes"))
+        else:
+            R[k] = {"t": "", "s": "", "u": "", "at": now.isoformat(timespec="minutes")}   # no matching headline; retry in 2h
     live["reasons"] = R
     print("reasons:", len(R), "of", len(kws))
 

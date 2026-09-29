@@ -21,9 +21,33 @@ CTX = {"client": {"clientName": "WEB", "clientVersion": "2.20250925.01.00", "hl"
 TODAY_BY_VIEWS = "CAMSAggC"   # upload date: last 24h, sort: view count
 GEN_Q = ["ㅋㅋ", "뉴스", "자막뉴스", "예능", "하이라이트", "브이로그", "먹방", "MV", "드라마", "리뷰", "챌린지",
          "축구", "야구", "아시안게임", "게임", "쇼츠", "요리", "여행", "리액션", "숏폼"]
-AD_Q = ["광고", "CF", "TVCF", "캠페인 영상", "브랜드 필름", "광고 모델", "신제품 광고"]
+AD_Q = ["TVCF", "CF", "광고 영상", "캠페인 영상", "브랜드 필름"]
+# Major Korean advertisers: their own channels' uploads count as 광고 영상.
+# name -> extra lowercase tokens that appear in their channel names
+BRANDS = {"삼성전자": ["samsung"], "LG전자": ["lg global", "lg전자", "lge"], "현대자동차": ["hyundai"], "기아": ["kia"],
+          "제네시스": ["genesis"], "BMW": ["bmw"], "메르세데스-벤츠": ["mercedes", "벤츠"], "SK텔레콤": ["sk telecom", "skt"],
+          "KT": ["kt "], "LG유플러스": ["lg u+", "lgu+", "유플러스"], "쿠팡": ["coupang"], "배달의민족": ["배민", "baemin"],
+          "토스": ["toss"], "카카오뱅크": ["kakaobank"], "네이버": ["naver"], "농심": ["nongshim"], "오뚜기": ["ottogi"],
+          "하이트진로": ["진로", "jinro", "hite"], "롯데칠성": ["lotte chilsung"], "CJ제일제당": ["cj cheiljedang", "비비고"],
+          "아모레퍼시픽": ["amorepacific"], "올리브영": ["oliveyoung", "olive young"], "무신사": ["musinsa"], "코웨이": ["coway"],
+          "삼성생명": [], "한화생명": ["hanwha life"], "교보생명": [], "삼성화재": [], "DB손해보험": ["db손보"], "현대해상": [],
+          "KB국민은행": ["kb국민", "kbstar"], "신한은행": ["shinhan"], "하나은행": ["hana bank"], "우리은행": [],
+          "맥도날드": ["mcdonald"], "버거킹": ["burger king"], "스타벅스": ["starbucks"], "나이키": ["nike"],
+          "컬리": ["kurly"], "당근": ["daangn", "karrot"], "야놀자": ["yanolja"], "여기어때": [], "한국타이어": ["hankook tire"],
+          "넥슨": ["nexon"], "엔씨소프트": ["ncsoft"], "넷마블": ["netmarble"], "대한항공": ["korean air"], "동원": ["dongwon"],
+          "빙그레": ["binggrae"], "오리온": ["orion"], "롯데웰푸드": [], "SK매직": [], "청호나이스": [], "바디프랜드": ["bodyfriend"]}
+THIS_WEEK = "EgIIAw%3D%3D"
+
+
+def brand_of(ch):
+    c = ch.lower()
+    for b, alias in BRANDS.items():
+        if b.lower() in c or any(a in c for a in alias):
+            return b
+    return None
 KIDS = re.compile(r"키즈|동요|유아|아기|어린이|핑크퐁|코코비|베베핀|뽀로로|타요|kids|nursery|baby", re.I)
-ADW = re.compile(r"광고|\bCF\b|TVC|캠페인|브랜드\s?필름|Brand ?Film|Campaign|\bAD\b|공식\s?영상", re.I)
+ADW = re.compile(r"TVCF|\bCF\b|\d+초\s?(광고|TVCF|CF)|광고\s?영상|캠페인\s?(영상|필름)|브랜드\s?필름|Brand ?Film", re.I)
+NOT_AD = re.compile(r"광고\s?X|광고\s?아님|광고 들어온|공익광고|리뷰|리액션|반응", re.I)
 HANGUL = re.compile(r"[가-힣]")
 
 
@@ -84,7 +108,13 @@ def main():
                 continue
             if not (HANGUL.search(title) or HANGUL.search(ch)) or KIDS.search(title + " " + ch):
                 continue
-            k = "ad" if (kind == "ad" and ADW.search(title + " " + ch)) else ("gen" if kind == "gen" and not ADW.search(title) else None)
+            b = brand_of(ch)
+            if b or (ADW.search(title) and not NOT_AD.search(title)):
+                k = "ad"
+            elif kind == "gen":
+                k = "gen"
+            else:
+                k = None
             if not k:
                 continue
             h = hours_ago(pub)
@@ -92,9 +122,25 @@ def main():
                                          "since0": h is not None and h < since_midnight}
             d["items"][vid] = it
             found += 1
+    # sweep major advertisers' own channels (uploads this week)
+    for b in BRANDS:
+        try:
+            j = post({"query": b, "params": THIS_WEEK.replace("%3D", "=")})
+        except Exception as e:
+            print("disc brand", b, "failed:", e); continue
+        for v in walk(j, "videoRenderer", [])[:10]:
+            vid, title, ch = v.get("videoId"), txt(v.get("title")), txt(v.get("ownerText"))
+            pub = txt(v.get("publishedTimeText"))
+            if not vid or "스트리밍" in pub or brand_of(ch) != b:
+                continue
+            h = hours_ago(pub)
+            if vid not in d["items"]:
+                d["items"][vid] = {"t": title[:80], "ch": b, "fmt": "영상", "kind": "ad",
+                                   "since0": h is not None and h < since_midnight}
+                found += 1
     # keep the list bounded: newest first discovered are kept
-    if len(d["items"]) > 120:
-        d["items"] = dict(list(d["items"].items())[-120:])
+    if len(d["items"]) > 160:
+        d["items"] = dict(list(d["items"].items())[-160:])
     d["at"] = now.isoformat(timespec="minutes")
     live["disc"] = d
     json.dump(live, open("live.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
