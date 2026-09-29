@@ -15,7 +15,7 @@ view count from the watch page and stores, in live.json["views"]:
 
 The page shows today's gain (cur - base) big and the total (cur) small.
 """
-import json, re, urllib.request
+import json, re, time, urllib.request
 from datetime import datetime, timezone, timedelta
 
 KST = timezone(timedelta(hours=9))
@@ -52,17 +52,16 @@ def _next_web(vid):
 def total_views(vid, prefer=None):
     """Return (count, source). Keeps one source per video for the whole day so
     today's gain is never computed across two differently-timed counters."""
-    if prefer == "ryd":
-        n = _ryd(vid)
-        return (n, "ryd") if n else (None, None)
-    # 1) YouTube's own web API (live count, same number the watch page shows)
-    try:
+    # 1) YouTube's own web API (live count, same number the watch page shows); one retry
+    for attempt in (0, 1):
+      try:
         n = _next_web(vid)
         if n:
             DIAG["yt"] = DIAG.get("yt", 0) + 1
             return n, "yt"
-    except Exception as e:
+      except Exception as e:
         DIAG.setdefault("yt_err", str(e)[:120])
+      time.sleep(1.5)
     if prefer == "yt":
         return None, None
     n = _ryd(vid)
@@ -126,8 +125,12 @@ def main():
         if n is None:
             print("views", vid, "no count"); continue
         ok += 1
+        if v["src"].get(vid) == "ryd" and src == "yt" and vid in v["base"]:
+            # upgrade to the live counter but keep the gain counted so far
+            v["base"][vid] = n - (v["cur"][vid] - v["base"][vid])
         v["cur"][vid] = n
         v["src"][vid] = src
+        time.sleep(0.4)
         if vid not in v["base"]:
             v["base"][vid] = n
             if now.hour >= 1:
