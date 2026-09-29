@@ -444,8 +444,10 @@ function boot(D){
     if(!rows.length) return null;
     rows.sort(function(a,b){return b.g-a.g||num(b.x.pbViews)-num(a.x.pbViews)});
     if(rows[0].g<1000) return null; // 자정 직후처럼 오늘 증가분이 아직 없으면 전일 차트로 대체
-    var seen={},out=[];
-    rows.forEach(function(r){if(out.length>=5||seen[r.x.channel])return;seen[r.x.channel]=1;out.push(r)});
+    var seenId={},chs=[],out=[],ck=function(c){return String(c||'').toLowerCase().replace(/[\s·()\[\]]/g,'').replace(/(그룹|공식|official|korea|코리아|global)$/,'')};
+    rows.forEach(function(r){if(out.length>=5||seenId[r.x.id])return;var c=ck(r.x.channel);
+      if(chs.some(function(q){return q&&c&&(q===c||(Math.min(q.length,c.length)>=2&&(q.indexOf(c)===0||c.indexOf(q)===0)))}))return;
+      seenId[r.x.id]=1;chs.push(c);out.push(r)});
     return out.map(function(r,i){var p=(prev||[]).indexOf(r.x.id),m=p<0?(prev&&prev.length?'new':''):p===i?'same':p>i?'up'+(p-i):'down'+(i-p);
       return {rank:i+1,move:m,id:r.x.id,title:r.x.title,url:r.x.url,channel:r.x.channel,format:r.x.format,main:'+'+shortNum(r.g),cum:r.c,note:r.bt?r.bt+'부터':''}});
   }
@@ -586,6 +588,7 @@ function boot(D){
     renderFlow();
     if(!wide()) return;
     ['live','reps','anews','plat','xl'].forEach(function(id){fit($(id))});
+    var cf=$('camps').parentElement; if(cf.scrollHeight>cf.clientHeight+1){var w=cf.querySelector('.feat-main .why'); if(w) w.remove();}
     ['tc-d'].forEach(function(id){var tc=$(id),g=0;while(tc.scrollHeight>tc.clientHeight+1&&g++<20){var rows=tc.querySelectorAll('.rk-row');if(rows.length<=3)break;rows[rows.length-1].remove();}});
   }
   function renderPrefLine(){
