@@ -32,52 +32,34 @@ def _get(url):
         return r.read().decode("utf-8", "replace")
 
 
-def _next_web(vid):
+def _live_count(vid):
+    """Exact live view count from YouTube's updated_metadata endpoint (what the watch page polls)."""
     body = json.dumps({"context": {"client": {"clientName": "WEB", "clientVersion": "2.20250925.01.00", "hl": "ko", "gl": "KR"}},
                        "videoId": vid}).encode()
-    req = urllib.request.Request("https://www.youtube.com/youtubei/v1/next?prettyPrint=false", data=body,
+    req = urllib.request.Request("https://www.youtube.com/youtubei/v1/updated_metadata?prettyPrint=false", data=body,
                                  headers=dict(HDR, **{"Content-Type": "application/json"}))
     with urllib.request.urlopen(req, timeout=8) as r:
         x = r.read().decode("utf-8", "replace")
-    m = re.search(r'"originalViewCount":"(\d+)"', x)
-    if m:
-        return int(m.group(1))
-    m = re.search(r'"videoViewCountRenderer":\{"viewCount":\{"simpleText":"([^"]+)"', x)
-    if m:
-        digits = re.sub(r"\D", "", m.group(1))
-        return int(digits) if digits else None
-    return None
+    m = re.search(r'"videoViewCountRenderer":\{"viewCount":\{"simpleText":"([^"]+)"', x) or re.search(r'"originalViewCount":"(\d+)"', x)
+    if not m:
+        return None
+    digits = re.sub(r"\D", "", m.group(1))
+    return int(digits) if digits else None
 
 
 def total_views(vid, prefer=None):
-    """Return (count, source). Keeps one source per video for the whole day so
-    today's gain is never computed across two differently-timed counters."""
-    # 1) YouTube's own web API (live count, same number the watch page shows); one retry
-    for attempt in (0,):
-      try:
-        n = _next_web(vid)
+    """Return (count, source). Only YouTube's live counter is used: cached third-party counts
+    jump by hours at a time and would show fake 'today' gains."""
+    try:
+        n = _live_count(vid)
         if n:
             DIAG["yt"] = DIAG.get("yt", 0) + 1
             return n, "yt"
-      except Exception as e:
-        DIAG.setdefault("yt_err", str(e)[:120])
-
-    if prefer == "yt":
-        return None, None
-    n = _ryd(vid)
-    return (n, "ryd") if n else (None, None)
-
-
-def _ryd(vid):
-    # Return YouTube Dislike public API (cached, can lag by hours)
-    try:
-        j = json.loads(_get(f"https://returnyoutubedislikeapi.com/votes?videoId={vid}"))
-        if j.get("viewCount"):
-            DIAG["ryd"] = DIAG.get("ryd", 0) + 1
-            return int(j["viewCount"])
+        DIAG["miss"] = DIAG.get("miss", 0) + 1
     except Exception as e:
-        DIAG.setdefault("ryd_err", str(e)[:120])
-    return None
+        DIAG["err"] = DIAG.get("err", 0) + 1
+        DIAG.setdefault("yt_err", str(e)[:120])
+    return None, None
 
 
 def order(pool, v):
@@ -155,9 +137,9 @@ def main():
         if n is None:
             continue
         ok += 1
-        if v["src"].get(vid) == "ryd" and src == "yt" and vid in v["base"]:
-            # upgrade to the live counter but keep the gain counted so far
-            v["base"][vid] = n - (v["cur"][vid] - v["base"][vid])
+        if v["src"].get(vid) not in (None, "yt"):
+            # counted earlier from a cached source: restart this video's count from now
+            v["base"].pop(vid, None)
         v["cur"][vid] = n
         v["src"][vid] = src
         if vid not in v["base"]:
