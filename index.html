@@ -77,8 +77,13 @@ h1,h2,h3,h4,p{margin:0}
 .news.fav h3::before{content:"★ ";color:var(--red)}
 .lead h2{font-family:var(--mast);font-weight:900;font-size:1.5rem;line-height:1.25;letter-spacing:-.02em;text-wrap:balance}
 .lead .dek{font-family:var(--body);font-size:.98rem;color:var(--muted);margin-top:7px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.lead{display:grid;grid-template-columns:1fr;gap:12px;align-items:start}
-.lead.has-toon{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.lead{display:block}
+.lead-b{margin-top:8px}
+.lead-b::after{content:"";display:block;clear:both}
+.lead-b .toon{float:right;width:44%;margin:3px 0 8px 16px}
+.pts[hidden]{display:none!important}
+.lead .dek{word-break:break-all;display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;margin-top:0;color:var(--ink);text-align:justify;cursor:default;font-size:.95rem;line-height:1.75}
+.lead .dek::first-letter{font-weight:900}
 .toon{margin:0;border:1px solid var(--ink);background:#f4f4f2;padding:4px;cursor:zoom-in}
 .lead .dek{cursor:pointer}
 .modal-box.wide{max-width:900px}
@@ -152,7 +157,8 @@ h1,h2,h3,h4,p{margin:0}
 .blist a{display:grid;grid-template-columns:2.8rem 1fr;gap:6px;font-size:.82rem;padding-block:3px;border-top:1px solid var(--rule-soft)}
 .blist a:first-child{border-top:0}
 .blist .d{font-family:var(--mono);font-size:.7rem;color:var(--faint);padding-top:.1rem}
-.pl{font-size:.8rem;padding-block:3px;border-top:1px solid var(--rule-soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pl{font-size:.8rem;padding-block:3px;border-top:1px solid var(--rule-soft)}
+.pl a:hover{color:var(--blue)}
 .pl:first-child{border-top:0}
 .pl b{font-weight:700;margin-right:4px;font-family:var(--serif)}
 .mkt{font-size:.92rem}
@@ -210,7 +216,7 @@ h1,h2,h3,h4,p{margin:0}
 .rollbox b{flex:none;font-size:.72rem;letter-spacing:.08em;color:#fff;background:var(--red);padding:2px 7px;font-family:var(--serif)}
 .rollbox b.sns{background:var(--ink)}
 .bar2{position:relative}
-@media (min-width:700px){.bar2{grid-template-columns:1fr 1fr}.bar2>.rollbox+.rollbox{border-left:1px solid var(--rule);padding-left:16px}.bar2 .allnews{right:auto;width:calc(50% - 11px)}.bar2 .allx{left:auto;right:0}}
+@media (min-width:700px){.bar2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:12vw}.bar2 .allnews{right:auto;width:calc(50% - 6vw)}.bar2 .allx{left:auto;right:0}}
 .xsub{flex:none;font-family:var(--mono);font-size:.68rem;color:var(--faint)}
 .roll li .rk{color:var(--red);font-family:var(--serif);font-weight:900;margin-right:6px}
 .roll li .rw{font-weight:400;font-size:.78rem;color:var(--muted);margin-left:8px}
@@ -300,15 +306,14 @@ h1,h2,h3,h4,p{margin:0}
   .col:first-child{padding-left:0;border-left:0}
   .col:last-child{padding-right:0}
   .grow{flex:none}
-  .fol-scroll{max-height:24rem;overflow-y:auto;overscroll-behavior:contain}
   .pts{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px}
   .camps{grid-template-columns:repeat(4,minmax(0,1fr))}
   .vids{grid-template-columns:repeat(4,minmax(0,1fr))}
   .camp p{-webkit-line-clamp:2}
   .foot{margin-top:5px;flex-wrap:nowrap;overflow:hidden;white-space:nowrap}
 }
-@media (min-width:880px) and (max-width:1399px) and (orientation:landscape){.pt p{-webkit-line-clamp:2}.lead.has-toon{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.lead .dek{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.lead h2{font-size:1.35rem}.camp p,.camp .cph{display:none}.onair .pop{display:none}}
-@media (max-width:620px){.mast{grid-template-columns:1fr}.mast .l,.mast .r{justify-content:center;text-align:center}.pts,.camps,.vids{grid-template-columns:1fr 1fr}.onair{flex-wrap:wrap}}
+@media (min-width:880px) and (max-width:1399px) and (orientation:landscape){.pt p{-webkit-line-clamp:2}.lead .dek{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.lead h2{font-size:1.35rem}.camp p,.camp .cph{display:none}.onair .pop{display:none}}
+@media (max-width:620px){.lead-b .toon{float:none;width:100%;margin:0 0 8px}.mast{grid-template-columns:1fr}.mast .l,.mast .r{justify-content:center;text-align:center}.pts,.camps,.vids{grid-template-columns:1fr 1fr}.onair{flex-wrap:wrap}}
 @media (prefers-reduced-motion:reduce){.track{animation:none}.live-dot{animation:none}}
 </style>
 
@@ -333,8 +338,8 @@ h1,h2,h3,h4,p{margin:0}
 
     <section class="col" aria-labelledby="k-brief">
       <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span>by 클로드 기자</span></div>
-      <article class="lead"><div class="lead-t"><h2 id="bh"></h2><p class="dek" id="bl" role="button" tabindex="0" title="전문 보기"></p></div><figure class="toon" id="toon" hidden></figure></article>
-      <div class="pts" id="pts"></div>
+      <article class="lead"><h2 id="bh"></h2><div class="lead-b"><figure class="toon" id="toon" hidden></figure><p class="dek" id="bl"></p></div></article>
+      <div class="pts" id="pts" hidden></div>
       <div class="kick"><h2>주목받는 캠페인</h2><span>소재 · 성과</span></div>
       <div class="fit grow"><div class="feat" id="camps"></div></div>
     </section>
@@ -445,7 +450,7 @@ function boot(D){
   }
 
   $('bh').textContent = D.brief.headline;
-  $('bl').textContent = D.brief.lede;
+  $('bl').textContent = D.brief.body || [D.brief.lede].concat((D.brief.points||[]).map(function(p){return p.full||p.evidence})).join(' ');
   $('pts').innerHTML = D.brief.points.map(function(p,i){
     return '<div class="pt" role="button" tabindex="0" data-i="'+i+'"><span class="t">'+esc(p.tag)+'</span><h4>'+esc(p.title)+'</h4><p>'+esc(p.evidence)+'</p><span class="more">전문 보기</span></div>';
   }).join('');
@@ -454,9 +459,8 @@ function boot(D){
   $('pts').addEventListener('keydown',function(e){var t=e.target.closest('.pt');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openPt(+t.getAttribute('data-i'))}});
   function openModal(html,wide){$('mbody').innerHTML=html;$('modal').firstElementChild.classList.toggle('wide',!!wide);$('modal').hidden=false;$('mclose').focus();}
   function toonHtml(){var T=D.brief.cartoon;return T&&T.svg&&!$('toon').hidden?'<figure class="toon">'+T.svg+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
-  function openEditorial(){openModal('<span class="t">오늘의 미니 사설 · by 클로드 기자</span><h3>'+esc(D.brief.headline)+'</h3><p>'+esc(D.brief.lede)+'</p>'+(D.brief.body?'<p style="margin-top:8px">'+esc(D.brief.body)+'</p>':'')+toonHtml(),true)}
+  function openEditorial(){openModal('<span class="t">오늘의 미니 사설 · by 클로드 기자</span><h3>'+esc(D.brief.headline)+'</h3><p>'+esc(D.brief.body||D.brief.lede)+'</p>'+toonHtml(),true)}
   $('toon').addEventListener('click',openEditorial);
-  $('bl').addEventListener('click',openEditorial);
   $('mclose').addEventListener('click',function(){$('modal').hidden=true});
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')$('modal').hidden=true});
@@ -609,7 +613,7 @@ function boot(D){
 
   var A = D.agencies;
   function renderANews(){$('anews').innerHTML = A.news.map(function(n){return link(n.url,'<span class="d">'+esc(n.date)+'</span><span>'+esc(n.title)+'</span>')}).join('');}
-  function renderPlat(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+esc(p.items.join(' · '))+'</div>'}).join('');}
+  function renderPlat(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
   $('foot').innerHTML = '<span>출처</span>' + D.sources.slice(0,10).map(function(s){return link(s.url,esc(s.name))}).join('');
 
