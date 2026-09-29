@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-29T14:41+09:00",
- "updatedLabel": "9월 29일 14:41",
+ "updatedAt": "2026-09-29T14:46+09:00",
+ "updatedLabel": "9월 29일 14:46",
  "sources": {
   "x": {
    "label": "X",
@@ -30,9 +30,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-29T14:41+09:00",
+   "at": "2026-09-29T14:46+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "박나래",
     "sonnet 5.5",
     "허미미",
     "망명",
@@ -41,13 +42,12 @@
     "기초노령연금",
     "일본",
     "박성재",
-    "이준수",
-    "63빌딩"
+    "이준수"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-29T14:41+09:00",
+   "at": "2026-09-29T14:46+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "아시안게임 관련 소식",
@@ -64,19 +64,19 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-29T14:41+09:00",
+   "at": "2026-09-29T14:46+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "아시안게임",
-    "부캉이 외해 유도",
-    "프로농구 10개 구단",
-    "암살자 중국 자본",
-    "조이현"
+    "전력망 혁신대책 발표",
+    "검찰 간판",
+    "국회세종의사당 조정식 국회의장",
+    "장인 주가조작 혐의로",
+    "남아 시신 발견"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-29T14:41+09:00",
+   "at": "2026-09-29T14:46+09:00",
    "url": "https://zum.com/",
    "items": [
     "기후부 재생에너지 대책",
@@ -1305,12 +1305,6 @@
    "u": "https://v.daum.net/v/20260928161155619",
    "at": "2026-09-29T14:31+09:00"
   },
-  "63빌딩": {
-   "t": "박세리 \"결혼할 것\" 깜짝 선언…새 타운하우스도 공개",
-   "s": "뉴시스",
-   "u": "https://www.newsis.com/view/NISX20260927_0003803999",
-   "at": "2026-09-29T14:31+09:00"
-  },
   "농어업 면세유 보조금": {
    "t": "9월 종료 ‘농어업 면세유’ 보조금, 연말까지 연장…정부, 791억원 더",
    "s": "에너지경제신문",
@@ -1324,10 +1318,10 @@
    "at": "2026-09-29T14:36+09:00"
   },
   "박성재": {
-   "t": "국힘 397억원 걸린 尹 선거법 2심 마무리…박성재 내란 재판도",
+   "t": "윤대진 前검사장 \"형에 내가 변호사 소개\"…尹에 유리한 증언",
    "s": "Daum",
-   "u": "https://v.daum.net/v/6GsQOVIkGo",
-   "at": "2026-09-29T12:43+09:00"
+   "u": "https://v.daum.net/v/20260929125059005",
+   "at": "2026-09-29T14:46+09:00"
   },
   "이재명 DMZ 폭발 진상": {
    "t": "",
@@ -1389,24 +1383,6 @@
    "u": "",
    "at": "2026-09-29T14:15+09:00"
   },
-  "아시안게임": {
-   "t": "2조5000억 쏟고도 관중석 텅텅…일본인들, 아시안게임 무관심 왜?",
-   "s": "조선일보",
-   "u": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5NQ3VNMFZkeWpUTUthYWFkZ240QTJ5dFVqWGg1SEJjZWtfaWNEbGhUWlI3cHhSVlpEdUY0YTZkeWR4bEN5Y0t1Z0c0S3Q0cnRXQ1BaVG9rcG9xN0lXYlNMblN1d1huRkRqamd0eGhmV0VuS0dwQi00?oc=5",
-   "at": "2026-09-29T14:21+09:00"
-  },
-  "부캉이 외해 유도": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-29T14:21+09:00"
-  },
-  "프로농구 10개 구단": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-29T14:21+09:00"
-  },
   "농림어가 인구 고령화": {
    "t": "가파른 고령화에…전국 농림어가 인구 51%는 `65세 이상`",
    "s": "국제신문",
@@ -1443,17 +1419,41 @@
    "u": "",
    "at": "2026-09-29T14:36+09:00"
   },
-  "암살자 중국 자본": {
+  "박나래": {
+   "t": "'박나래 매출 10% 요구' 전 매니저 2인, 오늘(29일) 공갈 혐의 첫 재판",
+   "s": "Daum",
+   "u": "https://v.daum.net/v/20260929060113814",
+   "at": "2026-09-29T14:46+09:00"
+  },
+  "전력망 혁신대책 발표": {
+   "t": "2030년까지 재생에너지 100GW 달성…정부, 전력망 혁신대책 발표",
+   "s": "연합뉴스TV",
+   "u": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE13c2N5d0drYjhxNXh0UHFVaVJDWnFlTVJmOWN2NWN4LXJMb3gzNkc4MlgwdEFVOV92Z3VSYUVsQXdEaEhRT2ZtZkIyN2lMLWRlQktBN2duQUZOaGtndUY5R2FkYmJYY2M?oc=5",
+   "at": "2026-09-29T14:46+09:00"
+  },
+  "검찰 간판": {
+   "t": "공소청으로 교체된 검찰 간판",
+   "s": "연합뉴스",
+   "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QemVkRWVCeURaeDlreEwwT0lQcm9XS1RMUjBDNVMxNElVZkNiakRXR0lRbjhYbmpnWG01ZUZDNjU1VzBPTkx3bUNKMmRORW1QVHYtQnhJOU1lTGhMLUIxWtIBYEFVX3lxTE1QemVkRWVCeURaeDlreEwwT0lQcm9XS1RMUjBDNVMxNElVZkNiakRXR0lRbjhYbmpnWG01ZUZDNjU1VzBPTkx3bUNKMmRORW1QVHYtQnhJOU1lTGhMLUIxWg?oc=5",
+   "at": "2026-09-29T14:46+09:00"
+  },
+  "국회세종의사당 조정식 국회의장": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-29T14:41+09:00"
+   "at": "2026-09-29T14:46+09:00"
   },
-  "조이현": {
-   "t": "인사말하는 배우 조이현",
-   "s": "뉴스핌",
-   "u": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1TUkNrUHp2R0tZdGhiZ1dMdlNtTm1vTGxlMU5CQ1lnbTdfNnpMdzFDRy1mUFlsdmdjVXJ3aXlrZjFnY1RzWkxDbDg4a3E2QlhIZk9LbUVxMVo3Y1V3?oc=5",
-   "at": "2026-09-29T14:41+09:00"
+  "장인 주가조작 혐의로": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-29T14:46+09:00"
+  },
+  "남아 시신 발견": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-29T14:46+09:00"
   }
  },
  "disc": {
