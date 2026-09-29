@@ -11,7 +11,7 @@ was published after 00:00 KST today, so its whole view count is today's.
 fetch_views.py then reads live view counts for these ids as well, and the
 page ranks everything by views gained today.
 """
-import json, re, urllib.request
+import json, re, time, urllib.request
 from datetime import datetime, timezone, timedelta
 
 KST = timezone(timedelta(hours=9))
@@ -56,7 +56,7 @@ HANGUL = re.compile(r"[가-힣]")
 def post(body):
     req = urllib.request.Request("https://www.youtube.com/youtubei/v1/search?prettyPrint=false",
                                  data=json.dumps(dict(body, context=CTX)).encode(), headers=HDR)
-    with urllib.request.urlopen(req, timeout=20) as r:
+    with urllib.request.urlopen(req, timeout=8) as r:
         return json.loads(r.read())
 
 
@@ -97,8 +97,11 @@ def main():
     elif d.get("at") and (now - datetime.fromisoformat(d["at"])).total_seconds() < 25 * 60:
         print("disc: recent, skip"); return
     since_midnight = now.hour + now.minute / 60
+    t0 = time.time()
     found = 0
     for q, kind in [(q, "gen") for q in GEN_Q] + [(q, "ad") for q in AD_Q]:
+        if time.time() - t0 > 90:
+            break
         try:
             j = post({"query": q, "params": TODAY_BY_VIEWS})
         except Exception as e:
@@ -126,6 +129,8 @@ def main():
             found += 1
     # sweep major advertisers' own channels (uploads this week)
     for b in BRANDS:
+        if time.time() - t0 > 170:
+            print("disc: time budget reached"); break
         try:
             j = post({"query": b, "params": THIS_WEEK.replace("%3D", "=")})
         except Exception as e:

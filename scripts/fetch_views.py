@@ -28,7 +28,7 @@ DIAG = {}
 
 def _get(url):
     req = urllib.request.Request(url, headers=HDR)
-    with urllib.request.urlopen(req, timeout=20) as r:
+    with urllib.request.urlopen(req, timeout=8) as r:
         return r.read().decode("utf-8", "replace")
 
 
@@ -37,7 +37,7 @@ def _next_web(vid):
                        "videoId": vid}).encode()
     req = urllib.request.Request("https://www.youtube.com/youtubei/v1/next?prettyPrint=false", data=body,
                                  headers=dict(HDR, **{"Content-Type": "application/json"}))
-    with urllib.request.urlopen(req, timeout=20) as r:
+    with urllib.request.urlopen(req, timeout=8) as r:
         x = r.read().decode("utf-8", "replace")
     m = re.search(r'"originalViewCount":"(\d+)"', x)
     if m:
@@ -53,7 +53,7 @@ def total_views(vid, prefer=None):
     """Return (count, source). Keeps one source per video for the whole day so
     today's gain is never computed across two differently-timed counters."""
     # 1) YouTube's own web API (live count, same number the watch page shows); one retry
-    for attempt in (0, 1):
+    for attempt in (0,):
       try:
         n = _next_web(vid)
         if n:
@@ -61,7 +61,7 @@ def total_views(vid, prefer=None):
             return n, "yt"
       except Exception as e:
         DIAG.setdefault("yt_err", str(e)[:120])
-      time.sleep(1.5)
+
     if prefer == "yt":
         return None, None
     n = _ryd(vid)
@@ -136,20 +136,30 @@ def main():
     v.setdefault("src", {})
 
     ok = 0
-    for vid in ids[:170]:
+    from concurrent.futures import ThreadPoolExecutor
+    t0 = time.time()
+    todo = ids[:220]
+
+    def read(vid):
+        if time.time() - t0 > 150:      # hard time budget so the 5-minute loop never stalls
+            return vid, None, None
         try:
-            n, src = total_views(vid, v["src"].get(vid))
+            return (vid,) + total_views(vid, v["src"].get(vid))
         except Exception as e:
-            print("views", vid, "failed:", e); continue
+            print("views", vid, "failed:", e)
+            return vid, None, None
+
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        results = list(ex.map(read, todo))
+    for vid, n, src in results:
         if n is None:
-            print("views", vid, "no count"); continue
+            continue
         ok += 1
         if v["src"].get(vid) == "ryd" and src == "yt" and vid in v["base"]:
             # upgrade to the live counter but keep the gain counted so far
             v["base"][vid] = n - (v["cur"][vid] - v["base"][vid])
         v["cur"][vid] = n
         v["src"][vid] = src
-        time.sleep(0.4)
         if vid not in v["base"]:
             if ditems.get(vid, {}).get("since0"):
                 v["base"][vid] = 0          # uploaded after 00시: every view is today's
@@ -160,6 +170,7 @@ def main():
     keep = set(ids)
     for key in ("cur", "base", "bt", "src"):
         v[key] = {k: val for k, val in v[key].items() if k in keep}
+    print("views: took", int(time.time() - t0), "s")
     v["at"] = now.isoformat(timespec="minutes")
     v["diag"] = DIAG
     print("views: read", ok, "of", len(ids))
