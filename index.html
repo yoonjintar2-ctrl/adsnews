@@ -439,7 +439,7 @@ function boot(D){
   function renderLive(){
     $('live').innerHTML = prefSort(D.live,function(i){return i.tags}).map(function(o){var i=o.x;
       var img = i.photo ? '<img class="thumb" src="'+esc(i.photo)+'" alt="" referrerpolicy="no-referrer" onerror="var a=this.closest(\'.news\');a&&a.classList.add(\'noimg\');this.remove()">' : '';
-      return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+'">'+img+'<div class="nt"><div class="meta"><span class="heat h'+i.hot+'">'+heat[i.hot]+'</span><span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+'</span></div>'+
+      return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+'">'+img+'<div class="nt"><div class="meta">'+(heat[i.hot]?'<span class="heat h'+i.hot+'">'+heat[i.hot]+'</span>':'')+'<span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+'</span></div>'+
         '<h3>'+link(i.url,esc(i.title))+'</h3><p>'+esc(i.summary)+'</p></div></article>';
     }).join('');
   }
