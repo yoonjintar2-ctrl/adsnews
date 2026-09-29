@@ -205,11 +205,17 @@ h1,h2,h3,h4,p{margin:0}
 .grow{flex:none}
 .brand{display:inline-block;font-size:.6rem;color:#fff;background:var(--blue);padding:0 4px;margin-right:3px;vertical-align:.05rem}
 .rk-empty{font-size:.76rem;color:var(--muted);padding-block:4px}
-.bar2{display:grid;grid-template-columns:1fr;gap:18px;border-bottom:1px solid var(--rule);padding-block:5px;margin-top:4px}
+.bar2{display:grid;grid-template-columns:1fr;gap:6px 22px;border-bottom:1px solid var(--rule);padding-block:5px;margin-top:4px}
 .rollbox{display:flex;align-items:center;gap:10px;min-width:0}
 .rollbox b{flex:none;font-size:.72rem;letter-spacing:.08em;color:#fff;background:var(--red);padding:2px 7px;font-family:var(--serif)}
 .rollbox b.sns{background:var(--ink)}
 .bar2{position:relative}
+@media (min-width:700px){.bar2{grid-template-columns:1fr 1fr}.bar2>.rollbox+.rollbox{border-left:1px solid var(--rule);padding-left:16px}.bar2 .allnews{right:auto;width:calc(50% - 11px)}.bar2 .allx{left:auto;right:0}}
+.xsub{flex:none;font-family:var(--mono);font-size:.68rem;color:var(--faint)}
+.roll li .rk{color:var(--red);font-family:var(--serif);font-weight:900;margin-right:6px}
+.roll li .rw{font-weight:400;font-size:.78rem;color:var(--muted);margin-left:8px}
+.allx .xl li a{white-space:normal}
+.allx .xsrc{margin-top:6px}
 .rollmore{flex:none;font:inherit;font-size:.8rem;border:1px solid var(--ink);background:transparent;color:var(--ink);width:1.9rem;height:1.6rem;cursor:pointer;line-height:1}
 .rollmore[aria-expanded="true"]{background:var(--ink);color:var(--paper)}
 .allnews{position:absolute;left:0;right:0;top:100%;z-index:15;background:var(--paper);border:2px solid var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.18);max-height:70vh;overflow-y:auto;padding:10px 14px}
@@ -287,7 +293,7 @@ h1,h2,h3,h4,p{margin:0}
   html{font-size:calc(clamp(12.5px,min(1.5vh,.86vw),22px) * var(--z,1));height:100%}
   body{height:100%;overflow:hidden;padding-block:0}
   .paper{height:100%}
-  .grid{flex:1;min-height:0;grid-template-columns:1.62fr .98fr 1fr 1fr .52fr;gap:0;padding-top:8px}
+  .grid{flex:1;min-height:0;grid-template-columns:1.62fr 1fr 1.05fr 1fr;gap:0;padding-top:8px}
   .col{padding-inline:12px;border-left:1px solid var(--rule);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
   .col::-webkit-scrollbar{width:6px}.col::-webkit-scrollbar-thumb{background:var(--rule);border-radius:3px}
   .col>*{flex-shrink:0}
@@ -317,6 +323,8 @@ h1,h2,h3,h4,p{margin:0}
   <div class="dateline"><span id="dl-left"></span><span class="pref" id="dl-pref"></span><span>광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
     <div class="rollbox" aria-label="속보"><b>속보</b><div class="roll"><ul id="roll-news"></ul></div><button type="button" class="rollmore" id="rollmore" aria-expanded="false" aria-controls="allnews" title="속보 전체 보기">▼</button></div>
+    <div class="rollbox" aria-label="실시간 트렌드"><b class="sns">실시간 트렌드</b><div class="roll"><ul id="roll-x"></ul></div><span class="xsub" id="xsub"></span><button type="button" class="rollmore" id="xmore" aria-expanded="false" aria-controls="allx" title="실시간 트렌드 전체 보기">▼</button></div>
+    <div class="allnews allx" id="allx" hidden><div class="allnews-h"><b>실시간 트렌드 전체 <small id="xsub2" style="font-weight:400;color:var(--faint)"></small></b><button type="button" id="xclose" aria-label="닫기">✕</button></div><ol class="xl" id="xl"></ol><p class="xsrc" id="xsrc"></p></div>
     <div class="modal" id="modal" hidden role="dialog" aria-modal="true"><div class="modal-box"><button type="button" id="mclose" aria-label="닫기">✕</button><div id="mbody"></div></div></div>
     <div class="allnews" id="allnews" hidden><div class="allnews-h"><b>오늘 속보 전체</b><button type="button" id="allclose" aria-label="닫기">✕</button></div><ol id="allnews-list"></ol></div>
   </div>
@@ -355,11 +363,6 @@ h1,h2,h3,h4,p{margin:0}
       <div class="blist fit" id="anews"></div>
       <div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div>
       <div class="fit" id="plat"></div>
-    </section>
-    <section class="col xcol" aria-labelledby="k-x">
-      <div class="kick"><h2 id="k-x">실시간 트렌드</h2><span id="xsub"></span></div>
-      <ol class="xl" id="xl"></ol>
-      <p class="xsrc" id="xsrc"></p>
     </section>
   </main>
 
@@ -418,8 +421,16 @@ function boot(D){
   roller($('roll-news'),todays.length?todays.slice(0,10).map(function(i){return '<li>'+link(i.url,esc(i.title))+'</li>'}):['<li style="color:var(--faint)">오늘 들어온 속보가 아직 없어요</li>']);
 
   $('allnews-list').innerHTML=todays.map(function(i){return '<li>'+link(i.url,esc(i.title))+(i.summary?'<p>'+esc(i.summary)+'</p>':'')+'</li>'}).join('');
+  var xRollItems=[], xI=0, xT=null;
+  function xRoll(){var ul=$('roll-x');if(!ul)return;ul.style.transition='none';ul.style.transform='translateY(0)';xI=0;ul.innerHTML=xRollItems.concat(xRollItems.slice(0,1)).join('');}
+  if(!xT) xT=setInterval(function(){var ul=$('roll-x'),n=xRollItems.length;if(!ul||n<2)return;xI++;var lh=ul.firstElementChild?ul.firstElementChild.offsetHeight:0;ul.style.transition='transform .6s ease';ul.style.transform='translateY(-'+(xI*lh)+'px)';if(xI===n){setTimeout(function(){ul.style.transition='none';ul.style.transform='translateY(0)';xI=0},650)}},4000);
+  function toggleX(open){var b=$('xmore');$('allx').hidden=!open;b.setAttribute('aria-expanded',open?'true':'false');b.textContent=open?'▲':'▼';if(open)toggleAll(false);}
+  $('xmore').addEventListener('click',function(){toggleX($('allx').hidden)});
+  $('xclose').addEventListener('click',function(){toggleX(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('allx').hidden)toggleX(false)});
+  document.addEventListener('click',function(e){if(!$('allx').hidden&&!e.target.closest('#allx,#xmore'))toggleX(false)});
   function toggleAll(open){var b=$('rollmore');$('allnews').hidden=!open;b.setAttribute('aria-expanded',open?'true':'false');b.textContent=open?'▲':'▼';}
-  $('rollmore').addEventListener('click',function(){toggleAll($('allnews').hidden)});
+  $('rollmore').addEventListener('click',function(){var o=$('allnews').hidden;toggleAll(o);if(o&&!$('allx').hidden)toggleX(false)});
   $('allclose').addEventListener('click',function(){toggleAll(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('allnews').hidden)toggleAll(false)});
   document.addEventListener('click',function(e){if(!$('allnews').hidden&&!e.target.closest('#allnews,#rollmore'))toggleAll(false)});
@@ -557,7 +568,9 @@ function boot(D){
     var top=[],rest=[],nf=0;
     groups.forEach(function(g){if(g.fin&&top.length<10){if(nf>=2){rest.push(g);return}nf++}top.push(g)});
     groups=top.concat(rest);
-    $('xsub').textContent=R.updatedLabel||'';
+    $('xsub').textContent=(R.updatedLabel||'').replace(/^.*?(\d+:\d+)$/,'$1'); $('xsub2').textContent=R.updatedLabel||'';
+    xRollItems=groups.slice(0,10).map(function(g,i){var RS=(R.reasons||{}),rr=null;g.raw.some(function(t){return rr=RS[t]});return '<li><span class="rk">'+(i+1)+'</span>'+link('https://search.naver.com/search.naver?query='+encodeURIComponent(g.label.replace(/^#/,'')),esc(g.label))+(rr&&rr.t?'<span class="rw">'+esc(rr.t)+'</span>':'')+'</li>'});
+    xRoll();
     $('xsrc').innerHTML='5개 사이트 종합 · 순위 출처는 마우스를 올리면 보여요 · '+order.filter(function(k){return S[k]}).map(function(k){return link(S[k].url,esc(S[k].label))}).join(' · ');
     $('xl').innerHTML=groups.slice(0,24).map(function(g,i){
       var tip=order.filter(function(k){return g.src[k]}).map(function(k){return S[k].label+' '+g.src[k]+'위'}).join(' · ');
