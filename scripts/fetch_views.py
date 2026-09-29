@@ -96,6 +96,10 @@ def main():
     T = data.get("trends", {})
     gpool = T.get("poolDaily") or T.get("generalDaily") or []
     apool = T.get("adPoolDaily") or T.get("adDaily") or []
+    disc = (live.get("disc") or {})
+    ditems = disc.get("items", {}) if disc.get("date") == datetime.now(KST).strftime("%Y-%m-%d") else {}
+    gpool = gpool + [{"id": k, "channel": x.get("ch")} for k, x in ditems.items() if x.get("kind") == "gen"]
+    apool = apool + [{"id": k, "channel": x.get("ch")} for k, x in ditems.items() if x.get("kind") == "ad"]
     ids = []
     for k in (gpool, apool, T.get("generalDaily", []), T.get("adDaily", [])):
         for it in k:
@@ -112,12 +116,27 @@ def main():
             print("views: read", int((now - last).total_seconds() // 60), "min ago, skip"); return
 
     if new_day:
+        if v.get("cur") and v.get("date"):
+            # keep 30 days of per-video daily ad gains for the rolling 1-month ranking
+            H = live.get("adHist") or {}
+            dd = live.get("disc") or {}
+            yitems = dd.get("prev", {}) if dd.get("date") == today else dd.get("items", {})
+            yad = [{"id": k, "channel": x.get("ch"), "title": x.get("t")} for k, x in yitems.items() if x.get("kind") == "ad"]
+            day = {}
+            for it in (T.get("adPoolDaily") or []) + yad:
+                i = it["id"]
+                if i in v["cur"] and i in v["base"] and not v.get("bt", {}).get(i):
+                    g = v["cur"][i] - v["base"][i]
+                    if g > 0:
+                        day[i] = [g, it.get("channel") or "", (it.get("title") or "")[:60]]
+            H[v["date"]] = day
+            live["adHist"] = {k: H[k] for k in sorted(H)[-30:]}
         prev = {"g": order(gpool, v), "a": order(apool, v)} if v.get("cur") else v.get("prev", {})
         v = {"date": today, "base": {}, "bt": {}, "cur": {}, "src": {}, "prev": prev}
     v.setdefault("src", {})
 
     ok = 0
-    for vid in ids[:60]:
+    for vid in ids[:130]:
         try:
             n, src = total_views(vid, v["src"].get(vid))
         except Exception as e:
@@ -132,9 +151,12 @@ def main():
         v["src"][vid] = src
         time.sleep(0.4)
         if vid not in v["base"]:
-            v["base"][vid] = n
-            if now.hour >= 1:
-                v["bt"][vid] = now.strftime("%H:%M")
+            if ditems.get(vid, {}).get("since0"):
+                v["base"][vid] = 0          # uploaded after 00시: every view is today's
+            else:
+                v["base"][vid] = n
+                if now.hour >= 1:
+                    v["bt"][vid] = now.strftime("%H:%M")
     keep = set(ids)
     for key in ("cur", "base", "bt", "src"):
         v[key] = {k: val for k, val in v[key].items() if k in keep}
