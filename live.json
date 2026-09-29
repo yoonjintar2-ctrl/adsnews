@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-29T23:50+09:00",
- "updatedLabel": "9월 29일 23:50",
+ "updatedAt": "2026-09-29T23:55+09:00",
+ "updatedLabel": "9월 29일 23:55",
  "sources": {
   "x": {
    "label": "X",
@@ -24,9 +24,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-29T23:50+09:00",
+   "at": "2026-09-29T23:55+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "xrp",
     "공군사관학교",
     "중증외상센터",
     "커플",
@@ -35,13 +36,12 @@
     "군수 산업",
     "강남구",
     "김혜성",
-    "노동조합",
-    "산사태"
+    "노동조합"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-29T23:50+09:00",
+   "at": "2026-09-29T23:55+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "코넬대 집단 성폭행 재수사",
@@ -57,19 +57,19 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-29T23:50+09:00",
+   "at": "2026-09-29T23:55+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "암살자 역사 논란",
-    "금메달 여자 초과급",
-    "닛몰캐쉬 데이트 논란에",
-    "남아 시신 발견",
-    "정조대왕 능행차 거둥"
+    "X 침착맨 논란되니",
+    "이란 계획 거부한",
+    "뒷광고 의혹에 공개",
+    "2살 딸에게 불닭소스",
+    "식사 송영길 생방송"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-29T23:50+09:00",
+   "at": "2026-09-29T23:55+09:00",
    "url": "https://zum.com/",
    "items": [
     "기후부 재생에너지 대책",
@@ -1529,12 +1529,6 @@
    "u": "",
    "at": "2026-09-29T23:30+09:00"
   },
-  "산사태": {
-   "t": "[잇슈 SNS] 대홍수 한 달 만에…네팔, 잇단 산사태·돌발 홍수로 몸살",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/20260929073919434",
-   "at": "2026-09-29T22:37+09:00"
-  },
   "농림어가 인구 고령화": {
    "t": "가파른 고령화에…전국 농림어가 인구 51%는 `65세 이상`",
    "s": "국제신문",
@@ -1575,7 +1569,7 @@
    "t": "현대 방위산업의 기원으로 돌아가 보자.",
    "s": "Vietnam.vn",
    "u": "https://www.vietnam.vn/ko/tro-ve-noi-khoi-nguon-cua-nen-cong-nghiep-quoc-phong-hien-dai",
-   "at": "2026-09-29T21:55+09:00"
+   "at": "2026-09-29T23:55+09:00"
   },
   "마이큐": {
    "t": "김나영, ♥마이큐와 결혼 1년 만에…“막내 생겼어요” 깜짝 소식",
@@ -1631,35 +1625,41 @@
    "u": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFA0NEstZEZLV1J0T3YxX2NDX2xNcE13cUJSb2ZTUnc5b21vakI3d2hudzA1aC1YMVlZd2FwNHN4bjRsM0Fwdmc?oc=5",
    "at": "2026-09-29T23:35+09:00"
   },
-  "암살자 역사 논란": {
+  "xrp": {
+   "t": "XRP could rise about 60 percent if it holds $1.50-$1.55 support",
+   "s": "디지털투데이",
+   "u": "https://www.digitaltoday.co.kr/en/view/108379/xrp-60-percent-rise-if-holds-1-50-1-55-support",
+   "at": "2026-09-29T23:55+09:00"
+  },
+  "X 침착맨 논란되니": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-29T23:50+09:00"
+   "at": "2026-09-29T23:55+09:00"
   },
-  "금메달 여자 초과급": {
+  "이란 계획 거부한": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-29T23:50+09:00"
+   "at": "2026-09-29T23:55+09:00"
   },
-  "닛몰캐쉬 데이트 논란에": {
-   "t": "닛몰캐쉬 데이트 폭력 인정‥소속사 측 \"부적절한 언행 사과\"",
-   "s": "JTBC",
-   "u": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBEVVRyNGhOSjZobjFYcXg4ek5KMl8zQ3lwUmtTMHVhdm01M2JNNkV1cmhMMnVRd1JVMV84S255OUtGak85OXdWSWUycUsyeGZ2OEdKcQ?oc=5",
-   "at": "2026-09-29T23:50+09:00"
+  "뒷광고 의혹에 공개": {
+   "t": "한가인, '뒷광고 의혹'에 2차 해명…구매내역도 공개 - 머니투데이",
+   "s": "머니투데이",
+   "u": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVzdudThQbHlmWGUxSFp2NXdudnlTcGtmYzYzZ0pZaU91aFVLRFlRYUNYa01jWl9Kby1aU3BfcExSZExvcktkTG05WFJsVkhxUlNYaE1ZSXlHTEpOamQ2cWlTYTF4bzl0dXRGSHNuZVFJNUVoMFpOUGRCU00zaWpTUNIBhgFBVV95cUxNdGlMTHh2dWN4bGtVczBDZVViZ0owNDVmN0FQVDE1SFdkUGJHcWZqYWNmMXJ3LTROSUtRYmRJREx4N0pzVm5UbkxxQXNrZ3RqbURac2FHU2hGdi1EOXE1TnBQQVFDbzJlc2YzeWY5TjRlR1BIc3NMYVdaQUFpbWctQUtCQmQwdw?oc=5",
+   "at": "2026-09-29T23:55+09:00"
   },
-  "남아 시신 발견": {
+  "2살 딸에게 불닭소스": {
+   "t": "2살 딸에게 불닭소스·소주 먹여 숨지게 한 친부모들",
+   "s": "문화일보",
+   "u": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5ocUd2T19mWDBVQ2lSUFNlQ2wtRTRoVDgwRWItd0piU3BZbVgwN2JZOXk0ZjRSTFpEdzd1Nkk4c3lVRkN3eWVUck9hNXZpZUVo?oc=5",
+   "at": "2026-09-29T23:55+09:00"
+  },
+  "식사 송영길 생방송": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-29T23:50+09:00"
-  },
-  "정조대왕 능행차 거둥": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-29T23:50+09:00"
+   "at": "2026-09-29T23:55+09:00"
   }
  },
  "disc": {
