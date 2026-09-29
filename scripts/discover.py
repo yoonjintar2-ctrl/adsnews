@@ -41,6 +41,8 @@ THIS_WEEK = "EgIIAw%3D%3D"
 
 def brand_of(ch):
     c = ch.lower()
+    if re.search(r"e스포츠|esports|e-sports|이글스|위즈|트윈스|라이온즈|자이언츠|랜더스|타이거즈|농구단|배구단|축구단|fc\b", c):
+        return None   # sports teams owned by the brand, not its ads
     for b, alias in BRANDS.items():
         if b.lower() in c or any(a in c for a in alias):
             return b
