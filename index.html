@@ -604,6 +604,45 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .ecols .ec:not(.first) .dek::first-letter{font-weight:inherit!important;font-size:inherit!important;float:none!important;margin:0!important;color:inherit!important}
 .ecols .ec.last{align-self:stretch!important;display:flex;flex-direction:column}
 .ecols .ec.last .rep{margin-top:auto}
+
+/* v16 */
+.bar2 .rollbox[aria-label="속보"],#allnews{display:none!important}
+.bar2{grid-template-columns:1fr!important}
+.bar2 .allx{left:0!important;right:auto!important;width:min(560px,100%)!important}
+.lead h2#bh{margin-bottom:14px}
+.lead-b{margin-top:14px!important}
+.lead-b.split .toon{top:0}
+.ednav{display:inline-flex;align-items:center;gap:6px;font-size:.78rem!important;color:var(--ink)!important;font-weight:700}
+.ednav button{font:inherit;font-family:var(--serif);font-size:1rem;line-height:1;width:1.6rem;height:1.5rem;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;padding:0}
+.ednav button:hover:not(:disabled){background:var(--ink);color:var(--paper)}
+.ednav button:disabled{opacity:.3;cursor:default}
+#edDate{min-width:4.2em;text-align:center}
+/* 기자 바이라인: 섹션 오른쪽 끝 */
+.rep{justify-content:flex-end!important;flex-direction:row-reverse!important;text-align:right}
+.rep .rep-t{align-items:flex-end}
+.lead-b>.rep{margin-left:auto;width:max-content;max-width:100%}
+/* 날짜줄: 날짜 옆에 절기 */
+.dateline{justify-content:flex-start!important;gap:0 22px}
+.dateline .dl-mid{border-left:1px solid var(--rule);padding-left:22px}
+#dl-right{margin-left:auto}
+/* 제호 오른쪽: 버튼 줄 + 상태 줄, 오른쪽 정렬 */
+.mast .r{flex-direction:column!important;align-items:flex-end!important;justify-content:center!important;gap:7px!important}
+.mast .rbtns{display:flex;gap:8px;align-items:center}
+.mast .clock{display:block!important;text-align:right}
+.mast .clock .liveu{font-size:.72rem;margin:0}
+.mast .clock .liveu i{font-style:normal;margin:0 .35em;color:var(--faint)}
+.mast .clock #clock{font-weight:700;color:var(--ink);font-size:.8rem}
+@media (max-width:620px){
+  .mast .r{flex-direction:row!important;justify-content:space-between!important;align-items:center!important;width:100%}
+  .mast .clock{order:-1;display:block!important}
+  .mast .clock #clock,.mast .clock .liveu i{display:none}
+  .dateline .dl-mid{border-left:0;padding-left:0}
+}
+.rep{flex-direction:row!important;justify-content:flex-end!important}
+.rep .rep-ph{order:2}
+.ecols .rep{flex-direction:row!important}
+.ecols .ec-by{border-left:0!important}
+#today{display:none!important}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -618,7 +657,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     <h1>광고늬우스</h1>
     
-    <div class="r"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">정기구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span></span><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">정기구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="dl-mid" id="dl-mid"></span><span class="pref" id="dl-pref"></span><span id="dl-right">광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -632,7 +671,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
   <main class="np">
     <div class="np-left">
       <section class="np-sec a-brief" aria-labelledby="k-brief">
-        <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span>사설</span></div>
+        <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span class="ednav"><button type="button" id="edPrev" aria-label="이전 사설" title="지난 사설">‹</button><span id="edDate"></span><button type="button" id="edNext" aria-label="다음 사설" title="다음 사설" disabled>›</button></span></div>
         <article class="lead"><h2 id="bh"></h2><div class="lead-b"><figure class="toon" id="toon" hidden></figure><p class="dek" id="bl"></p></div></article>
         <div class="pts" id="pts" hidden></div>
       </section>
@@ -723,7 +762,7 @@ function boot(D){
     var issue=Math.floor((kstDay(0).getTime()-Date.UTC(2026,8,27,14,59))/864e5)+1;
     $('dl-left').innerHTML=esc(ymd)+'<i>·</i>'+esc(lunar)+'<i>·</i>단기 '+(kstY+2333)+'년';
     $('dl-mid').innerHTML='<b>'+esc(term)+'</b><i>·</i>다음 '+esc(next);
-    $('dl-right').innerHTML='제'+issue+'호<i>·</i>광고 · 미디어 기획자의 신문';
+    $('dl-right').innerHTML='제'+issue+'호<i>·</i>발행인 SM C&amp;C 윤석진';
   })();
   tick(); setInterval(tick, 20000);
   $('upd').textContent = '최종 ' + D.updatedLabel;
@@ -797,9 +836,10 @@ function boot(D){
       if(last){cols.push(rest);rest='';break}
       var r=cut(rest,targets[i]+lineH*0.5,i===0);cols.push(r[0]);rest=r[1];if(!rest)break}
     m.remove();
+    if(cols.length<N) bylineUnder=true;
     grid.innerHTML=cols.map(function(t,i){var st=i<B?'grid-column:'+(i+1)+';grid-row:1 / span 2':'grid-column:'+(i+1)+';grid-row:2';
       return '<div class="ec'+(i===0?' first':'')+(i===cols.length-1?' last':'')+'" style="'+st+'"><p class="dek">'+esc(t)+'</p>'+(!bylineUnder&&i===cols.length-1?bylineHtml:'')+'</div>'}).join('')+
-      (bylineUnder?'<div class="ec ec-by" style="grid-column:'+(B+1)+' / span '+K+';grid-row:2">'+bylineHtml+'</div>':'')+
+      (bylineUnder?'<div class="ec ec-by" style="grid-column:'+N+';grid-row:2;align-self:end">'+bylineHtml+'</div>':'')+
       '<span class="ec-sp" style="grid-column:'+(B+1)+' / span '+K+';grid-row:1;height:'+(hc+G)+'px"></span>';
     grid.classList.toggle('under',under);
   }
@@ -811,8 +851,27 @@ function boot(D){
   $('pts').addEventListener('click',function(e){var t=e.target.closest('.pt');if(t)openPt(+t.getAttribute('data-i'))});
   $('pts').addEventListener('keydown',function(e){var t=e.target.closest('.pt');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openPt(+t.getAttribute('data-i'))}});
   function openModal(html,wide){$('mbody').innerHTML=html;$('modal').firstElementChild.classList.toggle('wide',!!wide);$('modal').hidden=false;$('mclose').focus();}
-  function toonHtml(){var T=D.brief.cartoon;return T&&T.svg&&!$('toon').hidden?'<figure class="toon">'+T.svg+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
-  function openEditorial(){openModal('<span class="t">오늘의 미니 사설 · by 클로드 기자</span><h3>'+esc(D.brief.headline)+'</h3>'+toonHtml()+'<p class="mcols">'+esc(D.brief.body||D.brief.lede)+'</p>'+bylineHtml,true)}
+  function toonHtml(){var T=(CE&&CE.cartoon)||D.brief.cartoon;return T&&T.svg&&!$('toon').hidden?'<figure class="toon">'+T.svg+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
+  var CE=null;
+  function openEditorial(){var e=CE||{headline:D.brief.headline,body:D.brief.body||D.brief.lede,date:(D.brief.cartoon||{}).date};openModal('<span class="t">'+(edIdx>0?'지난 사설 · '+esc(fmtEd(e.date)):'오늘의 미니 사설')+' · by 클로드 기자</span><h3>'+esc(e.headline)+'</h3>'+toonHtml()+'<p class="mcols">'+esc(e.body)+'</p>'+bylineHtml,true)}
+  var EDS=null, edIdx=0;
+  function fmtEd(d){var m=String(d||'').match(/(\d{4})-(\d\d)-(\d\d)/);return m?(+m[2])+'월 '+(+m[3])+'일':''}
+  function safeSvg(v){return v&&/^<svg[\s>]/.test(v)&&!/<script|on\w+=|javascript:|<foreignObject/i.test(v)?v:''}
+  function showEd(i){if(!EDS||!EDS[i])return;edIdx=i;var e=EDS[i];CE=e;
+    $('k-brief').textContent=i===0?'오늘의 미니 사설':'지난 사설';$('edDate').textContent=fmtEd(e.date);
+    $('bh').textContent=e.headline;edText=e.body||e.lede||'';
+    var sv=safeSvg((e.cartoon||{}).svg);if(sv){$('toon').innerHTML=sv+(e.cartoon.caption?'<figcaption>'+esc(e.cartoon.caption)+'</figcaption>':'');$('toon').hidden=false;$('toon').style.width=''}else{$('toon').hidden=true}
+    $('edPrev').disabled=i>=EDS.length-1;$('edNext').disabled=i===0;
+    layoutEditorial();if(typeof balance==='function')setTimeout(balance,30);}
+  $('edDate').textContent=fmtEd((D.brief.cartoon||{}).date);
+  fetch('editorials.json?'+Date.now()).then(function(r){return r.json()}).then(function(a){
+    if(!Array.isArray(a)||!a.length)return;
+    var cur=(D.brief.cartoon||{}).date, hl=D.brief.headline;
+    a=a.filter(function(e){return e.date!==cur});a.unshift({date:cur,headline:hl,body:D.brief.body||D.brief.lede,cartoon:D.brief.cartoon||{}});
+    EDS=a;$('edPrev').disabled=a.length<2;
+  }).catch(function(){$('edPrev').disabled=true});
+  $('edPrev').addEventListener('click',function(){showEd(edIdx+1)});
+  $('edNext').addEventListener('click',function(){showEd(edIdx-1)});
   $('toon').addEventListener('click',openEditorial);
   $('mclose').addEventListener('click',function(){$('modal').hidden=true});
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
@@ -981,7 +1040,7 @@ function boot(D){
   function renderPlatOld(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
-    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 사설·만평 클로드 기자 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
+    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 사설·만평 클로드 기자 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
 
   var follows = [], dbRef = null, db = null, local = false;
   var norm = function(s){return String(s).toLowerCase().replace(/\s+/g,'')};

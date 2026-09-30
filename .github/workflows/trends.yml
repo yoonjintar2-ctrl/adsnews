@@ -34,7 +34,8 @@ jobs:
             python scripts/fill_desc.py || echo "desc failed"
             python scripts/brand_news.py || echo "bnews failed"
             python scripts/fill_og.py || echo "og failed"
-            git add live.json data.json
+            python scripts/archive_brief.py || echo "archive failed"
+            git add live.json data.json editorials.json
             if ! git diff --cached --quiet; then
               git commit -q -m "실시간 트렌드 $(TZ=Asia/Seoul date '+%m/%d %H:%M')"
               for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && break; sleep 5; done
