@@ -12,7 +12,7 @@ from datetime import datetime, timedelta, timezone
 
 SITE = "https://yoonjintar2-ctrl.github.io/adsnews/"
 KST = timezone(timedelta(hours=9))
-FIRST = datetime(2026, 9, 27, tzinfo=KST)
+FIRST = datetime(2026, 9, 29, tzinfo=KST)
 
 
 def esc(x):

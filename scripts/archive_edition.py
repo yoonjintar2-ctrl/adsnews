@@ -11,7 +11,7 @@ import json, os, shutil
 from datetime import datetime, timedelta, timezone
 
 KST = timezone(timedelta(hours=9))
-FIRST = datetime(2026, 9, 27, tzinfo=KST)  # 제1호
+FIRST = datetime(2026, 9, 29, tzinfo=KST)  # 제1호
 
 
 def issue_no(date):
