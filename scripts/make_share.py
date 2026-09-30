@@ -35,12 +35,14 @@ def safe_svg(v):
     return v
 
 
-def page(key, title, desc, image, w, h, target, sig):
+def page(key, title, desc, image, w, h, target, sig, canon=None):
     url = SITE + f"{OUT}/{key}.html"
     return f"""<!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="share-sig" content="{sig}">
+<meta name="robots" content="noindex,follow">
+{f'<link rel="canonical" href="{esc(canon)}">' if canon else ''}
 <title>{esc(title)} · 광고늬우스</title>
 <meta name="description" content="{esc(desc)}">
 <meta property="og:type" content="article">
@@ -142,6 +144,13 @@ def render_cards(jobs):
         b.close()
 
 
+def old_body(path):
+    try:
+        return open(path, encoding="utf-8").read()
+    except Exception:
+        return ""
+
+
 def old_sig(path):
     try:
         m = re.search(r'name="share-sig" content="([^"]+)"', open(path, encoding="utf-8").read())
@@ -165,7 +174,7 @@ def main():
     except Exception:
         og = {}
 
-    jobs, pages = [], []
+    jobs, pages, keep_pages = [], [], []
     for e in eds:
         d = e.get("date")
         if not d or not e.get("headline"):
@@ -176,15 +185,18 @@ def main():
         lede = clip(e.get("lede") or e.get("body"), 90)
         sig = hashlib.md5(json.dumps([e.get("headline"), lede, svg, kick, 2], ensure_ascii=False).encode()).hexdigest()[:12]
         hp = f"{OUT}/{key}.html"
+        desc = f"[{kick} · {md(d)}] " + clip(e.get("lede") or e.get("body"), 110)
+        body = page(key, e["headline"], desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"?d={d}#ed", sig, SITE + f"e/{d}.html")
         if old_sig(hp) == sig and os.path.exists(f"{OUT}/{key}.png"):
+            if old_body(hp) != body:
+                keep_pages.append((hp, body))
             continue
         card = (CARD.replace("__DATE__", esc(md(d)) + "자")
                 .replace("__KICK__", esc(kick)).replace("__HEAD__", esc(e["headline"]))
                 .replace("__LEDE__", esc(lede)).replace("__SVG__", svg)
                 .replace("__CAP__", esc((e.get("cartoon") or {}).get("caption"))))
         jobs.append((card, f"{OUT}/{key}.png"))
-        desc = f"[{kick} · {md(d)}] " + clip(e.get("lede") or e.get("body"), 110)
-        pages.append((hp, page(key, e["headline"], desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"#{key}", sig)))
+        pages.append((hp, body))
 
     for f in feats:
         d, c = f.get("date"), f.get("main") or {}
@@ -197,28 +209,31 @@ def main():
         lede = clip(c.get("story") or c.get("why"), 90)
         sig = hashlib.md5(json.dumps([title, desc, img, lede, 3], ensure_ascii=False).encode()).hexdigest()[:12]
         hp = f"{OUT}/{key}.html"
+        body = page(key, title, desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"?d={d}#camp", sig, SITE + f"e/{d}.html")
         if old_sig(hp) == sig and os.path.exists(f"{OUT}/{key}.png"):
+            if old_body(hp) != body:
+                keep_pages.append((hp, body))
             continue
         im = f'<img src="{esc(img)}" referrerpolicy="no-referrer" alt="">' if img.startswith("http") else ""
         card = (CAMP.replace("__DATE__", esc(md(d)) + "자").replace("__IMG__", im)
                 .replace("__BRAND__", esc(c.get("brand"))).replace("__HEAD__", esc(c.get("title")))
                 .replace("__LEDE__", esc(lede)))
         jobs.append((card, f"{OUT}/{key}.png"))
-        pages.append((hp, page(key, title, desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"#{key}", sig)))
+        pages.append((hp, body))
 
     try:
         render_cards(jobs)
     except Exception as ex:  # 카드 이미지를 못 만들면 사설 페이지는 다음 기회에
         print("card render failed:", ex)
         pages = []
-    for path, body in pages:
+    for path, body in pages + keep_pages:
         open(path, "w", encoding="utf-8").write(body)
     # 오래된 공유 페이지 정리
     keep = {f"ed-{e.get('date')}" for e in eds} | {f"camp-{f.get('date')}" for f in feats}
     for fn in os.listdir(OUT):
         if os.path.splitext(fn)[0] not in keep:
             os.remove(os.path.join(OUT, fn))
-    print("share pages:", len(pages), "cards:", len(jobs))
+    print("share pages:", len(pages) + len(keep_pages), "cards:", len(jobs))
 
 
 if __name__ == "__main__":
