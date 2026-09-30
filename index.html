@@ -481,6 +481,11 @@ body,button,input,select,textarea{font-family:var(--serif)}
   .zoom button{padding:4px 7px;font-size:.74rem}
   .bar2 .rollbox>b{flex:none;width:8.6em;letter-spacing:.06em;text-align:center;box-sizing:border-box;padding-inline:0}
 }
+
+.fsrc{color:var(--faint);font-size:.72em}
+.fmore{font-size:.72rem;color:var(--faint);margin:3px 0 0}
+.fmore a{color:var(--blue);display:inline!important;border:0!important;padding:0!important;margin:0!important;font-size:inherit!important}
+.fmore{display:block!important}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -795,10 +800,23 @@ function boot(D){
 
   var follows = [], dbRef = null, db = null, local = false;
   var norm = function(s){return String(s).toLowerCase().replace(/\s+/g,'')};
+  var liveBN={}, bnAsked={};
+  function fetchBN(name){var b=norm(name);if(bnAsked[b])return;bnAsked[b]=1;
+    var rss='https://news.google.com/rss/search?q='+encodeURIComponent('"'+name+'" when:14d')+'&hl=ko&gl=KR&ceid=KR:ko';
+    fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(rss)).then(function(r){return r.json()}).then(function(j){
+      if(!j||j.status!=='ok')return;
+      liveBN[b]=(j.items||[]).slice(0,10).map(function(it){var t=String(it.title||''),src=String(it.author||'');var m=t.match(/ - ([^-]+)$/);if(m){src=src||m[1];t=t.slice(0,-m[0].length)}
+        var d=new Date(String(it.pubDate||'').replace(' ','T')+'Z');return {date:isNaN(d)?'':('0'+(d.getMonth()+1)).slice(-2)+'.'+('0'+d.getDate()).slice(-2),title:t,url:it.link,src:src}});
+      renderFol();}).catch(function(){});
+  }
   function itemsFor(name){
     var b = norm(name), out = [], seen = {};
     var bn = D.brandNews || {};
     Object.keys(bn).forEach(function(k){ if(norm(k)===b) bn[k].forEach(function(x){out.push(x)}) });
+    var gb=D.bnews||{}, gk=Object.keys(gb).filter(function(k){return norm(k)===b})[0];
+    var gi=gk?(gb[gk].items||[]):(liveBN[b]||[]);
+    gi.forEach(function(x){out.push({date:x.date,title:x.title,url:x.url,src:x.src})});
+    if(!gk&&!liveBN[b]) fetchBN(name);
     D.live.forEach(function(i){ if(norm(i.title+i.summary).indexOf(b)>-1) out.push(i) });
     D.campaigns.forEach(function(c){ if(norm(c.brand+c.title).indexOf(b)>-1) out.push({date:c.date,title:c.brand+' 〈'+c.title+'〉',url:c.url}) });
     (D.videos||[]).forEach(function(v){ if(norm(v.brand+v.title).indexOf(b)>-1) out.push({date:v.date,title:v.brand+' 영상 '+v.views+'회',url:v.url}) });
@@ -808,9 +826,10 @@ function boot(D){
     $('fcount').textContent = follows.length + '개';
     if(!follows.length){$('fol').innerHTML='<p class="fb"><span class="empty">담당 광고주나 관심 브랜드를 추가하면 소식을 따로 모아드려요.</span></p>';fitAll();return;}
     $('fol').innerHTML = follows.map(function(f){
-      var its = itemsFor(f.name).slice(0,6);
+      var its = itemsFor(f.name).slice(0,8);
       return '<div class="fb"><h4>'+esc(f.name)+'<button type="button" data-id="'+esc(f.id)+'" aria-label="'+esc(f.name)+' 팔로우 취소">×</button></h4>'+
-        (its.length ? its.map(function(x){return link(x.url,'<span class="d">'+esc(x.date)+'</span><span>'+esc(x.title)+'</span>')}).join('') : '<span class="empty">다음 갱신 때 소식을 모아옵니다.</span>')+'</div>';
+        (its.length ? its.map(function(x){return link(x.url,'<span class="d">'+esc(x.date)+'</span><span>'+esc(x.title)+(x.src?' <small class="fsrc">'+esc(x.src)+'</small>':'')+'</span>')}).join('') : '<span class="empty">소식을 모으는 중이에요. 몇 분 안에 채워져요.</span>')+
+        '<p class="fmore">더 찾아보기 · '+['https://search.naver.com/search.naver?where=news&sort=1&query=','https://search.naver.com/search.naver?ssc=tab.blog.all&query=','https://x.com/search?f=live&q='].map(function(u,i){return '<a href="'+u+encodeURIComponent(f.name)+'" target="_blank" rel="noopener">'+['뉴스','블로그','X'][i]+'</a>'}).join(' · ')+'</p></div>';
     }).join('');
     fitAll();
   }
@@ -938,13 +957,13 @@ function boot(D){
   $('zin').addEventListener('click',function(){setZoom(zoom+.1)});
   $('zout').addEventListener('click',function(){setZoom(zoom-.1)});
   fitAll();
-  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;D.desc=r.desc;fitAll();};
+  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;D.desc=r.desc;D.bnews=r.bnews;renderFol();fitAll();};
 }
 (function(){
   var cur=null, curLive=null;
   function get(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
   Promise.all([get('data.json'),get('live.json').catch(function(){return null})]).then(function(a){
-    var D=a[0]; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;D.desc=a[1].desc;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
+    var D=a[0]; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;D.desc=a[1].desc;D.bnews=a[1].bnews;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
   }).catch(function(){document.body.insertAdjacentHTML('afterbegin','<p style="padding:16px">데이터를 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>')});
   setInterval(function(){get('data.json').then(function(D){if(cur&&D.updatedAt!==cur)location.reload()}).catch(function(){})},60000);
   setInterval(function(){get('live.json').then(function(L){if(L.updatedAt!==curLive&&window.__renderX){curLive=L.updatedAt;window.__renderX(L)}}).catch(function(){})},30000);
