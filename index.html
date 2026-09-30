@@ -428,6 +428,22 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .np-row4 .r4-fol,.np-row4 .r4-plat{align-self:stretch}
 @media (max-width:1180px){.np-row4{grid-template-areas:"fol plat" "reps news" "ad ad";grid-template-columns:1fr 1fr}.np-row4 .np-sec{border-left:0!important;padding:0 16px 0 0!important}.np-row4 .r4-plat,.np-row4 .r4-news{border-left:1px solid var(--rule)!important;padding:0 0 0 16px!important}.r4-ad{border-left:0;padding-left:0}}
 @media (max-width:620px){.np-row4{grid-template-areas:"fol" "plat" "reps" "news" "ad";grid-template-columns:1fr}.np-row4 .np-sec{border-left:0!important;padding:0!important}.adslot{height:10rem}.tcols3 .rk-row{grid-template-columns:1.5rem 8rem minmax(0,1fr)}}
+
+/* v6 모바일: 캠페인 상하 배치 */
+@media (max-width:980px){
+  .feat{grid-template-columns:1fr!important;gap:14px}
+  .feat-side{grid-template-columns:1fr 1fr!important;grid-auto-rows:auto!important}
+}
+@media (max-width:699px){
+  .feat-side{grid-template-columns:1fr!important;gap:0!important}
+  .feat-side .camp{display:grid!important;grid-template-columns:.3rem 1fr;border:0!important;border-top:1px solid var(--rule)!important;background:none!important;padding:10px 0}
+  .feat-side .camp>span:first-child{height:auto!important}
+  .feat-side .camp>div{padding:0!important;display:grid!important;grid-template-columns:40% minmax(0,1fr);column-gap:12px;row-gap:2px;align-content:start}
+  .feat-side .camp>div>*{grid-column:2}
+  .feat-side .camp .cph{grid-column:1!important;grid-row:1/span 5;width:100%!important;margin:0!important;aspect-ratio:16/9;align-self:start}
+  .feat-side .camp h4{font-size:1rem}
+  .feat-side .camp p{-webkit-line-clamp:2}
+}
 </style>
 
 </head>
