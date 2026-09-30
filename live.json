@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-09-30T21:07+09:00",
- "updatedLabel": "9월 30일 21:07",
+ "updatedAt": "2026-09-30T21:13+09:00",
+ "updatedLabel": "9월 30일 21:13",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-09-30T21:07+09:00",
+   "at": "2026-09-30T21:13+09:00",
    "items": [
     "응원 하트",
     "카와 극장판",
@@ -31,9 +31,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-30T21:07+09:00",
+   "at": "2026-09-30T21:13+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "여자 농구",
     "서승재",
     "이동국",
     "우즈베키스탄 u-23 대 일본 u-23",
@@ -42,13 +43,12 @@
     "west indies vs india",
     "남보라",
     "이현중",
-    "티빙",
-    "동메달"
+    "티빙"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-30T21:07+09:00",
+   "at": "2026-09-30T21:13+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "장세윤 여자 은메달",
@@ -65,7 +65,7 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-30T21:07+09:00",
+   "at": "2026-09-30T21:13+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "아시안게임 메달순위",
@@ -77,11 +77,11 @@
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-30T21:07+09:00",
+   "at": "2026-09-30T21:13+09:00",
    "url": "https://zum.com/",
    "items": [
+    "북한군 MDL 침범",
     "군 DMZ 지뢰 북한 사과 촉구",
-    "LH 공공주택 하자 증가",
     "지자체 지방교부세 반대",
     "수시 원서접수 먹통",
     "트럼프 한국 알래스카 LNG"
@@ -1705,13 +1705,13 @@
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-30T19:08+09:00"
+   "at": "2026-09-30T21:13+09:00"
   },
   "카와 극장판": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-30T19:08+09:00"
+   "at": "2026-09-30T21:13+09:00"
   },
   "카와 영화": {
    "t": "",
@@ -1720,10 +1720,10 @@
    "at": "2026-09-30T20:08+09:00"
   },
   "무기징역": {
-   "t": "'여고생 살해' 장윤기 무기징역 선고...\"검찰에 항소 요청\"",
-   "s": "YTN",
-   "u": "https://news.google.com/rss/articles/CBMib0FVX3lxTE41LVl2R0d3MUVGNS1PU1kxX1Z5NHNTZWtuX1RTX084a2plT0cxQ05XdWhYbWJJOU9GRERRX0ZmNXJtUklUdmVpT2p2Mmp3R1dIaGJNbEplSjZKRDdqRWhRWk84YXVHbmQxZ25RVDNIUQ?oc=5",
-   "at": "2026-09-30T19:08+09:00"
+   "t": "여고생 살해 장윤기 1심서 무기징역",
+   "s": "lawtimes.co.kr",
+   "u": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1temphQmpVd0gzQ21vcHNoRmdVV1FCQ2xRa1NkRXVqVVdvZVBoZUstVGoxVEhOUmQyUktWOUZMUHVaUjZWZG9mTDV1VjU5aVQ1d2RpanUyam5TUEVKQVpPbVY0eThzcnR0SlQxc1dR0gFyQVVfeXFMTUhIcllHYl82Sm1KdUhfWE9UVnExN2pLVldGWVc3ZWNfTmhaQURFT3dJZnE1UFhpclp1d0Y2OUFRUEhYUXRNUUQ4eEZwS0ZES0t2ejdoYkF1NE4xelJmcDNPQk9PQnBQbmlWYkhBcVYtbWxn?oc=5",
+   "at": "2026-09-30T21:13+09:00"
   },
   "수시 원서접수 먹통": {
    "t": "",
@@ -1790,12 +1790,6 @@
    "s": "",
    "u": "",
    "at": "2026-09-30T21:07+09:00"
-  },
-  "동메달": {
-   "t": "양궁팀 찾은 정의선 회장, 韓조리사 파견해 장어 특식까지 제공",
-   "s": "동아일보",
-   "u": "https://www.donga.com/news/Economy/article/all/20260930/134760745/1",
-   "at": "2026-09-30T19:35+09:00"
   },
   "로드리게스": {
    "t": "[사진] 로드리게스, 아쉬운 4회 교체",
@@ -1964,6 +1958,18 @@
    "s": "v.daum.net",
    "u": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FVEhjV001SEZuWlVPbnZhUGh3SDZfaTVaaThCNDhhdjFlLW00Y1dNQlFFUGVNNXhKbDBpN3g2NkVEcHhvVVhfbUZGMDF3SVU?oc=5",
    "at": "2026-09-30T21:02+09:00"
+  },
+  "여자 농구": {
+   "t": "“韓 농구팀에 숨은 미녀” 中서 난리 女선수",
+   "s": "문화일보",
+   "u": "https://www.munhwa.com/article/11620580",
+   "at": "2026-09-30T21:13+09:00"
+  },
+  "북한군 MDL 침범": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T21:13+09:00"
   }
  },
  "disc": {
@@ -6131,23 +6137,23 @@
   }
  },
  "ogTried": [
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://www.wikitree.co.kr/articles/1161400",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
   "https://www.fnnews.com/news/202609300931282436",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
   "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
   "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
   "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
   "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
   "https://biz.heraldcorp.com/article/10888599",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095"
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
