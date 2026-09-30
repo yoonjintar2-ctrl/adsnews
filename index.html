@@ -447,8 +447,9 @@ body,button,input,select,textarea{font-family:var(--serif)}
 
 /* v7 제호 양옆 광고 지면 */
 .mast{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto minmax(0,1.1fr) minmax(0,1fr)}
-.mast .ear{display:flex;justify-content:center;min-width:0}
-.mast .ear .adslot{width:100%;max-width:17rem;height:5.4rem;flex-direction:row;gap:8px}
+.mast .ear{display:flex;justify-content:flex-start;min-width:0}
+.mast .ear.er{justify-content:flex-end}
+.mast .ear .adslot{width:100%;max-width:15rem;height:3.4rem;flex-direction:row;gap:8px}
 .mast .ear .adslot b{font-size:.85rem}
 .mast .ear .adslot span{font-size:.7rem}
 @media (max-width:1180px){.mast .ear .adslot{max-width:11rem}}
@@ -456,6 +457,11 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:620px){.mast{grid-template-columns:1fr}}
 .mast{padding-block:24px 20px!important}
 @media (max-width:620px){.mast{padding-block:14px 12px!important}}
+
+.subbtn{display:inline-flex;align-items:center;gap:6px;background:#FEE500;color:#191919;border:1px solid #191919;padding:5px 11px;font-family:var(--serif);font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap}
+.subbtn:hover{filter:brightness(.95)}
+.subtoast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;font-family:var(--serif);font-size:.85rem;z-index:99}
+@media (max-width:620px){.mast .r{flex-wrap:wrap;justify-content:center}}
 </style>
 
 </head>
@@ -465,8 +471,8 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <div class="l"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트<br><span id="upd"></span><br><span id="ago"></span></div>
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     <h1>광고늬우스</h1>
-    <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
-    <div class="r"><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    <aside class="ear er" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
+    <div class="r"><a class="subbtn" id="subbtn" href="#" role="button"><svg viewBox="0 0 24 22" width="17" height="16" aria-hidden="true"><path fill="#191919" d="M12 1C5.9 1 1 4.9 1 9.7c0 3.1 2 5.8 5.1 7.3l-1.1 4c-.1.4.3.6.6.4l4.7-3.1c.6.1 1.1.1 1.7.1 6.1 0 11-3.9 11-8.7S18.1 1 12 1z"/></svg><span>정기구독</span></a><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="pref" id="dl-pref"></span><span>광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -922,5 +928,11 @@ function boot(D){
 })();
 </script>
 
+<script>
+(function(){var SUB_URL='';var b=document.getElementById('subbtn');if(!b)return;
+ if(SUB_URL){b.href=SUB_URL;b.target='_blank';b.rel='noopener';return}
+ b.addEventListener('click',function(e){e.preventDefault();var t=document.createElement('div');t.className='subtoast';t.textContent='카카오톡 정기구독은 곧 열려요. 조금만 기다려 주세요!';document.body.appendChild(t);setTimeout(function(){t.remove()},2600)});
+})();
+</script>
 </body>
 </html>
