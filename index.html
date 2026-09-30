@@ -329,7 +329,7 @@ h1,h2,h3,h4,p{margin:0}
 @media (prefers-reduced-motion:reduce){.track{animation:none}.live-dot{animation:none}}
 
 /* ===== 세로형 신문 레이아웃 ===== */
-html{font-size:calc(clamp(13px,.82vw,17px) * var(--z,1))!important;height:auto!important}
+html{font-size:calc(clamp(14px,.92vw,18.5px) * var(--z,1))!important;height:auto!important}
 body{height:auto!important;overflow:auto!important}
 .paper{height:auto!important;max-width:1680px;margin:0 auto;padding-inline:clamp(12px,2vw,32px)}
 .np{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);padding-top:10px;align-items:start}
@@ -339,7 +339,7 @@ body{height:auto!important;overflow:auto!important}
 .a-live{border-left:1px solid var(--rule);padding-left:18px}
 .a-vids,.np-flow{grid-column:1/-1;border-top:3px double var(--ink);margin-top:18px;padding-top:12px}
 .lead h2{font-size:2.1rem!important;line-height:1.2}
-.lead-b .toon{width:42%}
+.lead-b .toon{width:52%}
 .lead .dek{font-size:1.02rem;line-height:1.85}
 /* 영상: 3단 */
 .tcols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
@@ -390,6 +390,15 @@ body.live-all .a-live .news.over{display:grid}
 .np-row4 .more-btn{margin-top:auto}
 @media (max-width:1180px){.np-row4{grid-template-columns:1fr 1fr;row-gap:18px}.np-row4 .np-sec:nth-child(3){border-left:0;padding-left:0}}
 @media (max-width:620px){.np-row4{grid-template-columns:1fr}.np-row4 .np-sec{border-left:0!important;padding:0!important}}
+
+/* v4 */
+.blist a>span:last-child,.fb a>span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.blist a,.fb a{align-items:baseline}
+.lead,.lead .dek,.lead h2{cursor:auto!important}
+.feat{align-items:stretch!important}
+.feat-side{grid-auto-rows:1fr;align-content:stretch}
+.feat-side .camp{height:auto!important}
+.feat-side .camp .cph{aspect-ratio:16/9;object-fit:cover}
 </style>
 
 </head>
@@ -681,7 +690,7 @@ function boot(D){
   var campRest=[], campOff=0;
   function drawSide(anim){
     var el=$('featside'); if(!el) return; var n=campRest.length; if(!n){el.innerHTML='';return}
-    var show=campRest.slice(0,8);
+    var show=campRest.slice(0,4);
     el.innerHTML=show.map(function(o){return campCard(o.x,o.f)}).join('');
     if(anim) el.classList.remove('roll-in'), void el.offsetWidth, el.classList.add('roll-in');
   }
@@ -753,13 +762,7 @@ function boot(D){
   function balance(){
     var two=window.innerWidth>980;
     // 캠페인 카드: 대표 캠페인 높이만큼만
-    var fm=document.querySelector('.feat-main'), side=document.getElementById('featside');
-    if(side){[].forEach.call(side.children,function(c){c.classList.remove('over')});
-      side.classList.remove('fill');side.style.height='';
-      if(two&&fm){var lim=fm.getBoundingClientRect().bottom+4;[].forEach.call(side.children,function(c){if(c.getBoundingClientRect().bottom>lim)c.classList.add('over')});
-        var vis=[].filter.call(side.children,function(c){return !c.classList.contains('over')}).length;if(vis%2){var last=[].filter.call(side.children,function(c){return !c.classList.contains('over')}).pop();last.classList.add('over')}
-        side.style.height=(fm.getBoundingClientRect().bottom-side.getBoundingClientRect().top)+'px';side.classList.add('fill');}}
-    // 실시간 이슈: 왼쪽(사설+캠페인) 높이만큼만, 나머지는 '더 보기'
+    var side=document.getElementById('featside'); if(side){side.classList.remove('fill');side.style.height='';}
     balanceRow4();
     var L=document.querySelector('.np-left'), items=[].slice.call(document.querySelectorAll('.a-live .news'));
     items.forEach(function(n){n.classList.remove('over')});
