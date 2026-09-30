@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-09-30T16:30+09:00",
- "updatedLabel": "9월 30일 16:30",
+ "updatedAt": "2026-09-30T16:35+09:00",
+ "updatedLabel": "9월 30일 16:35",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-09-30T16:30+09:00",
+   "at": "2026-09-30T16:35+09:00",
    "items": [
     "다크모드",
     "무기징역",
@@ -31,41 +31,41 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-30T16:30+09:00",
+   "at": "2026-09-30T16:35+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "허경환",
+    "한국 중국",
+    "잠실 주공 5 단지 아파트",
     "농구",
     "하사",
     "kbo 리그",
     "장윤기",
     "양준일",
     "뉴스",
-    "주병진",
-    "김정은",
-    "샘 오취리",
-    "이혼"
+    "주병진"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-30T16:30+09:00",
+   "at": "2026-09-30T16:35+09:00",
    "url": "https://www.signal.bz/",
    "items": [
-    "대통령 대호김종서함 진수식",
-    "클로즈 유어 아이즈 재즈 도전",
-    "군 DMZ 지뢰 북한 사과 촉구",
-    "수시 원서접수 먹통",
-    "컴파운드 혼성 은메달",
+    "이재명 대호김종서함 진수식",
     "여고생 장윤기 무기징역",
-    "뉴스",
-    "미 30년물 국채금리",
-    "주병진",
-    "김정은"
+    "안세영 아시안게임 여자 단식 2연패",
+    "수시 원서접수 먹통",
+    "농구",
+    "군 DMZ 지뢰 북한 사과 촉구",
+    "하사",
+    "LH 공공주택 하자 증가",
+    "kbo 리그",
+    "지자체 지방교부세 반대"
    ]
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-30T16:30+09:00",
+   "at": "2026-09-30T16:35+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "수능 D-50",
@@ -77,7 +77,7 @@
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-30T16:30+09:00",
+   "at": "2026-09-30T16:35+09:00",
    "url": "https://zum.com/",
    "items": [
     "수시 원서접수 먹통",
@@ -1664,12 +1664,6 @@
   }
  },
  "reasons": {
-  "미 30년물 국채금리": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T14:34+09:00"
-  },
   "오운완햇": {
    "t": "",
    "s": "",
@@ -1700,12 +1694,6 @@
    "u": "",
    "at": "2026-09-30T15:05+09:00"
   },
-  "이혼": {
-   "t": "'16살 차이' 코미디언·스타, 결혼 3년 만→'이혼' 발표…\"서로 다른 길 선택\" [MHN:글로벌]",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/20260930103017713",
-   "at": "2026-09-30T15:15+09:00"
-  },
   "필라테스 갈때": {
    "t": "",
    "s": "",
@@ -1723,18 +1711,6 @@
    "s": "",
    "u": "",
    "at": "2026-09-30T16:03+09:00"
-  },
-  "샘 오취리": {
-   "t": "샘 오취리 \"지난 시간 돌아보며 삶에 감사\"… 오랜만에 전한 근황",
-   "s": "한국일보",
-   "u": "https://www.hankookilbo.com/news/article/A2026093013340004368",
-   "at": "2026-09-30T16:25+09:00"
-  },
-  "김정은": {
-   "t": "국정원 “김정은 140kg대 초고도비만, 주애 160cm, 50kg 넘어”",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/20260930113611286",
-   "at": "2026-09-30T14:34+09:00"
   },
   "무기징역": {
    "t": "'여고생 살해범' 장윤기 1심에서 무기징역 선고",
@@ -1765,18 +1741,6 @@
    "s": "Daum",
    "u": "https://v.daum.net/v/20260930140306195",
    "at": "2026-09-30T15:47+09:00"
-  },
-  "대통령 대호김종서함 진수식": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T15:53+09:00"
-  },
-  "컴파운드 혼성 은메달": {
-   "t": "[아시안게임] 박정윤·최용희, 인도에 슛오프 끝에 져 컴파운드 혼성전 은메달",
-   "s": "연합뉴스",
-   "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9qaHBJRjBFQ0FqbWpONzFPUlJEUlYtVzJ6TlVOd2dOdVZOMDVGa2NJUHpxTEZwa0kyVHJKbnc5czZSV2R3LUdCNFo2OFNnWU5ieV9UUzVjZFJPWG1tbENFRtIBYEFVX3lxTE9qaHBJRjBFQ0FqbWpONzFPUlJEUlYtVzJ6TlVOd2dOdVZOMDVGa2NJUHpxTEZwa0kyVHJKbnc5czZSV2R3LUdCNFo2OFNnWU5ieV9UUzVjZFJPWG1tbENFRg?oc=5",
-   "at": "2026-09-30T15:53+09:00"
   },
   "여고생 장윤기 무기징역": {
    "t": "",
@@ -1856,12 +1820,6 @@
    "u": "https://v.daum.net/v/20260930103653178",
    "at": "2026-09-30T16:03+09:00"
   },
-  "클로즈 유어 아이즈 재즈 도전": {
-   "t": "클로즈 유어 아이즈, 재즈 펑크 도전…\"음악 맛집 될래요\" [종합]",
-   "s": "한국경제",
-   "u": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9uTFNSQ0I5VW1Pa1gxT2w3TU9IODRiWEtSMTNsbExkdUdCaHRGNVNReXpWREhOTmZFSHNoMGtTdDF2bWtxZ3g1YTZqdmxfY3BYVVVMSmZkcmxXdw?oc=5",
-   "at": "2026-09-30T16:03+09:00"
-  },
   "하사": {
    "t": "20대 공군 하사, 관사서 사망…‘○○○ 때문’ 붉은 글씨로 10명 적었다",
    "s": "JTBC",
@@ -1933,6 +1891,36 @@
    "s": "",
    "u": "",
    "at": "2026-09-30T16:30+09:00"
+  },
+  "허경환": {
+   "t": "성현주, 허경환 신인 시절 폭로 “우리 집에서 자주 잤다”",
+   "s": "세계일보",
+   "u": "https://www.segye.com/newsView/20260930503559",
+   "at": "2026-09-30T16:35+09:00"
+  },
+  "한국 중국": {
+   "t": "4연패 향해 순항, 이민성호, 오늘 중국과 준결승 격돌",
+   "s": "KBS 뉴스",
+   "u": "https://news.kbs.co.kr/news/view.do?ncd=8674181",
+   "at": "2026-09-30T16:35+09:00"
+  },
+  "잠실 주공 5 단지 아파트": {
+   "t": "같은 84㎡ 받는데 4억3000만원 더 낸다… 은마 재건축 분담금 또 뛰어 - 조선비즈",
+   "s": "Chosunbiz",
+   "u": "https://biz.chosun.com/real_estate/real_estate_general/2026/09/29/YF3J73P4FBCQJGURI5NOUFE6UE/",
+   "at": "2026-09-30T16:35+09:00"
+  },
+  "이재명 대호김종서함 진수식": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T16:35+09:00"
+  },
+  "안세영 아시안게임 여자 단식 2연패": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T16:35+09:00"
   }
  },
  "disc": {
@@ -5960,17 +5948,17 @@
   }
  },
  "ogTried": [
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://biz.heraldcorp.com/article/10888599",
   "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://biz.heraldcorp.com/article/10888599",
   "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.i-boss.co.kr/ab-2877-18127",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29113"
  ],
  "desc": {
