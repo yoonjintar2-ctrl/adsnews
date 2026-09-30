@@ -504,6 +504,23 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:980px){.mast .r .ear.er{display:none}}
 @media (max-width:620px){.mast{grid-template-columns:1fr!important;grid-template-areas:"r" "h"!important}.mast .r{justify-content:space-between!important;width:100%}.mast .clock{display:flex!important;order:-1;align-items:flex-start;margin-right:auto}.mast .clock #clock,.mast .clock #today{display:none}}
 .lead .dek,#bl{text-indent:1em}
+
+/* v10 팔로잉 탭 */
+.ftabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2px}
+.ftabs button{font:inherit;font-family:var(--serif);font-size:.78rem;font-weight:700;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:2px 8px;cursor:pointer;white-space:nowrap}
+.ftabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.ftab{display:inline-flex}
+.ftab.on .fx{border-left:0;padding:2px 6px;font-weight:400}
+.ftab.on .fx:hover{background:var(--red);border-color:var(--red);color:var(--paper)}
+.fbn{font-weight:700;margin-right:2px}
+.fitems{display:flex;flex-direction:column}
+.fill-ad{display:flex;flex:1 1 auto;min-height:6rem;margin-top:10px}
+.fill-ad .adslot{flex:1;height:auto}
+@media (max-width:1180px){.fill-ad{display:none}}
+
+.np-row4.measuring #fitems>*,.np-row4.measuring #plat>*{display:none!important}
+.r4-ad{align-self:start}
+.fill-ad{flex:0 0 auto}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -556,7 +573,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
       </div>
     </section>
     <div class="np-row4">
-      <section class="np-sec a-fol r4 r4-fol" data-list="fol" aria-labelledby="k-fol">
+      <section class="np-sec a-fol r4 r4-fol" data-list="fitems" aria-labelledby="k-fol">
         <div class="kick"><h2 id="k-fol">팔로잉 브랜드 소식</h2><span id="fcount"></span></div>
         <form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="브랜드 추가" maxlength="30"><button type="submit">팔로우</button></form>
         <p class="ferr" id="ferr" hidden></p>
@@ -841,17 +858,26 @@ function boot(D){
     (D.videos||[]).forEach(function(v){ if(norm(v.brand+v.title).indexOf(b)>-1) out.push({date:v.date,title:v.brand+' 영상 '+v.views+'회',url:v.url}) });
     return out.filter(function(x){if(seen[x.title])return false;seen[x.title]=1;return true});
   }
+  var folTab=lsGet('adradar-foltab','*');
   function renderFol(){
     $('fcount').textContent = follows.length + '개';
     if(!follows.length){$('fol').innerHTML='<p class="fb"><span class="empty">담당 광고주나 관심 브랜드를 추가하면 소식을 따로 모아드려요.</span></p>';fitAll();return;}
-    $('fol').innerHTML = follows.map(function(f){
-      var its = itemsFor(f.name).slice(0,8);
-      return '<div class="fb"><h4>'+esc(f.name)+'<button type="button" data-id="'+esc(f.id)+'" aria-label="'+esc(f.name)+' 팔로우 취소">×</button></h4>'+
-        (its.length ? its.map(function(x){return link(x.url,'<span class="d">'+esc(x.date)+'</span><span>'+esc(x.title)+(x.src?' <small class="fsrc">'+esc(x.src)+'</small>':'')+'</span>')}).join('') : '<span class="empty">소식을 모으는 중이에요. 몇 분 안에 채워져요.</span>')+
-        '<p class="fmore">더 찾아보기 · '+['https://search.naver.com/search.naver?where=news&sort=1&query=','https://search.naver.com/search.naver?ssc=tab.blog.all&query=','https://x.com/search?f=live&q='].map(function(u,i){return '<a href="'+u+encodeURIComponent(f.name)+'" target="_blank" rel="noopener">'+['뉴스','블로그','X'][i]+'</a>'}).join(' · ')+'</p></div>';
-    }).join('');
+    if(folTab!=='*'&&!follows.some(function(f){return f.id===folTab}))folTab='*';
+    var tabs='<div class="ftabs" role="tablist"><button type="button" role="tab" data-tab="*" aria-selected="'+(folTab==='*')+'">전체</button>'+
+      follows.map(function(f){var on=f.id===folTab;return '<span class="ftab'+(on?' on':'')+'"><button type="button" role="tab" data-tab="'+esc(f.id)+'" aria-selected="'+on+'">'+esc(f.name)+'</button>'+(on?'<button type="button" class="fx" data-id="'+esc(f.id)+'" aria-label="'+esc(f.name)+' 팔로우 취소">×</button>':'')+'</span>'}).join('')+'</div>';
+    var rows=[], seen={};
+    follows.forEach(function(f){
+      if(folTab!=='*'&&f.id!==folTab)return;
+      itemsFor(f.name).slice(0,folTab==='*'?6:30).forEach(function(x){var k=x.title;if(seen[k])return;seen[k]=1;rows.push({f:f,x:x})});
+    });
+    if(folTab==='*') rows.sort(function(a,b){return String(b.x.date||'')<String(a.x.date||'')?-1:String(b.x.date||'')>String(a.x.date||'')?1:0});
+    var list=rows.map(function(r){var x=r.x;return link(x.url,'<span class="d">'+esc(x.date||'')+'</span><span>'+(folTab==='*'?'<b class="fbn">'+esc(r.f.name)+'</b> ':'')+esc(x.title)+(x.src?' <small class="fsrc">'+esc(x.src)+'</small>':'')+'</span>')}).join('');
+    var nm=folTab==='*'?'':(follows.filter(function(f){return f.id===folTab})[0]||{}).name;
+    var more=nm?'<p class="fmore">'+esc(nm)+' 더 찾아보기 · '+['https://search.naver.com/search.naver?where=news&sort=1&query=','https://search.naver.com/search.naver?ssc=tab.blog.all&query=','https://x.com/search?f=live&q='].map(function(u,i){return '<a href="'+u+encodeURIComponent(nm)+'" target="_blank" rel="noopener">'+['뉴스','블로그','X'][i]+'</a>'}).join(' · ')+'</p>':'';
+    $('fol').innerHTML=tabs+'<div class="fb fitems" id="fitems">'+(list||'<span class="empty">소식을 모으는 중이에요. 몇 분 안에 채워져요.</span>')+'</div>'+more;
     fitAll();
   }
+
 
   function fit(el){
     if(!el) return;
@@ -877,17 +903,25 @@ function boot(D){
     function items(sec){var el=document.getElementById(sec.getAttribute('data-list'));return el?[].slice.call(el.children):[]}
     function h(sec){var its=items(sec);if(!its.length)return 0;return its[its.length-1].getBoundingClientRect().bottom-sec.getBoundingClientRect().top}
     // 같은 높이: 내용이 있는 세 칸(리포트·업계·매체) 중 가장 짧은 칸에 맞춤
+    [].forEach.call(document.querySelectorAll('.fill-ad'),function(x){x.remove()});
+    // 행 높이는 리포트·업계 + 광고 지면이 정함: 팔로잉·매체 칸을 잠시 접고 광고 하단 위치를 잰다
+    var row=document.querySelector('.np-row4'), adEl=document.querySelector('.r4-ad .adslot');
+    row.classList.add('measuring'); var adBottom=adEl?adEl.getBoundingClientRect().bottom:0; row.classList.remove('measuring');
     var hs=secs.filter(function(s){var l=s.getAttribute('data-list');return l==='reps'||l==='anews'}).map(h).filter(function(x){return x>0});
     if(!hs.length) return;
     var H=Math.min.apply(null,hs);
     secs.forEach(function(sec){
       if(sec.classList.contains('open')) return;
       var l=sec.getAttribute('data-list'), top=sec.getBoundingClientRect().top, over=0, lim=H;
-      var ad=document.querySelector('.r4-ad');
-      if((l==='fol'||l==='plat')&&ad){var bt=sec.querySelector('.more-btn');lim=ad.getBoundingClientRect().bottom-top-40;}
+      if((l==='fitems'||l==='plat')&&adBottom){lim=adBottom-top-46;}
       items(sec).forEach(function(it){if(it.getBoundingClientRect().bottom-top>lim+2){it.classList.add('cut');over++}});
       if(over){var b=document.createElement('button');b.type='button';b.className='more-btn';b.textContent=over+'건 더 보기 ▼';b.onclick=function(){sec.classList.toggle('open');b.textContent=sec.classList.contains('open')?'접기 ▲':over+'건 더 보기 ▼'};sec.appendChild(b);}
     });
+    // 칸이 짧게 끝나면 남는 공간을 광고 지면으로 채움
+    secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l!=='fitems'&&l!=='plat')return;if(sec.querySelector('.more-btn'))return;
+      var its=items(sec);if(!its.length||!adBottom)return;
+      var gap=adBottom-sec.lastElementChild.getBoundingClientRect().bottom;
+      if(gap>110){var f=document.createElement('aside');f.className='fill-ad';f.setAttribute('aria-label','광고');f.innerHTML='<div class="adslot"><b>AD</b><span>광고 지면</span></div>';f.style.height=(gap-10)+'px';sec.appendChild(f);}});
   }
   function balance(){
     var two=window.innerWidth>980;
@@ -970,6 +1004,7 @@ function boot(D){
     dbRef.add({name:name,addedAt:new Date().toISOString()}).catch(function(x){err(x&&x.code==='quota_exceeded'?'팔로우 목록이 가득 찼어요.':'저장하지 못했어요. 편집 권한을 확인해 주세요.')});
   });
   $('fol').addEventListener('click',function(e){
+    var t=e.target.closest('button[data-tab]'); if(t){folTab=t.getAttribute('data-tab');lsSet('adradar-foltab',folTab);var sec=document.querySelector('.r4-fol');if(sec)sec.classList.remove('open');renderFol();return;}
     var b=e.target.closest('button[data-id]'); if(!b) return;
     var id=b.getAttribute('data-id');
     if(local||!dbRef){follows=follows.filter(function(f){return f.id!==id});lsSet('adradar-follows',follows);renderFol();return;}
