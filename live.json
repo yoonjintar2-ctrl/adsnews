@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-30T23:28+09:00",
- "updatedLabel": "9월 30일 23:28",
+ "updatedAt": "2026-09-30T23:33+09:00",
+ "updatedLabel": "9월 30일 23:33",
  "sources": {
   "x": {
    "label": "X",
@@ -31,7 +31,7 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-30T23:28+09:00",
+   "at": "2026-09-30T23:33+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
     "재건축",
@@ -48,35 +48,35 @@
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-30T23:28+09:00",
+   "at": "2026-09-30T23:33+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "미국 8월 PCE 물가",
-    "추경호 20년 징역 구형",
-    "한국 양궁, 인도에 또 패배",
+    "추경호 징역 20년 구형",
+    "한국 양궁, 인도 금메달 행진",
     "북한군 MDL 침범",
-    "유도 장세윤 은메달",
+    "북, 지뢰 정전협정 위반",
+    "정부 이란 다야니 ISDS 승소",
+    "장세윤, 아시안게임 은메달 아쉽다.",
     "재건축",
     "가상자산",
-    "47세 출산 한다감 체형 변화",
-    "송일국",
-    "이"
+    "송일국"
    ]
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-30T23:28+09:00",
+   "at": "2026-09-30T23:33+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "표결 방해 추경호",
-    "양궁 컴파운드 인도",
-    "아시안게임",
-    "조폭 출신 남편에게"
+    "8월 PCE 3.4%",
+    "한다감",
+    "장윤기 가석방 무기징역",
+    "지적장애 탈락에 흉기"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-30T23:28+09:00",
+   "at": "2026-09-30T23:33+09:00",
    "url": "https://zum.com/",
    "items": [
     "미국 8월 PCE 물가",
@@ -1856,12 +1856,6 @@
    "u": "https://sports.khan.co.kr/article/202609281440003",
    "at": "2026-09-30T22:17+09:00"
   },
-  "유도 장세윤 은메달": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T22:22+09:00"
-  },
   "미국 8월 PCE 물가": {
    "t": "미국 8월 PCE 물가 전년 대비 3.4%↑…전망치 소폭 하회",
    "s": "연합뉴스TV",
@@ -1880,52 +1874,10 @@
    "u": "https://v.daum.net/v/20260930173703410",
    "at": "2026-09-30T22:55+09:00"
   },
-  "추경호 20년 징역 구형": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T23:06+09:00"
-  },
-  "한국 양궁, 인도에 또 패배": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T23:06+09:00"
-  },
-  "47세 출산 한다감 체형 변화": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T23:06+09:00"
-  },
   "이완섭": {
    "t": "이완섭 “사전 협의 없는 군공항 분산배치 안 돼”",
    "s": "Daum",
    "u": "https://v.daum.net/v/20260930215905431",
-   "at": "2026-09-30T23:28+09:00"
-  },
-  "표결 방해 추경호": {
-   "t": "특검, ‘계엄해제 표결 방해’ 추경호 징역 20년 구형…11월18일 선고",
-   "s": "한겨레",
-   "u": "https://news.google.com/rss/articles/CBMickFVX3lxTE1ZMUx3S1ZKWTNFVFJ2bEpFczdkOFhDSU1rWHlDS0xicnUwYWtpMllWTGFwMVplM0J6UjNFc0RZVDk4RjNYT2JuaEhaUlhTVExsUnd4Qnc3dzFWS0RqbG5PcWZEUHhFT0xGbjJPYkN0eGt2Zw?oc=5",
-   "at": "2026-09-30T23:28+09:00"
-  },
-  "양궁 컴파운드 인도": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T23:28+09:00"
-  },
-  "아시안게임": {
-   "t": "아시안게임 유도: 허미미·김민종 포함 한국 대표팀 경기 결과·메달 모아보기 [아이치-나고야 2026]",
-   "s": "olympics.com",
-   "u": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5rQzJXZEJMam9lM2hROE9YTVpqRjJKLVVBLTNpcm5kaWJ2YTIyWGxNbjMyQnRBelFvcXBxM0tGb1FoVE9tUjFRTzMybGM5MEhUNVVzc0ZTdXY5UmNST2xYVG15WWVydGZjTDZyVWpleWxnN011VzVUekFxUWs2QQ?oc=5",
-   "at": "2026-09-30T23:28+09:00"
-  },
-  "조폭 출신 남편에게": {
-   "t": "'66세' 이휘향, '조폭 출신' 남편에게 담배 배우다 쓰러져…\"척 하면 욕먹는다고\"",
-   "s": "v.daum.net",
-   "u": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBiX2JYOXZPTFQwOUl1WEtIWjQteVItLWJmY1MyaUp5aU0yTS1HM3FpeWZEdjQ5ZVhOcUc2SF9aTjdwLWNYSW9jcmZWR0doMnRLZHlGNg?oc=5",
    "at": "2026-09-30T23:28+09:00"
   },
   "정부 이란 다야니 ISDS 승소": {
@@ -1939,6 +1891,54 @@
    "s": "",
    "u": "",
    "at": "2026-09-30T23:28+09:00"
+  },
+  "추경호 징역 20년 구형": {
+   "t": "특검, ‘계엄해제 표결 방해’ 추경호 징역 20년 구형…11월18일 선고",
+   "s": "한겨레",
+   "u": "https://news.google.com/rss/articles/CBMickFVX3lxTE1ZMUx3S1ZKWTNFVFJ2bEpFczdkOFhDSU1rWHlDS0xicnUwYWtpMllWTGFwMVplM0J6UjNFc0RZVDk4RjNYT2JuaEhaUlhTVExsUnd4Qnc3dzFWS0RqbG5PcWZEUHhFT0xGbjJPYkN0eGt2Zw?oc=5",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "한국 양궁, 인도 금메달 행진": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "북, 지뢰 정전협정 위반": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "장세윤, 아시안게임 은메달 아쉽다.": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "8월 PCE 3.4%": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "한다감": {
+   "t": "'47세 최고령 산모' 한다감, 만삭 사진 공개···여전히 날씬해서 남편 바지 입어('슈돌') - 조선비즈",
+   "s": "Chosunbiz",
+   "u": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZ2VTTWhBbDNYdnZZd3lmRDdGMmhwTnpBZ25Sbld5SUNzYUE5SjFlV2x4eXRHRlRBcGxfNUFhSVVTTnNXV2FxWGJOdF9NVnVzTGNKUlBiZ2tXanE2aVpBc01HUzZhYlZUVUNxY1RRbnRhZ3dqbHM4TXdjWmRfVEIzeDdFWWN0WWdTQWZnRU1oaXYzdEpYU1RWX01xZ3JjX01zQktNU2lxd9IBpwFBVV95cUxNZ2VTTWhBbDNYdnZZd3lmRDdGMmhwTnpBZ25Sbld5SUNzYUE5SjFlV2x4eXRHRlRBcGxfNUFhSVVTTnNXV2FxWGJOdF9NVnVzTGNKUlBiZ2tXanE2aVpBc01HUzZhYlZUVUNxY1RRbnRhZ3dqbHM4TXdjWmRfVEIzeDdFWWN0WWdTQWZnRU1oaXYzdEpYU1RWX01xZ3JjX01zQktNU2lxdw?oc=5",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "장윤기 가석방 무기징역": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T23:33+09:00"
+  },
+  "지적장애 탈락에 흉기": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T23:33+09:00"
   }
  },
  "disc": {
@@ -6156,24 +6156,24 @@
   }
  },
  "ogTried": [
-  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.wikitree.co.kr/articles/1161400",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://biz.heraldcorp.com/article/10888599",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
   "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
+  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://biz.heraldcorp.com/article/10888599",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994"
+  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.wikitree.co.kr/articles/1161400"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
