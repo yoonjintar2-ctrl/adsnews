@@ -588,6 +588,22 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .rep-t b{font-size:.95rem;color:var(--ink);font-weight:900}
 .rep-m{font-size:.68rem;color:var(--faint)}
 .modal-box .mcols{columns:2 16rem;column-gap:22px;column-rule:1px solid var(--rule-soft);text-indent:1em}
+
+/* v15 하단 카드: 사진 없이 텍스트만 */
+.ci{grid-template-columns:minmax(0,1fr)!important;padding:9px 0!important}
+.ci .ci-ph{display:none!important}
+.ci-k{font-size:.74rem}
+.ci-k b{font-size:.78rem}
+.ci strong{font-size:.95rem}
+/* 사설: 기자 바이라인 맨 아래 오른쪽 */
+.ecols .ec:last-of-type .rep,.ecols .ec .rep{justify-content:flex-end;text-align:right}
+.ecols .rep .rep-t{align-items:flex-end}
+.ecols .rep{flex-direction:row-reverse}
+.lead-b.split .toon{right:0}
+.ecols .dek,.ec-meas{word-break:normal!important;overflow-wrap:anywhere!important;text-align:justify}
+.ecols .ec:not(.first) .dek::first-letter{font-weight:inherit!important;font-size:inherit!important;float:none!important;margin:0!important;color:inherit!important}
+.ecols .ec.last{align-self:stretch!important;display:flex;flex-direction:column}
+.ecols .ec.last .rep{margin-top:auto}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -772,17 +788,17 @@ function boot(D){
     function cut(txt,maxH,first){ if(h(txt,first)<=maxH) return [txt,''];
       var lo=0,hi=txt.length; while(lo<hi){var mid=(lo+hi+1)>>1; if(h(txt.slice(0,mid),first)<=maxH) lo=mid; else hi=mid-1}
       var k=txt.lastIndexOf(' ',lo); if(k<lo*0.8) k=lo; return [txt.slice(0,k).trim(),txt.slice(k).trim()] }
-    var Tt=h(edText,true), T=Tt+hb, lineH=parseFloat(getComputedStyle(m).lineHeight)||28, targets=[], under=false, bylineUnder=false;
-    var h2=(T-B*(hc+G))/N;
-    if(h2>=3*lineH){under=true;for(var i=0;i<N;i++)targets.push(i<B?hc+G+h2:h2)}
-    else {for(var i=0;i<B;i++)targets.push(Tt/B);bylineUnder=true}
+    var Tt=h(edText,true), T=Tt+hb, lineH=parseFloat(getComputedStyle(m).lineHeight)||28, targets=[], under=true, bylineUnder=false;
+    // 만평 아래 두 단에도 글이 최소 4줄은 오도록, 필요하면 만평을 줄인다
+    var need=4*lineH, h2=(T-B*(hc+G))/N;
+    for(var i=0;i<N;i++)targets.push(i<B?hc+G+Math.max(h2,lineH):Math.max(h2,lineH))
     var rest=edText, cols=[];
     for(var i=0;i<targets.length;i++){var last=i===targets.length-1;
       if(last){cols.push(rest);rest='';break}
       var r=cut(rest,targets[i]+lineH*0.5,i===0);cols.push(r[0]);rest=r[1];if(!rest)break}
     m.remove();
     grid.innerHTML=cols.map(function(t,i){var st=i<B?'grid-column:'+(i+1)+';grid-row:1 / span 2':'grid-column:'+(i+1)+';grid-row:2';
-      return '<div class="ec'+(i===0?' first':'')+'" style="'+st+'"><p class="dek">'+esc(t)+'</p>'+(!bylineUnder&&i===cols.length-1?bylineHtml:'')+'</div>'}).join('')+
+      return '<div class="ec'+(i===0?' first':'')+(i===cols.length-1?' last':'')+'" style="'+st+'"><p class="dek">'+esc(t)+'</p>'+(!bylineUnder&&i===cols.length-1?bylineHtml:'')+'</div>'}).join('')+
       (bylineUnder?'<div class="ec ec-by" style="grid-column:'+(B+1)+' / span '+K+';grid-row:2">'+bylineHtml+'</div>':'')+
       '<span class="ec-sp" style="grid-column:'+(B+1)+' / span '+K+';grid-row:1;height:'+(hc+G)+'px"></span>';
     grid.classList.toggle('under',under);
@@ -956,7 +972,7 @@ function boot(D){
 
 
   var A = D.agencies;
-  function renderANews(){$('anews').innerHTML = A.news.slice(0,6).map(function(n){var host=(String(n.url||'').match(/\/\/(?:www\.)?([^\/]+)/)||[])[1]||'';return card({url:n.url,title:n.title,date:n.date,src:SRCN[host]||'',ph:SRCN[host]||n.title})}).join('');}
+  function renderANews(){$('anews').innerHTML = A.news.slice(0,6).map(function(n){var host=(String(n.url||'').match(/\/\/(?:www\.)?([^\/]+)/)||[])[1]||'';return card({url:n.url,title:n.title,date:n.date,kick:SRCN[host]||host.replace(/\.(co\.kr|com|kr|net|or\.kr)$/,''),ph:SRCN[host]||n.title})}).join('');}
   var SRCN={'madtimes.co.kr':'매드타임스','the-pr.co.kr':'더피알','i-boss.co.kr':'아이보스','brandbrief.co.kr':'브랜드브리프','adic.co.kr':'애드아이','newsis.com':'뉴시스','yna.co.kr':'연합뉴스','openads.co.kr':'오픈애즈','nextdaily.co.kr':'넥스트데일리','hankyung.com':'한국경제','mk.co.kr':'매일경제','edaily.co.kr':'이데일리','etnews.com':'전자신문','zdnet.co.kr':'지디넷','newspim.com':'뉴스핌','heraldcorp.com':'헤럴드경제','adnews.co.kr':'애드뉴스','ddaily.co.kr':'디지털데일리','bloter.net':'블로터'};
   function renderPlat(){var rows=[];D.platforms.forEach(function(p){p.items.forEach(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));rows.push({p:p.name,t:t,u:u})})});
     // 매체별로 번갈아 보여주기(한 매체가 칸을 독차지하지 않게)
