@@ -20,7 +20,7 @@ def main():
     except Exception:
         arr = []
     entry = {"date": date, "headline": b["headline"], "body": b.get("body") or b.get("lede") or "", "lede": b.get("lede", ""),
-             "cartoon": {"svg": c.get("svg", ""), "caption": c.get("caption", "")}}
+             "cartoon": {"svg": c.get("svg", ""), "caption": c.get("caption", "")}, "weekly": bool(b.get("weekly"))}
     old = next((e for e in arr if e.get("date") == date), None)
     if old == entry:
         return
