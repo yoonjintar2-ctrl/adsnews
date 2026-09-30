@@ -422,7 +422,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .np-row4 .np-sec:last-child{padding-right:16px}
 .np-row4 .r4-news{padding-right:0!important}
 .r4-ad{grid-area:ad;border-left:1px solid var(--rule);padding:14px 0 0 16px}
-.adslot{height:15rem;border:1px dashed var(--faint);background:repeating-linear-gradient(45deg,transparent 0 9px,rgba(0,0,0,.025) 9px 10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--faint)}
+.adslot{height:11rem;border:1px dashed var(--faint);background:repeating-linear-gradient(45deg,transparent 0 9px,rgba(0,0,0,.025) 9px 10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--faint)}
 .adslot b{font-size:1.1rem;letter-spacing:.3em;font-weight:900}
 .adslot span{font-size:.75rem}
 .np-row4 .r4-fol,.np-row4 .r4-plat{align-self:stretch}
@@ -739,8 +739,53 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .cm-t{border-left:0}
 .cpicks{margin-top:18px!important}
 @media (max-width:699px){.cm{margin:0;padding:10px}}
+
+/* v19 글자 크기 체계(위에서 아래까지 통일) */
+/* 1. 대제목: 사설·캠페인 헤드라인 */
+#bh,.cm h3{font-size:1.9rem!important;line-height:1.25!important;font-weight:900!important;letter-spacing:-.02em}
+/* 2. 섹션 제목 */
+.kick h2{font-size:1rem!important;font-weight:700!important}
+/* 3. 소제목 */
+.sub-h,.cpicks-h b,.cm-rv-h,.pz-clues h3,.fb h4{font-size:.9rem!important;font-weight:900!important}
+/* 4. 기사 제목 */
+.news h3,.cp h4,.ci strong,.rk-m a,.fb a span:last-child{font-size:1rem!important;font-weight:700!important;line-height:1.38!important}
+.tcols3 .rk-m a{font-size:.95rem!important}
+/* 5. 긴 본문: 사설·캠페인 설명·기자의 한마디 */
+.ecols .dek,.lead .dek,.cm-s,.cm-rv p,.modal-box p{font-size:1.02rem!important;line-height:1.85!important}
+/* 6. 요약·설명 */
+.news p,.cp p,.ci-d,.rk-m .ds,.pz-clues li,.camp p{font-size:.86rem!important;line-height:1.55!important}
+/* 7. 메타(매체·날짜·분류) */
+.news .meta,.ci-k,.cm-k,.cp-k,.rk-m .ch,.kick span,.rk-m .vw,.fb a .d,.blist .d{font-size:.74rem!important}
+.ci-k b,.cm-k b,.cp-k b{font-size:.78rem!important}
+.cm-m,.cp-m{font-size:.86rem!important}
+
+/* v20 캠페인 박스: 얇은 테두리, 단 안쪽에 맞춤 */
+.cm{border:1px solid var(--ink)!important;margin:0!important;padding:14px 13px 12px!important;box-sizing:border-box!important;column-gap:22px!important}
+.cm-rv{columns:auto!important;column-rule:none!important}
+.rv-cols{display:grid;column-gap:22px}
+.rv-cols .rc{min-width:0;display:flex;flex-direction:column}
+.rv-cols .rc+.rc{border-left:1px solid var(--rule-soft);padding-left:11px;margin-left:-11px}
+.rv-cols .rc p{margin:0;text-indent:0!important}
+.rv-cols .rc.first p{text-indent:1em!important}
+.rv-cols .rep{margin-top:auto;padding-top:8px}
+.rv-meas{position:absolute!important;visibility:hidden;font-size:1.02rem!important;line-height:1.85!important;text-align:justify;word-break:normal;overflow-wrap:anywhere}
+.cm-rv-h::after{border-top:1px dotted var(--rule)!important}
+@media (max-width:980px){.rv-cols{display:block;columns:2;column-gap:22px}}
+@media (max-width:699px){.rv-cols{columns:1}}
 </style>
 
+<meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="광고늬우스">
+<meta property="og:title" content="광고늬우스 · 광고업계 뉴스, 노른자만 골라 떠먹여 드립니다">
+<meta property="og:description" content="매일 아침 사설·만평부터 오늘의 광고 캠페인, 실시간 이슈와 뜨는 광고 영상까지. 광고인을 위한 한 장짜리 신문.">
+<meta property="og:url" content="https://yoonjintar2-ctrl.github.io/adsnews/">
+<meta property="og:image" content="https://yoonjintar2-ctrl.github.io/adsnews/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://yoonjintar2-ctrl.github.io/adsnews/og.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -753,7 +798,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     <h1>광고늬우스</h1>
     
-    <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">정기구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">무료로 구독하기</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="dl-mid" id="dl-mid"></span><span class="pref" id="dl-pref"></span><span id="dl-right">광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -1107,7 +1152,8 @@ function boot(D){
   }
   function ogOf(u){return ((D.og||{})[u])||{}}
   function ph(label,dark){var t=String(label||'').replace(/\s+/g,'');return '<span class="ci-ph'+(dark?' dark':'')+'"><span>'+esc(t.slice(0,dark?6:2))+'</span>'+(dark?'<em>PDF</em>':'')+'</span>'}
-  function card(o){var g=ogOf(o.url),img=o.img||g.i,d=o.desc||g.d||'';
+  function cleanDesc(d){d=String(d||'').replace(/^\s*\[[^\]]{1,30}\]\s*/,'').replace(/^[^=|]{0,30}(기자|특파원|에디터)\s*[=|]\s*/,'').replace(/^[^=]{1,20}=\s*/,'').replace(/^[^|]{0,20}\|\s*/,'').trim();return d.length<18?'':d}
+  function card(o){var g=ogOf(o.url),img=o.img||g.i,d=cleanDesc(o.desc||g.d||'');
     var pic=img?'<span class="ci-ph"><img src="'+esc(img)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<span>'+esc(String(o.ph||'').slice(0,2))+'</span>\'"></span>':ph(o.ph,o.dark);
     return '<a class="ci" href="'+esc(o.url||'#')+'" target="_blank" rel="noopener">'+pic+'<span class="ci-t"><span class="ci-k">'+(o.kick?'<b>'+esc(o.kick)+'</b>':'')+(o.date?'<i>'+esc(o.date)+'</i>':'')+(o.src?'<i>'+esc(o.src)+'</i>':'')+'</span><strong>'+esc(o.title)+'</strong>'+(d&&d.replace(/\s/g,'')!==String(o.title).replace(/\s/g,'')?'<span class="ci-d">'+esc(d)+'</span>':'')+'</span></a>'}
   function renderReps(){$('reps').innerHTML=(D.reports||[]).slice(0,6).map(function(r){var pdf=/\.pdf($|\?)/i.test(r.url||'');return card({url:r.url,title:r.title.replace(/\s*\(PDF\)\s*$/,''),kick:r.org,date:r.date,ph:r.org,dark:true})}).join('');}
@@ -1129,7 +1175,7 @@ function boot(D){
       '<div class="cm-t"><span class="cm-k"><b>'+esc(main.brand)+'</b><i>'+esc(main.date)+'</i>'+((main.media||[]).length?'<i>'+esc((main.media||[]).join(' · '))+'</i>':'')+'</span>'+
       '<h3>'+link(main.url,esc(main.title))+'</h3>'+(main.metric?'<span class="cm-m">'+esc(main.metric)+'</span>':'')+
       '<p class="cm-s">'+esc(main.story||'')+'</p>'+yt(main)+'</div>'+
-      (rv?'<div class="cm-rv"><b class="cm-rv-h">클로드 기자의 한마디</b><p>'+esc(rv)+'</p>'+bylineHtml+'</div>':'')+
+      (rv?'<div class="cm-rv"><b class="cm-rv-h">클로드 기자의 한마디</b><div class="rv-cols"><p>'+esc(rv)+'</p>'+bylineHtml+'</div></div>':'')+
       '</article>';
     var picks=rest.slice(0,4).map(function(o){var c=o.x||o;return '<article class="cp">'+
       '<a class="cp-img" href="'+esc(c.url)+'" target="_blank" rel="noopener" style="--c:'+esc(c.color||'#555')+'">'+(c.photo?'<img src="'+esc(c.photo)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(c.brand)+'</span></a>'+
@@ -1137,9 +1183,35 @@ function boot(D){
       '<h4>'+link(c.url,esc(c.title))+'</h4>'+
       '<span class="cp-m">'+esc(c.metric||((c.media||[]).length?(c.media||[]).join(' · ')+' 집행':'')||(c.date?c.date+' 공개':''))+'</span>'+
       '<p>'+esc(c.story||'')+'</p>'+yt(c)+'</article>'}).join('');
+    CAMP_RV=rv;
+    setTimeout(layoutReview,0); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layoutReview);
     $('camps').innerHTML=mainHtml+'<div class="cpicks"><div class="cpicks-h"><b>함께 볼 캠페인</b><span>클로드 기자가 고른 '+Math.min(4,rest.length)+'편</span></div><div class="cpicks-g" id="featside">'+picks+'</div></div>';
   }
-  var campRest=[], campOff=0;
+  var campRest=[], campOff=0, CAMP_RV='';
+  // 오늘의 캠페인 박스: 박스 안에서도 사설 4단과 같은 세로선에 단을 나눈다
+  function layoutReview(){
+    var cm=document.querySelector('.cm'); if(!cm) return;
+    var rv=cm.querySelector('.rv-cols'), sec=cm.parentElement;
+    cm.style.removeProperty('grid-template-columns'); if(rv){rv.style.gridTemplateColumns='';}
+    if(window.innerWidth<=980||!rv){ if(rv) rv.innerHTML='<p>'+esc(CAMP_RV)+'</p>'+bylineHtml; return; }
+    var G=22, W=sec.clientWidth, cw=(W-3*G)/4, cs=getComputedStyle(cm), pad=parseFloat(cs.paddingLeft)+parseFloat(cs.borderLeftWidth);
+    var ws=[cw-pad,cw,cw,cw-pad], tpl=ws.map(function(w){return w.toFixed(2)+'px'}).join(' ');
+    cm.style.setProperty('grid-template-columns',tpl,'important');
+    var m=document.createElement('p'); m.className='ec-meas rv-meas'; rv.appendChild(m); m.style.width=cw+'px';
+    m.innerHTML=bylineHtml; var hb=m.getBoundingClientRect().height+6;
+    function h(t,w,first){m.style.width=w+'px';m.style.textIndent=first?'1em':'0';m.textContent=t;return m.getBoundingClientRect().height}
+    var lineH=parseFloat(getComputedStyle(m).lineHeight)||28, T=h(CAMP_RV,cw,true)+hb, target=T/4, rest=CAMP_RV, cols=[];
+    for(var i=0;i<4;i++){ if(i===3||!rest){cols.push(rest);rest='';continue}
+      var w=ws[i]; if(h(rest,w,i===0)<=target+lineH*0.5){cols.push(rest);rest='';continue}
+      var lo=0,hi=rest.length; while(lo<hi){var mid=(lo+hi+1)>>1; if(h(rest.slice(0,mid),w,i===0)<=target+lineH*0.5) lo=mid; else hi=mid-1}
+      var k=rest.lastIndexOf(' ',lo); if(k<lo*0.8) k=lo; cols.push(rest.slice(0,k).trim()); rest=rest.slice(k).trim(); }
+    m.remove();
+    while(cols.length<4) cols.push('');
+    rv.style.gridTemplateColumns=tpl;
+    var last=cols.reduce(function(a,c,i){return c?i:a},0);
+    rv.innerHTML=cols.map(function(t,i){return '<div class="rc'+(i===0?' first':'')+'">'+(t?'<p>'+esc(t)+'</p>':'')+(i===last?bylineHtml:'')+'</div>'}).join('');
+  }
+  window.addEventListener('resize',function(){clearTimeout(window.__rvT);window.__rvT=setTimeout(layoutReview,160)});
   function drawSide(anim){
     var el=$('featside'); if(!el) return; var n=campRest.length; if(!n){el.innerHTML='';return}
     var show=campRest.slice(0,4);
@@ -1231,19 +1303,22 @@ function boot(D){
     function h(sec){var its=items(sec);if(!its.length)return 0;return its[its.length-1].getBoundingClientRect().bottom-sec.getBoundingClientRect().top}
     // 같은 높이: 내용이 있는 세 칸(리포트·업계·매체) 중 가장 짧은 칸에 맞춤
     [].forEach.call(document.querySelectorAll('.fill-ad'),function(x){x.remove()});
-    // 행 높이는 리포트·업계 + 광고 지면이 정함: 팔로잉·매체 칸을 잠시 접고 광고 하단 위치를 잰다
-    var row=document.querySelector('.np-row4'), adEl=document.querySelector('.r4-ad .adslot');
-    row.classList.add('measuring'); var adBottom=adEl?adEl.getBoundingClientRect().bottom:0; row.classList.remove('measuring');
-    var hs=secs.filter(function(s){var l=s.getAttribute('data-list');return l==='reps'||l==='anews'}).map(h).filter(function(x){return x>0});
-    if(!hs.length) return;
-    var H=Math.min.apply(null,hs);
-    secs.forEach(function(sec){
+    function trim(sec,lim){
       if(sec.classList.contains('open')) return;
-      var l=sec.getAttribute('data-list'), top=sec.getBoundingClientRect().top, over=0, lim=H;
-      if((l==='fitems'||l==='plat')&&adBottom){lim=adBottom-top-46;}
+      var top=sec.getBoundingClientRect().top, over=0;
       items(sec).forEach(function(it){if(it.getBoundingClientRect().bottom-top>lim+2){it.classList.add('cut');over++}});
       if(over){var b=document.createElement('button');b.type='button';b.className='more-btn';b.textContent=over+'건 더 보기 ▼';b.onclick=function(){sec.classList.toggle('open');b.textContent=sec.classList.contains('open')?'접기 ▲':over+'건 더 보기 ▼'};sec.appendChild(b);}
-    });
+    }
+    // 1) 리포트·업계: 둘 중 짧은 쪽 높이, 단 너무 길어지지 않게 상한
+    var rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
+    var hs=secs.filter(function(s){var l=s.getAttribute('data-list');return l==='reps'||l==='anews'}).map(h).filter(function(x){return x>0});
+    if(!hs.length) return;
+    var H=Math.min(Math.min.apply(null,hs),24*rem);
+    secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l==='reps'||l==='anews')trim(sec,H)});
+    // 2) 행 높이 = 리포트·업계 + 광고 지면. 팔로잉·매체 칸을 잠시 접고 광고 하단 위치를 잰다
+    var row=document.querySelector('.np-row4'), adEl=document.querySelector('.r4-ad .adslot');
+    row.classList.add('measuring'); var adBottom=adEl?adEl.getBoundingClientRect().bottom:0; row.classList.remove('measuring');
+    secs.forEach(function(sec){var l=sec.getAttribute('data-list');if((l==='fitems'||l==='plat')&&adBottom)trim(sec,adBottom-sec.getBoundingClientRect().top-46)});
     // 칸이 짧게 끝나면 남는 공간을 광고 지면으로 채움
     secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l!=='fitems'&&l!=='plat')return;if(sec.querySelector('.more-btn'))return;
       var its=items(sec);if(!its.length||!adBottom)return;
@@ -1372,7 +1447,7 @@ function boot(D){
   function toast(m,ms){var t=document.createElement('div');t.className='subtoast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},ms||3200)}
   var ios=/iP(hone|ad|od)/.test(navigator.userAgent), standalone=window.navigator.standalone||matchMedia('(display-mode: standalone)').matches;
   var OS=null, ready=false;
-  function mark(on){txt.textContent=on?'구독 중':'정기구독';btn.classList.toggle('on',!!on)}
+  function mark(on){txt.textContent=on?'구독 중 · 해지':'무료로 구독하기';btn.title=on?'누르면 구독을 해지해요':'매일 아침 오늘의 사설을 알림으로 받아요';btn.classList.toggle('on',!!on)}
   fetch('push.json?'+Date.now()).then(function(r){return r.json()}).then(function(c){
     if(!c.appId) return;
     window.OneSignalDeferred=window.OneSignalDeferred||[];
@@ -1386,8 +1461,8 @@ function boot(D){
   btn.addEventListener('click',function(){
     if(ios&&!standalone){toast('아이폰은 Safari 공유 버튼 → "홈 화면에 추가" 후, 홈 화면의 광고늬우스를 열고 정기구독을 눌러 주세요.',6000);return}
     if(!('Notification' in window)){toast('이 브라우저는 알림을 지원하지 않아요.');return}
-    if(!ready){toast('정기구독은 곧 열려요. 조금만 기다려 주세요!');return}
-    if(OS.User.PushSubscription.optedIn){OS.User.PushSubscription.optOut().then(function(){toast('구독을 해지했어요.')});return}
+    if(!ready){toast('무료 구독은 곧 열려요. 조금만 기다려 주세요!');return}
+    if(OS.User.PushSubscription.optedIn){OS.User.PushSubscription.optOut().then(function(){toast('구독을 해지했어요. 다시 누르면 언제든 재구독할 수 있어요.')});return}
     if(Notification.permission==='denied'){toast('브라우저 설정에서 이 사이트의 알림을 허용해 주세요.',5000);return}
     OS.User.PushSubscription.optIn().then(function(){if(OS.User.PushSubscription.optedIn)toast('구독 완료! 매일 아침 7시쯤 오늘의 사설을 보내드릴게요.',4500)});
   });
