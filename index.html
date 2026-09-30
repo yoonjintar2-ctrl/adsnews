@@ -462,8 +462,31 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .subbtn:hover{filter:brightness(.95)}
 .subtoast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;font-family:var(--serif);font-size:.85rem;z-index:99}
 @media (max-width:620px){.mast .r{flex-wrap:wrap;justify-content:center}}
+
+/* v8 */
+.subbtn{cursor:pointer;background:var(--ink)!important;color:var(--paper)!important;border:1px solid var(--ink)!important}
+.subbtn.on{background:transparent!important;color:var(--ink)!important}
+.mast{grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr) auto!important}
+.mast .r{flex-wrap:nowrap}
+.zoom,.zoom button,.clock,.subbtn{flex:none;white-space:nowrap}
+.clock small{display:block}
+@media (max-width:980px){.mast{grid-template-columns:1fr auto 1fr!important}}
+@media (max-width:620px){
+  .mast{grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"l r" "h h";row-gap:10px;align-items:start}
+  .mast .l{grid-area:l;text-align:left!important;justify-content:flex-start!important;font-size:.7rem}
+  .mast .r{grid-area:r;justify-content:flex-end!important;gap:6px}
+  .mast h1{grid-area:h}
+  .mast .clock{display:none}
+  .mast .subbtn{padding:4px 8px;font-size:.74rem}
+  .zoom button{padding:4px 7px;font-size:.74rem}
+  .bar2 .rollbox>b{flex:none;width:8.6em;letter-spacing:.06em;text-align:center;box-sizing:border-box;padding-inline:0}
+}
 </style>
 
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1a1a1a">
 </head>
 <body>
 <div class="paper">
@@ -472,7 +495,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     <h1>광고늬우스</h1>
     <aside class="ear er" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
-    <div class="r"><a class="subbtn" id="subbtn" href="#" role="button"><svg viewBox="0 0 24 22" width="17" height="16" aria-hidden="true"><path fill="#191919" d="M12 1C5.9 1 1 4.9 1 9.7c0 3.1 2 5.8 5.1 7.3l-1.1 4c-.1.4.3.6.6.4l4.7-3.1c.6.1 1.1.1 1.7.1 6.1 0 11-3.9 11-8.7S18.1 1 12 1z"/></svg><span>정기구독</span></a><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    <div class="r"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">정기구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="pref" id="dl-pref"></span><span>광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -929,9 +952,31 @@ function boot(D){
 </script>
 
 <script>
-(function(){var SUB_URL='';var b=document.getElementById('subbtn');if(!b)return;
- if(SUB_URL){b.href=SUB_URL;b.target='_blank';b.rel='noopener';return}
- b.addEventListener('click',function(e){e.preventDefault();var t=document.createElement('div');t.className='subtoast';t.textContent='카카오톡 정기구독은 곧 열려요. 조금만 기다려 주세요!';document.body.appendChild(t);setTimeout(function(){t.remove()},2600)});
+/* 정기구독 = 매일 아침 웹 푸시 (OneSignal 무료) */
+(function(){
+  var btn=document.getElementById('subbtn'), txt=document.getElementById('subtxt');
+  function toast(m,ms){var t=document.createElement('div');t.className='subtoast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},ms||3200)}
+  var ios=/iP(hone|ad|od)/.test(navigator.userAgent), standalone=window.navigator.standalone||matchMedia('(display-mode: standalone)').matches;
+  var OS=null, ready=false;
+  function mark(on){txt.textContent=on?'구독 중':'정기구독';btn.classList.toggle('on',!!on)}
+  fetch('push.json?'+Date.now()).then(function(r){return r.json()}).then(function(c){
+    if(!c.appId) return;
+    window.OneSignalDeferred=window.OneSignalDeferred||[];
+    var sc=document.createElement('script');sc.src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';sc.defer=true;document.head.appendChild(sc);
+    OneSignalDeferred.push(async function(O){
+      await O.init({appId:c.appId,serviceWorkerPath:'adsnews/OneSignalSDKWorker.js',serviceWorkerParam:{scope:'/adsnews/'},notifyButton:{enable:false},promptOptions:{slidedown:{prompts:[]}}});
+      OS=O;ready=true;mark(O.User.PushSubscription.optedIn);
+      O.User.PushSubscription.addEventListener('change',function(e){mark(e.current.optedIn)});
+    });
+  }).catch(function(){});
+  btn.addEventListener('click',function(){
+    if(ios&&!standalone){toast('아이폰은 Safari 공유 버튼 → "홈 화면에 추가" 후, 홈 화면의 광고늬우스를 열고 정기구독을 눌러 주세요.',6000);return}
+    if(!('Notification' in window)){toast('이 브라우저는 알림을 지원하지 않아요.');return}
+    if(!ready){toast('정기구독은 곧 열려요. 조금만 기다려 주세요!');return}
+    if(OS.User.PushSubscription.optedIn){OS.User.PushSubscription.optOut().then(function(){toast('구독을 해지했어요.')});return}
+    if(Notification.permission==='denied'){toast('브라우저 설정에서 이 사이트의 알림을 허용해 주세요.',5000);return}
+    OS.User.PushSubscription.optIn().then(function(){if(OS.User.PushSubscription.optedIn)toast('구독 완료! 매일 아침 7시쯤 오늘의 사설을 보내드릴게요.',4500)});
+  });
 })();
 </script>
 </body>

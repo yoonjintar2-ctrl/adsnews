@@ -1,0 +1,44 @@
+name: 아침 웹 푸시
+# 07:05 KST, with retries at 07:35 and 08:35 in case today's editorial (06:50 task) was late.
+on:
+  schedule:
+    - cron: "5 22 * * *"
+    - cron: "35 22 * * *"
+    - cron: "35 23 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: push
+  cancel-in-progress: false
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ONESIGNAL_REST_KEY: ${{ secrets.ONESIGNAL_REST_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Should we send?
+        id: chk
+        run: echo "go=$(python3 scripts/send_push.py check | tail -1)" >> "$GITHUB_OUTPUT"
+      - name: Render today's cartoon
+        if: steps.chk.outputs.go == 'go'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin fonts-noto-cjk >/dev/null
+          python3 scripts/send_push.py render
+          git config user.name "ad-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add toon.png
+          if ! git diff --cached --quiet; then
+            git commit -q -m "오늘의 만평 이미지"
+            for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && break; sleep 5; done
+            sleep 120   # let GitHub Pages publish the image before the push points to it
+          fi
+      - name: Send
+        if: steps.chk.outputs.go == 'go'
+        run: |
+          python3 scripts/send_push.py send
+          git add push.json
+          git commit -q -m "웹 푸시 발송 기록" || true
+          for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && break; sleep 5; done
