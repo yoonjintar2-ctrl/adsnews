@@ -844,6 +844,58 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .news .ins .ins-ph{flex:none;width:1.9rem;border:1px solid var(--ink);line-height:0}
 .news .ins .ins-ph svg{width:100%;height:auto;display:block}
 .news .ins b{display:block;color:var(--ink)!important;font-weight:900;font-size:.76rem!important;margin:0 0 1px!important}
+
+/* v22 로드맵: 흑백 모눈종이 */
+.rg-wrap{overflow-x:auto;overflow-y:hidden;border:1px solid var(--ink);background:#fff;-webkit-overflow-scrolling:touch}
+.rg{position:relative;background:#fff}
+.rg-head{position:relative;border-bottom:1px solid var(--ink)}
+.rg-corner{position:sticky;left:0;z-index:4;background:#fff;border-right:1px solid var(--ink);display:block}
+.rg-days{position:absolute;top:0;bottom:0}
+.rg-mo{position:absolute;top:0;border-left:1.5px solid var(--ink);padding:2px 0 0 4px;font-weight:900;font-size:.82rem;line-height:1.2;white-space:nowrap;color:var(--ink)}
+.rg-mo small{font-weight:400;font-size:.66rem;color:var(--faint)}
+.rg-d{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;border-left:1px solid rgba(0,0,0,.06);color:#777}
+.rg-d b{font-size:.6rem;font-weight:700}
+.rg-d i{font-style:normal;font-size:.5rem;margin-top:1px}
+.rg-d.sun b,.rg-d.sun i{color:var(--ink)}
+.rg-d.today{background:var(--ink);color:#fff}
+.rg-d.today b,.rg-d.today i{color:#fff}
+.rg-lane{position:relative;border-bottom:1px solid #cfcfcf}
+.rg-ln{position:sticky;left:0;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;padding-left:8px;background:#fff;border-right:1px solid var(--ink);font-size:.76rem;font-weight:900;color:var(--ink)}
+.rg-ln small{font-weight:400;font-size:.6rem;color:var(--faint)}
+.rg-body{position:absolute;top:0;bottom:0;background-color:#fff;background-image:linear-gradient(to right,rgba(0,0,0,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.07) 1px,transparent 1px)}
+.rg-it{position:absolute;display:flex;align-items:center;gap:4px;border:0;background:none;padding:0;cursor:pointer;font:inherit;font-family:var(--serif);white-space:nowrap}
+.rg-it i{display:block;background:var(--ink);flex:none}
+.rg-it.span{flex-direction:column;align-items:flex-start;gap:2px}
+.rg-it em{font-style:normal;font-size:.76rem;font-weight:700;color:var(--ink);background:#fff;padding:0 2px;line-height:1.2}
+.rg-it:hover em{text-decoration:underline}
+.rg-kw{position:absolute;display:flex;flex-wrap:wrap;align-content:center;gap:0 8px;border:0;background:#fff;padding:0 4px;cursor:pointer;font:inherit;font-family:var(--serif);max-width:none;white-space:nowrap;border-left:2px solid var(--ink)}
+.rg-kw em{font-style:normal;font-size:.72rem;color:var(--ink)}
+.rg-kw:hover em{text-decoration:underline}
+.rg-today{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed var(--ink);z-index:2;pointer-events:none}
+
+/* 퍼즐 + 숨은그림찾기 나란히 */
+.play-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 26px;border-top:3px double var(--ink);margin-top:22px;padding-top:12px}
+.play-row>.np-sec{border-top:0!important;margin-top:0!important;padding-top:0!important;min-width:0}
+.play-row>.np-sec+.np-sec{border-left:1px solid var(--rule);padding-left:26px;margin-left:-13px}
+.play-row .puz{grid-template-columns:minmax(0,300px) minmax(0,1fr)!important;gap:18px!important}
+.play-row .pz-grid{max-width:300px}
+.play-row .pz-c input{font-size:1.1rem}
+.play-row .pz-clues{grid-template-columns:1fr!important;gap:10px 0}
+.play-row .pz-clues>div+div{border-left:0!important;padding-left:0!important;margin-left:0!important}
+.play-row .pz-clues li{padding:3px 2px;font-size:.82rem!important}
+.play-row .pz-entry label{min-height:0;font-size:.8rem}
+.play-row .pz-btns button{padding:5px 9px;font-size:.76rem}
+.hd-pic{border:1px solid var(--ink);background:#fff;line-height:0;cursor:crosshair}
+.hd-pic svg{width:100%;height:auto;display:block;user-select:none}
+.hd-mk{fill:none;stroke:#1a1a1a;stroke-width:3}
+.hd-mk.ans{stroke-dasharray:4 3;stroke-width:2}
+.hd-miss{fill:none;stroke:#999;stroke-width:2}
+.hd-cap{font-size:.76rem;color:var(--muted);margin:6px 0 4px}
+.hd-list{display:flex;flex-wrap:wrap;gap:5px}
+.hd-list span{font-size:.8rem;border:1px solid var(--ink);padding:1px 8px}
+.hd-list span.ok{background:var(--ink);color:var(--paper)}
+.hd-msg{font-size:.8rem;color:var(--muted);align-self:center;margin-left:4px}
+@media (max-width:980px){.play-row{grid-template-columns:1fr}.play-row>.np-sec+.np-sec{border-left:0;padding-left:0;margin:18px 0 0;border-top:1px solid var(--rule)!important;padding-top:12px!important}.play-row .puz{grid-template-columns:1fr!important}.play-row .pz-grid{max-width:420px}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -921,6 +973,11 @@ body,button,input,select,textarea{font-family:var(--serif)}
     </div>
   </main>
 
+  <section class="np-sec a-road" aria-labelledby="k-road">
+    <div class="kick"><h2 id="k-road">마케팅 이슈 로드맵</h2><span>앞으로 3개월 · 옆으로 밀면 더 보여요 · 누르면 상세</span></div>
+    <div class="rg-wrap" id="rmwrap"><div class="rg" id="roadmap"></div></div>
+  </section>
+  <div class="play-row">
   <section class="np-sec a-puz" aria-labelledby="k-puz">
     <div class="kick"><h2 id="k-puz">광고 낱말 퍼즐</h2><span id="pzsub">오늘의 이슈에서 뽑은 낱말</span></div>
     <div class="puz">
@@ -933,11 +990,14 @@ body,button,input,select,textarea{font-family:var(--serif)}
       <div class="pz-clues"><div><h3>가로 문제</h3><ol id="pzacross"></ol></div><div><h3>세로 문제</h3><ol id="pzdown"></ol></div></div>
     </div>
   </section>
-  <section class="np-sec a-road" aria-labelledby="k-road">
-    <div class="kick"><h2 id="k-road">마케팅 이슈 로드맵</h2><span>앞으로 3개월 · 옆으로 밀면 더 보여요 · 누르면 상세</span></div>
-    <div class="rm-legend"><span class="c-holiday">공휴일·연휴</span><span class="c-season">시즌·기념일</span><span class="c-shop">쇼핑 행사</span><span class="c-sport">스포츠</span><span class="c-content">콘텐츠·게임</span><span class="c-industry">업계·테크</span><span class="c-term">절기</span></div>
-    <div class="rm-wrap" id="rmwrap"><div class="rm" id="roadmap"></div></div>
+  <section class="np-sec a-hid" aria-labelledby="k-hid">
+    <div class="kick"><h2 id="k-hid">숨은그림찾기</h2><span id="hdsub">최근 광고의 한 장면에서</span></div>
+    <div class="hd-pic" id="hdpic"></div>
+    <p class="hd-cap" id="hdcap"></p>
+    <div class="hd-list" id="hdlist"></div>
+    <div class="pz-btns"><button type="button" id="hdshow">정답 보기</button><button type="button" id="hdreset">다시 하기</button><span class="hd-msg" id="hdmsg" aria-live="polite"></span></div>
   </section>
+  </div>
   <footer class="foot" id="foot"></footer>
 </div>
 
@@ -1625,42 +1685,79 @@ function boot(D){
 })();
 </script>
 <script>
-/* 마케팅 이슈 로드맵: 오늘부터 3개월이 한 화면, 가로 스크롤로 이후까지 */
+/* 마케팅 이슈 로드맵: 모눈종이(하루 = 정사각형 한 칸), 오늘부터 3개월이 한 화면 */
 (function(){
   var $=function(i){return document.getElementById(i)};
   function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  var LANES=[['holiday','공휴일·연휴'],['season','시즌·기념일'],['shop','쇼핑 행사'],['sport','스포츠'],['content','콘텐츠·게임'],['industry','업계·테크'],['term','절기']];
-  var DAY=864e5, items=[];
-  function kst(d){return new Date(Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+(d.slice(8,10)||1)))}
+  var LANES=[['holiday','공휴일·연휴'],['season','시즌·기념일'],['event','행사'],['sport','스포츠'],['kw','검색 키워드']];
+  var DAY=864e5, items=[], KW=[], WD='일월화수목금토';
+  function U(d){return new Date(Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+(d.slice(8,10)||1)))}
   function fmt(d){return (d.getUTCMonth()+1)+'.'+d.getUTCDate()}
   function draw(){
     var box=$('roadmap'),wrap=$('rmwrap');if(!box||!items.length)return;
-    var now=new Date(Date.now()+9*36e5), t0=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()-7));
-    var last=items.reduce(function(m,x){var e=kst(x.e||x.s);return e>m?e:m},t0), t1=new Date(Math.max(last.getTime()+14*DAY,t0.getTime()+120*DAY));
-    var W=wrap.clientWidth-(window.innerWidth<620?72:110), px=Math.max(W/97,6), total=Math.round((t1-t0)/DAY)*px;
-    function X(d){return (d-t0)/DAY*px}
-    var h='<div class="rm-axis" style="width:'+total+'px">';
-    for(var d=new Date(t0);d<=t1;d=new Date(d.getTime()+DAY)){var x=X(d);
-      if(d.getUTCDate()===1)h+='<span class="rm-mo" style="left:'+x+'px">'+(d.getUTCMonth()+1)+'월'+(d.getUTCMonth()===0?' <small>'+d.getUTCFullYear()+'</small>':'')+'</span>';
-      else if(d.getUTCDay()===1)h+='<span class="rm-wk" style="left:'+x+'px">'+d.getUTCDate()+'</span>';}
-    h+='<span class="rm-today" style="left:'+X(new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate())))+'px"><b>오늘</b></span></div>';
-    LANES.forEach(function(L){var its=items.filter(function(x){return x.cat===L[0]}).sort(function(a,b){return a.s<b.s?-1:1});if(!its.length)return;
-      var rows=[];its.forEach(function(x,i){var s=kst(x.s),e=x.e?kst(x.e):s,x0=X(s),x1=Math.max(X(e)+px,x0+px),lw=x.t.length*13+28,end=Math.max(x1,x0+lw);
-        var r=0;while(rows[r]!=null&&rows[r]>x0-6)r++;rows[r]=end;x._r=r;x._x0=x0;x._w=x1-x0;x._span=!!x.e});
-      h+='<div class="rm-lane c-'+L[0]+'" style="width:'+total+'px;height:'+(rows.length*30+10)+'px"><span class="rm-ln">'+L[1]+'</span>'+
-        its.map(function(x){var i=items.indexOf(x);return '<button type="button" class="rm-it'+(x._span?' span':'')+'" data-i="'+i+'" style="left:'+x._x0+'px;top:'+(x._r*30+6)+'px">'+(x._span?'<i style="width:'+x._w+'px"></i>':'<i class="dot"></i>')+'<em>'+esc(x.t)+'</em></button>'}).join('')+'</div>';});
-    box.innerHTML=h;box.style.width=(total+10)+'px';
-    // 처음에는 '오늘' 1주 전부터 보이게
-    wrap.scrollLeft=0;
+    var LW=window.innerWidth<620?66:96;
+    var now=new Date(Date.now()+9*36e5), today=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate())), t0=new Date(today.getTime()-3*DAY);
+    var last=items.reduce(function(m,x){var e=U(x.e||x.s);return e>m?e:m},t0); KW.forEach(function(k){var e=new Date(Date.UTC(+k.m.slice(0,4),+k.m.slice(5,7),0));if(e>last)last=e});
+    var nd=Math.round((last-t0)/DAY)+4, C=Math.max(Math.floor((wrap.clientWidth-LW)/92),window.innerWidth<620?18:13), W=nd*C;
+    function X(d){return Math.round((d-t0)/DAY)*C}
+    var h='<div class="rg-head" style="width:'+(LW+W)+'px"><div class="rg-corner" style="width:'+LW+'px;height:'+(C*3)+'px"></div><div class="rg-days" style="left:'+LW+'px;width:'+W+'px">';
+    for(var k=0;k<nd;k++){var d=new Date(t0.getTime()+k*DAY),wd=d.getUTCDay(),dd=d.getUTCDate();
+      if(dd===1||k===0)h+='<span class="rg-mo" style="left:'+(k*C)+'px;height:'+(C*3)+'px">'+(d.getUTCMonth()+1)+'월'+(d.getUTCMonth()===0||k===0?' <small>'+d.getUTCFullYear()+'</small>':'')+'</span>';
+      h+='<span class="rg-d'+(wd===0?' sun':wd===6?' sat':'')+(d.getTime()===today.getTime()?' today':'')+'" style="left:'+(k*C)+'px;top:'+(C*1.5)+'px;width:'+C+'px;height:'+(C*1.5)+'px"><b>'+dd+'</b><i>'+WD[wd]+'</i></span>';}
+    h+='</div></div>';
+    LANES.forEach(function(L){
+      var its,rows=[];
+      if(L[0]==='kw'){its=KW.map(function(k){var s=U(k.m+'-01');return {kw:1,s:k.m+'-01',x0:Math.max(0,X(s)),words:k.words,m:k.m}}).filter(function(o){return o.x0<W});
+        its.forEach(function(o){o._r=0});rows=[1];}
+      else{its=items.filter(function(x){return x.cat===L[0]}).sort(function(a,b){return a.s<b.s?-1:1});
+        its.forEach(function(x){var s=U(x.s),e=x.e?U(x.e):s;x.x0=X(s);x.x1=X(e)+C;var lw=x.t.length*12+(x.e?6:C+8),end=Math.max(x.x1,x.x0+(x.e?0:C+4)+lw);
+          var r=0;while(rows[r]!=null&&rows[r]>x.x0-C)r++;rows[r]=end+C;x._r=r});}
+      if(!its.length)return;
+      var RH=C*2, H=Math.max(1,rows.length)*RH+(L[0]==='kw'?C*2:C);
+      h+='<div class="rg-lane" style="height:'+H+'px;width:'+(LW+W)+'px"><span class="rg-ln" style="width:'+LW+'px">'+L[1]+(L[0]==='kw'?'<small>월별 · 예상</small>':'')+'</span><div class="rg-body" style="left:'+LW+'px;width:'+W+'px;background-size:'+C+'px '+C+'px">';
+      its.forEach(function(x){var i=items.indexOf(x),top=x._r*RH+Math.round(C/2);
+        if(x.kw){h+='<button type="button" class="rg-kw" data-kw="'+esc(x.m)+'" style="left:'+(x.x0+2)+'px;top:'+Math.round(C/2)+'px;height:'+(C*2)+'px">'+x.words.map(function(w){return '<em>#'+esc(w)+'</em>'}).join('')+'</button>';return}
+        if(x.e)h+='<button type="button" class="rg-it span" data-i="'+i+'" style="left:'+x.x0+'px;top:'+top+'px"><i style="width:'+(x.x1-x.x0)+'px;height:'+Math.max(6,Math.round(C*0.45))+'px"></i><em>'+esc(x.t)+'</em></button>';
+        else h+='<button type="button" class="rg-it" data-i="'+i+'" style="left:'+x.x0+'px;top:'+top+'px"><i style="width:'+C+'px;height:'+C+'px"></i><em>'+esc(x.t)+'</em></button>';});
+      h+='</div></div>';});
+    var tx=LW+X(today)+Math.round(C/2);
+    box.innerHTML=h+'<span class="rg-today" style="left:'+tx+'px"></span>';box.style.width=(LW+W)+'px';
   }
-  function open(i){var x=items[i];if(!x)return;var s=kst(x.s),e=x.e?kst(x.e):null,now=new Date(Date.now()+9*36e5),dd=Math.ceil((s-new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate())))/DAY);
+  function modal(html){var m=$('modal');if(m){$('mbody').innerHTML=html;m.firstElementChild.classList.remove('wide');m.hidden=false;}}
+  function open(i){var x=items[i];if(!x)return;var s=U(x.s),e=x.e?U(x.e):null,now=new Date(Date.now()+9*36e5),dd=Math.ceil((s-new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate())))/DAY);
     var lane=(LANES.filter(function(l){return l[0]===x.cat})[0]||['',''])[1];
-    var html='<span class="t">'+esc(lane)+' · '+fmt(s)+(e?' ~ '+fmt(e):'')+(dd>0?' · D-'+dd:dd===0?' · 오늘':'')+'</span><h3>'+esc(x.t)+'</h3><p>'+esc(x.d)+'</p>'+(x.tip?'<p class="rm-tip"><b>기획 포인트</b>'+esc(x.tip)+'</p>':'')+(x.url?'<p class="rm-src"><a href="'+esc(x.url)+'" target="_blank" rel="noopener">출처 보기 ↗</a></p>':'');
-    var m=$('modal');if(m){$('mbody').innerHTML=html;m.firstElementChild.classList.remove('wide');m.hidden=false;}}
-  document.addEventListener('click',function(e){var b=e.target.closest('.rm-it');if(b)open(+b.dataset.i)});
+    modal('<span class="t">'+esc(lane)+' · '+fmt(s)+'('+WD[s.getUTCDay()]+')'+(e?' ~ '+fmt(e)+'('+WD[e.getUTCDay()]+')':'')+(dd>0?' · D-'+dd:dd===0?' · 오늘':'')+'</span><h3>'+esc(x.t)+'</h3><p>'+esc(x.d)+'</p>'+(x.tip?'<p class="rm-tip"><b>기획 포인트</b>'+esc(x.tip)+'</p>':'')+(x.url?'<p class="rm-src"><a href="'+esc(x.url)+'" target="_blank" rel="noopener">출처 보기 ↗</a></p>':''));}
+  document.addEventListener('click',function(e){var b=e.target.closest('.rg-it');if(b){open(+b.dataset.i);return}
+    var k=e.target.closest('.rg-kw');if(k){var o=KW.filter(function(x){return x.m===k.dataset.kw})[0];if(o)modal('<span class="t">검색 키워드 · '+(+o.m.slice(5,7))+'월 (예상)</span><h3>'+(+o.m.slice(5,7))+'월에 많이 찾을 키워드</h3><p>'+o.words.map(function(w){return '#'+esc(w)}).join(' &nbsp; ')+'</p><p class="rm-tip"><b>기획 포인트</b>검색 광고 키워드와 콘텐츠 주제를 미리 잡아 두세요. 계절·시즌 패턴을 바탕으로 한 예상치예요.</p>')}});
   fetch('data.json?'+Date.now()).then(function(r){return r.json()}).then(function(D){var now=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
-    items=(D.roadmap||[]).filter(function(x){return (x.e||x.s)>=now}); if(!items.length){document.querySelector('.a-road').hidden=true;return} draw();});
+    items=(D.roadmap||[]).filter(function(x){return x.cat!=='term'&&(x.e||x.s)>=now}).map(function(x){if(/^(shop|content|industry)$/.test(x.cat))x.cat='event';return x});
+    KW=(D.searchKeywords||[]).filter(function(k){return k.m>=now.slice(0,7)});
+    if(!items.length){document.querySelector('.a-road').hidden=true;return} draw();});
   window.addEventListener('resize',function(){clearTimeout(window.__rmT);window.__rmT=setTimeout(draw,150)});
+})();
+</script>
+<script>
+/* 숨은그림찾기: 그림을 눌러 숨은 물건을 찾고, 찾은 것은 브라우저에 저장 */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var H=null,found={},KEY='';
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(found))}catch(e){}}
+  function svg(){return $('hdpic').querySelector('svg')}
+  function mark(t,cls){var s=svg();if(!s)return;var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',t.x);c.setAttribute('cy',t.y);c.setAttribute('r',t.r);c.setAttribute('class','hd-mk '+(cls||''));c.setAttribute('data-n',t.name);s.appendChild(c)}
+  function list(){var n=Object.keys(found).length;$('hdlist').innerHTML=H.targets.map(function(t){return '<span class="'+(found[t.name]?'ok':'')+'">'+(found[t.name]?'✓ ':'')+esc(t.name)+'</span>'}).join('');
+    $('hdmsg').textContent=n===H.targets.length?'🎉 전부 찾았어요!':(n+' / '+H.targets.length+' 찾음')}
+  function render(){$('hdpic').innerHTML=H.svg;var s=svg();s.setAttribute('preserveAspectRatio','xMidYMid meet');
+    H.targets.forEach(function(t){if(found[t.name])mark(t)});list();
+    s.addEventListener('click',function(e){var pt=s.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;var p=pt.matrixTransform(s.getScreenCTM().inverse());
+      var hit=H.targets.filter(function(t){return !found[t.name]&&Math.hypot(p.x-t.x,p.y-t.y)<=t.r})[0];
+      if(hit){found[hit.name]=1;mark(hit);save();list()}
+      else{var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',p.x);c.setAttribute('cy',p.y);c.setAttribute('r',8);c.setAttribute('class','hd-miss');s.appendChild(c);setTimeout(function(){c.remove()},450)}});}
+  $('hdshow').addEventListener('click',function(){H.targets.forEach(function(t){if(!found[t.name])mark(t,'ans')});$('hdmsg').textContent='정답을 표시했어요.'});
+  $('hdreset').addEventListener('click',function(){found={};save();render()});
+  fetch('hidden.json?'+Date.now()).then(function(r){return r.json()}).then(function(h){if(!h||!h.svg||!/^<svg[\s>]/.test(h.svg)||/<script|on\w+=|javascript:|<foreignObject/i.test(h.svg))throw 0;H=h;KEY='adsnews-hidden-'+h.date;
+    try{found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
+    $('hdcap').textContent=h.inspired?('✎ '+h.inspired+' · 아래 '+h.targets.length+'가지를 찾아보세요'):'';render()}).catch(function(){var s=document.querySelector('.a-hid');if(s)s.hidden=true});
 })();
 </script>
 </body>
