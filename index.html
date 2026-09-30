@@ -934,7 +934,8 @@ body,button,input,select,textarea{font-family:var(--serif)}
 
 /* v25: 모바일 — 실시간 이슈부터 아래는 기사 제목만 (요약·설명 숨김) */
 @media (max-width:620px){
-  .a-live .news p:not(.op),.a-live .news .ins{display:none!important}
+  .a-live .news p:not(.op){display:none!important}
+  .a-live .news .ins{margin-top:6px}
   .a-vids .rk-m .ds,.a-vids .tv-pt{display:none!important}
   .np-row4 .ci-d{display:none!important}
 }
