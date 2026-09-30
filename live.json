@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-09-30T16:51+09:00",
- "updatedLabel": "9월 30일 16:51",
+ "updatedAt": "2026-09-30T16:57+09:00",
+ "updatedLabel": "9월 30일 16:57",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-09-30T16:51+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     "다크모드",
     "무기징역",
@@ -31,24 +31,24 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-30T16:51+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "주진우",
     "소멸시효",
     "허경환",
-    "잠실 주공 5 단지 아파트",
     "한국 중국",
+    "잠실 주공 5 단지 아파트",
     "농구",
     "하사",
-    "kbo 리그",
     "장윤기",
-    "양준일",
-    "뉴스"
+    "kbo 리그",
+    "양준일"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-30T16:51+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "이재명 대호김종서함 진수식",
@@ -65,7 +65,7 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-30T16:51+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "여고생 장윤기 무기징역",
@@ -77,7 +77,7 @@
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-30T16:51+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "url": "https://zum.com/",
    "items": [
     "수시 원서접수 먹통",
@@ -1739,12 +1739,6 @@
    "u": "",
    "at": "2026-09-30T15:32+09:00"
   },
-  "뉴스": {
-   "t": "李대통령 'SNS 게시글' 우크라서 확산…\"젤렌스키 모두를 배신\"[이런일이]",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/20260930140306195",
-   "at": "2026-09-30T15:47+09:00"
-  },
   "여고생 장윤기 무기징역": {
    "t": "",
    "s": "",
@@ -1930,6 +1924,12 @@
    "s": "",
    "u": "",
    "at": "2026-09-30T16:51+09:00"
+  },
+  "주진우": {
+   "t": "이 대통령, SNS에 ‘대외비 문건’…청 \"선관위 특검 내통? 사실 아냐\"",
+   "s": "JTBC",
+   "u": "https://news.jtbc.co.kr/article/NB12320709",
+   "at": "2026-09-30T16:57+09:00"
   }
  },
  "disc": {
@@ -5972,18 +5972,19 @@
   }
  },
  "ogTried": [
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://www.wikitree.co.kr/articles/1161400",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
   "https://biz.heraldcorp.com/article/10888599",
   "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
   "https://www.fnnews.com/news/202609300931282436",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363"
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
@@ -9700,73 +9701,97 @@
    ]
   },
   "하이트진로": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
-     "date": "09.16",
-     "title": "[추석특집-하이트진로] 가볍고 시원하게…저칼로리·무알콜 선택지 확대",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBhMEZlLVRKOGZMWWNncjVMbHVSOF9FakEzYlhNNUVlSEVtck5ldGpxOGhZb29JelI1R0Q3ZkZkSzF5V3pwT0JkZFZBOGRwT3VXVzE0aFh3?oc=5",
-     "src": "헤럴드경제"
-    },
-    {
-     "date": "09.16",
-     "title": "하이트진로, 추석 맞아 자립준비청년·쪽방촌에 '명절 꾸러미'",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE94Y3VjQzBjTTNrdFdZenFSVUhBNy1fVGJHaWFhNTVsc25GNHYtQmxWdmx1ZUdfTE85bnN4ZHRJTjJOdXpOclBaYmF4WWZGaUlqNUZxSzdYYzRQVknSAWBBVV95cUxQdFBmZlEtVnZrc1RNNFFuWGE0WU9lR3NQX1hORlRrWHJ4dzIxRHpnRzNwbHNVWXFZTDBTQnVobVVUZjRzNUVNS2o1SGF1T0J6TEN2dGNQX1BVY0M0VjhwUEY?oc=5",
-     "src": "연합뉴스"
-    },
-    {
-     "date": "09.16",
-     "title": "하이트진로, 청년·쪽방촌에 15년째 한가위 나눔 “이웃들의 삶에 온기 전할 것”",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE83dzlvVFVCNEw0dEZKak1XVkk2SEs2ZDM4ZVc5T2dfMnc0Sk5DZFhzX1l4RlB6TV90b0dBVFRqWkwtaENwVjhEbGJmMA?oc=5",
+     "date": "09.17",
+     "title": "하이트진로 '테라', 국내 맥주 최초 NON-GMO 5년 연속 인증",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0teFVJaC00Qk5hSUpMa3R0dmtXQXZtdndrc2QwTFVqbVJKYURQVk1tNTdpelEzU0E5ajdnQ1ZWN3ExWEh6c2ZDNmhZa2FEZWc?oc=5",
      "src": "v.daum.net"
     },
     {
-     "date": "09.16",
-     "title": "하이트진로, 추석 맞아 자립준비청년·쪽방촌 주민 '일상의 힘' 나눔",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5GNnhSeGY4SE1Ta3VFb1R0LW81cTBqdGxMbGx4NUcwc1FHV0VUYmxmMTJGdDVlNmsyYW53WkJoZ1FXR3hmQ1dacVBGZU82NnNlclFhb09sbXdQZ3Q0cFhPZmpoaVBpZjh4TkJjUW94UUhEYjhlYWVRTtIBeEFVX3lxTE5GNnhSeGY4SE1Ta3VFb1R0LW81cTBqdGxMbGx4NUcwc1FHV0VUYmxmMTJGdDVlNmsyYW53WkJoZ1FXR3hmQ1dacVBGZU82NnNlclFhb09sbXdQZ3Q0cFhPZmpoaVBpZjh4TkJjUW94UUhEYjhlYWVRTg?oc=5",
-     "src": "뉴시스"
+     "date": "09.17",
+     "title": "하이트진로 ‘테라’, NON-GMO 5년 연속 인증…“국내 맥주 최초”",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1uUkF0T0ZEYXhUTnBRZnZSNDMyRS1hcXBNSktBbXNUTUlTUFNHamZGVVZaR2ZiTnRPeGQ1Y0p0MUprM0ZlTTdKV2NONXFpSF9GZFNkYm5n?oc=5",
+     "src": "헤럴드경제"
+    },
+    {
+     "date": "09.17",
+     "title": "하이트진로 ‘테라’, 국내 맥주 최초 NON-GMO 인증 5년 연속 획득",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5EM0VVUFoxZFozVUJDUEVWZW1qTzF4SFBtSjhUSV9qMHhNZlAxU2tSMzlBYUczODlzRFVwUlV3dG5zSkc1TTdfc1JFbnhRRjkybXhmYUln?oc=5",
+     "src": "지디넷코리아"
+    },
+    {
+     "date": "09.17",
+     "title": "하이트진로 “‘테라’ 국내 최초 ‘NON-GMO PROJECT’ 5년 연속 인증”",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5VdGhvc0xmM3QzRWhaMlp1S0UtV0NKTklUOUwzaFl6RWVFTGFRSUZyUDFrSTYxRTZhZ0RqWTFQb2Q0aW5oU0J5X0hLN0NLMGVkVURlcg?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.17",
+     "title": "하이트진로 '테라', 5년 연속 NON-GMO 인증 … 원료 경쟁력 강화",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1RYjRMTmVvbzVYVkUzWUZtVVVCX3JyY2s1Z3lpaXJWaUxxSG9tcWhiSC1laTR4blZXbTNhMTd3bUpta0RaeWtUVmZRSW5LSDN3Wm9ZVGJBc0JBWHdUclVrVUhLYTVuUm00SkRJU0NNUDJnMEJteVgzeDlFb9IBgAFBVV95cUxPSnJ6bG9fR2dpVV96ZmlQc3hvNUZoNzF0Nzl3VEp4TEVWdW9WaExvZncyRnBGTUY4dk5XNDdyMkRDMUd3TmNJQmt1Q2M4VFRPYVEzd0oycnZRZWtOUUVBQzFIWURIV1JyQnFDdkptZElGc3RxLVVyUU43NVdjN0hhNA?oc=5",
+     "src": "뉴데일리"
+    },
+    {
+     "date": "09.17",
+     "title": "하이트진로, 테라 5년 연속 논 GMO 인증 획득",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5VejRwbU9GM2JGdXVoM2cwRXI1RUlCeEdnTzVJTXFmZGUwTEdyLXRralB1X0gzWXNxdzF6ZlpnZUNBMnhTM3R5dXo2ekFxZUNQTHhZbmNvN01IS21OLXlrWlFEVWVSRzRSdzhTRnZpYzdwYzgz?oc=5",
+     "src": "부산일보"
+    },
+    {
+     "date": "09.17",
+     "title": "하이트진로 “맥주 맛, 본질을 지킨다” 국내 최초 ‘NON-GMO’",
+     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9UUEVoOXZSajNEN0UxVW9UanB0T29wQWh5WmlZbWtfT0kySHdZQ3lORE1wUVV2bUJtMzB6UmNSd3lPR2cyd2c?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.17",
+     "title": "하이트진로, ‘일품진로 하이볼 세트’ 한정 판매 [고향가는 길]",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5QaE10UDRqSUl3cEU4dVdGU2ktcGp4WHZtQjBib293NjFLMGNTNXY3NHJPdGJUTmpvc01oT1BBVUt1SW1CNHVrbnczWE9LRkhfTUxQTQ?oc=5",
+     "src": "이투데이"
     },
     {
      "date": "09.16",
-     "title": "[게시판] 플래티어, CJ제일제당·하이트진로음료에 젠서 GEO 도입 확대 등 단신",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBWX0JSVnI2ak82dEdDY0xSeGxQMHB4TDNUNGRPc2EtWFVHdS1NcTZ0cGZxdmVqMDlPek84d3dyczMxcVlQRlBqNVU4d3N6b0tLOG00b3k4SzdEOGlFZ3VvV0V6MmlkY0owQVE?oc=5",
-     "src": "aitimes.com"
+     "title": "하이트진로, 추석 맞아 자립준비청년·쪽방촌 이웃에 나눔",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBPRWNkcTlDc0wzSGNLQXVUSkVYbF9oaUY3QWowREM0cVpEYzFqTEQ1WUtxYVQwSjgtRlROUUV5U3JOTmI2U2FwemRIbkVjc2w0MWFoRV92NmFSTHNSR3ZGSDNIc3g2dVQt?oc=5",
+     "src": "공감신문"
     },
     {
      "date": "09.16",
-     "title": "하이트진로, 추석 앞두고 자립준비청년·쪽방촌 이웃에 나눔 실천",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9vOHl3YWw0cDBKVzIyQjVsaDcxMjNQOUhVSFhVaW9oMUwtX0JJZmNEVElkTkxlLWhBaTd3dE9sd0huZGtHQzVWUDk0ZVFhQjBWSWd2OW90R2FzcUxJQ1BJ0gFkQVVfeXFMTkxNS2NIOFdnN3Z2T1BwN1VJZzRaSnFqaF9ETmk1b3dnQjFXTmlIZkxicXFLd0xJUllFaWQzRDhKQnhuVWlBSVA2ZWY0Zk1ndWhEVEM4M1djYXVRTVA1VTBOOFNrZg?oc=5",
-     "src": "뉴스1"
-    },
-    {
-     "date": "09.16",
-     "title": "[특집]하이트진로, 저칼로리부터 과실 탄산주까지…취향 따라 즐길까",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9na0tpYVNRbTVyZ09iR1RiOWM5WVcwNktVM0dpVTlDYlNkTTYxaHMyYWZEb0o1eVA0bHVWb29mZl9PUU9VVVRIak8xcXVyMjZIejByNmZyYzV4UdIBX0FVX3lxTE5PaFdLelM1Q25BRUVjaEhIZG41bjlPc0VaWlFzQVdIY2FHSXppbTIwQnV1dXQ2d1ZTTWRLaDdpeGhqWFJiS3J2bENHY3dLbHB6OHJJMFEwZW43RkppOWYw?oc=5",
-     "src": "경향신문"
-    },
-    {
-     "date": "09.16",
-     "title": "플래티어 '젠서 GEO', CJ제일제당·하이트진로음료 자사몰 도입",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBZWFhYdGxvbldaWTdxUUlUYnNxQ0d4RTlnVWFZLWZSZU5ya2NvVENKNmFhMmRHVmpveDFqWWpkWTFZQjJDcXFTRjlZcXZOSG1FYlJTQWwzdEFQSGNG?oc=5",
-     "src": "뉴스핌"
-    },
-    {
-     "date": "09.16",
-     "title": "하이트진로, 추석 맞아 자립준비청년·쪽방촌에 따뜻한 나눔 실천",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBZcEhaX3Z5Q251T21NLUltcUF5MnFIdUlqbWsyaXVqTG5KZ251ajE3b185WlRyTFYweENuMlk0SFRlMTVuUXJrakRuUEZjcHZOWnFLcDd5bEVOU1hTUk4za0t0Q1U?oc=5",
-     "src": "서울경제TV"
-    },
-    {
-     "date": "09.16",
-     "title": "하이트진로, 추석 맞아 자립준비청년·쪽방촌 주민에 '명절 꾸러미' 지원",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5RZ09oVVhQckI5MHVPQkd6aGlJWTJSQW5fMjYtNHczLVVsVkhiU1lxMEpHVERFZ3RhMEdhMnFMSUozMERqNXFqejMyZTVPakV2ZEE?oc=5",
-     "src": "노컷뉴스"
+     "title": "하이트진로, 추석 맞아 자립준비청년·쪽방촌 주민에 온정",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA4eXdPbi1YbTV5RFlUeENuczBGMWp1Mk8tTXAwMVJKWmZvYm9aWTNUYndyVC1wR0RUWVVqQk1KV3JlRXozRVBKNzBkSDhvZHNmdmx4SA?oc=5",
+     "src": "v.daum.net"
     }
    ]
   },
   "롯데칠성": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.17",
+     "title": "롯데칠성, 저탄소 제품 12종 인증…업계 최다",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45Rm0yTmJpQ25DV3h6bjhDMTRKSzFOc3Y2eGhGSkpPOFRqSUFCbTYyZmFoaURkNkRrQjFqR2pFTTFTbkc3ZWY5MjRkTTN4NGdBU3BIUHU0aVMwU2fSAWBBVV95cUxPQnBUd212REt0eFZjZVR4RVNsbFVmSlBHSC1GcVZLMkc0WG5UT0VTUWVLSk96bEc0QTNWamZSRkE2WHhiMjlHRmZ1bkE0ZDRmb2JpVV95SGZ3ZFhfZllLSVk?oc=5",
+     "src": "연합뉴스"
+    },
+    {
+     "date": "09.17",
+     "title": "칠성사이다부터 새로까지… 롯데칠성음료, 저탄소 인증 제품 확대 - 조선비즈",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONTMxUjNTN3ZhMGRzbXJ0RExkdmpLenI5OHFBa0dieTNFZGxLU3hKSXF3MXpFQ0YyX1FhSGtBOFg3N1A1Q29OUjVvRVRQb2JYX1BnWTNVQzNkM2ZuSXRRZFRJdld5d0J2RFEtVjVlLTF5RXAxYVIzTEdyMVI0My0tdkVYWVhRZ9IBmgFBVV95cUxPbjV2VXlaRVBaX2JxUUxia04xaVRieWhNZGg2MmFEVWRtcTNxbnhqQmJVaUFtTTRFUzVyZG5sZGhyUlpTQkJqTXhVcmk4dmNyRDRMbV9ELTJiQmhQbDktb0lpUnpSekd2S1ZzODdMYktXLWFiUk12YUlSTEVLRFQxTFd4a1hsMmR1MHRlUXZmY0NDVlR5Y3BRM3lR?oc=5",
+     "src": "Chosunbiz"
+    },
+    {
+     "date": "09.17",
+     "title": "[MD라이프] 롯데칠성, 저탄소 인증 12개 업계 최다…칠성사이다 등 친환경 제품 확대",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBVam5qejFlZmhFV05GSUxVS2NTUlppY0lUU05QNXh0R3B2RXJTUDBzZzR5UVVxb0RSWmVMY2dReXY5b2pFRTk3LThtdzFfZTY5RHhFdS1wSnFSdERZckg2Qw?oc=5",
+     "src": "마이데일리"
+    },
+    {
+     "date": "09.17",
+     "title": "CJ제일제당·삼양사·롯데칠성 농해수위 국감 증인 채택…‘담합·부당거래’ 쟁점",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1Jd1U4eFhLaDhKT0NQVUhIQTR5bFU0WmFITnM5TEhtYXhRT0FKbEtYZ1UydHBQMXFzNm1aRU81TnY3c0RpdlAzTXdmSUZPWVh0UENLRHlPa2hidUVhdGdrTktnT255dw?oc=5",
+     "src": "푸드투데이"
+    },
     {
      "date": "09.17",
      "title": "롯데칠성, 저탄소 인증 12개···재생원료 확대 '속도'",
@@ -9783,7 +9808,7 @@
      "date": "09.17",
      "title": "롯데칠성음료, 저탄소 제품 12개 인증…업계 최다",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBpYVBsWVc3YkRpU1NXd2tZTTd0bmpBRUdPcDI1X1pYVnZtWHJudUltdm1yYm1ERGdQN0pvX3JhQUNhdzNzb28zVEJVS1FjRy1ZSzFVNTFieF9WTW1DdGd1SnNpRkNFVmxD?oc=5",
-     "src": "ngonews.kr"
+     "src": "한국NGO신문"
     },
     {
      "date": "09.17",
@@ -9802,42 +9827,12 @@
      "title": "롯데칠성, ‘애정·감사·풍요’ 담은 델몬트 추석 선물세트 7종 [고향가는 길]",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBkMXhGUmZ1b2IyQVdzZGNrbHdlSE1GaGJtWFh3czMxSWRoT290WE9qMF9GRkE0cFRIOENLQmgzZlQtbGlhTjRnblUzd3ZjLWRuUFZtWg?oc=5",
      "src": "이투데이"
-    },
-    {
-     "date": "09.16",
-     "title": "롯데칠성음료, 82년 전통 차례주 '백화수복'…원컵으로 MZ 술자리 공략한다",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1mREtsbWRiU3BDMm1qNmhNNGo3eUxlclJrZjlORG81VXRsMmZyTDdoNmJoTGM2TTNFNXA1V3gtV0N0Y2lPZ2JpN2thVUIyQ1lnVFhOeUFnTDZGdw?oc=5",
-     "src": "한국경제"
-    },
-    {
-     "date": "09.16",
-     "title": "롯데칠성은 햅쌀 305포·한전은 상품권…추석 앞두고 온정 퍼지는 강릉",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE03OHd1eDJ1WEdfVEM2S3ExLVJiRjJOeHBPUjJWczZFQzBzUVRNd1YxSTZzYk45WFJDaTMtcnh2R25tSlZJMkx1RmJ3OEV5OFNQSk04RtIBWkFVX3lxTE03UnhQWkdNVnU5dWxzZnVicGhqTmRScFhYbV8waDl6MmFjYWtGQW4tTE1qUDJpN2RrM2VLMEdqRzF5X3hPMjVLdWU4MGRWYVItVDNJQjc5T3FqUQ?oc=5",
-     "src": "뉴스1"
-    },
-    {
-     "date": "09.16",
-     "title": "파란색에 담은 짜릿한 청량감...롯데칠성음료, '핫식스 더킹 프로즌 블루 제로' 출시",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8tODY0czNDdkZ2b0hlbzhEQXRuRHZ2RTdXTEZja0g5OFZxbE5ZU0loWlBuWXF0Q05nLVNsUmN2UXhqVlVXN2p3UTJ4WmtqeUx5M2tuR2w2a293UG9RaXZwUnJOeFRoUmFmY0E?oc=5",
-     "src": "소비자경제"
-    },
-    {
-     "date": "09.16",
-     "title": "롯데칠성음료, 추석 맞이 ‘델몬트주스 선물세트’ 7종 출시",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1WVWZqM01LcmtvNjV3ZVkxVlBSeHJ3ejJuNHlYNWY1VlA0THM2dkNqbTFWdmk0X2lDT1F0UWd3Sm5INTlqbWtFczRYTWdCLVhtdFNubXdEeDR0akFnTnpsWk5JY1B0NUduOGx2bS15VDVfMmc?oc=5",
-     "src": "sports.donga.com"
     }
    ]
   },
   "CJ제일제당": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
-    {
-     "date": "09.18",
-     "title": "CJ제일제당, 추석 맞아 전북 취약계층에 식품 기부",
-     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9URjZtSXdxSHNfMWc1TmFCV0VZalJZbzJqeGNrTGhWSkZUZkIxS0lyOXNSZGM2NU5LRThnZmE0YUtPa1JLVVZyeTNNZFZ6bXM?oc=5",
-     "src": "v.daum.net"
-    },
     {
      "date": "09.18",
      "title": "CJ제일제당, 추석 앞두고 전북 취약계층에 식품 후원",
@@ -9855,6 +9850,12 @@
      "title": "CJ제일제당, 추석 맞아 전북지역 취약계층에 비비고·햇반 등 후원",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE50NXljN2RXVVZHOWZ5b2dnRGZPVGYzZm90b0kwS0kyb1lIczdlQjNFY2VqWlB4WGhQTzJDcl9SanBDUE1MZVVTX29nMUhQOTVuWTJQTw?oc=5",
      "src": "v.daum.net"
+    },
+    {
+     "date": "09.17",
+     "title": "[오늘Who] 윤석환 CJ제일제당 해외 마케팅 '전력투구', K푸드 영토 확장에는 비용절감 기조 예외",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE50QkNmdlNyYndTVmtXeWVsRzU1ZVRtdkVzR09aVHdUMGUteXZzdnZiSE5tYjVhZ1NKU2dQTVpUQUM4Sl9YYnhMWWpnZkp2RUFFT0NiTFJtTHZGQ3dWY2g4djZHWXVDc1JILUN0UnJaaS1PdE0?oc=5",
+     "src": "비즈니스포스트"
     },
     {
      "date": "09.17",
@@ -9882,21 +9883,39 @@
     },
     {
      "date": "09.17",
+     "title": "[클릭 e종목]\"CJ제일제당, 곡물값 올라도 OK\"",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9TeHlzSEp0R1pFd2prQWRSVE11R19NWTczNldEaGFNdGN2Z1dlNmM3LW8tdXktdk96N1lzcEtBM2E5bHJKRTJPWnNKMA?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.17",
      "title": "CJ제일제당, 추석 선물 260종 ‘역대 최다’…과일·한우까지 넓힌다 [고향가는 길]",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1vel9fdm5ZUExfOWVFVlctMVpYemZ4Ync3aUhzbFhsR2ZrQVpTbXVxakF6dVlIUkxaUHBkdmllV0pJSmFPbXRodmRiSVVSelNWNDRtNA?oc=5",
      "src": "이투데이"
-    },
-    {
-     "date": "09.16",
-     "title": "신한證 \"CJ제일제당, 유가·곡물값 상승 수혜…목표가 26만원\"",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE90VVVfUW5jUlVRcHFPaV9fdFJiSklGLUVtUFl4SjFDTlhjOWlmaTZHQlZPNlB1M3V2YlBSQjdERjREa2VpMVRUMV9ibFo4Sm1NWExueA?oc=5",
-     "src": "v.daum.net"
     }
    ]
   },
   "아모레퍼시픽": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.28",
+     "title": "[오늘의 뷰티] 아모레퍼시픽·LG생활건강·애경산업·아이소이·무신사",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5pX1BCN01RVTBST09WV3c0a0UxckNsRG1iRWlJS3gtbjlWUnhkcDhrS25OM2kxSUR5U0xYX2tGSzczQThBbVgxUUQtT21ra01BNU1oYl9lN2ZWd1Mtd0JiOFZ2Y3psZnJ2b2V5eFdYMk9NZ0w1?oc=5",
+     "src": "파이낸셜리뷰"
+    },
+    {
+     "date": "09.28",
+     "title": "아모레퍼시픽, 헤라 '속광 메이크업' 공개...\"하루종일 맑음\"",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ybkJJYzRZa2toSm5jOG5TR0VHdHlpQTdrdkxrNUVBOTlPQVVfT09vNEhGOG1Rby1yQVNJV05ZSTRtOW9vRlJra3FqbGxYWS1tSDZEOWRrQTU4bGoyODdSZw?oc=5",
+     "src": "메트로신문"
+    },
+    {
+     "date": "09.28",
+     "title": "LG생활건강·아모레퍼시픽, 멕시코 K-엑스포서 ‘닥터그루트·더페이스샵’ 팝업 운영·헤라 ‘Still Glowing’ 캠페인 전개",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB5ZmZSSEhzYzVfbFNyZEFid0Z6QkJlX1JTZDA5UFZwOGN6SWhLbWhya25FUUFwUWFSVmVoRXhLZVZzSE1VLWp6b21UZEQzamNmUGZ6dlRHdHpZVW80elptaDhWZElTZw?oc=5",
+     "src": "여성소비자신문"
+    },
     {
      "date": "09.28",
      "title": "K뷰티가 시작되는 곳: 아모레퍼시픽 본사에서의 하루",
@@ -9929,24 +9948,6 @@
     },
     {
      "date": "09.23",
-     "title": "마케마케, 30억원 프리A 투자 유치…아모레퍼시픽·시그나이트 참여",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1TN3pWdTJPUHlkQTlqNUdQa1RoSm91bUZXdTVmbkhaT1ZjLWJiN3BOdV8xdHFiVVlRTUduY3kxZC1EMmQxNXhVMjNYcWVrTFEtNDVOTDliTTBVUmlaTFA3REtiWVdnYmxz0gFsQVVfeXFMT2ltTmY4LVRONmVGQkNrZmRaZ1lYNS1rVG9yM202MGoyZFc5OFpqUGdaSFpuU3BCN2QyZGwwX1hUNnVSV0VQX1ZUMnJwNThXR05Nd3lqSV85MDI0YThMZ2tmU1ZEOUpSUHJkT2Zw?oc=5",
-     "src": "스타트업엔(StartupN)"
-    },
-    {
-     "date": "09.23",
-     "title": "[청년뉴스] 아모레퍼시픽, 청년 360여 명과 플라스틱 3306kg 수거 外",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBhS1dkMWRxTWtzY0VhQmZOT2hEX0gxYWdHcVdGUEZsUVoxU2V5ZkhkMUJpMXJ6Ri1QaXNMX2ZuRXRqbENES1NpOWUzVDloQ0Y2QVpuMm92YjhBWTVsdmNaNm9qQ2ZFS1FvWHM0VQ?oc=5",
-     "src": "ibabynews.com"
-    },
-    {
-     "date": "09.23",
-     "title": "아모레퍼시픽홀딩스 최대주주 측 지분 또 늘어…잦은 공시 이유는 임원들의 연속 매수",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBzWWY0djBPR2xGVGdhZVgyVDJsVHd1Z0pWY09ubHhoYmVEZnRlNV8xTkd6blMzdnR1UHJjMGluTXhQSG5KQ2JMWmxiaUxXZy11X0ZxQXVyRXpaZDFjSk9Qa3lOZmZORV82TF81MHhn?oc=5",
-     "src": "이슈밸리"
-    },
-    {
-     "date": "09.23",
      "title": "아모레퍼시픽, 플라스틱 절감 캠페인 성료",
      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4ydHBtOFZ1aTdLME56eVYzMWx0UHFUOUk5bVFjaE5BWjE0MTlCQXRVSE9mQkhLekJabzM3WW1hMEl1cVdnckdZTEEwRFZFcE56elN5Rl9GbVZmYWJ4a3pkcVRpd0tXaWV2NEE?oc=5",
      "src": "bosa.co.kr"
@@ -9960,8 +9961,32 @@
    ]
   },
   "올리브영": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.28",
+     "title": "산리오 다음은 ‘OO맨’…올리브영 협업 연타석 홈런 노린다 [언박싱]",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1VOHAtWVp0S3RWQzJlOUhlV3hnYUUyckd2RjJjNHlDZy1SaFpQU0VuYkJJblR2NTRkcXcxRG5rOVEyb2dISnZPbXB4ZXVGb21KUFotTVd3?oc=5",
+     "src": "헤럴드경제"
+    },
+    {
+     "date": "09.28",
+     "title": "정샘물 '아이 겔 패치' 올리브영 헬스 카테고리 1위",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9abXVrN3ZubmVNV09wZl9DaDRYUEJvcld3WmUyYzJrc0QwZHYyWVJ6NExsbTVOTjVsSDhDYmlCUWpVdTVLZ2tUai1STlJEYnZnZ1hLRW1nclIxUWVxTjNz?oc=5",
+     "src": "보건신문"
+    },
+    {
+     "date": "09.28",
+     "title": "‘제2의 올리브영’은 없다?⋯ 분화하는 오프라인 뷰티 전문점",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nSzZNUXZwOHdLWlhwaHl0TEhUVk9lYkVqVlVDdU9SYnhMcjVnVjRfUU9iOVVyc1FVYzkxY2diOTR3RmpCZjBEZ09aSWo1a3BJbWVtRGVObjlzUQ?oc=5",
+     "src": "브릿지경제"
+    },
+    {
+     "date": "09.28",
+     "title": "아누아, 올리브영N 성수서 ‘PDRN 라인 팝업스토어’ 운영… 브랜드 경험 확장",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9WMVViSEt2UFA4ZHZ0YmtyX2d4X1FaNFJDdWp6RHM4VzB6XzBUSXlrWFEyVWJkLTZKaDREeHBNRlFBaVZYVThPbEdydmotMXhrX08tb1BZVlByX0pIeE1UaFBGUE5lUlNjZU5QUHln?oc=5",
+     "src": "koreasprint.com"
+    },
     {
      "date": "09.27",
      "title": "올리브영, 웨스트필드 센추리시티에 북미 2호점 오픈",
@@ -9981,34 +10006,10 @@
      "src": "kyongbuk.co.kr"
     },
     {
-     "date": "09.27",
-     "title": "올리브영 모바일 앱의 통합 장바구니 화면",
-     "url": "https://news.google.com/rss/articles/CBMiwAVBVV95cUxNeG5XM1JTR1lpdXhyZ3ZhRlNhRjNYNzJDQWYxV091SGh6UXV4NjRwb0JsVFRGaUY2S28ydWYzZFE2TUpoM0R6NzJRWnVmWkhTaEE0SG9SODl5Vy0xaElvdl8wekpIT3NvQVVPQ3I1QXMyVFl5ai03RFl0RVRobXJYUXh5TDZfQTNxQzgzbGxjenpfUERoWUNlTXBZYW1xT25MeFdRUW5VQ3U0OWFKMEktU0YwRV9MZ3A1YS1zTVNoRWdNSWdqc21wMG1OUEhUMlBCS0tDOElZSEJnMnowRmpxMWR5MVVmZDdnaWZnR054UXp2V0xwcEZzSkROVlBER1ZjQkRrVHFVVjhJQ1Uzc1RsZ0lQWUxMRmJLd2I4dTdHSDU0Y3pkNjJqdThHTUMwOVdOZFhpb2NRWXJJYmFWcEhic0ViMjZldTRDNEkwRE9zeFNORGFvaWtwMm02bU5TZFJEUkZ3Slk1UDdTMjZFLVNpaEJLeG42ZjloaFdDWFV0UW5iTmp0QWRDYTdlMzRtTklDUmJZc2h4dEZkY0Q0VmptZDhwem9BeFpYVm9OaEdXUlpVQlFpNDlNeE81d0Y5ZTdycGs2Q1g2WHBhZVI1VWZYakNOdXRLd2JiQVZuQkpnOEtzYmlwMWR1Wm95SC1wRzZnM3VVR3RPaG9BWGRVT1pzZVhQN1FxR3o0WDdpZi1xRDJwM1ZOUDd3aGtyT0JFMWJxMUN2RkoxS09hNEdKQmVPUDgtVXc4RC12ZmM1dWoyXzV3UkpqUHNvRmhDQ0ZBSENqUWNKVzBFMG1UbTVFRnpob3JocXJPMGI5a0VTMWFhcW42eGlKSHpvLXNOcnpjQmNFOTFoS01IclpIcEluVkJMazZudmc1VGM1a19jWW1IV2ZyckdpUlNOWld2OEp0VkswMHQzTUd2UmlWSHRhMFFxNg?oc=5",
-     "src": "전자신문"
-    },
-    {
-     "date": "09.26",
-     "title": "[동정] CJ올리브영, ’26 하반기 신입사원 채용",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9QTFV1QVFhS09WZXJseGtsRk5Mb2s0WUE4LW9reHlESjI5TmNJZHViZzlLdkdFb3pfUUFpZXhhb09JOWc4S2hHc0JYdU9zUFdUR0dqREgxZUlNV002SzlOcEV2X1l5ZWs?oc=5",
-     "src": "주간신문씨엠엔"
-    },
-    {
      "date": "09.26",
      "title": "“올리브영 잡아라”…다이소·무신사, 뷰티 오프라인 영토 확장 가속",
      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1OTm1oVUVnX1pxMUlUYWczbE1abVZBVHRwRDNtZGRhV0V4QUtFY256QTZES0RBY0c4TnN1emFNTEhvd3ZucERkRExOS01JcVJyeENJUHotVzN6RVhHWUlTQUlfNkJpeHcxMGk2Rkx2MUdOd0YyY2fSAWZBVV95cUxQTTlCTXNyLWw4a1RVcmVLRkVZenBMNVpXQTE0eHZnZDlPaG1BaGdhV0xaNHpKbG41N1pmNE8wQWt2RmUtTFpZeGliOFNmWkJod2d2bFUyMkE4aUhyV3JWOWxOUlItWlE?oc=5",
      "src": "동아일보"
-    },
-    {
-     "date": "09.26",
-     "title": "CJ올리브영, 1분기 매출 1조5372억",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE0yRjVxYXhDU2FMVjU1VF9vbDJLS0JTRmQyMEhHMDQwQmpQMVRQcThTbzV6MnBUdUttcEJnTk1kSHZOaWJqRTJFdGF6Q1BGZ3NyWlBCbXdDTnlTM2VZdjNwOXh3MjQ2dmlW?oc=5",
-     "src": "이투데이"
-    },
-    {
-     "date": "09.25",
-     "title": "춘몽 섬유향수, ‘핑계고’ PPL 공개… 올리브영 ‘오늘의 특가’ 동시 진행",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE11YWtrcEhHd09ZOWprWlFldTRQVWVpX0lWdTZFWG94RER3elU2eTgwWTBja2g3Q0JkMTNtMTZGaFl4UkU1VG9xcHE0cDVXV0F3?oc=5",
-     "src": "패션비즈"
     },
     {
      "date": "09.23",
@@ -10025,8 +10026,26 @@
    ]
   },
   "무신사": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.23",
+     "title": "\"외국인·2030 잡아라\"…올영·무신사·오프뷰티, 홍대서 오프라인 맞대결",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9fcE5uQUY3VDVFb21Ld1I5U3QzQk1hcU9xMTNETEVuUk9XNUtPU2gyeHBYUjVINlRIdmdrN2VXNkcwd1pyWTVLRmtMMndCekZxM1VfNEx4X25zUk9ZdG1LN01ienQ3MHdiUUE?oc=5",
+     "src": "포인트경제"
+    },
+    {
+     "date": "09.23",
+     "title": "한투증권, 무신사 IPO 주관하며 조만호 개인회사에 420억 대출… 공모가 산정 독립성 흔들 - 조선비즈",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQdXd3OWdCYnN4bHB6Sk5PeEs3TnZETUVlWUIybGpIWkZ4MW5KQ2twLWttSm0xeHlvV05BRnRsbkdwVHJnM0FDTGNHWmNHU0hCeV9lci1GUDhxOVdfVjlTdHRVeDdjMHd0S2w2bFp3WW1qWWs5cU1TZU5Mcll6cHBxUDkyOGRlcjN10gGcAUFVX3lxTE92R0JmRWo4RG5CQnRGa2pMNkM5aWlxSVBCUHlnVzY2cE1lNndEeldEQ1dBd3ZqcTdsa0c2TWxVY2syYjhFQ3g2TVRCdWRNNGt5SkY2ajZSeV9idEEyLVlzdmVncDNBSndSS0pST0NmV2dfSnlZdmsxTmxQZ0RNZUxFUEwwN2h0bUcweXJyeW8xa2lzQ2VOdWpVYnNkbg?oc=5",
+     "src": "Chosunbiz"
+    },
+    {
+     "date": "09.23",
+     "title": "무신사스탠다드, 나우아임영 '새깅' 스타일 녹인 한정판 드로즈 선봬",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9fTWFQOWtvNEpSZFpkdXRDM3pfM0dETk1xQ1hzSEhvdDBSY0lzelVITlk0Q3pIT2F2aGg2TFlYX21QeGhVSnd2cEhDZmRaQlhz?oc=5",
+     "src": "패션비즈"
+    },
     {
      "date": "09.23",
      "title": "[단독] ‘소요한남’ 실계약률 바닥, 무신사 IPO에 암초... 조만호 의장 지분 담보가 ‘발목’ - 조선비즈",
@@ -10038,12 +10057,6 @@
      "title": "무신사 스탠다드, Z세대 '나우아임영'과 협업 에디션 공개",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBYR0VMMC1FRllhOUxucEloWVpMZHJSUE56Nm13SmExZjBVTkRJXy1CMXZxRVpyQ29LWEFwMEJacTgwcEZmYzNWVlVsSEgyWXR0UlgyeEllRTVlSFN1anh4MjR4OUQwaUZIOW1FbGpfejU?oc=5",
      "src": "신아일보"
-    },
-    {
-     "date": "09.23",
-     "title": "[단독]무신사 개인정보 16만건 뚫린 후에···‘우리도 당했다’ 8곳 추가 사고 접수",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5WVGkyUEZ5ekdXdER5RWNLMnlFWERaek0wU1RPTElTV3l2WmdsZGtDU0lTaW9Fc1VxakV5Rmd5SXdITzhWVC1LeWVseWtRZnR1UDhJNzNzV2dHZ9IBX0FVX3lxTE5QZzJOTC1VT3N1ZDZsT0tNUC01eTFiTzYtcFBhN2FVU3UwazVzdnI0cEJ6OGhSQmM2YmJsZUE1cTNOZHVxSm5MVXc0MWtVRklSWWFuVDhnV0NadTAwUk9j?oc=5",
-     "src": "경향신문"
     },
     {
      "date": "09.23",
@@ -10059,21 +10072,9 @@
     },
     {
      "date": "09.23",
-     "title": "블룸타이드, 무신사뷰티홍대점 공식 입점…MZ 소비자와 오프라인 접점 넓힌다",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5VNlB2MlhvREhrbTl2TkhJQTBrY1JDSDFTOFdTdF92cEhVdUJTNW9WbkFCQWQtME5yRE1MLVlZaWozSVk4M2pncm5wUQ?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.23",
      "title": "무신사 스탠다드, 나우아임영과 협업한 한정 에디션 출시",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE03d3Vxb01wczBIdTNDdGFpS2FFbXBRWWs3ZTFVZDQtc2ROSVRxT3BORk5XTWdFS1lzR3pqMU1iMzRBQ1BuMkRvUkF6VUZibmZPRF9UTEN3VE4xLTZNUVNZbdIBeEFVX3lxTE5SdzY3Y1p5MURLa1RKSmlMeHRpWXBpNXZvdUJmYkJxRmNHM3VUMzFJTEV2THdJbHU2eC1SX2ZGZy1YbWdNSFROY2VXU211X1BJSzNPRVBVRTJWWm96WkVjREhVRDNsT3c3dDVaUThCNjlKT3ZsWE5Oaw?oc=5",
      "src": "뉴시스"
-    },
-    {
-     "date": "09.23",
-     "title": "무신사 스탠다드, '나우아임영'과 한정 협업…드로즈 3팩 출시",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9ITjBuR2hNWXdzMmVtVGVYcUxCcmNBUVZtbVQ2RG5EYXc2akpoeWctVGtxQm5kTEo0b2h4aG9wYWtMbUZCSjBTa2VPenRpWnptYkl5Nm8ycVVOTkg3?oc=5",
-     "src": "뉴스핌"
     },
     {
      "date": "09.23",
@@ -10090,31 +10091,49 @@
    ]
   },
   "KB국민은행": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.29",
-     "title": "KB국민은행, 카카오와 손잡고 '넥스트 파이낸스 코리아 2026' 개최",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE56eElvb29lSXZCZ3dPbXphTkVQQ0Q0VlhieFpkZmlDbW5scWl1eW12WXlkSnlYbzJCME5ENUxockFPbmM2VURoa2taaF9nSHctWjUzZVB1WU9pdm1vd2dTSHF0M1F2VVRqSlQ40gFuQVVfeXFMUGMwSGk2MG1VdFppM2duc0dWZWJCSWhFMVhjS2pTMThtYjJfZmJWQWx3X1ZCNnF5bW5XOHp1TlF3alpUQkhVQl85cVZCT0ZwbDRBOTF2NTBCRklzTEF6c1laUTM5U002Ty0zM2piVFE?oc=5",
-     "src": "뉴스드림"
+     "title": "KB국민은행, 카카오와 디지털자산 맞손",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBvcDY1WnRxaDQwaTZTR3M5STh0MkJXQ2JnOGVBOWtyYnEyb0pDODFlOHdQc2pKckhXNHlsMml3ZUEtTWo3ZVNqU01PVC02TmNYNFNzTWxuc2t4RFRORUVNZFpB?oc=5",
+     "src": "매일신문"
     },
     {
      "date": "09.29",
-     "title": "디지털자산 시대, KB국민은행이 꺼낸 키워드는 ‘신뢰’",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9hUFBtQWNPVG5veXRmVkI2bWQtSVVXSlRzcm93RGY4VEVOaUsydUZ1djJEZlNlZm0wNENHSkM1dDlhOHdKaXk0Y3d3NU1TYTFvcUxIX2F1QXJ0MG1lcHpHcW5ZS2NXLTY0UEHSAW5BVV95cUxQVDJmREJhS0l2bl9XUkNBODJnclNRTzloMEotS0d5UF9BTmd2RmFIQ00tY3FndXhCVklYOTdZTFhsaVpzS25jc1V4SEg0MTZhVDl1ZkVfS1VfRkNkcV9qWGNSTTBOYVJQZXpoMVdQQQ?oc=5",
-     "src": "the-pr.co.kr"
+     "title": "KB국민은행-카카오, 디지털자산 콘퍼런스 개최...핵심 이슈는?",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE4xOVVIOU03X3NiOE9faFl5eW9XUGZpS3haeE1Damt4ZnJEM0RTb0Fvb3JXN2VweUtGTjZ5OXJ1LUctcHlEWGRxQXFRYm04Nlp1bkhFU29GZE9UaTE1bmhURjBsTHJRbzZ5NnBKY05sdETSAXNBVV95cUxQYmxBbWtnNDFrc3JYSG96NzYzbjNCc2ZIcThFSWJuemE5Nllucll2UXRJRlVSSnhLSlBsTUNoTHY2bFZGNFUxY3dZQURsNy0wdktiaElhTXpLSkZIWjJXZEpoM0ZtMmlKdFliVW8wS0J4RGpZ?oc=5",
+     "src": "초이스경제"
+    },
+    {
+     "date": "09.29",
+     "title": "KB국민은행, 디지털자산 시대 은행 역할 구체화",
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNzB4cDg2MWdDODRRdnhIelZVc0FRSm42WndoZWF0Y3F4OWxSV2hwWldlTHQ5X1YwSkJaMnJQbkZTTXdmdGlxOHA1cllMVk9YeTRvWHZVVFdsSk51OUwtdTUxS0pfNy1UOTB3alJKcjNFWktsTVdtTUtSbWtQNVVaVU05ZUI?oc=5",
+     "src": "글로벌이코노믹"
+    },
+    {
+     "date": "09.29",
+     "title": "KB국민은행, 카카오그룹과 디지털자산 금융 미래 논의",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8zNlFSZUV2akhkZWlQWHJkSHpKRGNhZnhJV2I2MTE3Yl9CcHZuRlB0U2lxd2JvcnpVNVhBMzN5bDRhUUk4UmJfSFFLQW40VmlSMXdJNmVSWlU1ZW5qSmdjUWo2LUF2OHVC?oc=5",
+     "src": "공감신문"
+    },
+    {
+     "date": "09.29",
+     "title": "[은행브리핑] KB국민은행, 카카오와 디지털자산 시장 발전 논의 외",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA4OUt5cFEtTGt6bmkya3ZhaVpGUFBKU25aUXhZWDJlY29ZejRXVGt4SnI0UkdTRUNyN0ltazd0RERYTGlKR0pmR1ZWTmp0eHBKTkVrWVRGTTgwQms1Si1rOFBwbWZhdlI2RHc?oc=5",
+     "src": "서울파이낸스"
+    },
+    {
+     "date": "09.29",
+     "title": "KB국민은행·카카오그룹, 디지털자산 금융 역할 논의",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5VSE9VUjBQdVQ2NDB1RDg3b1lSRzFjUFFndGVpdE94aTNERjF2dFd4M1dSMHV6LWZmMjlmcjJzY19QbGs3Zjc3Vk5lWEJOUU9peVZoNW5vamEtRUhzUTdZLWdrUmdqdw?oc=5",
+     "src": "디일렉"
     },
     {
      "date": "09.29",
      "title": "KB국민은행ㆍ카카오그룹, 디지털자산 협력 논의⋯스테이블코인 생태계 구축 모색",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9qY3dQUHpJeGVVODNtMVd3T2NvR2xIbFNDZFRpQmswLXVGRmdCcXdMUmZYeGg1TDFoQjdsUWstUkptYUpTc1VPY3ZJVzVyZlFJYlNVRXRhakUzOXRyUEdQb1VsOWlIUU1PTENqaHhvcU5XZw?oc=5",
-     "src": "이투데이"
-    },
-    {
-     "date": "09.29",
-     "title": "KB국민은행-카카오, 디지털자산 발전 방향 논의…“본질은 신뢰”",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1OTWJjYl9hWFFtTWFBdFNYeGNLVGZZTnRRVlVJUXhjaDJJdDBLT3N3YkU3aGxKSjZCY0IyOVFFQW9YdFhKRHVVUVViU0tDMUJlYmt6R1BTYl9YYk9aYjZtT1NpZUMzQdIBZkFVX3lxTE1OTWJjYl9hWFFtTWFBdFNYeGNLVGZZTnRRVlVJUXhjaDJJdDBLT3N3YkU3aGxKSjZCY0IyOVFFQW9YdFhKRHVVUVViU0tDMUJlYmt6R1BTYl9YYk9aYjZtT1NpZUMzQQ?oc=5",
-     "src": "동아일보"
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1lc1NuTFpMVnI1UVoxa1BqSDloQVNuMlNGRVplZ0diN1ZQOUpBaW13S1paQjljSmg4NmJIY3V4YUdjWWZlWGdHOWUwRHNfYzA?oc=5",
+     "src": "v.daum.net"
     },
     {
      "date": "09.29",
@@ -10124,27 +10143,9 @@
     },
     {
      "date": "09.29",
-     "title": "KB국민은행, 카카오그룹과 디지털자산 금융 역할 모색",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5oNzFrbHFoLTJVOV9TdjZnV2toc1NocUJaWGFPWC02cm1iUWpXVF9HdnRnT2JHLWw3R2paT3N4WEhjd09ZODRfdzVnTi05d0Y2M2djRW42Snp4S0RxM2FpZU1DYmsxZ3ZKODFoZdIBcEFVX3lxTFB6Qmk4dGkxaWxZNGZFVjdxSE5sdkpyRHNUQ05MMHpsbDBnZkU2SW1acV9nWWtnUHBwNF9XMXh6N3pfM0oyQ2lrTlIyLUZCQmxzendMSWxmSmxMbWpuWXNTVFpNSTdKMjQ3c1VNckZkcTU?oc=5",
-     "src": "소년한국일보"
-    },
-    {
-     "date": "09.29",
      "title": "KB국민은행, 카카오와 디지털자산 발전 방향 논의",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1sV0d5WlVlM2JzaDFnVFVqUnJNOFRkT3NGd2VJR0NQMlotdzhrcDF5WTlVV3lrTTBleTR4UjhhU21BdE9oM1lHSXlEMWZHbC1MM1E?oc=5",
-     "src": "매일경제 마켓"
-    },
-    {
-     "date": "09.29",
-     "title": "“기술이 발전해도 금융의 본질은 신뢰” KB국민은행·카카오, 디지털자산 미래 논의",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBIRi05ZXVKVGVZSU1tb2VMUWswX0x4TU15clFjMXJsVjJHVTlnV0pDZm5OcmhHY1o1SXdjWmZNMGRSTmlKaUl4MWJKTG8xWEJEQzM2V2pQRXRkQXhkWFJBa2JYRlRhMy00bFlhb9IBb0FVX3lxTE9WUjk4Q0lBdkJTSEU3MGY0NVFCMkNRTDFFS0NSVi1TbDc4SngzSGZDWXdxZndKX1l1cHdMQVIzNTVOdDlDN28xUGxoZjdDbFVwYlhVVF95OHhNTklBMTdVYlFreEJQQ0pUTVVlXzNPRQ?oc=5",
-     "src": "뉴스로드"
-    },
-    {
-     "date": "09.29",
-     "title": "KB국민은행·카카오그룹, 디지털자산 미래 논의…“은행은 신뢰의 레이어”",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE8zeFdpZ0FZUDc3UlpMTU1iblpuekJ6YkhkVHpMSzJsMEU4b2hwNWVNZ0NPUUhRcHFPUzdqT0cyekZkZThkUEdSN2RlWnFXQUEwQmFOZVZhdUVZdUlVa2VwZHRtSXBEVk9QN0pUNWRXRQ?oc=5",
-     "src": "리드경제"
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1CaUl0THNCdHVyb2Q0VTdkVER5TlJVSW93THp6NWROc3ZJOWdMZXFRZHItUERlWTVkX2JVeXBZaDRxMmNpdDBEMWdqcENXSmZYdjg0d2g5bXNMSjTSAWBBVV95cUxPamNSeFQ4anpEd21ISS00RmR0dDE5VENNNDhwOTlMV3lkUGlKUzJ3TXY2Y0hoOUtPTU9QMUpwNGZnUFB0OGpSUVh0dGlSdUhBb1k1bHhRbWpaTmVqakwtQlg?oc=5",
+     "src": "연합뉴스"
     },
     {
      "date": "09.29",
@@ -10155,61 +10156,61 @@
    ]
   },
   "신한은행": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.28",
-     "title": "﻿신한은행, 유언대용신탁 잔고 1.5조원 돌파 기념 이벤트",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE83bjhSTlpNMXpMMllVLTIwQXpuR2N5amlNMnFGQm9hbUJxNW9FV3VneUtXNlpTd2FXUEExanZnOXRRUV9GVVFtRTJqSzdmV1ZxOEtqeE9FZnpZUTY3SlFBSDBQN284NTYyQXFPWVJtZ21kX2fSAXdBVV95cUxOaVJVOUJIN1FzQ3VvbE1zam5CcDRUTkRCclFIakxDVzlvWWR0MGJGc2drTFlPNDhKNzFWQThZYkRPcGNmWGhjX3pSbmQ5UXlCbmtBdU9LX1BaeUNDVEtGN2Mwdk0zRW5WdlpIT2ZoQVhqdDNjZlZybw?oc=5",
-     "src": "뉴스프리존"
+     "title": "신한은행, 유언대용신탁 누적 1.5조원…감사 이벤트",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9SSTNxX2VtNVc1M1l2QkRTdGlrNDJIZmIxNmc0RWR5amJ6RnFPYWVsRXRXeUV5WmZid3o1WVNEbzBnU21yZ0lqMWR0Y1prVURpcDh6NVRra3k?oc=5",
+     "src": "ket.kr"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 유언대용신탁 누적 잔고 1.5조원 돌파",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1VVm00N3REb1NnYkF5ZnNORWxWZFBtMndVWEsxRk5kdUNCTnpRRE5CR0dady0tcDdiVFNyWVkxbWlzRDMtXzZXTHQ3U2tvUTllV2czN3FNTUtScTY2RW9j?oc=5",
-     "src": "스마트투데이"
+     "title": "신한은행, 유언대용신탁 잔고 1.5조 돌파…11월 말까지 이벤트",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5JZlBsakYyWFBuYzRBYTNaOU9GWWRyU09LQ0dUYUtUYU9jaHpnSy1GSC02MWdxcXVHcENzQzhjQVQ1VXJSXzM4OFUtMU5rWF9lWjJESDI1VXZBNXA4MU8tQtIBeEFVX3lxTE9zY2p4M1FZME9TQzJfell5TjlIek9TR2NzbldGaVNod3MwMVlmUWhLQW9DV3lPNVA4ZHZqc2NmVlZLRUp0RFdmTm9yYmJuZXZpUnFkbldLOWwyUDdVVG9NTWJQUzlhSl9ubEdXU3dGUWRGaEpKUDdINg?oc=5",
+     "src": "뉴시스"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 유언대용신탁 잔고 1.5조 돌파…6년새 30배↑",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5vcm15TEpKRkVmeHNGQ1VzdFhjcWNNRzZIWXl2YTlCT2daMk1Nc0V2Tmc3T0dUXzBwcE1lekc4dThLaGdhQTZ0RkhzN3RsbU5NMTNjLXEtTWZXZEo0Z1Y3Yw?oc=5",
-     "src": "아시아경제"
+     "title": "신한은행, 유언대용신탁 잔고 1조5000억원 돌파… 고객 감사 이벤트 진행",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9LRC1mQ2pQQnNscFBPOVVhV28yRml2T09zVVllQ1FmRTJ6Zmp3LW5ORDU3ZHZNYkR3ME9pM1hZcW4yUFBWSG1wSVB1OFMybFhkQ09PVjJ6d0cySzQzdmVOZkw4dVhjaVpad1dDWnNB?oc=5",
+     "src": "S저널"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 캄보디아 'SOL' 고도화 추진…\"현지 디지털 서비스 개선 차원\"",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE00LTFGOEczR0FEa0EyREZIQWVtdGhjNUVJMXZBdVVCMHUtQTJFMEtwZTBzT0habC1acGxaRUlMUjhnd2s0SmNvV0tqOHo0QjlicGM0VXR5Tm52cWZZRkUyVWs4emFkRGl6NHI0?oc=5",
-     "src": "뉴스저널리즘"
+     "title": "[금융 이모저모] 신한은행, 유언대용신탁 잔고 1.5조원 돌파...고객 감사 이벤트",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBDVWpyVGJNaXJBV1FyZHJqRFZQTkdTSXhkbUdfSUNOalZzR0MzaHhab0g4UjFZUVJldGdCOV9CbTFaNUZyVzJqeVlMWXdneExBTWVoaGM2Y29kV2JSV0Z0aXg5UmpSSVdza1BxVg?oc=5",
+     "src": "굿모닝경제"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 유언대용신탁 잔고 1.5조원 돌파 기념 이벤트 실시",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9FaG1nOVFEOUJBUEdwQ2pkeWNVOGpDNmNrYTQ2MWhfYkZGN1lFOVVHY3pSaWVzZVhzQjZ4X3pxM3cxdHFUa3p4cDBHdjBNYXlKSDhYUW1UZWFfRmNn?oc=5",
-     "src": "뉴스핌"
+     "title": "신한은행, 유언대용신탁 잔고 1.5조원 돌파…고객 감사 이벤트",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4xOGpyNkRsYkVMaE5aSTVrcUJOeVRkMzJiMTVVNF96UWRWd1ZkeHUzbW1OZ0ZxdnhRZ3kzN0N1NWdxNlNTb19PTkUzc2xxRUplUjBPanRmS0JxamVqVXk4NThJRFNGZ0VBWnc?oc=5",
+     "src": "뉴스티앤티"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 유언대용신탁 잔고 1.5조 돌파 이벤트...그 의미는?",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1ia0lSN0FHRVlKeEZmODN5Qm11cFQzeXFVaGljWHJHS0lpT1JUVE1Ec0pYZjZSYkE4X1JUMGplY01JY0MxVWZiQVdJY2RsWFlqbzJrM29sQk1UR3JQbXo1YXU0M01vV2NETnczMUtqZS3SAXNBVV95cUxOalNWNGNVTFA4Mzh5OU5waC1pcnpUQkhpWWR1bFNycW1YWWFqbk5ySTdhWDhuVWdEcl9TeHgySlNYaDhiX3ZESU03YjlCZ21QTHBuWEZ4cVR4clhNdUFLVmdCUVU5OUY5b0V2TlpGYmhDcHV3?oc=5",
-     "src": "초이스경제"
+     "title": "신한은행, 유언대용신탁 잔고 1.5조 돌파…올해 판매액 3배↑",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9QRGEwaGd3TTNFU3hMTFlfbDQxTjNEUHZOX3VrbHlfYU5WWUZCVHlvZFJkZlRkMHB3cGxfZE9XcUpRR0VwZHNMR0RacjNtYTVlWkxjUmVWeEkzNVp6aE9VVQ?oc=5",
+     "src": "메트로신문"
     },
     {
      "date": "09.28",
-     "title": "[금융街] KB국민은행·하나금융·KB국민카드·신한은행",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9jZmI4ZlVJR2VtS2lCTnhNdHRoM1RjVFRRNDB4Q0ZtYjdJUUt3X1NOSUVIZkRjUmFxUkRucHZhdjNMbXZRV2wtaUowVlB0SkxsU2lDcDRCMU9aWHItcktPZEhQcUfSAWhBVV95cUxNQUNuZ1hFb1lzcnFQb0M5Ml9LTmFNN2F3TzN6OC1lUTc3aExXaFhPWTZBRHBFUWUxZG1pUDdQN0owM3ZnV3NKWWduMG1HOUx3ZFNGVzFNYU9wQ0FiclRWWHRiQm15MjZWRg?oc=5",
-     "src": "경인방송 뉴스"
+     "title": "신한은행, 유언대용신탁 잔고 1.5조 돌파…상속·승계 서비스 확대",
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNN1cwZ09MNnZVYWExaXJMaFA5NElxNmpCWmhBRU55aGswcFVHaDZvWi16T0VlQlpyZWxCQmd3THpnbldFZDVYaGtNaS1KTUhIQVlEc3dtODdfRFRjY1Y0eE5FUEMzbEZlU3lTMndDZTY4MzFxWG5MOWQ0a2o2ZTE0dEFrV20?oc=5",
+     "src": "글로벌이코노믹"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 유언대용신탁 1.5조 돌파 기념 이벤트 진행",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9SaVJObDM2WVU1MU9RTzIyM3dUNXVuUVljeXd4LVg2T3J5M2daUTl6dzlWb2l6bVhYbjlkOEotMG9KdE1pLU51d0ZYelU1aVFyeklSU0JNbnB0OEF4TkVUWjVmOUNiNk9vVXA0QW5R?oc=5",
-     "src": "gukjenews.com"
+     "title": "신한은행, 유언대용신탁 잔고 1.5조 돌파…'자산관리' 경쟁력 강화",
+     "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxNVkVTS2pPRXFRMk93aEZyRlBLem9vTGdKSUdIS2VPaU5Ra1FoZ09pdkF5SXJSY0cwYkdfQzV0OVhiSU1FaEY1VGROMVpQeFhFVUV5ajcxM2NrTUE0VEY4RE45QXVRNkpRaGJYVWNsd1NlRjIyckpwZkdBdlhYbTFUWE94b1VOR2QweUtWRGVaZk5yR1Vzc1JpNFJ0blRHOWZFdHpodUlLQ2ZnVWhudFZKOUxodEVTZThrVnc1emdEdjR0RnhQclJkNnNlTThfbERiQTNEX1RSVy0zTDE1WktubE83S29vbzMyR1JPbXBTamtqNTJMaVBLUkhrS3hDMmcwUnVrRHJKTXhnaHZVQUE?oc=5",
+     "src": "데일리안"
     },
     {
      "date": "09.28",
-     "title": "신한은행, 유언대용신탁 잔고 1조5000억 돌파...고객 이벤트 진행",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5PVVdjZzdqVVlmN3VqTDJOamFPakNUNTVhSTIxdHJZZnRaMWN3NFNKSkxEUmxNR1hiZ3FZSkFKcngwNG5Yb050X1VFN3ROZXRURXRheXlDR0dTWjg5ZFpkeXY0LWU3aXNrWWVJTjNWUmNXR28?oc=5",
-     "src": "디지털투데이"
+     "title": "신한은행, 유언대용신탁 1.5조 돌파…11월까지 대고객 이벤트",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9mOHNjaWtUbGY2X1pNSUR1bzRWUERDM2hoX0QzUVl6TnlKbHRGOEkwWVZkYXZiMzR0RzJ3cVdjNTMzSUNGZWxvWE42UWFrVV9kSUdxUGNHRFlpSHNaZklFN3R30gFnQVVfeXFMT0tOYU00bExIOE4zUG1mWXppNG85ZVQ4Z1EzZGJRMUNpODNIQUZoZGpsNGpLY0ozbWpodXVzU29NcE0xWnJVQUtKa3FMNEpKM2dQWTFtNWNEaGhLMmU5MDdLcllkdWZ5UQ?oc=5",
+     "src": "뉴스1"
     },
     {
      "date": "09.27",
@@ -10220,7 +10221,7 @@
    ]
   },
   "우리은행": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.28",
@@ -10271,10 +10272,10 @@
      "src": "뉴스저널리즘"
     },
     {
-     "date": "09.23",
-     "title": "기보, 우리은행과 청년창업 활성화 '맞손'",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QaFFZVUx2UHV0LU9FMzNyZlF0WlpCRm9LZDFhQnhEOGM1ejVMWVBValZwSEhuWDF4ZWhqNHFmNGpzeU9EdmtWcWhXVHJwdktZTDFCampiSEROM1hvbUVEb25XSm9BQ3M4MG5SUTdUUC0?oc=5",
-     "src": "아시아경제"
+     "date": "09.24",
+     "title": "우리은행, 내년 영업점 10곳 통폐합…오프라인 효율화 추진",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE43elppamV3TzRFYlVhZ2RxLUJrNUpyV0tXazQtWnVHemRxV2NUQ1JSM3AwOF9odHljS1AyTHV6aFBuRk1VNGtzRDY3TnEyRlhlVjRIUmdsUmpKYmRGUlZlMWFOZFN4SU0?oc=5",
+     "src": "연합뉴스TV"
     },
     {
      "date": "09.22",
@@ -10285,8 +10286,14 @@
    ]
   },
   "맥도날드": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.18",
+     "title": "\"글로벌 아이콘 특별한 만남\"…맥도날드x피스마이너스원, 한정판 컬래버 굿즈 3종 출시",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ET3BhOWtUeDZCZWNCRE1Ca19tdDBlQXlGS1M2cURLZU15WnpGd3l6Qkc2X3RaQWJIRF9KSzRKeDBvM3B3MTdTUVA4LUFGY1FyYTVfZnlrWFdaYVE?oc=5",
+     "src": "뉴스스페이스"
+    },
     {
      "date": "09.17",
      "title": "한국맥도날드가 만든 '고추장 버터', 아시아로 간다",
@@ -10313,110 +10320,122 @@
     },
     {
      "date": "09.17",
+     "title": "창녕 마늘·진도 대파에서 고추장버터까지…맥도날드, '한국의 맛' 글로벌 공략",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5NTDVHV1JuWm9WUGIxV2gxczNfclJHWHM4aE1yaU1aOEFHR3c0U0NjR09mT3gya3lETzJHWEJGZGp0TERoQ2EtdERjZnc2Zw?oc=5",
+     "src": "전자신문"
+    },
+    {
+     "date": "09.17",
+     "title": "맥도날드(MCD) 인베스터 데이 앞두고 흔들리는 시선 공정가치는 부담스럽나",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNdkVLNmxCMjg1bFlVWHQ1SUNPS1kzb0ppSlA4cElsSnVGamdFRjRPMTJvLVA5bXRHZE5DeFFpUXRwVGxrQS1MWnRDTnBhRk8tVEhndzRTQ3lZYXpzOEdSbm43NmU5NE1WMGdJZGlfZ1otSTUyQXpNRW0yQXVEbFAtVTNZZTNxUVJHVVVDTTgxNVRna1VKSWszSNIBngFBVV95cUxPUndpRy1MWGVNMlYxVExjam00UUp2Q1hFakxuNUoyREJhT1gwQjJaT0c4S0FTeno2SlpDNzFaX3g1ZnNMc3FDNEJ2aHdzX0N0SjJSbDJTX0dHRDFyMk9FcXRHQmZoNTRtY252dUFPcVVkQkl4WVBUSzlWRFEzYVBNNDlTcVRUVWVoWUJYNXZfS1Jlc0hxTENPcWNvWEFWdw?oc=5",
+     "src": "simplywall.st"
+    },
+    {
+     "date": "09.17",
      "title": "\"오토바이 안 타도 되네\"…中맥도날드, 드론으로 햄버거 배달",
      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBTbWJyamtFSjNxUEtDeGlHUzdxY0pWNVZxTHhOdXl2Ym5pdnlkX2h6dFBXVDlVcnRCZTlPbzVWcjlYc2NzcUE?oc=5",
      "src": "v.daum.net"
+    },
+    {
+     "date": "09.17",
+     "title": "한국맥도날드, '지드래곤'과 손잡고 아시아 13개 시장 캠페인",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1PbldrOTNkT3ZJMUxqR0p3R0RVdUdoVGFDYnFMTTNUb0hPZWdOVjd0SXAySy1LdGFEZzZtRXhVQTdXS0VmTExsbkdUY3pMekpldHc?oc=5",
+     "src": "노컷뉴스"
     },
     {
      "date": "09.16",
      "title": "맥도날드, 업계 내 경쟁력에도 실행력 부족…시포트, 투자의견 '중립' 제시",
      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1YN01SZFR2ZGFvYy1iVi1XQTZXXy1VUVlhVnR6TWVGOHdVejlLWkFXMlgzbmpBM21BQnlLcEFJNVJwTkxDb3hfZFdUY18yVnluSUp0TlVTLWdMTkV3ZDY2Vi01RlZjeE5Gb0Q3WXVxdFZfRTQ?oc=5",
      "src": "마켓인"
-    },
-    {
-     "date": "09.16",
-     "title": "\"빅맥, 하늘에서 10분 만에 배달\"… 맥도날드·메이투안, 中 '전용 드론 항로' 띄웠다",
-     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQdkhXRVZZU3lXZ1prWjU3SWdyQU9QLWZoT1dEUVNzYjA2c0F3d3FiMU5KQzZVOWZDTDVfMHJ2U0xkeTVWQWhQY1hYcWFyTVhlb3VZUmpiRHEwRU81ZDhQb25qdGkzVUJFYmZ1cUFyNUd1aVdlSnZkMlg2MlRKQXBKUWE2UkJFWFk?oc=5",
-     "src": "글로벌이코노믹"
-    },
-    {
-     "date": "09.16",
-     "title": "맥도날드, '고추장 버터' 버거 국내 첫선…亞 13개 시장으로 확대",
-     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBvTGd6djVBRFBvMEJVVEpoMDhwbXdJZnFtMHpsaTlHNHhTdDN4UzhnZGVIc1RxXzQ0U0pWVkVoeGVPUklNU0E?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.16",
-     "title": "맥크리스피·맥스파이시에 ‘고추장 버터’… 맥도날드, 신제품 출시 - 조선비즈",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPVE1GQmNKTmYwYkVPNUs2MVdINlF0NnZxWk9UZlZYVTBYeHpnOEM1LXlsSzlfVFhCVE9rNnZSWDljSnRaZmpPY1AwSjY2SEdWM3gzVFYxQ2RLSlZRNDM3YkVQSVFaa2pHR19SS2NURU96VVR1ZE5ZbFRQV0xIQVRCWHN2cUlUZ9IBmgFBVV95cUxOR29qUW0telAzOFp4ZjJWOGhtRmlzZnQ0SHJ0THdxb3ljQ3QxTFd3aHk1NWZnQ2dYMExlRWE4VU9jM1VMUElNUUtKVFdWWHhQRVRNcGxzb3Zabm51Y3piQS12azFVMWVIcEVaMnpGSEdocHNGWmx1UjA5TlE2SUlFbWZOazRCY2Y5SG9vTWUwZ0s5WlNvWk1FX2FR?oc=5",
-     "src": "Chosunbiz"
-    },
-    {
-     "date": "09.16",
-     "title": "맥도날드, ‘고추장 버터’ 활용한 신메뉴 공개... 뭐길래?",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1UOXlmVjlXQTZPRU1MZHBFWnFNVlBPSFJrTzhOVmVVYnhxTzVVbVVTSThHRWNHbXJ4dTlCQVV1c3U0eS0yQzBKdWRPbGNuSEhEQUpPZHVtRWNLQjFjWVc3cGVWVC1sQkV1S1E?oc=5",
-     "src": "금강일보"
     }
    ]
   },
   "버거킹": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
-     "date": "09.16",
-     "title": "햄버거뿐 아니라 파이까지…'트러플 대전' 벌이는 버거킹",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE91SFN6WHJMaTBJRWxBcWNzS201T0h2TDhhSEtBR0dmeklXSjc0MU5OcG05eEJYRDRuZlRMYk11YkNka2RnTEVZZnRXSDhVTTFXRTl5Z29hNWdGUQ?oc=5",
-     "src": "한국경제"
+     "date": "09.21",
+     "title": "버거킹, 추석 맞이 앱 쿠폰팩 6종 선봬 ...최대 36% 할인",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9nZ0NlRllpRUIyb3ZSNmVOdHJOTGZGX2RWd20wcUg2R1o5NkxpYVFHSWdRZEJqbGFMNXd0eHFZQk54cTdleHdROWdodnNKemYwYzVXMnluM01wWW9od2F6emp6YW1kUQ?oc=5",
+     "src": "푸드투데이"
     },
     {
-     "date": "09.16",
-     "title": "\"이번엔 트러플이다\"...버거킹, 가을 한정 '트러플 머쉬룸 와퍼' 출시 - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBXQVdPR2I4dlRBMi11Z05Ma0RDZ3dwV09HcjJfTGN6MnljLUFvRWxsQUhPaDQ0WTBLaWo3ejY5MldvV3lIQzZPVnNKMmlRNS1URVppczFsTm5DejBXLVhGbV9VSUNtSE9kV2fSAW9BVV95cUxQeFRFek9INUhMdTZxQ1NpVTFVVWRSaFpDdGdZQkQzWVB5TDFMeHhVN2NPR1BMTnZ5RFlONk80Tk5zUjdPcEt0emhTOERqYXVaVE4xWl8zamxTUVV3ajNmT3FGUmVFbXMxOWZ2QWNDemc?oc=5",
-     "src": "머니투데이"
+     "date": "09.21",
+     "title": "[똑똑한소비] 파파존스, 버거킹, 요기요, 설빙, 할리스, 삼성웰스토리",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4yQ3JPY1IzelhYOENOT3VrU09YSEI0ZTZySW5VRk14QnQxMmszVFdsWk5yaTJsN0I2dnhQTTF3TlZKRXFzWWRoZUVfcjQ0OVdFOW81Q0pOV3pIa0E?oc=5",
+     "src": "에너지경제신문"
     },
     {
-     "date": "09.16",
-     "title": "\"올 가을 유해진과 돌아온 트머와\" 버거킹, 트러플 시즌 메뉴 5종 선봬",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9DOElMa3NnLV80a3dTQldpOUZGLUxwemlUb2RNNGpDOFhnMTY1Tkt4LVludlpqa3hvV1hqS1hvZ05kT1BMN0MxdXFVbWNveTQ1dlBaVDdpM3Mtcm8wbWdfR9IBeEFVX3lxTFA0UVZzYXBvR3pyYnI3bHlsS0JpajdBN19TYzVfQmZmbmNubG9LaVk4cVpMMzlNT1o3SmRoRWdZNkZ5VkdlYW43bDItWXZ0RHpUV2ZORUxMbG5Id0dpOWtKVk1NWWxqdEVyTkZJcUExYThoMnVPZWNFNg?oc=5",
-     "src": "뉴시스"
+     "date": "09.19",
+     "title": "“가성비 좋다” vs “혼자 먹기엔 애매”…버거킹 ‘할인 행사’에 엇갈린 반응",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9mSlI3Q3ZlOGlMN3RhRFhnV2NpNGJEdC1fY3JKOXBPeXg2aHhwVGd6QXBPRFg3VHZYR081eWxrTWx4RmYxSWJfR1NrU0RyTzRqVFpUdmUxUkdvelhxbGJZakRkbmo1cnc0dVFBSEI3Ql9JSW0wV0HSAWZBVV95cUxQcU8yaGRDZ1VHSmxkMDVpUExTRGxjV2VIVEUycGN0Z28xSDBQcUU2OFY0S2liSlN2bEhOQWpGUnNRdEUtMzdlODlCVWh5dGEyN2drckRyQU8yTExNanUxZndHN05MS3c?oc=5",
+     "src": "동아일보"
     },
     {
-     "date": "09.16",
-     "title": "가을 한정 '트러플 머쉬룸 와퍼' 귀환...버거킹, 신메뉴 3종 추가",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBjM005MjRqeWllZTMxOFppdHlabEVkVks4TGt6My1adS1kaGxKN2pFdFdZaXl2WV95U2liNmRCTUU3N25WVnRac3NYYTF5TGtvNnE5d05yaHFEcG1SNjEyQkF3dWFycTNMNUZJejJSaTQ?oc=5",
-     "src": "시장경제신문"
+     "date": "09.18",
+     "title": "맥도날드 美 성장률 0.8%로 둔화…버거킹 추격에 가성비 전략 전면 개편｜Global Money Club",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE51a0Q5SDdWaW56OFRycUhiNndDUVRUTzlyS0VvSFJreDlyTUYySFlRWVZVamxncnNlY3ZxakNRMGJxblFxaXo4N2RKbGRZcm5TbHZXOWJDYWNNc2s?oc=5",
+     "src": "중앙일보"
     },
     {
-     "date": "09.16",
-     "title": "\"약과를 아이스크림에\"... 버거킹, 골든피스 협업 디저트 선봬",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9oUmtfbW4yS2VscFF2WU9oZkg2cURPcjlqLU5zbkV1N1diUjRaVXNXbWQzRFVJWl9ibWFodXdaX3AyNjNBbVBKZmRpYm9wai04NnVCd1ZJZVlkamRtSkRYVXhfcGJIckRwNkdxdVFaVDk?oc=5",
-     "src": "시장경제신문"
+     "date": "09.17",
+     "title": "버거킹, 헬로키티 컬래버레이션 출시 임박설",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSXRKQVJpWml4aFFyZC04a1BxUkdWMXhZZXpackJQTUJtY1ZsVmJiZVNqSU5JcWF1LTdFOWY3YUppSHRCMExBcmRDZ1NNclFvRnEtTlhYMUNkVVB2NnQ5MFdCYWhFUUhrZ0puMVFRclNkUVJqRlAzeHhGQnFXOXlTWVhqRTN4cERPdlgwWEZUUHo4XzFSaHN5MXMySm5pZw?oc=5",
+     "src": "hypebeast.kr"
     },
     {
-     "date": "09.16",
-     "title": "[오늘의신상]\"가을엔 트러플\"…버거킹 '트러플 머쉬룸 와퍼'",
-     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9xSGRTQUFBMG5ZOXQ5cm5nVmRMR1lWNTVnMHJkNkdCSmVPWVdaVXJEY00yMkdmdVlXd3R3NDdvV0Z6OTdhSmc?oc=5",
-     "src": "v.daum.net"
+     "date": "09.17",
+     "title": "[포토] 크리에이티브 강연하는 이성하 버거킹코리아 CMO",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBtdWtLNkhpNk1uQ3dmWGM3R1BuTVc4cXRRSTN4YmhKcEdaQm5Rc3BFOTFpQVdtcUt1TWR0bnlDZHpydGUyMnZLeno5N0tGb3lvOHhFbUxjQlJJZEM5TEM1RXNuRWJMYWVmY05LTHdrOXdPRWh4TWhGSTFmc9IBgAFBVV95cUxNSnZneXZfYTBpb2JKS2R4UFp2NnNicDNmSTFRdHVIT2hMRVZxUTJ0WV9KbkR4anIwRHFncU5NamRVNXBnaFZJQTVET2V3R2Z5d1Rad3N0SkQ4MHR0Z1h2by1RWDUxZWJUSjNURlcyS1AwT0huRnFPbDgtM2FoQ0ZfZQ?oc=5",
+     "src": "뉴데일리"
     },
     {
-     "date": "09.16",
-     "title": "가을마다 돌아오는 '트머와'⋯버거킹, 올해는 5종으로 확대",
-     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE15aXNONXppbEc2T2poWkhaNndPU2hVYjVPUi16WkVqUzhoQ21MaGUwWXgyaDRZYlg0UXA2YU5EZG55NnRqQnc?oc=5",
-     "src": "v.daum.net"
+     "date": "09.17",
+     "title": "\"버거킹 아침 식사 됩니다\" … 이성하 버거킹코리아 CMO가 말하는 브랜드가 원하는 진짜 크리에이티브는?",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1UbDAwLS1XdUFQY1lmbXc4eVo0RzQ4QlJMZDJLQzhmc2xkaHhMLUkwS2tQOS1zX01jeTl4R0wzc3Y2WmxEYzdvY3BHVXlFVWoyVmxZS25SelNPNldEU0ptMUxObk5taHRQQ3FrNlBLdw?oc=5",
+     "src": "브랜드브리프"
     },
     {
-     "date": "09.16",
-     "title": "버거킹, 가을 맞이 ‘트러플 시리즈’ 재출시... 신메뉴 5종은?",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBBVFdaRTI0X2lvZV9JY1pDb1RIenRicUx2Y1dOSjE3THNWcDFhWGF5NjNZcEJOTDlZMEo0M1dMZDJJa0FZSVhqWUVQSzBvaGhTTWUwZG8zRU53Zkp2QWUwcjNzLTRkdlZHUUE?oc=5",
-     "src": "금강일보"
+     "date": "09.17",
+     "title": "버거킹의 '아침식사 됩니다'에 대한 이야기",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1udmpnTDdnVzFwV0psek56RTVLYUozMFlEa2JzazY1clZKNXBHcUY3b29YTFRlLTdIVjBGZy15eDFwNlBMdmJLVG95MlQxQk9X?oc=5",
+     "src": "브런치"
     },
     {
-     "date": "09.16",
-     "title": "버거킹, 트러플 향 가득한 가을 시즌 메뉴 5종 내놔",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1TU3Y4Z2lzY0cxdU40YnVXeFV2TExwb3lyTDl1OGJGSUNHVVRyU2ROZllfMDJoVFF1MnUzS2ZydlY2MEZjV1dvQURzLUNPY3N1WWtUMDhKMkphaFdE?oc=5",
-     "src": "뉴스핌"
+     "date": "09.17",
+     "title": "직장인 점심으로 먹기 딱...버거킹, 가을 한정 '이 메뉴' 5종 선보인다",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5QMDFlUDV2Y1NDVnZ4QktBaUUyYVlwRlMxN2xqemE4TlJNRTBCRnhKQWcwdklCOVFuLXpBQWU2ekE4YW5WZ1BHUktqS0RVbHZqX1pBMVdR?oc=5",
+     "src": "위키트리"
     },
     {
-     "date": "09.16",
-     "title": "MK Pick | 버거킹, 가을 시그니처 ‘트러플 머쉬룸 와퍼’ 컴백…신제품 5종 출시",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4yYXRmTEk4anYtU2FBMjZVSko5X0RLMGZDcmxmQ0RrdmFYS1h6a2toTU5uYmJVSDVRT1FCNktRcnlja25tTnJzcjBfM1FHNzZI?oc=5",
-     "src": "매일경제"
+     "date": "09.17",
+     "title": "[유통가 단신] 버거킹 '트머와' 4년 연속 출격…BBQ 앱 할인·롯데웰푸드 명절 간편식",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9LSGV2OE82bUlBMklmYUpGNDhaR1I3SjBaaHFBWGxpWlJNaUQta0plV0ZrdGpCWTNILXQ4S0Vmd19WSkVYQ3hFY2dHRlFIR3hYOFdvOGVwelE5Y3AwcUM3S190MXNlSTFJNGN1NUxB?oc=5",
+     "src": "코리아포스트 한글판"
     }
    ]
   },
   "스타벅스": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.25",
+     "title": "스타벅스, 북미 매장 250곳 추가 폐쇄...비용 절감·구조조정 가속",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5nV3lDNHAxeUFPSlE5Znh6blJVNk8xVkhjNk1Lc01IRm8zSEdxU25KTEhZeWc3VGxkZDVHOHN0amxkR0V3UVBFaUl4Q1FpNE5admtIMDgxQnA3cWl1eUNlSklJcHctd3M?oc=5",
+     "src": "M이코노미뉴스"
+    },
+    {
+     "date": "09.25",
+     "title": "스타벅스, 북미 250개 지점 이번주 폐점…'닫을 수록 돈 번다?'",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBLTjhwYjNJZ0ZBQnprLWpOSDJOZTgyM0VFaExFdWVjbjBYeFg1N0FSd1cteWJNMnJEQUk4RDVIdUZUaWFDVTZsYTBUMHN3dUF3bmRZb3lGUUx6THRrYkR2YQ?oc=5",
+     "src": "아시아경제"
+    },
+    {
+     "date": "09.25",
+     "title": "스타벅스, 문 닫을수록 돈 벌더니...美서 또 대거 '폐점'",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE4xZ2NzTGtPdmd5ckhKd2w3ZGktQlVkRHVjejN5QjctdUt6N1VXWjRneWxmVERXU01vSmRTUnJGWTNlN3pzMjZ6blJwTQ?oc=5",
+     "src": "v.daum.net"
+    },
     {
      "date": "09.25",
      "title": "스타벅스, 북미 250개 지점 문 닫는다…1년만에 또 대규모 폐점",
@@ -10425,27 +10444,9 @@
     },
     {
      "date": "09.25",
-     "title": "상권을 매장 안에 넣었다…스타벅스·오설록·차지, 카페도 로컬 경쟁",
-     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFAtdkF4YkwzYmxpRXp1N2RxVUQ3QlRfNzU2QTlBalJsTWxQMG93UXZuODJIbWdxQ3R6Mmtnd2JZWmliQVp6dUE?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.25",
      "title": "7만7000원 애프터눈티·칵테일까지…스타벅스, 저가 커피와 '선 긋기'",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5PY2lyaG1ybDJrb0hPSmdELWN4Z2hmMG9EcVR5MmpVbklhVjkzeEEtWlo5Ujg4ZmozRlM0NXFubEpBNWhCbGpkQ0NWeFBsWm52dmVYUg?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE15eFBkUUxsXzltMmtXWklTUEZjbnZ1SlFiRXV6UkJKSC1XUzJXZ1VPcEtKRDIyR28wUllleTYyMzR0cFhzWnVEU2Nzbw?oc=5",
      "src": "v.daum.net"
-    },
-    {
-     "date": "09.24",
-     "title": "스타벅스, 이번 주 미국 및 캐나다 매장 250곳 폐쇄",
-     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5uV3VQdmJKS0F6REhCbGt6RUpnY3l2S2hhQndPaEdZY1k2aTFYTXI0clJwT0FhVHlJSVRDREdoc290M01ubXRSTnVUNDFEYW43Tnd5LXZUcGVYcXN6M3FMTlY5RE9ZcWJKQmlrVGh1TXV5UnN2MlNF?oc=5",
-     "src": "Investing.com 한국어"
-    },
-    {
-     "date": "09.23",
-     "title": "스타벅스 ‘1+1 마케팅’ 공세…3분기 실적 반등 사활",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9UUlR5SWowNlNSOHN3WlAwblJUX0YwNWlaU1FNdzIteEJ6Q0RwdXZoS1V3TXpTVkVFTTNHaVhYbmNJQTJXMUZzeXRZalMyUGJyb0pWMW93VXM2cWpsd1Z1QnJtd1ZlS0JRSExxaV80VEE0SHNP?oc=5",
-     "src": "busan.com"
     },
     {
      "date": "09.23",
@@ -10480,7 +10481,7 @@
    ]
   },
   "나이키": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.17",
@@ -10525,28 +10526,34 @@
      "src": "지큐 코리아 (GQ Korea)"
     },
     {
-     "date": "09.16",
-     "title": "나이키 운동선수 케이드 커닝햄과의 단독 인터뷰",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNUlhuTnpIYjZmZVRPUzZEOTVJTFBSM3Q5djZhUFAzQ0ExN3ZLckxsUjVJeHBrOV9taE9QXzdOdHRJMVZqNHozVTI3dVNkeEkyOUpXRmtwcV9tY3FMckxaVkcyUU5fdW8tVGkxUmZnZEstVURSaG1fTTRhRmpEWjBocl9SY3BFVVV3YUQxMQ?oc=5",
-     "src": "About Nike"
+     "date": "09.17",
+     "title": "'서브2' 그리고 나이키 알파플라이 4…\"가장 큰 폭의 성능 향상\"",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBsREpNNW9nN3U4TWJsQWctNmwyQlR4eEVKOEtpVERDaU1sVDc3Q2ZHTzUzTEs3R3VpRXhMVXQteVduSl9Pd2xjUkhmU1dfVDZXeEZvSGw4c0ZCTXIxaURMVdIBeEFVX3lxTE9SWFo2UGNjVlBRNWNIeUxMSWp2ZFFmWEJmajdCQWdXZ1BKVWFsMFpqVFV5c29aVWlCTnhjUzlJMHAyNC1YRmIxRUR0TkVkeGhFTHN6QWtTaVpWWU9JYkRPc01KZmFicDJpa1UwQVl2MXExOG5FSXdnQw?oc=5",
+     "src": "뉴시스"
     },
     {
-     "date": "09.16",
-     "title": "조던 브랜드와 나이키 스트렝스, ‘조던 스트렝스’ 홈·상업용 운동기구 컬렉션 공개",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbDdsR2lpM3dvM2xLanEzc2F5SE8yX0E5V3JuOFYyQlRyc0YyTzRTTEQwbGNaT0QwbDJWbHpRODNtUU5TY3Mwc0dyd2xrcFdIaU9GcVdMQUhadk5DZXluakdUY3FBaHllaXlCQTRhYnNtS2dkSVFpUmJHbTI1WmVDUVJjYmRoLUdpa2Y4MC1LM05aamxZQkxr?oc=5",
-     "src": "hypebeast.kr"
+     "date": "09.17",
+     "title": "아마존의 AI 전력 수혜주는 어디?…나이키는 다우지수 퇴출 위험 [박신영의 개장전 요것만]",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBRdzl0eG1uMG5vUktDYW5wNXNNMHVnWmRQaXhqTVZwWDFlcVB5dEVvQmdxczg0dnA2U21jTlp0OFF2TnkzV1ZuU19FTDZEMmxFMVYxTFhCS3JIQQ?oc=5",
+     "src": "한국경제"
     },
     {
-     "date": "09.16",
-     "title": "‘러닝 열풍’에 호카·온 신는데…나이키 韓매출 3년 새 2173억 증발",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9qME44RTRLWHNUNUxVbkh0a09KZG9NX1pMTV9UQmp6dnV2bnVySnZFMm5Pd2RUVl9vVTBrTEZmbFNIUDRPQ1lhdWZFMA?oc=5",
+     "date": "09.17",
+     "title": "‘나이키’ 어쩌다...명품회사 LVMH 차남 구원투수로",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBLcHZGdVB5YjlicGVISzdyZFh1VmNYNkZOcjdKOV9SRWFOcG82THlEU1VnQjlmS3ZlOVZRQUs0U3pnVlQ4ZDVnWXFLRl93SG1GTzRKRg?oc=5",
      "src": "v.daum.net"
     }
    ]
   },
   "컬리": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.21",
+     "title": "\"추석 선물 아직 못 샀다면\" 컬리, 한우부터 뷰티까지 최대 77% 할인",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE90R2FoV3dwOUhxeGlFeFhvT0tqT2pBN0FaaERCTE54V3VKcndHQUFiQ2F5VmVSV2FvRC1JNWZkLTBKU2Q3TjJxMl9zTG5UZ3JMYmxFRjQ2VEpHQ1NhaFR4NWV0eWpfcHdkcC0wQkdBNzV3TVdZaWVJUdIBeEFVX3lxTE90R2FoV3dwOUhxeGlFeFhvT0tqT2pBN0FaaERCTE54V3VKcndHQUFiQ2F5VmVSV2FvRC1JNWZkLTBKU2Q3TjJxMl9zTG5UZ3JMYmxFRjQ2VEpHQ1NhaFR4NWV0eWpfcHdkcC0wQkdBNzV3TVdZaWVJUQ?oc=5",
+     "src": "뉴시스"
+    },
     {
      "date": "09.21",
      "title": "컬리, 추석 명절 선물 세트 대폭 할인 '라스트 오더' 마련",
@@ -10564,12 +10571,6 @@
      "title": "추석 선물 아직 못 샀다면…컬리·쿠팡·SSG닷컴·11번가 막판 할인전",
      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBpS0liQU9WNkFGcU84TXVHelByak1HNHJUUjF5dFI4SGRwRFQ3VklWLTRBMHZRcEV0QkxZZzZ4aGRsR3Z6aGRINDlJcw?oc=5",
      "src": "v.daum.net"
-    },
-    {
-     "date": "09.21",
-     "title": "[스마트컨슈머] 라스트 오더 기획전 컬리·메가세일 선봬는 에이블리",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1zNEJYckp3a2xSZlpkRWl5aElibUkxZl9IaTZEbjUwc01jeHZ6VGN1Y3g2SkVmc0dWVEFLeU9kbmszLUFabHdpeGxfU014aDJGVFE?oc=5",
-     "src": "한국정경신문"
     },
     {
      "date": "09.21",
@@ -10610,8 +10611,38 @@
    ]
   },
   "당근": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.22",
+     "title": "[별일이약] 약국이 당근 거래 현장?…돈 꺼내는 장면 목격한 약사",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9ETkNkSEZ3LTRpeDR0WmlhZXc2eGRmX2d6V192U3N4T3I0VURfQXhBNXA3alhZTFh1VTU1ZDF4WDNUZjBUeWxzcFlfZHNsc3NWOUIwTy10emRhY2xUSktuWmtsbmZkUmk3eDJhTw?oc=5",
+     "src": "약사공론"
+    },
+    {
+     "date": "09.21",
+     "title": "“담백한 감자서 단맛, 달콤한 당근서 쓴맛”… 보관법에 따라 맛 달라지는 채소 두 가지",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5MT2lEY212VmI5blkwc0h5MGFXSG9hSkJOeE9NdlpmNEJnQW5RNFF6Mm5RWFNuV1NhQXI4OEZSV040ZGFvZDBuWnpBR0tOb0NSVFFZckhFTDNrWnpNU2RCNVU5QWhxbmZ4Yjd5U1U3cWFKaTBPX3ZaYUhZMzZQV3c?oc=5",
+     "src": "헬스조선"
+    },
+    {
+     "date": "09.21",
+     "title": "이란에 당근·채찍 든 트럼프 “잘못 처신하면 큰 일...협상 열려있다”[이태규의 워싱턴 플레이북]",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1fSGxKYkg3eHd4cmg0NUw0TkJqdmQxaEFKbi0tZVNWLUgyQ2VkY0NKa0I0WnM4LU42QTk5d055UUhhR1RSQm9LSVJZN0ZWRS1fUWfSAVNBVV95cUxOeWxISHUyRGk2ZTVHSTlxSjZsd2dEdmUzUklIckhvLVVLT015NEJkR09WODNBOFFuR0pQSVdzNS1BVHIwd3o4RUdKcTVlM2RTTVloTQ?oc=5",
+     "src": "서울경제"
+    },
+    {
+     "date": "09.21",
+     "title": "당근마켓의 ‘유산균 파격 할인’ 이럴수가…경찰, 민생사기범죄 반년 만에 2만6782명 검거 [세상&]",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1YNnFoZjBGMWJyT1JDOVVVSldQWXVxdU5ZTHhBQnRIT3N6X2FhTlZXNnNFZTJJSkpJWDZqSXF4UEZQQUctNXNlMmxEWDU1RXVKWGdMdkl3?oc=5",
+     "src": "헤럴드경제"
+    },
+    {
+     "date": "09.20",
+     "title": "한복·제기 넘었다, 당근 거래 369% 폭증한 복주머니",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAzeC1HVjgtTTY4NFFlUjJQNzdJWFlTRFRUZFhwN0lyeDVoUVF0TkRsN0IycXJGSVZZQmJtS1ZOZWNnZG5CSUU5NUw1RVBCbUhDSWNiZm4tTUExNjlFS3pteQ?oc=5",
+     "src": "한겨레"
+    },
     {
      "date": "09.20",
      "title": "제주 당근밭 솎아내기 풍경",
@@ -10641,41 +10672,11 @@
      "title": "\"달린 기록도 내 스타일로\"…당근, 러닝 기록 꾸미기 기능 선봬",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5yNlF6ZUszc0hUS0U1OWdOZ3FyeTlMaGZEeEJWLWtGUUhfazk5Sms5VHFQZHdhOThVX29lNFhUUDVycmN4cW9NbDdFRkxZYVBTX2lYd1AwZndtc1F4OHFMcNIBeEFVX3lxTE94SHFBSW1RZmlVUkJMZWw1b0p2aEZ5V18zUkotbXVhQnVLY1pJLVlESkwtTjNtRWxFXzVXU09seUpqVExzbFJEdGFYWmxmRnUwSW9MQUktMmc0MnVqTXVmdjE3QUQ4aTVUTnJSdm9qYTU1ZmotbHlRQw?oc=5",
      "src": "뉴시스"
-    },
-    {
-     "date": "09.16",
-     "title": "\"성과 요약해줘\"…당근, AI 대화로 광고 분석 - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQdGRlMHV6UDhGeG1EUGktTHlrbkdoMVYwWXlyVkZ6RjlLOHl5TWpXVlVSdEF2UnlOUUtwOC1lZTB1MmMzMkppdFk5Rmk2NDhBVlpPQkt0Tzd5cHRObXpXOEJIdE5Ga2PSAWxBVV95cUxPZWUzYkR5M1daTmFhS0hxQjY2WDE4NTRrMzVTMkVTT0otcTlaNTRwV0w4aV83RGpIa1FsQ3JtaFpQVHpTdGdCLVRGblVnWnZnckdwWnhIYVVuVUttQkpZSGZRaTZ6VC1fTC1HNzM?oc=5",
-     "src": "머니투데이"
-    },
-    {
-     "date": "09.16",
-     "title": "“AI로 광고 성과 분석”…당근, 광고주 대상 MCP 서비스 도입",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5majlGVXRtMnlKRHp1VHJFWGt3TWU4Q3hKQzctZ2xIMVN5Y1VnV2RDNVBUbUUtVHkxSGNjaVpVa3hnRG5PeEo3VlF6R2tFUVdEaHfSAVNBVV95cUxQcWlFLTVLRHNNbWtvZk5UOGdNOWMyY012TTRNTGtySTZwM0luTWkybHdvUmZfLWp3ZnQ3YXBqMGtyTFhsY1JMeWQwelRaZk5zd3Rzbw?oc=5",
-     "src": "서울경제"
-    },
-    {
-     "date": "09.16",
-     "title": "당근, 국내 최초 '광고 MCP' 출시...AI로 데이터 분석",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1CN0ljUmszQXpDZEgyX1p2WUY5WUhBMVRsbGNmaU5Yd3RaZkc0em5yeFBROUIxN2Z3UnZrWTkwQjE3OWptM1N2SGNVRQ?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.16",
-     "title": "“말 한마디로 광고 성과 분석”…당근, 국내 첫 ‘광고 MCP’ 출시",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBJdjhWM1plRTMtQkpSY1Zudy04SV9jcWE4S2dabVlfOW94VTRoWkUwaktpRzZuVkhlNUhPTEZkZmJ4Q0xyRHBWM093M1JnbVF2bkF2a1NDRDV1ZlhMS1BDQlNWQlg?oc=5",
-     "src": "서울경제TV"
-    },
-    {
-     "date": "09.16",
-     "title": "당근, '광고 MCP' 도입…\"평소 쓰던 AI로 광고 현황·성과 확인\"",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1DcTVtci00YlRJSTN4ZFZsVURQeFlJOHJxNmpod2k5Yi12M284ckVhM29LQ0gxbTVxWmRjY09nU1o4bmZZOFEzVW9JRE1vVnB1RXJZaURZUlhILUhmTkVrcdIBeEFVX3lxTE0wWEo2VEVIY0ktVHQzUVN3WGF5Mmlmd1hWcTVaX1Y5LWFoVGlycnhYV3M5Qk1hY1FGYUFtSXRITFVaYTFoU2ItWWVzY2VtczVKSkU0aVVzd2NZYkhvWXU1bVJseC1DQUZqZlgwa3JJVEIwbWI3bm1JaA?oc=5",
-     "src": "뉴시스"
     }
    ]
   },
   "야놀자": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.22",
@@ -10705,7 +10706,7 @@
      "date": "09.22",
      "title": "NOL, '숙박세일 페스타' 참여→야놀자, 여행·생활 AI 기술 전시",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE80MF9TZ3BpendWY2F2M3pTQm1mbXVLV01fZmFUcGtBUW42LUFSbHdtUERCZkJxNWpUeHk0ZlVZclBIQUlZRGx0b05KZmhHMlJKbkQ2STF5UG9UY3ZhOGhuUmd0UFhDQQ?oc=5",
-     "src": "slist.kr"
+     "src": "싱글리스트"
     },
     {
      "date": "09.22",
@@ -10723,7 +10724,7 @@
      "date": "09.18",
      "title": "야놀자·여기어때, 공정거래법 위반 혐의 전면 부인",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBkTkk4NU95ZjFjY0NXSmZhcWZUMHVRXzBwajV6ZEhwU3BQT0QtUE00Y0htU0VHWFhuVkplaEhYb3Y3Q1owUnFPODFnYXp3c1dRZE16amZNN215U0xWbF9rTFIxeWV4WUg3TlVTamVwRlJ5Zw?oc=5",
-     "src": "sukbakmagazine.com"
+     "src": "숙박매거진"
     },
     {
      "date": "09.17",
@@ -10740,13 +10741,31 @@
    ]
   },
   "여기어때": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.19",
+     "title": "평창보다 여기 어때?",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE41QnpnMVZTd2UwMUM2V0VYQ3RydHlJSlRkVVpHbThDYU5fdjRTdlZ5dExuMWNtMVlCSER2RzF2bDU4cGVra0RNMUVKdUFwcnd2a21xUDBJYUN0alRuVUJvdXRCQ1Q?oc=5",
+     "src": "OMATE 시니어"
+    },
     {
      "date": "09.18",
      "title": "“명절에 돈 쓸 일 많은데”…‘공짜 입장료’ 나들이 장소 여기 어때?",
      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9OUU1lVjZ2d0E5NmE1ZlFrTDlFdFd0NzVjSElQa01XLXc5bGV5dU81azZvc2xyN3R1MXpoSHFmaTY5YUtJbGNJVkxyMUt0U01ZSUxuRF9vSEppUQ?oc=5",
-     "src": "농민신문"
+     "src": "nongmin.com"
+    },
+    {
+     "date": "09.18",
+     "title": "여기어때, 포항시와 추석 맞이 펜션·풀빌라 할인전",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5udENyNjFKbnJSMTVnUWFQZVRwbVlwS0w4clJiWVBIdW51RzlPMmYzSUhiMzI2VEpFNEtVc2E5clhtck5YMHhlR0JxQlRieFNvZ1JTdHZkVXNPdUgyclHSAWNBVV95cUxOWTFZN19qTnFkWDJ5LVBRaU9saGJEM3hnamhXaHVlUm9BeGFfbDhmV2hDUWFYSDh0cjREOVNaOWhPdXR1OVZTQVpxeHZGWXhpLVBYdm1vTnVmelRSZXVLb1ZQUWc?oc=5",
+     "src": "스포츠경향"
+    },
+    {
+     "date": "09.18",
+     "title": "[주말 여기 어때] 대전 중촌시민공원서 ‘2026 전통문화마당’",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9LbU9adGZ0R1FKYTI5QUZ6YlBYYXBhRl8yZ3FRZE16REdJZnVGdTdtUDZwaUNleWxPWFYwUDBtRVRLRERuaTNsdHR0VmVyWFBaVHozbVd4bHJmM2sxamZUYmhrLUtHUXg3Tk1hdi1tT2RfQQ?oc=5",
+     "src": "굿모닝충청"
     },
     {
      "date": "09.18",
@@ -10758,13 +10777,7 @@
      "date": "09.18",
      "title": "야놀자·여기어때, 공정거래법 위반 혐의 전면 부인",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBkTkk4NU95ZjFjY0NXSmZhcWZUMHVRXzBwajV6ZEhwU3BQT0QtUE00Y0htU0VHWFhuVkplaEhYb3Y3Q1owUnFPODFnYXp3c1dRZE16amZNN215U0xWbF9rTFIxeWV4WUg3TlVTamVwRlJ5Zw?oc=5",
-     "src": "sukbakmagazine.com"
-    },
-    {
-     "date": "09.18",
-     "title": "여기어때, 포항시와 추석 맞이 펜션·풀빌라 할인전",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE83NmRaT05VTkg5WVQ3eU5tZldTNXJwV1FzV1Vwdnl5aDlSc1pmYzlocUVOS2MzTVduU0ptc2tnR0NyanBVcmxqX3RHb0d2bXdNemRlMw?oc=5",
-     "src": "v.daum.net"
+     "src": "숙박매거진"
     },
     {
      "date": "09.17",
@@ -10789,24 +10802,36 @@
      "title": "청도군, 오는 22일부터‘여기어때’서 2만원 숙박 할인쿠폰 발행",
      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB6QXZTYkdLd1FVWEdxSzhhMTV5OXdUZGVjTW1jWWtZUWpCa2FzVHV5UHFnQ0RpRnJYMzRKTTZtdkhTUTB0N1RwbzZmZ01HeXY3SDA0aFZ3?oc=5",
      "src": "헤럴드경제"
-    },
-    {
-     "date": "09.16",
-     "title": "“추석부터 한글날로 이어지는 황금연휴”... 여기어때 ‘해외투어’ 상품 할인 프로모션 실시",
-     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5LX2NqOHJQVUJqVW8wUHY1OGRPMThSbGlENUN0aFN3R1RKOXBETHd1Y2pfc3Y2dmVHektibzUyb3c3dWo4Rkp4OGpFLUdwZFZMYTRfT0ptLVhEVTBYa2tzbDZFYURIdlRTZElKNV9fM3JoRWNQYndmZUdmSGE?oc=5",
-     "src": "비욘드포스트"
-    },
-    {
-     "date": "09.16",
-     "title": "\"여기어때 앱으로 청도 숙박 예약하세요\"…'2만원' 할인",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5nQlZibDhoRGs0QzgxVjk4QUVWUFFfVHViNTJXS2RBdmdiOFZvaWtWTnlkOVdveTlhRmtWZ0VqakpqTExRQXpHaFRlYkNCS2JvZ1lWMnRzRFFRTnJqX0hjM9IBeEFVX3lxTE93LWxGUW1yN3NuSkZXOFkyTWdaSjBkakoyS0NZMlVuR3UweFNLVERCNjl3VXNRdnh1djhqVlVQOFZRY0JzV2Rrcjh1aUF4YmZUTExzUS10Y3Nld192TXhIWVh1cmQtQi1lS2R0Q3F3czZSajlJRUVtUA?oc=5",
-     "src": "뉴시스"
     }
    ]
   },
   "한국타이어": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.28",
+     "title": "한국타이어, 폭스바겐 '아틀라스' OE 공급…북미 포트폴리오 확대",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE4wM04ySUJDaUE3UG13XzdxRkZsVEZCWjJJcjZKMVIyVExYbmNLLUFkRmtfakdPS1VFSkRqdktYUl95Z2I3akZRbmtwaXdaODg?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.28",
+     "title": "한국타이어, 북미 공략 강화…폭스바겐 '아틀라스' 신차 타이어 공급",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5peWUweUhvWGU5REZUdDhXVy1zb25tWlN0UXR0RTVDbE1hbDc3ZFJyRXJtcUFobURXYlNTQTZCUG9sZnIwQ29lelZLVi01dm42S19JYW5TU1VjYkhRN2ptMS10S3VhTUQzQU43VkZDTkpiZEtZbnVxNdIBeEFVX3lxTE5peWUweUhvWGU5REZUdDhXVy1zb25tWlN0UXR0RTVDbE1hbDc3ZFJyRXJtcUFobURXYlNTQTZCUG9sZnIwQ29lelZLVi01dm42S19JYW5TU1VjYkhRN2ptMS10S3VhTUQzQU43VkZDTkpiZEtZbnVxNQ?oc=5",
+     "src": "뉴시스"
+    },
+    {
+     "date": "09.27",
+     "title": "한국타이어, ‘2026 걸프컵’ 공식 파트너 합류…중동 스포츠 마케팅 확대",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9YMXVGbFZwbTUteHJSS3k4aGRfcGtEanFjb2lra2Fpa3RnN3VOQ0JaUlBFVGh2OWcxYWdsVEpaaVc0M0gxLW5lWk1xejRseDJ6bFpFX2xQdWV2ZGdwN2RvNGtRbw?oc=5",
+     "src": "더구루"
+    },
+    {
+     "date": "09.26",
+     "title": "美 관세 장벽 5년 더 갇히나…한국 타이어 전면재심 올랐다",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxObXRCMHVlbmNDenpCREJMTEk2MVFIRmlhbjFjdVROSU1qN29tcGpPNDktLUFvVWt4eVpURVJVZnhmZzB5Rm9yUkZOaDBXYVNHU0k1anNueDJhRnJYT1JvQk5OakloeElXeVBpcWlWSjRETlgyRW51TENDcnBYM2lxdnRLczhMU2JH?oc=5",
+     "src": "글로벌이코노믹"
+    },
     {
      "date": "09.25",
      "title": "포르쉐는 ‘Hankook’, 폭스바겐은 ‘라우펜’...한국타이어 ‘투트랙 전략’ 가속화 [비즈360]",
@@ -10815,27 +10840,9 @@
     },
     {
      "date": "09.23",
-     "title": "타이어 3만개 기부…한국타이어, 주헝가리 한국대사관 사회공헌대상",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOdGljRElUTHBmNmxZU3RhRlk3UVFZVXkwMHl5eWJyWDl2VTA4ZG5MVEFNOWZqNlhNU3lFQkJ6WXpZM3czOXlQdHBHMVp3eTFIcUV0WWhUN3UzWDdpZkt5UjNIem1jSVFZY1N1STFHb2taY2xsUC15eTM2QkwzUGF3cQ?oc=5",
-     "src": "edaily.co.kr"
-    },
-    {
-     "date": "09.23",
      "title": "한국타이어, 전기차 타이어 개발 현장 공개…소음·마모·AI 해석까지",
      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5nRFVjWU9ZVE9Rb1YwWW93Zl8zWUZsLUFVeE1VaUhaZUlGZTMzTVh5UkhtRnY3UEctZ2c1Qlo0UExIZldYMTNLQ2lwTE52NHJSSVZYUGdB?oc=5",
      "src": "지디넷코리아"
-    },
-    {
-     "date": "09.23",
-     "title": "한국타이어, 헝가리 CSR '대상'…2년 연속 지역사회공헌",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFA4NlR0UURXVUE5ek9pUTYzS3BPbHFKbXRjYU8tLWcySUd3WXMxQW00Um4wbnVQZ01JckRkQVRYeG9sYmE4WmhWdWkwbEoyQ1lFam9zZFl2dkZjTXBpeGpBN9IBeEFVX3lxTFBvcGNGTVRaYmlIcWk2T2Y5c25tT1MtVkt0aUVIT3g2ZW5xUThFRzhiVThQaVFFbUpZNHZxcnVVcE5EdGsxX2RhSW9xNWRVdkJxMy1VajhSZW5NXzFqR0lRLUlRTVgxMTdiai1RS0dRQzlDamRQaGtMTA?oc=5",
-     "src": "뉴시스"
-    },
-    {
-     "date": "09.23",
-     "title": "한국타이어, 헝가리서 사회공헌 활동 인정…CSR 대상",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5oSkxCcXB2QUZwS3JrVEF5ckxFS1JWX3VfWUNlWl84WlF3ZjVJMGZxUHZ4Ry1rRThXMzlUeDMycVRsUHEyRUVOZXppblRSRmQyekU0amdmb1Q1UdIBVEFVX3lxTFBEYVEza2YySGJza0VkbVZKeEpFeGczRm8xdlA5dXdwZEFHbjJjWXA1N1NvSUNiSzdFOEQyU2ZKS0dYRjJnVk5jQUFIenV0c0hTWHJUMA?oc=5",
-     "src": "더팩트"
     },
     {
      "date": "09.23",
@@ -10846,19 +10853,7 @@
     {
      "date": "09.23",
      "title": "한국타이어, 헝가리 CSR 대상…13년간 타이어 3만개 기부",
-     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9oNjZoM3lUZ3ZiUVE4dWhYbUxuVk9rVlJvNndENTlENVBWb3NyeEpXU0N6VTUyOFl3dkl1OTVvVC1lcnZoUEE?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.23",
-     "title": "한국타이어, 헝가리 CSR 대상…타이어 3만개 기부",
-     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9ZcUZja0RRclJJQktlYXNvQTVPSEdZLXZ3bXhjU3JpaEVmVTZ5bm10UU5RT3VQemdXVFNYS3B3QU82TDFjdFV5LUhxdFJoRFk?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.22",
-     "title": "한국타이어, '2026 걸프컵' 공식 파트너십 체결…\"중동 스포츠 마케팅 확장\"",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE16eTB0ZXdZaFB6R3h4Mk1SSHZWYXNOWlpMQS14WktQUnFRU1ptU1pjRGpNSVNHajc0cGwxYmVyWk5uRERTOFpiZkVnTDBObzNoU3YyLQ?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1OOXdpZTFJOE42WURKakt0dkNRTWpObGFuQWNrc0NEM2FhbEJYSGVrcHlOMElNQlRabmdLT0M0UXZmOHc0RkRBTnA3NA?oc=5",
      "src": "v.daum.net"
     },
     {
@@ -10866,11 +10861,17 @@
      "title": "쇠사슬 묶고 '핏빛 타이어' 끌었다…한국타이어 앞에 선 '화물 노조'",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE56NmhUeTBsZkhlcUNiaTFZSXZxajhKa1FDdmU5enp4WmtDeUxwSE5wbnFTSVlyN1I5SWRRbzNZR1dNSWtnUnp0Y294dTFQNHFiYThzZg?oc=5",
      "src": "v.daum.net"
+    },
+    {
+     "date": "09.18",
+     "title": "화물연대 서경본부 한국타이어지회 “권역축소·물량이관에 노동자들 피해···원청 대화 나서야”",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4yNXpRZk14UGxHMWlJdUxzcTE5TXRlN3ZhWkw1UmxSeWx6QktfZ0x0YWtJeTRjZGdVRTB6OExTUTBsbUsxMDNCNHRCMHNjRkpxNV9MOXZyUkh0d9IBX0FVX3lxTE1DbUJNZUpVSE83bEw1QUJZU3pMT1ZoVlpxaWdockZRY3RUcVJMd2NlMGRFd3B1QXNhbHhjczhPSThfc0N6Z0ltVEJaZkVvNlhaOVNwd1ZGWjQ3ems2akQw?oc=5",
+     "src": "경향신문"
     }
    ]
   },
   "넥슨": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.21",
@@ -10883,6 +10884,12 @@
      "title": "도쿄 게임쇼 넥슨 부스 찾은 최휘영 장관",
      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1HWFZyV0ZYbmYzUTk2dXJvY2ZMYVhiVVhoNW44LVV1blY0a0RVaHB3ZWlRVWVfaHdfSGZfM1hpS3lNWDltZW5rMXlTUQ?oc=5",
      "src": "v.daum.net"
+    },
+    {
+     "date": "09.20",
+     "title": "넥슨, '메이플스토리 이스케이프' 방탈출 카페 홍대에 정식 오픈",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9wMVJTYkEwT0d1TTcwRUd0WnNkRm5fbWdQbFoyOF91dUlzdmVsc0dlQ09GSkZMYzNhNkhSazFCdEFnZ3dzWjltOTNyQ3ZxN1VmNnJLUC1RNldGdkdsdjJj?oc=5",
+     "src": "넥슨 뉴스룸"
     },
     {
      "date": "09.20",
@@ -10921,12 +10928,6 @@
      "src": "v.daum.net"
     },
     {
-     "date": "09.18",
-     "title": "넥슨, 추석 맞아 인기 게임 16종서 한가위 이벤트 마련",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5DUmFsZWluQjNfeHRBNW9ubU9WeG1FOUlCaDVJTjJpbXhmWFF2SmF1Zl9PNVZvY2kxS3U5akZnT0trWWFSb2ZYUmlXcHM2RGtKcFN0d0t1emgwNkItZjhteENPcEs1WTRnTjFz?oc=5",
-     "src": "서울경제TV"
-    },
-    {
      "date": "09.17",
      "title": "넥슨, 인기 게임 16종에서 추석 기념 이벤트 진행!",
      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE01Z08wQjI1Z1hqY1B3Mlg5SUFYajZ4WHZPOHp5YWZqRC1CY3YwZjFFQjBHQXkzanQ0cVl0QmFkUkhBRFJLX1VyZ1p1T2pDTFprQlI2NUlJNHhRYzhDU0Q0?oc=5",
@@ -10935,7 +10936,7 @@
    ]
   },
   "엔씨소프트": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.23",
@@ -10947,7 +10948,7 @@
      "date": "09.23",
      "title": "엔씨소프트, 신규 IP 5종 공개...장르 다변화 추진",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1sZnhWYzBEci05Zk5lWHR0RElCbWZ4LVlUZlFUTFYtZDB3QktlLXQzeGN1Z3F1WEc2VzhYekJnZVhxSFpYVXI3dWtEX2J1Ym9VMXgzRw?oc=5",
-     "src": "osen.co.kr"
+     "src": "OSEN"
     },
     {
      "date": "09.19",
@@ -10958,95 +10959,107 @@
    ]
   },
   "넷마블": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
-     "date": "09.16",
-     "title": "넷마블, 도쿄게임쇼에 신작 3종 출품…2년 연속 단독 부스 꾸려",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE93STNjU19taXhuR3Fxejd1alljb1NyU2xUeEVCTlUtNjRRaHRuRFM3SGdWcHY0b3NSWHhuU3RrRGJlWU84SUNyRzM1aw?oc=5",
+     "date": "09.17",
+     "title": "넷마블, TGS 2026서 신작 '펄인블루' 공개…러브코미디 결합 수집형 RPG",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1lWjJsNWNkTFpST0dGRHVPRmc0eTE4cnBqZUdiMmYxbXFXdGZjSWdJc24ydXdmdXpyREtBT2lLeHJNX0h4UlRhMEF3OFBVc05OR3BWOFFn?oc=5",
+     "src": "지디넷코리아"
+    },
+    {
+     "date": "09.17",
+     "title": "넷마블, TGS 2026서 '샹그릴라 프론티어' 공개…원작 애니 C2C 협업 PV 첫선",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE84eHVpV04yNHNVQU94SDFUQTltWnBCaTNFRDhZbF80NmhUamZ2S3JUWEhTR1RiSEZqUGJIYWFsVGt3M3FYcE90QkxCdEE0T2lOSE5OV3FB?oc=5",
+     "src": "지디넷코리아"
+    },
+    {
+     "date": "09.17",
+     "title": "넷마블, TGS 2026서 '나 혼자만 레벨업: 카르마' 공개…한·일 사전등록 돌입",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1Jd2RsLVRodGNXZUFxcEFjTUlmeGxZNUtuTWYyb0FaS3Q5VVdDRFphbnZucUk4LVBUb0RMMTdDaG5BRmpRQ3llNnVEVERlNnVRd0Z2OW5B?oc=5",
+     "src": "지디넷코리아"
+    },
+    {
+     "date": "09.17",
+     "title": "[도쿄게임쇼2026]”세계 3위 日 시장 잡아라”…넥슨·넷마블·엔씨 신작 공개 총출동",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBpallQLUtVR3N3d3otOHg0ekZVSV9seDF1X3ZsdzVWdjRCdDMtR0pLakpOWUdxakhSeXRxUkdUNy04YlBDaWtvREItczc2cGhpVkJVSVlRd1Exd0tjZDlEdldfWkJxbjRLX2NzMi1n?oc=5",
+     "src": "알파경제"
+    },
+    {
+     "date": "09.17",
+     "title": "\"누적 1800만부 애니가 게임으로\"…넷마블, '샹프론' 첫선[도쿄게임쇼 2026]",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9fNVJtaDV6ajBlcUNxS0ZGYTdSZ3U5VGFKV2E5NFdlaUV4R1VteklqZDNiT3JaZ2hMcURxVFZYU3ItQXBQVm50azJGSUdGLTJoajA5anRlX3hPNUgyVXVSetIBeEFVX3lxTFBMWlVNN1BxNk5UN05teXljWU1pRDAtcGNWLTJrRXZKODdmelhXU0dmN0xqOWFXbER0RUtIUnhWbFdvdWpuaHJyS3FYeDdfdWJrWnFTZGN2bnpzTHljZEQzdEUyOWstU3c1dWJaa3U3TGJKZnNIMTlYcA?oc=5",
+     "src": "뉴시스"
+    },
+    {
+     "date": "09.17",
+     "title": "연애 감성에 RPG 손맛 더했다…넷마블엔투, '펄인블루' 첫선[도쿄게임쇼 2026]",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9xYnhzeVhBY0Z5VG9KX1B3R2RtNWo3MU5pVl90YzBFUEtVN1ozSzV1bHU0NUNUaFJHRk9EdmNVSXdYNWlJak9YVng0a3pUTnhHb2NCVFFBMWcyTm5ybzhWNtIBeEFVX3lxTE9NeFJBVXgwSC00NGc2bmFNMkhXX3M4OW1iN1hTckRrUWdPUDdCV2UwcUM5ZVVJWXQzVWhrVThuQ0FLdTUxamczT19FS25rQmhFTkFDLVlYaDdCTHhJN1VKOW5Oa0Z5MExLa1lYc01hTVU4amFpeFhSNA?oc=5",
+     "src": "뉴시스"
+    },
+    {
+     "date": "09.17",
+     "title": "넷마블 '나 혼자만 레벨업: 카르마', TGS 2026서 첫선",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA1VVY1TldYVHdiNE4xUGRPVUkyeXJ1dXcyQXo3NkRiVTZVcmtMR0xCVmF2cndKcEtoMnk1dTgxbC1Fck1oU1gwMWRmVWZMVVg3X1drRF9JelR6cEE0?oc=5",
+     "src": "뉴스핌"
+    },
+    {
+     "date": "09.17",
+     "title": "넷마블, 도쿄게임쇼서 신작 ‘나 혼자만 레벨업: 카르마’ 발표",
+     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9Vdm4wSUdxclM2UXJRYlMzUElwdnA3QzYtbk1QVnE4UDdFZVkyLUtKVzQzSkxKbzMwc3hTUlpSYjVwSDNiblE?oc=5",
      "src": "v.daum.net"
     },
     {
-     "date": "09.16",
-     "title": "넷마블 ‘일곱 개의 대죄: 오리진’, 신규 영웅 ‘칼라’ 업데이트",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE51VFd4UWJSTnB2R2t2LU9fQ2gxZmZwdWhvdlVjVVJta2JqMU1jT3lrQlBlNVhxRV9kTGJjQ3dQV1I4NVhuUnN5TWZ2dlB2SXF2WWVNOU11N01FNVFheGVhV0hVYjI?oc=5",
-     "src": "서울경제TV"
+     "date": "09.17",
+     "title": "방준혁 넷마블 의장, '올해의 우수게임' 3관왕으로 개발력과 체질 개선 동시 입증",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9QZkFVUXhQTUJZQ3JDV1pGQkZ0V1FBMEoyWUlBanktOWJEeElkVG9LYjhlc01JV3RDckdrdHpwLTBqZnZJTGhiMlRlWElnZTJJMmpQbVpVUHluRWtsMUdmQjdIcVIyQdIBakFVX3lxTE9TQVFiVTVVR3VPS3BtdUE0Y3NuTURSakFJMjd1SG9KZUk2cDhwNHB3Tl9hWTM4QnVkTkd1M01EdG9BZ2FYWnZFZVc4S2pmemdndkhpb09GUGZVa0dDTE5LQmFqU1VIU0dFQWc?oc=5",
+     "src": "CEO저널"
     },
     {
-     "date": "09.16",
-     "title": "코웨이 지분에 900억 쓴 넷마블…600억 추가 투입할까",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5TNEtldkp5b0g0SmR5RmwxbVpzX09YVVRqRGFlcXloZEdCMDdGTnVhWF9CN0wzblNkMWFYUUdzSGlCaVNRS2ZUcklfU2R1aWxFempsc3A3eUpaZw?oc=5",
-     "src": "한국경제"
-    },
-    {
-     "date": "09.16",
-     "title": "넷마블 '레이븐2', 추석 이벤트 던전 등 9월 대규모 업데이트",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBTSGxoWlhxVl82RHNHUEotWEdxdmtTQkhZTXNYRFJqV1E2RWRRS3R2Nm9Ua3lTV0stbE82RDRzaFdzXzRwV1ZPZEZJTU5NcW44Rm9yR18wZmxzM1R5?oc=5",
-     "src": "뉴스핌"
-    },
-    {
-     "date": "09.16",
-     "title": "넷마블 '일곱 개의 대죄: Origin', 신규 영웅 '칼라' 추가",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0yRF9XOExiMVV0MGxTTGFDTE53RjlVSXJzb2hhQkFCQkRuYXl5R2VIWjFjaEkyX3hIbGRZUGp5S3hsMG42bnIzVUdRQVFWOUVjNW1INnp3UGtKZV9f?oc=5",
-     "src": "뉴스핌"
-    },
-    {
-     "date": "09.16",
-     "title": "넷마블, ‘나 혼자만 레벨업 : 어라이즈’서 신규 헌터 ‘디아나 로페즈’ 추가",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5tWEdQUDkzZmpoc0NpUmtlb01QOU1rNE9tRzJKVU0tX3FLcDlTMVZFY2VhN1ZaNkhZdTU3bmJtT1FfTktKMUlocXNaYnIyVGN5?oc=5",
-     "src": "munhwa.com"
-    },
-    {
-     "date": "09.16",
-     "title": "넷마블 '신의 탑: 새로운 세계', 신규 SSR+ 동료 '쿤 로얄 엘리엇' 추가",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1qc3I5eFp0NklyNlZua3JYTjlaNzYyelJyM09INW9HYTRhSUhtVnpHajFTQjBmRGhJd2kwM3c2bkNNWE1OLS1QNENqVDVValRueEJnSXZFQ01naXU3?oc=5",
-     "src": "뉴스핌"
-    },
-    {
-     "date": "09.16",
-     "title": "엔씨·넥슨·넷마블 신작 日시장 출격…서브컬처 본산서 정면승부",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5GZWREd2xONXZwWTBZcUJQcHFDak96cHBQS0hVRld2dEVaVm9POFZFRV84dlcwbnhRb3Z3eTVucnRNSzBNMXg1YTdrTjZYcmR5X1HSAVNBVV95cUxPVWVoQndCNnc4WWlvU2FyRTFzUnpOaUU3dlRURkR4OGI5alNySEp0UXJnU0p3SFRyZldQUktGVXFTLWdWXzItWnBOakNJZmxPbzNlNA?oc=5",
-     "src": "서울경제"
-    },
-    {
-     "date": "09.16",
-     "title": "넷마블, 콘진원 주관 ‘2026 올해의 우수게임’ 일반게임 블록버스터 3관왕",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9LdVdTWkVhZTNmS0tDRDhwVVdoUUVtM0FoYWhSekxOYXNMRWYyNUYxbUpURUJDTkhzSGdRdjhtZWp2Q3JPZERFTjMzc19EVTZtcVU0LXpPSWVEVFBPeDgxaVVHcnV6ejV0Vkp3?oc=5",
-     "src": "디지털포스트(PC사랑)"
-    },
-    {
-     "date": "09.16",
-     "title": "넷마블 '뱀피르', 5대5 파티 전장 '아레나' 추가",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5xdUZQcWVGMzFIUXc4OFg3YzkzSkp6aC1XTThMM0ZBaEd4MzF4U2pVT2t3U2lRcWxkOWhEeDAzSmV4bUZSblNhaExzNkRLVUxqZkpfVXBnVUpMU25i?oc=5",
-     "src": "뉴스핌"
+     "date": "09.17",
+     "title": "넷마블 ‘나 혼자만 레벨업: 카르마’, TGS 2026서 공개…한·일 사전등록 돌입",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1ZdnQ1QlVLd2hhTnVUTVI2NGppbzJLNmZMYk9RSjUtTEM4VHlZVnlIZ2w5bU9MclZVRWpxRHFTcC1jcHNQUkVBM09EV3hBNGViOURVNFcyTXlQYzkxUGZSbkF5ejl1ZTJhOFMzbg?oc=5",
+     "src": "뉴스락"
     }
    ]
   },
   "대한항공": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.27",
-     "title": "‘마일리지 쓰지 말고 아껴두자’ 대한항공 미사용 마일리지 늘었지만…항공권 이용률은 감소",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5pMm9QNjk4cS1KVF90Y09HNkZsb1pmbTk5Um8zRjBiR3YtWUtxa2N6S1pVY1IySHdOQndYQXhxUXJfVElxNXBlQ3AtUVJ3ci1vcnozV2ZR?oc=5",
-     "src": "헤럴드경제"
+     "title": "대한항공 미사용 마일리지 이연수익 3조 넘었지만… 사용률은 뒷걸음질 |",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBxS2d2NVpNYzZCeTI2SDRQaTF0RTB3Q25yM0pFcHBIaUtIbzFlY1BnWXlDU2tCT19oZjF6TlZ0ZnJuQU5UODE4TWdqM3A3cVJSSV9rNVRSTzF6aWM3OWRCcy1xR0xQWTNNVFpOUTVR?oc=5",
+     "src": "중부매일"
+    },
+    {
+     "date": "09.27",
+     "title": "대한항공 미사용 마일리지 3조원 돌파…이용률 2년 연속 감소",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9vUXpEUmtVb3ZnNjgyOE0wWTg4RGpmQm1hUE80VzhDR3B4LXZ6TGM0bzFMOGNHOXhfRG4wUXpYZGpPLUQ2LTNocko2TUVDdnZzTWtoUXAycnpvN2F1SUJYZ9IBZkFVX3lxTFBySDRkWldBczRwaGhPZ1JpTmtfTGlqZG9MMmJIdzFia0ljMnQ5dzF6RllicVFCTXQ3Y1FPSFMxUFd2N19qWWdZU2JleDZaanNXYTVsNTVpbkM2SEJSSG1TdzBVczN4Zw?oc=5",
+     "src": "뉴스1"
+    },
+    {
+     "date": "09.27",
+     "title": "대한항공 ‘안 쓴 마일리지’ 3조 원 넘었다… 제주엔 특별기 띄웠다",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1OTjV6YnhCNy03TDRpN0l2X3NHRmE5eHh6WG5vSWFWV0VoLUstbWxfUmZWeWx3QnREODZMalpnZ2psWVVrejViR1BlVW9sTmkxenhsVA?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.27",
+     "title": "대한항공 미사용 마일리지 3조 돌파…실제 사용은 2년째 감소",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5zUERBVlR3MjIwYkhWSW1vczRzTmduMmhSZ3VsOWkwSFRiUENOTGFfa3R1bllSQVY4RnVhaUtYbHNiOGJ2SXZFaEVqSzNSeEpsYndzR0c3QW9JU0dsVm02R2tqVUtDdDNBRFNtak9ZVdIBc0FVX3lxTE1mdmg1NEpWUTZpTWxVMkxPeHRGckNXS2E0WFNhUkl1eVBrbUF0OXVYRFVib2Z3OXpEWm5MRDZQYVlhMEJNV1hwMXdfMkNPZGlJSkNUV3ZwbU54RXhPUGtvbTBET2VqLTFiX29pRktOWU0xRlk?oc=5",
+     "src": "뉴스웍스"
+    },
+    {
+     "date": "09.27",
+     "title": "대한항공 마일리지 빚 '3조원' 돌파…보너스 비행은 되레 줄어",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1OMjkzUzVKUUJpYkxySzdKakJXOHlqTzgzSjQ5UWtsajltUkFnSUJzNW5SUGUzSExHbmE5RS1fRjJJczVfLVk2WlhtX3NKS28?oc=5",
+     "src": "v.daum.net"
     },
     {
      "date": "09.27",
      "title": "대한항공 미사용 마일리지 3조원대…항공권 이용률은 감소",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9icDlJSkZESVFIVVhjRm1lQkEtWWlGaFVLX1J0Zk4yalc4QkVNcEcxYUEweTlpY2w0bURLUnlkR0hPc2ZXZ3RQRlNhR2R5S21wNEd6NENBWG93TE3SAWBBVV95cUxOaUM0S0M1V000bTdCOThEVzNtVWxLMmdzNGIwS1c0VENpd2k1Umx4eXc3UEstanRZeEJaX1BVaVpBajdFOGQtN2RTYlNWV2ZramhtM3RQN2ZJV1RHYVFzSVk?oc=5",
-     "src": "연합뉴스"
-    },
-    {
-     "date": "09.27",
-     "title": "[이번주 관심주] 대한항공 '52주 신고가'...연말 아시아나 업고 4만원 도전",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5mRnhWLW1GX3Q5NWYtZEtJQ0lYU2Q5V3EtSnpPbnFLNTZhTDRwckc5a2wyaGUzdGJVQ0pWQkRYaWlFbVM2eWljWmZKMDEtX0MzMGZrN1ctS1lYYzJPRmlpaEVkTWR0R25LWkxYYTFDTUpqUQ?oc=5",
-     "src": "오피니언뉴스"
-    },
-    {
-     "date": "09.24",
-     "title": "대한항공·아시아나 통합 임박…내 마일리지 어떻게 써야 할까",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9IeERFQ1NZMm54dkxFa3BSSWwwYXl3NnV1eHRYa016R1ktU1BPZDNqYW8zSGR0aDZJNE80eTBtOTRCcWJXQ0JUQkFIWQ?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1aR2FRUWlRTFRLSmZCa1QyWDBadFpHZ0ROX3d6UU5xUHZPekxFS2RGTVR3akdTcnQtUWxnb294NHVQbjU4NXZpU1Z5RQ?oc=5",
      "src": "v.daum.net"
     },
     {
@@ -11054,12 +11067,6 @@
      "title": "[비즈&] 대한항공, ’세계 최고 항공사’ 10위 선정 外",
      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1OOTVfRGRObzVidmEyT0xBWmhzQTRUVVV3bzJfdmg0T3ByVTJHTzI1alBXSkJ5VC1MZlR0cGUyX0lrai1IbnB4N0ppM3loNVBPRXZ3QmZlSUhJbkxWZEpBN3hTdVJQeEU?oc=5",
      "src": "연합뉴스TV"
-    },
-    {
-     "date": "09.23",
-     "title": "대한항공, 스카이트랙스 '세계 10대 항공사' 선정…14개 부문 수상",
-     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5WMnV5OUtiZC12STNnOGFDRTUwaW1jQ0pGNjhGV21RczdZWURuQ3B5WVFIVEtGUXkxdWNJbzdWWGdEWXVXRnhYNXpSZzh5YlE?oc=5",
-     "src": "v.daum.net"
     },
     {
      "date": "09.23",
@@ -11078,22 +11085,16 @@
      "title": "대한항공, 'AI 드론' 기술 시연...\"군집 비행·타격\"",
      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNcnlJd05kNkl4RF9yMGpxTVRrRHZxc0V0ak55UzNsM3JzeTZ0QW5VU0pVeHhieEtkXzV2Uk1wV0ZIeW1iakVQNUhsTGltR0czTVpaZXE3TFRYc0MyLWZIdFlCNW9HRFd1ZWpjcFVXb004eUM4N0VmUExydEJncUJpSmRuX2xwcVoyMUw4VA?oc=5",
      "src": "YTN 사이언스"
-    },
-    {
-     "date": "09.16",
-     "title": "공정위, 대한항공-아시아나 마일리지 통합안 최종 승인",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBoOXplR3BKUUt0TXpMUVZkaXE5RFpYZVBpSjdFay1NQ2RhRk5xVU9YU3Y5UENrMmlFQlhFZm9sU1p5UUdtMUNYLUlIUG96a3QtczFWcGRYa1ROMkFkQVJiQjJhNXVaSTg?oc=5",
-     "src": "연합뉴스TV"
     }
    ]
   },
   "동원": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
     {
      "date": "09.24",
-     "title": "'암살자(들)' 첫날 13만 동원…이변없이 '추석 1위' 출발",
-     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5tc2pLRlIxYkxidFJyY3BRVHpPQS1Wd19IU2liVFY2ZTN5N3k0QWNWNXYxSF9VdjZIVDJtd1pxMlpkdHdBUGM0RHBmdHJ0b2s?oc=5",
+     "title": "日 세계유산 추진하는 아시오 광산 가보니…강제동원 흔적 없고, 초라한 목조비만",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8zdm5PQ0VxVmp5VG80Vzk5c2JlOTNjekRqZFNyZ2hxSGZjOWhadnBBWGlxWWFwTjFhQWh1QWZSbXdJQVNXUV9LMTdJNW0yY1E?oc=5",
      "src": "v.daum.net"
     },
     {
@@ -11153,8 +11154,44 @@
    ]
   },
   "빙그레": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.22",
+     "title": "\"멕시코로 가는 바나나맛우유·메로나\" 빙그레, K-EXPO 참가",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02N1J2QW54UzlVN1ZMSDQyZWN0c2Z0YXZaYVk5TlBobUQ2SDlfRzV2Wmp0M1dlQktSRkppOFJ3MkZoN1FHbGctNTkxTWRXYkhNYktLNjJfRXR4NHd2Rld2aHoxOVFMUUh4NTZZVzg2RnBma09Ya3RrSdIBeEFVX3lxTE02N1J2QW54UzlVN1ZMSDQyZWN0c2Z0YXZaYVk5TlBobUQ2SDlfRzV2Wmp0M1dlQktSRkppOFJ3MkZoN1FHbGctNTkxTWRXYkhNYktLNjJfRXR4NHd2Rld2aHoxOVFMUUh4NTZZVzg2RnBma09Ya3RrSQ?oc=5",
+     "src": "뉴시스"
+    },
+    {
+     "date": "09.22",
+     "title": "“멕시코에 ‘바나나맛우유·메로나’ 알려요” 빙그레 ‘K-EXPO’ 참여",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE52bjM1YnYzdlNkTkQ1SVgwTk9VWFdpTW1vb0JhWDU4b05NdUNlMTZzb0F0V1U4R1dwd0ZFaWxCSGpVc0hka2Zlc3lKTDRuNWVkUXAteHhjbHBubDdiZ0JiSnVPYUd0N3ZrR3Yw0gFvQVVfeXFMTVZFYllxbHNGbjJaT2pXaEwwaHI5S09PdkhKVk1KNS1CRnhxYnl3ZXJ3bGJmd0ZTUjhlenZoLUlFTDVzWkJJQXRzVUdPYTBGRzlaZlZ1SFVObWozYUFXZG84RXAwRXJwVzRYOEF0OGJ3?oc=5",
+     "src": "catchnews.kr"
+    },
+    {
+     "date": "09.22",
+     "title": "빙그레, 'K-EXPO 멕시코' 참가…중남미 시장 공략 속도",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5NallGSXNDdTd3SDI0WnM2WmcxUFZjb1NjVHE0VlRBSnJJalhXXy02M1Vya1ZsbmVabUVuRE5CT3l0NnlDcjdHNVk5MHJCZUk?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.22",
+     "title": "\"바나나맛우유·메로나 알린다\"…빙그레, 'K-엑스포 멕시코' 참여",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1STlh3dEQ4dU5XcHN0Wmd5b2o4TlB3RXBFc2dmR29aQU1JY0dlVm8zbWJaZ2I5UFZyS2ZtRUxrSUMxWDFjN1IxaW1fYw?oc=5",
+     "src": "v.daum.net"
+    },
+    {
+     "date": "09.22",
+     "title": "빙그레, 멕시코 거점 중남미 공략…K-EXPO서 대표 제품 소개",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE94dTJacUlhTXZpQ056UG12MFl0bTJwaWZlYUlTdW85YXFjczNya0E2UlVJdks5UzF6VWJsVExQaUhrX2JpbUdLOXdtcl9nTVhrbGROQzdwcWZnVWlIN0huVjFsdVBsQkVaWEVuU0tyUmfSAXRBVV95cUxOMzhLVXRaRkxqeFJBdXNrajltTkQ2cFRocUlBZlFMT1NZRHN1cXNWdDdsdVlCNVJlNWFSaFUxZG9zRjRaa3Y1SVN1cnRYeFNld3dUdjhXQ2NtUVVQdS1hcWkwMVhCRGxMNXk3dDlpcEtiRmdLVA?oc=5",
+     "src": "thefairnews.co.kr"
+    },
+    {
+     "date": "09.22",
+     "title": "美 시장 사로잡은 '메로나' 열풍…빙그레, 해외법인 매출 성과 \"역대급\"",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1VanZYQ1kyRkJjRU5KRGlUZ3R6TXJzSWVSOVhRTmNoV0Rxd0UwQlB4N05FVVljMXJVM1dISzVYQlZJVUZwMjhENloyT0lWRVZTbUR4cXNIZE5UaVhGcDNUVy02b1JiSFE?oc=5",
+     "src": "청년일보"
+    },
     {
      "date": "09.22",
      "title": "[영상] '빙과 1위' 빙그레가 맞닥뜨린 냉정한 현실, 역대급 매출에도 대규모 희망퇴직",
@@ -11178,48 +11215,18 @@
      "title": "빙그레, 고물가에도 바나나맛우유 ‘착한 가격’ 유지...외국인 관광객 몰려 판매 ‘쑥’",
      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9DV0w2cFBKZmhqbGNGVC00dEdlak9xR2RmdkV3aFd5Qm8xeGM1akw4d1ZnMWNEYkpfbXJZUUdVMVQweHdzOWw2NlJ3RV9zTUNpS296MkhQUGRsNDl3djV1bVpQLWJJZzdBYUNTTlVsOE1EQk9Qczdn?oc=5",
      "src": "이코노미트리뷴"
-    },
-    {
-     "date": "09.16",
-     "title": "[똑똑한소비] bhc, 빙그레, 한우자조금, 아웃백, 풀무원푸드머스, 현대그린푸드",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9IQjFKSHR2LXIwZzl4UU44WFZ3ellNeU1MN2pWQlVQVmZVdEp3djB1dFhSbkxUSnBUQ05ZOVc0YWZyZzliM2pwbkZ5N0o3Nk05RWtYemZNX0k1OE0?oc=5",
-     "src": "에너지경제신문"
-    },
-    {
-     "date": "09.16",
-     "title": "빙그레, 직업훈련 우수사례 대상…\"AI 교육 실제 업무 변화로\"",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5nQjY1TFlHWFZnak9ndnBYd2xycldwclZXOXNhX2xRVkt1MzhzZXVPOHRLNG5sSTdlaExaQzNEZmF3UGxULTRFM2J0YWVPbjZPemp4MkdQWU15OVBqRllpeNIBeEFVX3lxTFBlelo5VDA4QmdCa1doWjYzYVZKaFpGZUtrYTNhWjBKWnd2dFlJaXNaOHp2bV9oWWQ5NGlkNkc1NEdtWXhXNmtuemhuZ3pGZVRGbExFN1JaU1NOejJUNzBrRmRUMFpqb3FpUDE3VzM0RDBFbWV4T0d0NA?oc=5",
-     "src": "뉴시스"
-    },
-    {
-     "date": "09.16",
-     "title": "빙그레, 직업능력개발훈련 경진대회 대상… AI 교육 성과 인정",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA5MDBNbmpOZmFXZHdkV3lray00WVQ1WWdrQTZhRjBVeFVSaDlFWW90aVVZZ0czNGQtcjFuYlBmSjRVbDFTOUNaQ1M3Wml4Q2dGbllvWg?oc=5",
-     "src": "v.daum.net"
-    },
-    {
-     "date": "09.16",
-     "title": "AI 교육으로 직원 역량 ↑…빙그레, 사업주 우수 교육사례 선정",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA2MUVpV0pzUkNxLWhaSlVBdVNiNTA3OEVSQTRlWUdJX0gzcl9jdjNQMEtSOVdSLTB4TTVYV0lYSGFVYVh3V19ZYXNQRjBrMWQzOWUyb3JLdnlXQnpCWHJz0gFkQVVfeXFMTXYyRXFRZ2J2WkJIUUdnQ3pVQWxPMC1sYTRBaEl5RUNNdnhWMEU4VElnMVhVMFpDR0xIM1lraHhnSE1PRjFuUXVLUmpyTExCeFFsYllTR0k3ZTBIR1ByYk14YjFQYg?oc=5",
-     "src": "뉴스1"
-    },
-    {
-     "date": "09.16",
-     "title": "빙그레, 고용부 주관 ‘사업주 직업능력개발훈련 우수사례’ 대상 수상",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBmajVPSkZjS2lVMkFsWmRSUWFNV1VwMG9IdTFfVmFtYmI0ODd2VTI1dnJLYkhmM0JQaDM1TGtFbFhKc0RoeTdxYVI0cWx6dnJ1SFAtRmdhMmxCMXhqTUdIbGtWcDljNkVQRkY2akRyazBMQW1a?oc=5",
-     "src": "파이낸셜포스트"
-    },
-    {
-     "date": "09.16",
-     "title": "[위클리오늘] 하이트진로, 빙그레 소식(9.15)",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1kd0w2ZVc3R20wUXlPR3YxaEQwQjhtcmc1RW5YbVJhR1JkWjdhQjZ4TVNhMDc2OXc0Y1hpalpoV1F3bU1JQlZDQjhlWVZMY19RYUF3bWNLd2c1bW4wd1pCb1E1bTByMFdpXzIteUV3?oc=5",
-     "src": "위클리오늘"
     }
    ]
   },
   "오리온": {
-   "at": "2026-09-30T15:27+09:00",
+   "at": "2026-09-30T16:57+09:00",
    "items": [
+    {
+     "date": "09.22",
+     "title": "오리온, 하반기 신입채용 ‘연구·엔지니어링·관리부문’ 모집",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5jNzdzd09aQlhvb1RTRjNJeGZYYU94eFI5ZGZaM1lEN3lDbFlkYnJCb0hHMjFNamVpS2U4UkdTZ2I4dkY3SGNiS0ltd0hqVXNHNjRtWjVKbHIwWG5FdVA3YjdJM0tfVzJJMy1OcmxGaDRxc2FndGfSAWZBVV95cUxNcG1vWFdFT1QwV2s3dmJ2QXpwbHYwOEhJVmZmZi0xR2dxQ29Ha0RRbjlNYlVxSWlueHFnS0IyVjBpX1llRVdzd1F1dmFkeGxXbExyNUlCcmdHTW9vdmp1MGNPUnlVbWc?oc=5",
+     "src": "동아일보"
+    },
     {
      "date": "09.22",
      "title": "오리온, 2026년 하반기 신입사원 채용… 내달 6일까지 접수 - 조선비즈",
@@ -11269,16 +11276,10 @@
      "src": "이코노미톡뉴스"
     },
     {
-     "date": "09.16",
+     "date": "09.17",
      "title": "오리온, 러시아가 이끈 해외 실적…중국·베트남 회복은 잰걸음",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9qOGZ0amE0Q1NseGJjcGlFcmwzZDdSMndQcjcySUZaZllZNUgyYzdSem1RSzc2UzlHYTFtY1hZejB1OTdOYnBVUHA0YkRmLVk0V2hGb3NscE00X05NSFY5Y081RVZOQUdN0gFsQVVfeXFMT1RWZnRoN3ZVbFRrU1dqcDU5MHhhYTVjTXFjeWR4OHEzbnk4OGVjNUFVTngyTVowaGFMUlRFM0JpUlNMZ3pxRjZETng3SDAwWHAwdWlGX0NLdHZpekFnNWdlZTdfc3V2M0s1RzZJ?oc=5",
-     "src": "블로터"
-    },
-    {
-     "date": "09.16",
-     "title": "중국 둔화·중동 악재…오리온, 목표주가 17만5000원으로 하향[클릭e종목]",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1LZlNpajVmMEpKWEZCU29uWUxvX29nTS1iNTlJNzM0WVlLcGpndFZabDRTY0pMN2dvRWZHR2gyaUh5UDgtUGZDdHJsdm1fUHBRdy1LT2hsTGM3UmdTNE5DVw?oc=5",
-     "src": "아시아경제"
+     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9XU1BBQ2c5dTU3TFVYWjdJUE1MSHpBN2RWeTY3Ql9jOTZQcG9RWGlGZG5mOUpsbHVZMng4OFAxZ0pTMF92aUE?oc=5",
+     "src": "v.daum.net"
     }
    ]
   },
