@@ -696,6 +696,49 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:980px){.cm-rv{columns:2}}
 @media (max-width:699px){.cm{grid-template-columns:1fr!important}.cm-img,.cm-t,.cm-rv{grid-column:1!important;grid-row:auto!important}.cm-rv{columns:1}}
 @media (min-width:700px){.cm-img{aspect-ratio:auto!important;align-self:stretch!important;min-height:13rem!important}}
+
+/* 광고 낱말 퍼즐 */
+.a-puz{border-top:3px double var(--ink);margin-top:22px;padding-top:12px}
+.puz{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:26px;align-items:start}
+.pz-grid{display:grid;border:2px solid var(--ink);background:var(--ink);gap:1px;max-width:560px}
+.pz-b{background:#bdbab2;aspect-ratio:1}
+.pz-c{position:relative;background:var(--paper);aspect-ratio:1}
+.pz-c input{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;text-align:center;font-family:var(--serif);font-weight:900;font-size:clamp(1rem,2.2vw,1.6rem);color:var(--ink);padding:10% 0 0;outline:none;caret-color:var(--red)}
+.pz-n{position:absolute;left:3px;top:1px;font-size:.62rem;font-weight:700;color:var(--ink);pointer-events:none}
+.pz-c.on{background:#f3ead0}
+.pz-c.cur,.pz-c:focus-within{background:#ffe08a}
+.pz-c.good{background:#dfeedd}.pz-c.bad{background:#f5d4d0}
+.pz-c.bad input{color:var(--red)}
+.pz-c.hint input{color:var(--blue)}
+.pz-entry{margin-top:12px}
+.pz-entry label{display:block;font-size:.84rem;line-height:1.5;margin-bottom:6px;min-height:2.6em}
+.pz-entry label i{font-style:normal;color:var(--faint)}
+.pz-row{display:flex;gap:6px;max-width:560px}
+.pz-row input{flex:1;min-width:0;font:inherit;font-size:1rem;padding:7px 10px;border:1px solid var(--ink);background:var(--paper2);color:var(--ink)}
+.pz-row button,.pz-btns button{font:inherit;font-family:var(--serif);font-weight:700;font-size:.82rem;padding:6px 12px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer}
+.pz-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pz-btns button{background:transparent;color:var(--ink)}
+.pz-btns button:hover{background:var(--ink);color:var(--paper)}
+.pz-msg{font-size:.8rem;color:var(--muted);margin:8px 0 0;min-height:1.2em}
+.pz-clues{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.pz-clues>div+div{border-left:1px solid var(--rule-soft);padding-left:11px;margin-left:-11px}
+.pz-clues h3{font-size:.95rem;font-weight:900;margin:0 0 6px;padding-bottom:3px;border-bottom:1px solid var(--ink)}
+.pz-clues ol{list-style:none;margin:0;padding:0}
+.pz-clues li{font-size:.86rem;line-height:1.55;padding:5px 4px;border-bottom:1px solid var(--rule-soft);cursor:pointer}
+.pz-clues li b{display:inline-block;min-width:1.4em;color:var(--red)}
+.pz-clues li i{font-style:normal;color:var(--faint);font-size:.76rem}
+.pz-clues li:hover{background:var(--paper2)}
+.pz-clues li.on{background:#f3ead0}
+@media (max-width:860px){.puz{grid-template-columns:1fr}.pz-clues{grid-template-columns:1fr}.pz-clues>div+div{border-left:0;padding-left:0;margin:12px 0 0}}
+/* 오늘의 광고 캠페인: 한 박스로 묶기 */
+.cm{position:relative;border:2px solid var(--ink);padding:14px 12px 12px;margin:0 -12px;box-sizing:content-box}
+.cm-rv{border-top:0!important;margin-top:14px!important;padding-top:0!important;position:relative}
+.cm-rv-h{column-span:all;display:flex!important;align-items:center;gap:10px;font-size:.84rem;margin-bottom:10px!important}
+.cm-rv-h::before{content:"";display:inline-block;width:1.4rem;height:2px;background:var(--red)}
+.cm-rv-h::after{content:"";flex:1;border-top:1px dotted var(--ink)}
+.cm-t{border-left:0}
+.cpicks{margin-top:18px!important}
+@media (max-width:699px){.cm{margin:0;padding:10px}}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -760,6 +803,18 @@ body,button,input,select,textarea{font-family:var(--serif)}
     </div>
   </main>
 
+  <section class="np-sec a-puz" aria-labelledby="k-puz">
+    <div class="kick"><h2 id="k-puz">광고 낱말 퍼즐</h2><span id="pzsub">오늘의 이슈에서 뽑은 낱말</span></div>
+    <div class="puz">
+      <div class="pz-left">
+        <div class="pz-grid" id="pzgrid" role="grid" aria-label="낱말 퍼즐 판"></div>
+        <form class="pz-entry" id="pzentry" autocomplete="off"><label id="pzcur" for="pzin">문제를 고르세요</label><div class="pz-row"><input id="pzin" type="text" placeholder="정답을 입력하고 Enter" maxlength="8"><button type="submit">넣기</button></div></form>
+        <div class="pz-btns"><button type="button" id="pzcheck">정답 확인</button><button type="button" id="pzhint">한 글자 힌트</button><button type="button" id="pzshow">정답 보기</button><button type="button" id="pzreset">지우기</button></div>
+        <p class="pz-msg" id="pzmsg" aria-live="polite"></p>
+      </div>
+      <div class="pz-clues"><div><h3>가로 문제</h3><ol id="pzacross"></ol></div><div><h3>세로 문제</h3><ol id="pzdown"></ol></div></div>
+    </div>
+  </section>
   <footer class="foot" id="foot"></footer>
 </div>
 
@@ -1336,6 +1391,72 @@ function boot(D){
     if(Notification.permission==='denied'){toast('브라우저 설정에서 이 사이트의 알림을 허용해 주세요.',5000);return}
     OS.User.PushSubscription.optIn().then(function(){if(OS.User.PushSubscription.optedIn)toast('구독 완료! 매일 아침 7시쯤 오늘의 사설을 보내드릴게요.',4500)});
   });
+})();
+</script>
+<script>
+/* 광고 낱말 퍼즐: 칸에 직접 입력하거나 문제를 골라 한 번에 입력, 브라우저에 자동 저장 */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P=null, cells={}, sel=null, KEY='';
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function cellsOf(w){var o=[];for(var i=0;i<w.a.length;i++){o.push((w.r+(w.dir==='down'?i:0))+','+(w.c+(w.dir==='across'?i:0)))}return o}
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+  function save(){var v={};Object.keys(cells).forEach(function(k){var x=cells[k].inp.value;if(x)v[k]=x});try{localStorage.setItem(KEY,JSON.stringify({v:v,done:P.done||false}))}catch(e){}}
+  function lastSyl(t){var m=String(t).match(/[가-힣]/g);return m?m[m.length-1]:String(t).slice(-1)}
+  function select(w,focusIdx){sel=w;
+    Object.keys(cells).forEach(function(k){cells[k].el.classList.remove('on','cur')});
+    cellsOf(w).forEach(function(k){cells[k].el.classList.add('on')});
+    [].forEach.call(document.querySelectorAll('.pz-clues li'),function(li){li.classList.toggle('on',li.dataset.id===w.id)});
+    $('pzcur').innerHTML='<b>'+w.n+'. '+(w.dir==='across'?'가로':'세로')+'</b> '+esc(w.clue)+' <i>('+w.a.length+'글자)</i>';
+    $('pzin').value='';$('pzin').maxLength=w.a.length+2;
+    if(focusIdx!=null){var k=cellsOf(w)[focusIdx];if(k){cells[k].el.classList.add('cur')}}
+  }
+  function wordsAt(k){return P.words.filter(function(w){return cellsOf(w).indexOf(k)>-1})}
+  function status(){var ok=0;P.words.forEach(function(w){if(cellsOf(w).every(function(k,i){return cells[k].inp.value===w.a[i]}))ok++});return ok}
+  function mark(show){Object.keys(cells).forEach(function(k){var c=cells[k];c.el.classList.remove('good','bad');if(!show||!c.inp.value)return;c.el.classList.add(c.inp.value===c.ans?'good':'bad')})}
+  function msg(t){$('pzmsg').textContent=t}
+  function afterChange(){save();var ok=status();if(ok===P.words.length){msg('🎉 전부 맞혔어요! 오늘의 광고 낱말 퍼즐 완성.');mark(true)}}
+  function build(){
+    var R=P.size[0],C=P.size[1],g=$('pzgrid');g.style.gridTemplateColumns='repeat('+C+',1fr)';g.innerHTML='';cells={};
+    var nums={};P.words.forEach(function(w){nums[w.r+','+w.c]=w.n});
+    P.words.forEach(function(w){w.id=w.dir+w.n;cellsOf(w).forEach(function(k,i){if(!cells[k])cells[k]={ans:w.a[i]}})});
+    for(var r=0;r<R;r++)for(var c=0;c<C;c++){var k=r+','+c,d=document.createElement('div');
+      if(!cells[k]){d.className='pz-b';g.appendChild(d);continue}
+      d.className='pz-c';d.innerHTML=(nums[k]?'<span class="pz-n">'+nums[k]+'</span>':'')+'<input type="text" inputmode="text" autocomplete="off" aria-label="'+(r+1)+'행 '+(c+1)+'열">';
+      g.appendChild(d);cells[k].el=d;cells[k].inp=d.querySelector('input');(function(k){
+        var inp=cells[k].inp, composing=false;
+        inp.addEventListener('focus',function(){var ws=wordsAt(k);var w=(sel&&ws.indexOf(sel)>-1)?sel:ws[0];select(w,cellsOf(w).indexOf(k));inp.select()});
+        inp.addEventListener('compositionstart',function(){composing=true});
+        inp.addEventListener('compositionend',function(){composing=false;inp.value=lastSyl(inp.value);afterChange()});
+        inp.addEventListener('input',function(){if(composing)return;if(inp.value.length>1)inp.value=lastSyl(inp.value);afterChange()});
+        inp.addEventListener('blur',function(){if(inp.value.length>1)inp.value=lastSyl(inp.value);save()});
+        inp.addEventListener('keydown',function(e){if(e.isComposing)return;var rc=k.split(',').map(Number),d=null;
+          if(e.key==='ArrowRight')d=[0,1];else if(e.key==='ArrowLeft')d=[0,-1];else if(e.key==='ArrowDown')d=[1,0];else if(e.key==='ArrowUp')d=[-1,0];
+          else if(e.key==='Enter'||e.key===' '){e.preventDefault();var ks=cellsOf(sel),i=ks.indexOf(k);if(i>-1&&ks[i+1])cells[ks[i+1]].inp.focus();return}
+          if(d){var nk=(rc[0]+d[0])+','+(rc[1]+d[1]);if(cells[nk]){e.preventDefault();var ws=wordsAt(nk);sel=ws.filter(function(w){return (w.dir==='across')===(d[0]===0)})[0]||ws[0];cells[nk].inp.focus()}}});
+      })(k)}
+    function li(w){return '<li data-id="'+w.id+'"><b>'+w.n+'</b> '+esc(w.clue)+' <i>('+w.a.length+')</i></li>'}
+    $('pzacross').innerHTML=P.words.filter(function(w){return w.dir==='across'}).map(li).join('');
+    $('pzdown').innerHTML=P.words.filter(function(w){return w.dir==='down'}).map(li).join('');
+    var st=load();Object.keys(st.v||{}).forEach(function(k){if(cells[k])cells[k].inp.value=st.v[k]});
+    var ok=status(),filled=Object.keys(st.v||{}).length;msg(filled?('저장된 풀이를 불러왔어요 · '+ok+'/'+P.words.length+' 낱말 완성'):'칸을 눌러 직접 쓰거나, 문제를 고르고 아래 입력창에 정답을 한 번에 넣어 보세요.');
+  }
+  document.addEventListener('click',function(e){var li=e.target.closest('.pz-clues li');if(!li)return;var w=P.words.filter(function(x){return x.id===li.dataset.id})[0];select(w,0);$('pzin').focus()});
+  $('pzentry').addEventListener('submit',function(e){e.preventDefault();if(!sel){msg('먼저 문제를 골라 주세요.');return}
+    var t=($('pzin').value.match(/[가-힣A-Za-z0-9]/g)||[]).join('');if(!t)return;
+    cellsOf(sel).forEach(function(k,i){if(t[i])cells[k].inp.value=t[i]});
+    var right=cellsOf(sel).every(function(k,i){return cells[k].inp.value===sel.a[i]});
+    msg(t.length!==sel.a.length?(sel.a.length+'글자 낱말이에요.'):'칸에 넣었어요. 채점은 [정답 확인]으로!');$('pzin').value='';afterChange();
+    // 다음 빈 문제로
+    var nxt=P.words.filter(function(w){return cellsOf(w).some(function(k){return !cells[k].inp.value})})[0];if(nxt){select(nxt,0)}});
+  $('pzcheck').addEventListener('click',function(){mark(true);var ok=status(),bad=Object.keys(cells).filter(function(k){return cells[k].inp.value&&cells[k].inp.value!==cells[k].ans}).length,empty=Object.keys(cells).filter(function(k){return !cells[k].inp.value}).length;
+    msg(ok===P.words.length?'🎉 전부 맞혔어요!':(ok+'/'+P.words.length+' 낱말 완성 · 틀린 칸 '+bad+' · 빈칸 '+empty));setTimeout(function(){mark(false)},4000)});
+  $('pzhint').addEventListener('click',function(){var w=sel||P.words[0];var k=cellsOf(w).filter(function(k){return cells[k].inp.value!==cells[k].ans})[0];if(!k){msg('이 낱말은 이미 맞혔어요.');return}cells[k].inp.value=cells[k].ans;cells[k].el.classList.add('hint');afterChange();msg('한 글자를 채웠어요.')});
+  $('pzshow').addEventListener('click',function(){Object.keys(cells).forEach(function(k){cells[k].inp.value=cells[k].ans});save();msg('정답을 모두 펼쳤어요.')});
+  $('pzreset').addEventListener('click',function(){Object.keys(cells).forEach(function(k){cells[k].inp.value='';cells[k].el.classList.remove('hint','good','bad')});save();msg('판을 비웠어요.')});
+  fetch('puzzle.json?'+Date.now()).then(function(r){return r.json()}).then(function(p){if(!p||!p.words||!p.words.length)throw 0;P=p;KEY='adsnews-puzzle-'+(p.date||'')+'-'+(p.sig||'');
+    var m=String(p.date||'').match(/(\d{4})-(\d\d)-(\d\d)/);$('pzsub').textContent=(m?(+m[2])+'월 '+(+m[3])+'일 · ':'')+'오늘의 이슈에서 뽑은 낱말 '+p.words.length+'개';build()})
+    .catch(function(){document.querySelector('.a-puz').hidden=true});
 })();
 </script>
 </body>
