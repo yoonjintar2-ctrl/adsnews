@@ -947,6 +947,20 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .cplink:hover,.cplink.ok{background:var(--ink);color:var(--paper)}
 #kcampsub a{color:inherit;text-decoration:underline}
 @media (max-width:620px){.cplink span{display:none}.cplink.ok span{display:inline}.cplink{padding:3px 5px}}
+
+/* v27: 모바일 글자 크기 통일 + 퍼즐 판 폭 */
+.pz-grid{width:100%;box-sizing:border-box}
+.play-row .puz,.play-row .puz>*{min-width:0}
+@media (max-width:620px){
+  html{font-size:calc(16px * var(--z,1))!important}
+  .dek,.ecols p,.cm-s,.cm-rv p,.rv-cols p,.cp p,.a-live .news p,.a-live .news .ins .op,.tv-pt,.ci-d,.pz-clues li,.hd-note,.brief p{font-size:1rem!important;line-height:1.7!important}
+  .dek,.rv-cols p,.cm-rv p,.cm-s{text-align:left!important}
+  .np-sec>.kick h2{white-space:nowrap}
+  .a-vids .rk-m a{white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:clip}
+  .a-live .news h3,.cp h4,.rk-m a,.ci strong,.tv-t,.cpicks h4{font-size:1.02rem!important;line-height:1.45!important}
+  .a-live .news .ins .op b{font-size:.9rem!important}
+  .play-row .pz-grid{max-width:none}
+}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1740,7 +1754,7 @@ function boot(D){
   function msg(t){$('pzmsg').textContent=t}
   function afterChange(){save();var ok=status();if(ok===P.words.length){msg('🎉 전부 맞혔어요! 오늘의 광고 낱말 퍼즐 완성.');mark(true)}}
   function build(){
-    var R=P.size[0],C=P.size[1],g=$('pzgrid');g.style.gridTemplateColumns='repeat('+C+',1fr)';g.innerHTML='';cells={};
+    var R=P.size[0],C=P.size[1],g=$('pzgrid');g.style.gridTemplateColumns='repeat('+C+',minmax(0,1fr))';g.style.maxWidth=Math.min(C*46,560)+'px';g.innerHTML='';cells={};
     var nums={};P.words.forEach(function(w){nums[w.r+','+w.c]=w.n});
     P.words.forEach(function(w){w.id=w.dir+w.n;cellsOf(w).forEach(function(k,i){if(!cells[k])cells[k]={ans:w.a[i]}})});
     for(var r=0;r<R;r++)for(var c=0;c<C;c++){var k=r+','+c,d=document.createElement('div');
