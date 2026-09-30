@@ -683,6 +683,19 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:480px){.cpicks-g{grid-template-columns:1fr!important}.cp{display:grid;grid-template-columns:40% minmax(0,1fr);column-gap:10px}.cp>*{grid-column:2}.cp .cp-img{grid-column:1;grid-row:1 / span 5;margin:0}}
 @media (min-width:700px){.cm-img{aspect-ratio:auto;align-self:stretch;min-height:16rem;height:100%}}
 @media (max-width:480px){.cp h4{min-height:0}}
+
+/* v18 캠페인: 사설과 같은 4단 그리드 */
+.cm{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:22px!important;row-gap:0!important}
+.cm-img{grid-column:1 / span 2!important;grid-row:1!important}
+.cm-t{grid-column:3 / span 2!important;grid-row:1!important}
+.cm-rv{grid-column:1 / -1!important;display:block!important;columns:4;column-gap:22px;column-rule:1px solid var(--rule-soft);column-fill:balance;margin-top:16px!important;padding-top:12px!important;border-top:2px solid var(--ink)}
+.cm-rv-h{display:block;font-size:.84rem;font-weight:900;margin-bottom:4px}
+.cm-rv p{font-size:1.02rem!important;line-height:1.85!important;text-align:justify;text-indent:1em;word-break:normal;overflow-wrap:anywhere;margin:0}
+.cm-rv .rep{break-inside:avoid;margin-top:10px}
+@media (min-width:700px){.cm-img{min-height:0!important;height:auto!important;aspect-ratio:16/10!important;align-self:start!important}}
+@media (max-width:980px){.cm-rv{columns:2}}
+@media (max-width:699px){.cm{grid-template-columns:1fr!important}.cm-img,.cm-t,.cm-rv{grid-column:1!important;grid-row:auto!important}.cm-rv{columns:1}}
+@media (min-width:700px){.cm-img{aspect-ratio:auto!important;align-self:stretch!important;min-height:13rem!important}}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -1061,7 +1074,7 @@ function boot(D){
       '<div class="cm-t"><span class="cm-k"><b>'+esc(main.brand)+'</b><i>'+esc(main.date)+'</i>'+((main.media||[]).length?'<i>'+esc((main.media||[]).join(' · '))+'</i>':'')+'</span>'+
       '<h3>'+link(main.url,esc(main.title))+'</h3>'+(main.metric?'<span class="cm-m">'+esc(main.metric)+'</span>':'')+
       '<p class="cm-s">'+esc(main.story||'')+'</p>'+yt(main)+'</div>'+
-      (rv?'<div class="cm-rv"><span class="cm-rv-ph">'+REPORTER+'</span><div><b>클로드 기자의 한마디</b><p>'+esc(rv)+'</p></div></div>':'')+
+      (rv?'<div class="cm-rv"><b class="cm-rv-h">클로드 기자의 한마디</b><p>'+esc(rv)+'</p>'+bylineHtml+'</div>':'')+
       '</article>';
     var picks=rest.slice(0,4).map(function(o){var c=o.x||o;return '<article class="cp">'+
       '<a class="cp-img" href="'+esc(c.url)+'" target="_blank" rel="noopener" style="--c:'+esc(c.color||'#555')+'">'+(c.photo?'<img src="'+esc(c.photo)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(c.brand)+'</span></a>'+
