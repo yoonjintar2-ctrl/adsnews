@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-10-01T01:15+09:00",
- "updatedLabel": "10월 1일 01:15",
+ "updatedAt": "2026-10-01T01:20+09:00",
+ "updatedLabel": "10월 1일 01:20",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-10-01T01:15+09:00",
+   "at": "2026-10-01T01:20+09:00",
    "items": [
     "이번달도",
     "꼬들 1734",
@@ -31,7 +31,7 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-10-01T01:15+09:00",
+   "at": "2026-10-01T01:20+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
     "비타민 c",
@@ -48,7 +48,7 @@
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-10-01T01:15+09:00",
+   "at": "2026-10-01T01:20+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "유도 장세윤 은메달",
@@ -65,7 +65,7 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-10-01T01:15+09:00",
+   "at": "2026-10-01T01:20+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "유도 장세윤 은메달",
@@ -77,14 +77,14 @@
   },
   "zum": {
    "label": "줌",
-   "at": "2026-10-01T01:15+09:00",
+   "at": "2026-10-01T01:20+09:00",
    "url": "https://zum.com/",
    "items": [
+    "수시 원서접수 먹통",
     "미국 8월 PCE 물가",
     "북한군 MDL 침범",
-    "군 DMZ 지뢰 북한 사과 촉구",
-    "트럼프 한국 알래스카 LNG",
-    "수시 원서접수 먹통"
+    "정부 이란 다야니 ISDS 승소",
+    "KBS 이사장 정재권 재선출"
    ]
   }
  },
@@ -1547,7 +1547,7 @@
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-30T23:16+09:00"
+   "at": "2026-10-01T01:20+09:00"
   },
   "수시 원서접수 먹통": {
    "t": "수시 원서접수 서버 오류 여파…추가 접수 3184건·경쟁률 0.22% 올라",
@@ -1577,7 +1577,7 @@
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-09-30T23:16+09:00"
+   "at": "2026-10-01T01:20+09:00"
   },
   "안전": {
    "t": "민·관이 함께 '국가 AI 안전 종합계획' 수립한다",
@@ -1789,17 +1789,11 @@
    "u": "",
    "at": "2026-10-01T01:04+09:00"
   },
-  "군 DMZ 지뢰 북한 사과 촉구": {
+  "KBS 이사장 정재권 재선출": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T01:15+09:00"
-  },
-  "트럼프 한국 알래스카 LNG": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T01:15+09:00"
+   "at": "2026-10-01T01:20+09:00"
   }
  },
  "disc": {
@@ -2991,6 +2985,153 @@
    "mL32N7Yl0Qc": {
     "t": "새우야 놀자",
     "ch": "야놀자",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "Aqoq3AUz3Cc": {
+    "t": "[자막뉴스] \"이게 삼성 갤럭시입니다\" 젠슨 황의 한마디에 이재용 '활짝' / KBS 2026.09.30.",
+    "ch": "KBS News",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "saDEunBPYDI": {
+    "t": "이게 삼성의 수비입니다! 어려운 바운드를 잡아낸 김영웅부터 디아즈의 완벽한 핸들링까지! | 한화 vs 삼성 | 9.30 | 크보모먼트 | KBO",
+    "ch": "KBO",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "MIV2nK4Royk": {
+    "t": "9회 말 두산 김민석의 극적인 동점 적시 2루타 - 강승호의 짜릿한 끝내기 안타! | NC vs 두산 | 9.30 | 크보모먼트 | KBO 야구",
+    "ch": "KBO",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "xR1quo_wm8Q": {
+    "t": "금빛을 두른 조형우의 2타점 적시타 - 정준재의 끝내기 안타로 대역전극을 완성하는 SSG랜더스! | LG vs SSG | 9.30 | 크보모먼트",
+    "ch": "KBO",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "OoQ6hxXDp60": {
+    "t": "🔴 대한민국 U23 대 중국 U23 2 - 1 | 하이라이트 및 골 | 아시안게임 / eFootball 시뮬레이션",
+    "ch": "PRS SOUL",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "n6R4CGBHuU4": {
+    "t": "라면 레시피에 빠진 친구... 레시피 바꿔서 한 달 동안 먹음ㄷㄷㄷ",
+    "ch": "파뿌리",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "Hi6F-93iEPg": {
+    "t": "KFC 쿨타임~~ #mukbang",
+    "ch": "슈기님",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "9bwNU3R2d5o": {
+    "t": "나만알고 있는 집안 대대로 내려오는 비법",
+    "ch": "파란물병",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "b1H6D7V_BjY": {
+    "t": "장모의 무모한 먹방 도전을 완벽히 마무리하는 이만기 #이만기 #장모 #먹방 #라면 #예능 #웃긴영상",
+    "ch": "웃짜고835",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "nSeHXNFRnF4": {
+    "t": "[놀면뭐하니?] 낮 말은 새가 듣고 밥 말은 국밥 먹고 싶다.. 술도 안 마셨는데 숙취가 되는 소고기국밥 & 순대국밥 먹방😋 | #이선민 #유재",
+    "ch": "엠뚜루마뚜루 : MBC 공식 종합 채널",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "pQR3acnEYWo": {
+    "t": "Man’s Group - Big Trouble MV 4K",
+    "ch": "스튜디오:D",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "BttkIEV_2II": {
+    "t": "“한국이 외국여자들 다 버려놨다” 한국드라마에 과몰입해버린 미국여자들 // 1년전 드라마 시청률 50배 역주행",
+    "ch": "꿀튜브",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "xXUxJs0gOIM": {
+    "t": "\"신이었던 이 직업, 아직 괜찮을까?\" - 메이플 제논 밸패 리뷰",
+    "ch": "도루",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "9gX8injmeKo": {
+    "t": "[원피스 1194화 풀버전 만화 리뷰] 결국 \"패왕색 패기\"로 천룡인을 죽이는 밀짚모자 해적단 조로 엄청난 성장..!!",
+    "ch": "드원패밀리",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "0Jmd3yjie24": {
+    "t": "“더러운 중국축구” 배준호의 참교육 역전골, 한국 결승 진출! 이민성의 전술은 최악이었다",
+    "ch": "새벽의 축구 전문가",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "aukYMNHqGbw": {
+    "t": "오징어 게임 촬영 중 시력 이상? #강하늘실명 #라디오스타 #강하늘 #shorts",
+    "ch": "신나고",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "FJPh3xERcW8": {
+    "t": "분위기 미쳤다,  캠핑카 낚시여행 경북 마지막날",
+    "ch": "달빛소류지붕어낚시",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "i_2ibDSokwU": {
+    "t": "갑자기 분위기 빌런 아카데미아 [나의 히어로 아카데미아 5기 20화 리액션]",
+    "ch": "사공 SAGONG",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "ebX2imWvRVE": {
+    "t": "2026 Armed Forces Day CF \"The Most Reliable Name, the Republic of Korea Armed Fo",
+    "ch": "국방일보",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "CVVGmIQpSlM": {
+    "t": "테라브러시 울트라클린 칫솔  |  브랜드 필름",
+    "ch": "DENTOP",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": true
+   },
+   "_y2a6OgS3l4": {
+    "t": "2026 스포츠 브랜디드 콘텐츠_풀버전",
+    "ch": "DB손해보험",
     "fmt": "영상",
     "kind": "ad",
     "since0": false
@@ -4538,7 +4679,7 @@
     "since0": true
    }
   },
-  "at": "2026-10-01T00:53+09:00"
+  "at": "2026-10-01T01:20+09:00"
  },
  "adMonth": {
   "RDQmUgW8eZs": {
@@ -4739,7 +4880,7 @@
   "WvFSHb4oeTE": {
    "t": "토스vs토스뱅크vs토스증권vs토스플레이스",
    "ch": "토스",
-   "ud": "2026-09-02"
+   "ud": "2026-09-03"
   },
   "tcGKZANuUVE": {
    "t": "이제 토스는 AI '딸깍'으로 만듭니다",
@@ -4757,7 +4898,7 @@
    "ud": "2026-09-10"
   },
   "_C1dPhM7IKc": {
-   "t": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 월요일이 오기 전에 대청소를 합시다 | BLUE MONDAY MIX | DJ MAD MAESTRO (Tiny Puppet S",
+   "t": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 주말 대청소도 근사해지는 퓨전 재즈 플레이리스트 | BLUE MONDAY MIX | DJ MAD MAESTRO (Tiny P",
    "ch": "토스",
    "ud": "2026-09-20"
   },
@@ -5134,7 +5275,7 @@
   "DRXtRLmJXCY": {
    "t": "4000명의 라이더중 최선두에서 ! 대회 스타트와 오픈을 책임지고 달려라!  2026 세븐브릿지투어 ",
    "ch": "오뚜기",
-   "ud": "2026-09-22"
+   "ud": "2026-09-23"
   },
   "-xYn6Uh1vkw": {
    "t": "26 10,월 영업전략",
@@ -5199,7 +5340,7 @@
   "eVfp7Un11bM": {
    "t": "[KB글로벌스타×aespa] 원하는 언어 그대로! KB글로벌스타 (30s)",
    "ch": "KB국민은행",
-   "ud": "2026-09-21"
+   "ud": "2026-09-22"
   },
   "n6k1yLue4XQ": {
    "t": "[KB글로벌스타×aespa] 메이킹 필름도, 에스파와 함께 따라와⭐",
@@ -5319,7 +5460,7 @@
   "c6nEHtFtORU": {
    "t": "[현대해상] 기업PR ‘이름 곁에 평생‘ 편_15s",
    "ch": "현대해상",
-   "ud": "2026-09-16"
+   "ud": "2026-09-17"
   },
   "UZ-aANJ1Ans": {
    "t": "케녹스   TVCF 1",
@@ -5489,7 +5630,7 @@
   "z1dDjDEUfEk": {
    "t": "🇯🇵 일본 레이스에 🇰🇷 한국인이 참가하면 어떻게될까?! feat.대한민국만세 #사이클 #즈위프트 #자전거레이스",
    "ch": "오뚜기",
-   "ud": "2026-08-31"
+   "ud": "2026-09-01"
   },
   "Oy_6apPBf3s": {
    "t": "고속도로에서 타이어에 갑자기 펑크가 났다면? | TBX 멤버십 리얼체크 EP.1",
@@ -6060,6 +6201,21 @@
    "t": "가전 만들던 LG전자가 '로봇 훈련소'를 만든 이유 | SOLUTION NOTE EP.3",
    "ch": "LG전자",
    "ud": "2026-09-24"
+  },
+  "ebX2imWvRVE": {
+   "t": "2026 Armed Forces Day CF \"The Most Reliable Name, the Republic of Korea Armed Fo",
+   "ch": "국방일보",
+   "ud": "2026-10-01"
+  },
+  "CVVGmIQpSlM": {
+   "t": "테라브러시 울트라클린 칫솔  |  브랜드 필름",
+   "ch": "DENTOP",
+   "ud": "2026-10-01"
+  },
+  "WSpFhw-mr3E": {
+   "t": "\"5,290만 원부터! 신형 벤츠 CLA 전기차 가격·주행거리·트림 총정리\" #벤츠",
+   "ch": "메르세데스-벤츠",
+   "ud": "2026-09-10"
   }
  },
  "adHist": {
@@ -6399,24 +6555,24 @@
   }
  },
  "ogTried": [
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
-  "https://www.wikitree.co.kr/articles/1161400",
   "https://www.fnnews.com/news/202609301024069967",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
   "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
   "https://biz.heraldcorp.com/article/10888599",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://www.wikitree.co.kr/articles/1161400",
   "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
   "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/"
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
@@ -6899,7 +7055,28 @@
   "UmZ9wk1nCOE": "KBO 리그는 오직 티빙에서 ⚾",
   "TyUsXMCQ6bY": "Kayvon Thibodeaux finds out Odell Beckham Jr was released by the New York Giants (via ‪@sn",
   "wLs6QeS20cA": "0:00 Intro",
-  "2PAdkadYIOE": "생방송 : 치지직"
+  "2PAdkadYIOE": "생방송 : 치지직",
+  "WSpFhw-mr3E": "시승 및 상담 신청",
+  "CVVGmIQpSlM": "매일 사용하는 칫솔이기에, 더 섬세하게.",
+  "ebX2imWvRVE": "",
+  "i_2ibDSokwU": "",
+  "FJPh3xERcW8": "달빛소류지 붕어낚시",
+  "aukYMNHqGbw": "오징어 게임 촬영 중 시력 이상?",
+  "0Jmd3yjie24": "사진 출처 : 이미지코리아",
+  "9gX8injmeKo": "이번 영상은 원피스 1194화 분석 리뷰입니다. (one piece 1194 chapter)",
+  "xXUxJs0gOIM": "메이플 직업 제논 밸패 리뷰",
+  "BttkIEV_2II": "채널에 가입하여 혜택을 누려보세요.",
+  "pQR3acnEYWo": "SBS [더 리슨: 우리가 머문 계절]",
+  "nSeHXNFRnF4": "[놀면 뭐하니?] 토요일 저녁 6시 30분 방송!",
+  "b1H6D7V_BjY": "",
+  "9bwNU3R2d5o": "",
+  "Hi6F-93iEPg": "KFC 쿨타임~~",
+  "n6R4CGBHuU4": "[파뿌리 인스타] popfree92",
+  "OoQ6hxXDp60": "⚽ 대한민국 U23 대 중국 U23 오늘 생중계 | 2026 아시안 게임 | 오늘 경기 생중계 - eFootball 시뮬레이션",
+  "xR1quo_wm8Q": "금빛을 두른 조형우의 2타점 적시타 - 정준재의 끝내기 안타로 대역전극을 완성하는 SSG랜더스! | LG vs SSG | 9.30 | 크보모먼트 | KBO 야구 ",
+  "MIV2nK4Royk": "두산 김민석의 극적인 동점 적시 2루타 - 강승호의 짜릿한 끝내기 안타! | NC vs 두산 | 9.30 | 크보모먼트 | KBO 야구 하이라이트",
+  "saDEunBPYDI": "이게 삼성의 수비입니다! 어려운 바운드를 잡아낸 김영웅부터 디아즈의 완벽한 핸들링까지! | 한화 vs 삼성 | 9.30 | 크보모먼트 | KBO 야구 하이라이트",
+  "Aqoq3AUz3Cc": "젠슨 황 엔비디아 CEO가 이재용 삼성전자 회장, 최태원 SK그룹 회장과 두 달 만에 뉴욕에서 다시 만났습니다."
  },
  "bnews": {
   "하나은행": {
