@@ -535,6 +535,17 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tcols3 .rk-m>*{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .tcols3 .rk-row{height:calc(9.5rem * 9 / 16 + 14px);box-sizing:border-box;align-items:center}
 .tcols3 .rk-t{align-self:center}
+
+/* v13 팔로우 + 버튼 팝업 */
+.ftabs .fadd{border-style:dashed;min-width:1.9rem;font-weight:900}
+.ftabs .fadd:hover{background:var(--ink);color:var(--paper);border-style:solid}
+.fpop-box{max-width:26rem;width:100%}
+.fpop-box .t{display:block}
+.fpop-d{font-size:.84rem;color:var(--muted);margin:0 0 10px}
+.fpop .fform input{font-size:.95rem;padding:7px 10px}
+.fpop .fform button{float:none;font-size:.9rem;padding:7px 14px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:700}
+.fpop .fform{clear:both}
+.fpop .ferr{margin:8px 0 0;color:var(--red);font-size:.8rem}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -589,8 +600,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <div class="np-row4">
       <section class="np-sec a-fol r4 r4-fol" data-list="fitems" aria-labelledby="k-fol">
         <div class="kick"><h2 id="k-fol">팔로잉 브랜드 소식</h2><span id="fcount"></span></div>
-        <form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="브랜드 추가" maxlength="30"><button type="submit">팔로우</button></form>
-        <p class="ferr" id="ferr" hidden></p>
+        <div class="modal fpop" id="fpop" hidden role="dialog" aria-modal="true" aria-labelledby="fpop-h"><div class="modal-box fpop-box"><button type="button" id="fpclose" aria-label="닫기">✕</button><span class="t">팔로잉</span><h3 id="fpop-h">브랜드 추가</h3><p class="fpop-d">담당 광고주나 관심 브랜드 이름을 넣으면 여러 매체의 소식을 모아 드려요.</p><form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="예: 하나은행, 뚜레쥬르" maxlength="30"><button type="submit">팔로우</button></form><p class="ferr" id="ferr" hidden></p></div></div>
         <div class="fol" id="fol"></div>
       </section>
       <section class="np-sec r4 r4-plat" data-list="plat"><div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div><div id="plat"></div></section>
@@ -876,10 +886,10 @@ function boot(D){
   var folTab=lsGet('adradar-foltab','*');
   function renderFol(){
     $('fcount').textContent = follows.length + '개';
-    if(!follows.length){$('fol').innerHTML='<p class="fb"><span class="empty">담당 광고주나 관심 브랜드를 추가하면 소식을 따로 모아드려요.</span></p>';fitAll();return;}
+    if(!follows.length){$('fol').innerHTML='<div class="ftabs"><button type="button" class="fadd" aria-label="브랜드 추가" title="브랜드 추가">+ 브랜드 추가</button></div><p class="fb"><span class="empty">담당 광고주나 관심 브랜드를 추가하면 소식을 따로 모아드려요.</span></p>';fitAll();return;}
     if(folTab!=='*'&&!follows.some(function(f){return f.id===folTab}))folTab='*';
     var tabs='<div class="ftabs" role="tablist"><button type="button" role="tab" data-tab="*" aria-selected="'+(folTab==='*')+'">전체</button>'+
-      follows.map(function(f){var on=f.id===folTab;return '<span class="ftab'+(on?' on':'')+'"><button type="button" role="tab" data-tab="'+esc(f.id)+'" aria-selected="'+on+'">'+esc(f.name)+'</button>'+(on?'<button type="button" class="fx" data-id="'+esc(f.id)+'" aria-label="'+esc(f.name)+' 팔로우 취소">×</button>':'')+'</span>'}).join('')+'</div>';
+      follows.map(function(f){var on=f.id===folTab;return '<span class="ftab'+(on?' on':'')+'"><button type="button" role="tab" data-tab="'+esc(f.id)+'" aria-selected="'+on+'">'+esc(f.name)+'</button>'+(on?'<button type="button" class="fx" data-id="'+esc(f.id)+'" aria-label="'+esc(f.name)+' 팔로우 취소">×</button>':'')+'</span>'}).join('')+'<button type="button" class="fadd" aria-label="브랜드 추가" title="브랜드 추가">+</button></div>';
     var rows=[], seen={};
     follows.forEach(function(f){
       if(folTab!=='*'&&f.id!==folTab)return;
@@ -1007,6 +1017,15 @@ function boot(D){
     },function(){useLocal();});
     db.doc('prefs/main').onSnapshot(function(s){ if(s.exists) applyPrefs(s.data()); },function(){});
   }).catch(useLocal);
+
+  // 팔로우 추가 팝업
+  function fpOpen(){$('fpop').hidden=false;err('');setTimeout(function(){$('fin').focus()},30)}
+  function fpClose(){$('fpop').hidden=true}
+  $('fol').addEventListener('click',function(e){if(e.target.closest('.fadd'))fpOpen()});
+  $('fpclose').addEventListener('click',fpClose);
+  $('fpop').addEventListener('click',function(e){if(e.target===this)fpClose()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('fpop').hidden)fpClose()});
+  $('fform').addEventListener('submit',function(){setTimeout(function(){if($('ferr').hidden&&!$('fin').value)fpClose()},0)});
   function err(t){var e=$('ferr');e.textContent=t;e.hidden=!t;}
   $('fin').addEventListener('input',function(){err('')});
   $('fform').addEventListener('submit',function(e){
