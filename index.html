@@ -529,6 +529,12 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .foot-src i,.foot-col i{font-style:normal;color:var(--rule)}
 .foot-col{margin-top:8px;padding-top:6px;border-top:1px solid var(--rule);text-align:center;color:var(--faint)}
 .foot-col b{color:var(--ink);font-weight:900;margin-right:4px}
+
+/* v12 영상 3단 행 높이 통일: 제목·설명 각 1줄 고정 */
+.tcols3 .rk-m a{display:block!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:unset}
+.tcols3 .rk-m>*{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tcols3 .rk-row{height:calc(9.5rem * 9 / 16 + 14px);box-sizing:border-box;align-items:center}
+.tcols3 .rk-t{align-self:center}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
