@@ -961,6 +961,29 @@ body,button,input,select,textarea{font-family:var(--serif)}
   .a-live .news .ins .op b{font-size:.9rem!important}
   .play-row .pz-grid{max-width:none}
 }
+
+/* v28: 오늘의 광고인물 */
+.person{margin-bottom:14px}
+.person .kick{margin-bottom:8px}
+.ps-b{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:12px;width:100%;text-align:left;background:none;border:0;padding:0 0 12px;border-bottom:1px solid var(--rule);cursor:pointer;font:inherit;color:inherit}
+.ps-ph{position:relative;display:block;width:5.2rem;aspect-ratio:4/5;overflow:hidden;background:#dcd9d2;border:1px solid var(--ink)}
+.ps-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.ps-ph i{display:none}
+.ps-ph.noimg{background:repeating-linear-gradient(45deg,#e6e3dc 0 4px,#d6d2ca 4px 5px)}
+.ps-ph.noimg i{display:grid;place-items:center;position:absolute;inset:0;font-style:normal;font-family:var(--serif);font-weight:900;font-size:2rem;color:var(--ink)}
+.ps-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ps-t b{font-size:1.02rem;font-weight:900;line-height:1.3}
+.ps-t small{font-size:.72rem;color:var(--faint)}
+.ps-t em{font-style:normal;font-size:.76rem;font-weight:700;color:var(--red,#a01e1e)}
+.ps-l{font-size:.84rem;font-weight:700;line-height:1.45;margin-top:3px}
+.ps-i{font-size:.8rem;line-height:1.55;color:#444;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ps-m{font-size:.72rem;font-weight:700;margin-top:2px}
+.ps-b:hover .ps-l{text-decoration:underline}
+.ps-mm{color:var(--faint);font-size:.85rem;margin-top:-4px}
+.ps-mf{margin:10px 0;max-width:260px;border:1px solid var(--ink)}
+.ps-mf img{display:block;width:100%;filter:grayscale(1)}
+.ps-src{font-size:.85rem}
+@media (max-width:620px){.ps-b{grid-template-columns:5.6rem minmax(0,1fr)}.ps-ph{width:5.6rem}.ps-l,.ps-i{font-size:1rem!important;line-height:1.6!important}.ps-t b{font-size:1.1rem}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1015,6 +1038,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
       </section>
     </div>
     <section class="np-sec a-live" aria-labelledby="k-live">
+      <div class="person" id="person" hidden></div>
       <div class="kick"><h2 id="k-live">실시간 이슈</h2><span id="livesub">최신순</span></div>
       <div id="live"></div>
       <button type="button" class="more-btn" id="livemore">실시간 이슈 더 보기 ▼</button>
@@ -1048,7 +1072,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
   </section>
   <div class="play-row">
   <section class="np-sec a-puz" aria-labelledby="k-puz">
-    <div class="kick"><h2 id="k-puz">광고 낱말 퍼즐</h2><span id="pzsub">오늘의 이슈에서 뽑은 낱말</span></div>
+    <div class="kick"><h2 id="k-puz">광고 낱말 퍼즐</h2><span id="pzsub">광고 용어로 만든 낱말 퍼즐</span></div>
     <div class="puz">
       <div class="pz-left">
         <div class="pz-grid" id="pzgrid" role="grid" aria-label="낱말 퍼즐 판"></div>
@@ -1401,6 +1425,29 @@ function boot(D){
     }).join('');
   }
   function ogOf(u){return ((D.og||{})[u])||{}}
+  // 오늘의 광고인물: 금로동 기자가 독자에게 한 사람을 소개
+  function renderPerson(){
+    var P=D.person, el=$('person'); if(!el) return;
+    if(!P||!P.name){el.hidden=true;return;}
+    var img=P.photo||ogOf(P.url).i||'';
+    var meta=[P.nameEn,P.years,P.country].filter(Boolean).join(' · ');
+    el.innerHTML='<div class="kick"><h2>오늘의 광고인물</h2><span>'+RNAME+'가 소개합니다</span></div>'+
+      '<button type="button" class="ps-b" id="psOpen" aria-label="'+esc(P.name)+' 소개 전체 보기">'+
+      '<span class="ps-ph">'+(img?'<img src="'+esc(img)+'" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'noimg\');this.remove()">':'')+'<i>'+esc(String(P.name).slice(0,1))+'</i></span>'+
+      '<span class="ps-t"><b>'+esc(P.name)+'</b>'+(meta?'<small>'+esc(meta)+'</small>':'')+(P.role?'<em>'+esc(P.role)+'</em>':'')+
+      '<span class="ps-l">'+esc(P.line||'')+'</span><span class="ps-i">'+esc(P.intro||'')+'</span><span class="ps-m">소개 전체 보기 →</span></span></button>';
+    if(!img) el.querySelector('.ps-ph').classList.add('noimg');
+    el.hidden=false;
+    $('psOpen').onclick=function(){
+      openModal('<span class="t">오늘의 광고인물 · '+RNAME+'가 소개합니다</span><h3>'+esc(P.name)+(P.nameEn?' <small>'+esc(P.nameEn)+'</small>':'')+'</h3>'+
+        '<p class="ps-mm">'+esc([P.years,P.country,P.role].filter(Boolean).join(' · '))+'</p>'+
+        (img?'<figure class="ps-mf"><img src="'+esc(img)+'" alt="'+esc(P.name)+' 관련 이미지" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></figure>':'')+
+        '<p>'+esc(P.intro||'')+'</p>'+
+        ((P.works||[]).length?'<p><b>대표 작업</b> · '+P.works.map(esc).join(' · ')+'</p>':'')+
+        (P.lesson?'<p class="op"><b>'+RNAME+'의 한마디</b>'+esc(P.lesson)+'</p>':'')+
+        (P.url?'<p class="ps-src">'+link(P.url,'관련 기사 보기 ↗')+(P.wiki?' · '+link(P.wiki,'위키백과 ↗'):'')+'</p>':''));
+    };
+  }
   function ph(label,dark){var t=String(label||'').replace(/\s+/g,'');return '<span class="ci-ph'+(dark?' dark':'')+'"><span>'+esc(t.slice(0,dark?6:2))+'</span>'+(dark?'<em>PDF</em>':'')+'</span>'}
   function cleanDesc(d){d=String(d||'').replace(/^\s*\[[^\]]{1,30}\]\s*/,'').replace(/^[^=|]{0,30}(기자|특파원|에디터)\s*[=|]\s*/,'').replace(/^[^=]{1,20}=\s*/,'').replace(/^[^|]{0,20}\|\s*/,'').trim();return d.length<18?'':d}
   function card(o){var g=ogOf(o.url),img=o.img||g.i,d=cleanDesc(o.desc||g.d||'');
@@ -1540,7 +1587,7 @@ function boot(D){
       if(!over) break; el.removeChild(el.lastElementChild);
     }
   }
-  function renderFlow(){ renderLive(); renderVids(); renderTV(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
+  function renderFlow(){ renderPerson(); renderLive(); renderVids(); renderTV(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
   function fitAll(){
     renderFlow();
     [0,300,1200,3000].forEach(function(t){setTimeout(balance,t)});
@@ -1688,7 +1735,7 @@ function boot(D){
   $('zin').addEventListener('click',function(){setZoom(zoom+.1)});
   $('zout').addEventListener('click',function(){setZoom(zoom-.1)});
   fitAll();
-  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;D.desc=r.desc;D.bnews=r.bnews;D.og=r.og;renderFol();renderANews();renderPlat();renderReps();fitAll();};
+  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;D.desc=r.desc;D.bnews=r.bnews;D.og=r.og;renderFol();renderANews();renderPerson();renderPlat();renderReps();fitAll();};
 }
 (function(){
   var cur=null, curLive=null;
@@ -1792,7 +1839,7 @@ function boot(D){
   $('pzshow').addEventListener('click',function(){Object.keys(cells).forEach(function(k){cells[k].inp.value=cells[k].ans});save();msg('정답을 모두 펼쳤어요.')});
   $('pzreset').addEventListener('click',function(){Object.keys(cells).forEach(function(k){cells[k].inp.value='';cells[k].el.classList.remove('hint','good','bad')});save();msg('판을 비웠어요.')});
   fetch('puzzle.json?'+Date.now()).then(function(r){return r.json()}).then(function(p){if(!p||!p.words||!p.words.length)throw 0;P=p;KEY='adsnews-puzzle-'+(p.date||'')+'-'+(p.sig||'');
-    var m=String(p.date||'').match(/(\d{4})-(\d\d)-(\d\d)/);$('pzsub').textContent=(m?(+m[2])+'월 '+(+m[3])+'일 · ':'')+'오늘의 이슈에서 뽑은 낱말 '+p.words.length+'개';build()})
+    var m=String(p.date||'').match(/(\d{4})-(\d\d)-(\d\d)/);$('pzsub').textContent=(m?(+m[2])+'월 '+(+m[3])+'일 · ':'')+'광고 용어 '+p.words.length+'개';build()})
     .catch(function(){document.querySelector('.a-puz').hidden=true});
 })();
 </script>

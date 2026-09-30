@@ -53,6 +53,25 @@ def archive_campaign():
     print("archived campaign", date)
 
 
+def archive_person():
+    """Keep every day's 오늘의 광고인물 in people.json (so the content task never repeats a person)."""
+    p = json.load(open("data.json", encoding="utf-8")).get("person") or {}
+    if not p.get("name") or not p.get("date"):
+        return
+    try:
+        arr = json.load(open("people.json", encoding="utf-8"))
+    except Exception:
+        arr = []
+    entry = {k: p.get(k) for k in ("date", "name", "nameEn", "years", "role", "url")}
+    if next((e for e in arr if e.get("date") == p["date"]), None) == entry:
+        return
+    arr = [e for e in arr if e.get("date") != p["date"]] + [entry]
+    arr.sort(key=lambda e: e["date"], reverse=True)
+    json.dump(arr, open("people.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("archived person", p["date"])
+
+
 if __name__ == "__main__":
     main()
     archive_campaign()
+    archive_person()

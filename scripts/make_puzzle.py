@@ -1,7 +1,6 @@
-"""Build the daily 광고 낱말 퍼즐 grid from data.json `puzzleWords`.
+"""Build the daily 광고 낱말 퍼즐 grid from the advertising glossary adterms.json.
 
-puzzleWords = {"date": "YYYY-MM-DD", "words": [{"a": "정답(한글)", "c": "문제 설명"}, ...]}
-(written by the 06:50 content task). Writes puzzle.json:
+Each day (KST) a date-seeded sample of ~70 terms is tried and the best grid is kept. Writes puzzle.json:
   {date, size:[rows, cols], words:[{n, dir:"across"|"down", r, c, a, clue}], sig}
 Each cell holds one Hangul syllable. Placement is deterministic for a given word list.
 """
@@ -101,21 +100,36 @@ def build(words, seed, beam=200):
     return best[1], best[0]
 
 
+def pick(bank, date, k):
+    """Date-seeded sample of glossary terms, dropping any word contained in another."""
+    rnd = random.Random("adterms-" + date + "-" + str(k))
+    cand = rnd.sample(bank, min(len(bank), 70))
+    return [w for w in cand if not any(o is not w and w["a"] in o["a"] for o in cand)]
+
+
 def main():
-    data = json.load(open("data.json", encoding="utf-8"))
-    pw = data.get("puzzleWords") or {}
-    words = [w for w in pw.get("words") or [] if 2 <= len(w.get("a", "")) <= 6 and w.get("c")]
-    words = [w for w in words if not any(o is not w and w["a"] in o["a"] for o in words)]
-    if len(words) < 5:
-        return
-    sig = hashlib.md5(json.dumps(words, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:10]
+    from datetime import datetime, timezone, timedelta
+    date = datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%d")
+    bank = [w for w in json.load(open("adterms.json", encoding="utf-8"))["words"] if 2 <= len(w["a"]) <= 6 and w.get("c")]
+    sig = hashlib.md5((date + json.dumps(bank, ensure_ascii=False, sort_keys=True)).encode()).hexdigest()[:10]
     try:
         old = json.load(open("puzzle.json", encoding="utf-8"))
         if old.get("sig") == sig:
             return
     except Exception:
         pass
-    placed, grid = build(words, sig)
+    best = None
+    for k in range(8):
+        words = pick(bank, date, k)
+        placed, grid = build(words, sig + str(k), beam=120)
+        rs = [r for r, _ in grid]; cs = [c for _, c in grid]
+        area = (max(rs) - min(rs) + 1) * (max(cs) - min(cs) + 1)
+        score = len(placed) * 10 - area * 0.05
+        if not best or score > best[0]:
+            best = (score, placed, grid, words)
+        if len(placed) >= 18:
+            break
+    _, placed, grid, words = best
     # trim to the used area
     rs = [r for r, _ in grid]; cs = [c for _, c in grid]
     r0, c0 = min(rs), min(cs)
@@ -127,10 +141,9 @@ def main():
     num = {s: i + 1 for i, s in enumerate(starts)}
     out = [{"n": num[(p["r"], p["c"])], "dir": p["dir"], "r": p["r"], "c": p["c"], "a": p["a"], "clue": p["clue"]} for p in placed]
     out.sort(key=lambda p: (p["dir"], p["n"]))
-    puzzle = {"date": pw.get("date", ""), "size": [rows, cols], "words": out, "sig": sig,
-              "dropped": [w["a"] for w in words if w["a"] not in {p["a"] for p in placed}]}
+    puzzle = {"date": date, "size": [rows, cols], "words": out, "sig": sig}
     json.dump(puzzle, open("puzzle.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print("puzzle:", len(out), "words on", rows, "x", cols, "dropped", puzzle["dropped"])
+    print("puzzle:", len(out), "words on", rows, "x", cols)
 
 
 if __name__ == "__main__":

@@ -42,7 +42,7 @@ def fetch(url):
 
 
 def urls(data, live):
-    out = [x.get("url") for x in data.get("tvNew") or []]
+    out = [(data.get("person") or {}).get("url")] + [x.get("url") for x in data.get("tvNew") or []]
     for n in (data.get("agencies") or {}).get("news") or []:
         out.append(n.get("url"))
     for p in data.get("platforms") or []:
