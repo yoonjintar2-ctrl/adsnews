@@ -931,27 +931,12 @@ body,button,input,select,textarea{font-family:var(--serif)}
 /* v24: 실시간 이슈 기자 — 프레임 없이 캐릭터만 */
 .news .ins .ins-ph{border:0!important;background:none!important;width:2.3rem!important;margin-top:0!important}
 
-/* v25: 모바일 — 실시간 이슈부터 아래 지면은 제목만 (누르면 펼침) */
-.mf-ic{display:none}
+
+/* v25: 모바일 — 실시간 이슈부터 아래는 기사 제목만 (요약·설명 숨김) */
 @media (max-width:620px){
-  .mfold>.kick{cursor:pointer;justify-content:flex-start;-webkit-tap-highlight-color:transparent;user-select:none;padding-bottom:6px}
-  .mfold>.kick>span:not(.mf-ic){margin-left:auto}
-  .mfold>.kick .mf-ic{display:inline-block;flex:none;align-self:center;width:1.25rem;height:1.25rem;border:1px solid var(--ink);position:relative;margin-left:.5rem}
-  .mfold:not(.m-open)>.kick .mf-ic{margin-left:auto}
-  .mfold .mf-ic::before,.mfold .mf-ic::after{content:"";position:absolute;left:50%;top:50%;background:var(--ink);transform:translate(-50%,-50%)}
-  .mfold .mf-ic::before{width:.6rem;height:1.5px}
-  .mfold .mf-ic::after{width:1.5px;height:.6rem}
-  .mfold.m-open .mf-ic::after{display:none}
-  .mfold:not(.m-open)>:not(.kick){display:none!important}
-  .mfold:not(.m-open)>.kick>span:not(.mf-ic){display:none}
-  .mfold:not(.m-open){min-height:0!important;height:auto!important;padding-bottom:0!important;margin-bottom:.6rem!important}
-  .mfold>.kick h2{white-space:nowrap}
-  .mfold:not(.m-open){border-top:0!important;padding-top:0!important;margin-top:0!important}
-  .mfold:not(.m-open)::before,.mfold:not(.m-open)::after{display:none!important}
-  .np-row4{row-gap:0!important}
-  .np-row4 .r4-ad{margin:.4rem 0 .8rem}
-  .play-row .a-hid.mfold:not(.m-open),.play-row>.a-hid.mfold:not(.m-open){border-top:0!important;padding-top:0!important}
-  .np-row4,.play-row{border-top:0!important;margin-top:0!important;padding-top:0!important;row-gap:0!important}
+  .a-live .news p:not(.op),.a-live .news .ins{display:none!important}
+  .a-vids .rk-m .ds,.a-vids .tv-pt{display:none!important}
+  .np-row4 .ci-d{display:none!important}
 }
 </style>
 
@@ -1562,25 +1547,6 @@ function boot(D){
     btn.hidden=!hid; btn.textContent=document.body.classList.contains('live-all')?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
   }
   $('livemore').addEventListener('click',function(){document.body.classList.toggle('live-all');balance();if(!document.body.classList.contains('live-all'))backTo(document.querySelector('.a-live'))});
-  // 모바일: 실시간 이슈부터 아래 지면은 제목만, 누르면 펼침
-  (function(){
-    var mq=window.matchMedia('(max-width:620px)');
-    [].forEach.call(document.querySelectorAll('.a-live,.a-vids,.np-row4 .r4,.a-road,.a-puz,.a-hid'),function(sec){
-      var k=sec.querySelector(':scope>.kick'); if(!k) return;
-      sec.classList.add('mfold');
-      var ic=document.createElement('span'); ic.className='mf-ic'; ic.setAttribute('aria-hidden','true'); k.appendChild(ic);
-      function sync(){ if(mq.matches){k.setAttribute('role','button');k.tabIndex=0;k.setAttribute('aria-expanded',sec.classList.contains('m-open'))} else {k.removeAttribute('role');k.removeAttribute('tabindex');k.removeAttribute('aria-expanded')} }
-      function tog(e){
-        if(!mq.matches||e.target.closest('button,a,input')) return;
-        var open=sec.classList.toggle('m-open'); sync();
-        if(open){ window.dispatchEvent(new Event('resize')); setTimeout(balance,60); setTimeout(balance,400); }
-        else backTo(sec);
-      }
-      k.addEventListener('click',tog);
-      k.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog(e)}});
-      if(mq.addEventListener) mq.addEventListener('change',sync); sync();
-    });
-  })();
   window.addEventListener('load',function(){setTimeout(balance,50)});
   document.addEventListener('load',function(e){if(e.target.tagName==='IMG')setTimeout(balance,50)},true);
   function renderPrefLine(){
