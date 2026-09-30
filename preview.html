@@ -328,36 +328,45 @@ h1,h2,h3,h4,p{margin:0}
 @media (max-width:620px){.lead-b .toon{float:none;width:100%;margin:0 0 8px}.mast{grid-template-columns:1fr}.mast .l,.mast .r{justify-content:center;text-align:center}.pts,.camps,.vids{grid-template-columns:1fr 1fr}.onair{flex-wrap:wrap}}
 @media (prefers-reduced-motion:reduce){.track{animation:none}.live-dot{animation:none}}
 
-/* ===== 세로형 신문 레이아웃 (미리보기) ===== */
-body:not(.live-all) .a-live .news:nth-child(n+12){display:none}
-.more-btn{font:inherit;font-family:var(--serif);font-weight:700;font-size:.85rem;border:1px solid var(--ink);background:transparent;padding:6px;cursor:pointer}
-.more-btn:hover{background:var(--ink);color:var(--paper)}
+/* ===== 세로형 신문 레이아웃 ===== */
 html{font-size:calc(clamp(13px,.82vw,17px) * var(--z,1))!important;height:auto!important}
 body{height:auto!important;overflow:auto!important}
 .paper{height:auto!important;max-width:1680px;margin:0 auto;padding-inline:clamp(12px,2vw,32px)}
-.np{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:0;padding-top:10px}
-.np-sec{display:flex;flex-direction:column;gap:9px;min-width:0;padding:0 16px 22px;border-left:1px solid var(--rule)}
+.np{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);padding-top:10px;align-items:start}
+.np-sec{display:flex;flex-direction:column;gap:9px;min-width:0}
 .np-sec>*{flex-shrink:0}
-.a-brief{grid-column:1/9;grid-row:1;border-left:0;padding-left:0}
-.a-live{grid-column:9/13;grid-row:1/3;padding-right:0}
-.a-camps{grid-column:1/9;grid-row:2;border-left:0;padding-left:0}
-.a-vids{grid-column:1/9;grid-row:3;border-left:0;padding-left:0;border-top:3px double var(--ink);padding-top:12px}
-.a-fol{grid-column:9/13;grid-row:3;padding-right:0;border-top:3px double var(--ink);padding-top:12px}
-.a-reps{grid-column:1/5;grid-row:4;border-left:0;padding-left:0;border-top:3px double var(--ink);padding-top:12px}
-.a-news{grid-column:5/9;grid-row:4;border-top:3px double var(--ink);padding-top:12px}
-.a-plat{grid-column:9/13;grid-row:4;padding-right:0;border-top:3px double var(--ink);padding-top:12px}
+.np-left{padding-right:18px;display:flex;flex-direction:column;gap:18px}
+.a-live{border-left:1px solid var(--rule);padding-left:18px}
+.a-vids,.np-flow{grid-column:1/-1;border-top:3px double var(--ink);margin-top:18px;padding-top:12px}
 .lead h2{font-size:2.1rem!important;line-height:1.2}
-.lead-b .toon{width:40%}
+.lead-b .toon{width:42%}
 .lead .dek{font-size:1.02rem;line-height:1.85}
-.a-vids .tcols{display:grid!important;grid-template-columns:1fr 1fr;gap:0 22px}
-.a-vids .tcol+.tcol{border-top:0;padding-top:0;border-left:1px solid var(--rule-soft);padding-left:18px}
-.a-vids .rk-m a{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.feat{grid-template-columns:1.15fr 1fr!important}
+/* 영상: 3단 */
+.tcols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
+.tcols3 .tcol+.tcol{border-left:1px solid var(--rule-soft);padding-left:18px}
+.tcols3 .rk-row{grid-template-columns:1.5rem 5rem 1fr;gap:8px}
+.tcols3 .rk-m a{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+/* 캠페인: 대표 + 카드 2열, 카드 수는 대표 높이에 맞춤 */
+.feat{grid-template-columns:1.1fr 1fr!important;align-items:start}
+.feat-side .camp.over{display:none}
+/* 하단: 4단 신문식 흐름 — 칸이 비지 않게 글이 다음 단으로 이어짐 */
+.np-flow{column-count:4;column-gap:30px;column-rule:1px solid var(--rule)}
+.np-flow .np-sec{display:block;break-inside:auto;margin-bottom:18px}
+.np-flow .kick{break-after:avoid}
+.np-flow .blist a,.np-flow .pl,.np-flow .fb{break-inside:avoid}
+.more-btn{font:inherit;font-family:var(--serif);font-weight:700;font-size:.85rem;border:1px solid var(--ink);background:transparent;padding:6px;cursor:pointer;margin-top:4px}
+.more-btn:hover{background:var(--ink);color:var(--paper)}
+.a-live .news.over{display:none}
+body.live-all .a-live .news.over{display:grid}
+@media (max-width:1180px){.np-flow{column-count:3}}
 @media (max-width:980px){
   .np{grid-template-columns:1fr}
-  .np-sec{grid-column:1!important;grid-row:auto!important;border-left:0;padding-inline:0}
+  .np-left{padding-right:0}
+  .a-live{border-left:0;padding-left:0;border-top:3px double var(--ink);margin-top:18px;padding-top:12px}
+  .np-flow{column-count:2}
+  .tcols3{grid-template-columns:1fr 1fr}
 }
-@media (max-width:620px){.lead-b .toon{width:100%}.a-vids .tcols{grid-template-columns:1fr}.a-vids .tcol+.tcol{border-left:0;padding-left:0}}
+@media (max-width:620px){.lead-b .toon{width:100%}.tcols3{grid-template-columns:1fr}.tcols3 .tcol+.tcol{border-left:0;padding-left:0}.np-flow{column-count:1}}
 </style>
 
 </head>
@@ -378,36 +387,41 @@ body{height:auto!important;overflow:auto!important}
   </div>
 
   <main class="np">
-    <section class="np-sec a-brief" aria-labelledby="k-brief">
-      <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span>by 클로드 기자</span></div>
-      <article class="lead"><h2 id="bh"></h2><div class="lead-b"><figure class="toon" id="toon" hidden></figure><p class="dek" id="bl"></p></div></article>
-      <div class="pts" id="pts" hidden></div>
-    </section>
+    <div class="np-left">
+      <section class="np-sec a-brief" aria-labelledby="k-brief">
+        <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span>by 클로드 기자</span></div>
+        <article class="lead"><h2 id="bh"></h2><div class="lead-b"><figure class="toon" id="toon" hidden></figure><p class="dek" id="bl"></p></div></article>
+        <div class="pts" id="pts" hidden></div>
+      </section>
+      <section class="np-sec a-camps" aria-labelledby="k-camps">
+        <div class="kick"><h2 id="k-camps">주목받는 캠페인</h2><span>소재 · 성과</span></div>
+        <div class="feat" id="camps"></div>
+      </section>
+    </div>
     <section class="np-sec a-live" aria-labelledby="k-live">
       <div class="kick"><h2 id="k-live">실시간 이슈</h2><span id="livesub">최신순</span></div>
       <div id="live"></div>
-      <button type="button" class="more-btn" onclick="document.body.classList.toggle('live-all');this.textContent=document.body.classList.contains('live-all')?'접기 ▲':'실시간 이슈 더 보기 ▼'">실시간 이슈 더 보기 ▼</button>
-    </section>
-    <section class="np-sec a-camps" aria-labelledby="k-camps">
-      <div class="kick"><h2 id="k-camps">주목받는 캠페인</h2><span>소재 · 성과</span></div>
-      <div class="feat" id="camps"></div>
+      <button type="button" class="more-btn" id="livemore">실시간 이슈 더 보기 ▼</button>
     </section>
     <section class="np-sec a-vids" id="trcol" aria-labelledby="k-trend">
       <div class="kick"><h2 id="k-trend">요즘 뜨는 영상</h2><span id="trsrc"></span></div>
-      <div class="tcols">
+      <div class="tcols3">
         <div class="tcol" id="tc-d"><div class="rk-sec" id="tr-gd"></div></div>
         <div class="tcol" id="tc-a"><div class="rk-sec" id="tr-ad"></div></div>
+        <div class="tcol" id="tc-m"><div class="rk-sec" id="tr-am"></div></div>
       </div>
     </section>
-    <section class="np-sec a-fol" aria-labelledby="k-fol">
-      <div class="kick"><h2 id="k-fol">팔로잉 브랜드 소식</h2><span id="fcount"></span></div>
-      <form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="브랜드 추가" maxlength="30"><button type="submit">팔로우</button></form>
-      <p class="ferr" id="ferr" hidden></p>
-      <div class="fol" id="fol"></div>
-    </section>
-    <section class="np-sec a-reps"><div class="kick"><h2>리포트</h2><span>렙사 · 광고회사 · 기관</span></div><div class="blist" id="reps"></div></section>
-    <section class="np-sec a-news"><div class="kick"><h2>업계 소식</h2><span>광고회사 · 매체</span></div><div class="blist" id="anews"></div></section>
-    <section class="np-sec a-plat"><div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div><div id="plat"></div></section>
+    <div class="np-flow">
+      <section class="np-sec a-fol" aria-labelledby="k-fol">
+        <div class="kick"><h2 id="k-fol">팔로잉 브랜드 소식</h2><span id="fcount"></span></div>
+        <form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="브랜드 추가" maxlength="30"><button type="submit">팔로우</button></form>
+        <p class="ferr" id="ferr" hidden></p>
+        <div class="fol" id="fol"></div>
+      </section>
+      <section class="np-sec"><div class="kick"><h2>리포트</h2><span>렙사 · 광고회사 · 기관</span></div><div class="blist" id="reps"></div></section>
+      <section class="np-sec"><div class="kick"><h2>업계 소식</h2><span>광고회사 · 매체</span></div><div class="blist" id="anews"></div></section>
+      <section class="np-sec"><div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div><div id="plat"></div></section>
+    </div>
   </main>
 
   <footer class="foot" id="foot"></footer>
@@ -580,7 +594,7 @@ function boot(D){
     renderTrendList($('tr-gd'),'인기 영상 TOP 5 (일간)',gd?'오늘':pb,gd||fallbackRows(T.generalDaily,pb),5);
     renderTrendList($('tr-ad'),'광고 영상 TOP 5 (일간)',ad?'오늘':pb,ad||fallbackRows(T.adDaily,pb),5);
     var M=monthlyAds();
-    renderTrendList($('tr-ad'),'광고 영상 TOP 5 (최근 1개월)',M.label,M.rows,5);
+    $('tr-am').innerHTML='';renderTrendList($('tr-am'),'광고 영상 TOP 5 (최근 1개월)',M.label,M.rows,5);
   }
 
   var JUNK=/^(날씨|weather|오늘 날씨|내일 날씨|로또|lotto)$/i;
@@ -643,11 +657,11 @@ function boot(D){
   var campRest=[], campOff=0;
   function drawSide(anim){
     var el=$('featside'); if(!el) return; var n=campRest.length; if(!n){el.innerHTML='';return}
-    var show=[];for(var k=0;k<Math.min(4,n);k++) show.push(campRest[(campOff+k)%n]);
+    var show=campRest.slice(0,8);
     el.innerHTML=show.map(function(o){return campCard(o.x,o.f)}).join('');
     if(anim) el.classList.remove('roll-in'), void el.offsetWidth, el.classList.add('roll-in');
   }
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(function(){if(campRest.length>4){campOff=(campOff+2)%campRest.length;drawSide(true)}},8000);
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) 
 
 
   var A = D.agencies;
@@ -689,9 +703,29 @@ function boot(D){
   function renderFlow(){ renderLive(); renderVids(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
   function fitAll(){
     renderFlow();
+    [0,300,1200,3000].forEach(function(t){setTimeout(balance,t)});
     return;
     // 넘치는 항목은 잘라내지 않고 칸 안에서 스크롤
   }
+
+  function balance(){
+    var two=window.innerWidth>980;
+    // 캠페인 카드: 대표 캠페인 높이만큼만
+    var fm=document.querySelector('.feat-main'), side=document.getElementById('featside');
+    if(side){[].forEach.call(side.children,function(c){c.classList.remove('over')});
+      if(two&&fm){var lim=fm.getBoundingClientRect().bottom+4;[].forEach.call(side.children,function(c){if(c.getBoundingClientRect().bottom>lim)c.classList.add('over')});}}
+    // 실시간 이슈: 왼쪽(사설+캠페인) 높이만큼만, 나머지는 '더 보기'
+    var L=document.querySelector('.np-left'), items=[].slice.call(document.querySelectorAll('.a-live .news'));
+    items.forEach(function(n){n.classList.remove('over')});
+    var btn=$('livemore');
+    if(!two){btn.hidden=true;return;}
+    var lim2=L.getBoundingClientRect().bottom-btn.offsetHeight-8, hid=0;
+    items.forEach(function(n){if(n.getBoundingClientRect().bottom>lim2){n.classList.add('over');hid++}});
+    btn.hidden=!hid; btn.textContent=document.body.classList.contains('live-all')?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
+  }
+  $('livemore').addEventListener('click',function(){document.body.classList.toggle('live-all');balance()});
+  window.addEventListener('load',function(){setTimeout(balance,50)});
+  document.addEventListener('load',function(e){if(e.target.tagName==='IMG')setTimeout(balance,50)},true);
   function renderPrefLine(){
     var all = prefs.media.concat(prefs.industries);
     $('dl-pref').textContent = all.length ? '★ 관심 지면: '+all.join(' · ') : '';
