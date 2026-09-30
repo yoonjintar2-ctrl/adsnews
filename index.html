@@ -486,6 +486,24 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .fmore{font-size:.72rem;color:var(--faint);margin:3px 0 0}
 .fmore a{color:var(--blue);display:inline!important;border:0!important;padding:0!important;margin:0!important;font-size:inherit!important}
 .fmore{display:block!important}
+
+/* v9 */
+.live-ad{display:flex;flex:1 1 auto;min-height:9rem;margin-top:10px}
+.live-ad .adslot{flex:1;height:auto;min-height:9rem}
+.live-ad.measure{display:none}
+.a-live #live{flex:none!important;justify-content:flex-start!important}
+@media (max-width:980px){.live-ad{display:none}}
+.mast{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important}
+.mast .l{display:none!important}
+.mast .ear:not(.er){justify-content:flex-start}
+.mast .r .ear.er{display:flex;flex:0 1 15rem;min-width:0;margin-right:8px}
+.mast .r .ear.er .adslot{max-width:none}
+.clock{display:flex;flex-direction:column;align-items:flex-end}
+.clock .liveu{font-size:.66rem;color:var(--muted);font-weight:500;white-space:nowrap;margin-bottom:2px}
+.clock .liveu .live-dot{width:.42rem;height:.42rem}
+@media (max-width:980px){.mast .r .ear.er{display:none}}
+@media (max-width:620px){.mast{grid-template-columns:1fr!important;grid-template-areas:"r" "h"!important}.mast .r{justify-content:space-between!important;width:100%}.mast .clock{display:flex!important;order:-1;align-items:flex-start;margin-right:auto}.mast .clock #clock,.mast .clock #today{display:none}}
+.lead .dek,#bl{text-indent:1em}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -496,11 +514,11 @@ body,button,input,select,textarea{font-family:var(--serif)}
 <body>
 <div class="paper">
   <header class="mast">
-    <div class="l"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트<br><span id="upd"></span><br><span id="ago"></span></div>
+    <div class="l" hidden><span id="upd"></span></div>
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     <h1>광고늬우스</h1>
-    <aside class="ear er" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
-    <div class="r"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">정기구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    
+    <div class="r"><aside class="ear er" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">정기구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span></span><span id="clock">--:--</span><small id="today"></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="pref" id="dl-pref"></span><span>광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -527,6 +545,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
       <div class="kick"><h2 id="k-live">실시간 이슈</h2><span id="livesub">최신순</span></div>
       <div id="live"></div>
       <button type="button" class="more-btn" id="livemore">실시간 이슈 더 보기 ▼</button>
+      <aside class="live-ad" id="livead" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     </section>
     <section class="np-sec a-vids" id="trcol" aria-labelledby="k-trend">
       <div class="kick"><h2 id="k-trend">요즘 뜨는 영상</h2><span id="trsrc"></span></div>
@@ -878,9 +897,14 @@ function boot(D){
     var L=document.querySelector('.np-left'), items=[].slice.call(document.querySelectorAll('.a-live .news'));
     items.forEach(function(n){n.classList.remove('over')});
     var btn=$('livemore');
-    if(!two){btn.hidden=true;return;}
+    var lad=$('livead'); lad.classList.add('measure');
+    if(!two){btn.hidden=true;lad.classList.remove('measure');return;}
     var lim2=L.getBoundingClientRect().bottom-btn.offsetHeight-8, hid=0;
     items.forEach(function(n){if(n.getBoundingClientRect().bottom>lim2){n.classList.add('over');hid++}});
+    // 광고 지면 자리: 보이는 이슈를 3건 더 줄임
+    var vis=items.filter(function(n){return !n.classList.contains('over')});
+    vis.slice(Math.max(1,vis.length-3)).forEach(function(n){n.classList.add('over');hid++});
+    lad.classList.remove('measure');
     btn.hidden=!hid; btn.textContent=document.body.classList.contains('live-all')?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
   }
   $('livemore').addEventListener('click',function(){document.body.classList.toggle('live-all');balance()});
