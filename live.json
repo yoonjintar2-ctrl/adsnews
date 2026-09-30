@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-09-30T11:08+09:00",
- "updatedLabel": "9월 30일 11:08",
+ "updatedAt": "2026-09-30T11:13+09:00",
+ "updatedLabel": "9월 30일 11:13",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-09-30T11:03+09:00",
+   "at": "2026-09-30T11:13+09:00",
    "items": [
     "닛몰캐쉬",
     "카와 팝콘통",
@@ -31,9 +31,11 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-09-30T11:08+09:00",
+   "at": "2026-09-30T11:13+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "유재명",
+    "경기도교육청",
     "멕시코 대 페루",
     "아시안게임 롤",
     "라민 야말",
@@ -41,14 +43,12 @@
     "김사랑",
     "핵무기",
     "빈곤",
-    "원주시",
-    "국군 의 날",
-    "연애전쟁"
+    "원주시"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-09-30T11:08+09:00",
+   "at": "2026-09-30T11:13+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "이민성호, 아시안게임 4강 격돌",
@@ -65,26 +65,26 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-09-30T11:08+09:00",
+   "at": "2026-09-30T11:13+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "유엔사 정전협정 위반",
-    "발언하는 김민석 대표",
-    "아시안게임",
-    "2차 국민참여성장펀드 출시",
-    "출근하는 조희대 대법원장"
+    "양궁 컴파운드 단체전",
+    "한가인 저격 사과",
+    "코스피 상승",
+    "정유성 SSG 서진용과",
+    "생산 소비 투자"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-09-30T11:08+09:00",
+   "at": "2026-09-30T11:13+09:00",
    "url": "https://zum.com/",
    "items": [
-    "이재명 DMZ 폭발 진상",
-    "정부 이란 다야니 ISDS 승소",
+    "군 DMZ 지뢰 북한 사과 촉구",
     "미 30년물 국채금리",
+    "정부 이란 다야니 ISDS 승소",
     "LH 공공주택 하자 증가",
-    "국민연금 기금 고갈"
+    "지자체 지방교부세 반대"
    ]
   }
  },
@@ -1706,23 +1706,11 @@
    "u": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE56N2dEYUQ3eUlRNlFZaERpckUtbU9EWGZoRDJpYjRpbm1PYllIRTVhcXJiUk0zajZIUDRrbkpzWko4akJzWlBpWjRkSGNnaGlNOWZoNWtVa2VLMmFUdHfSAWNBVV95cUxPVWNDMkgyUExIVXVrLU5PNHdwZm1KY2FsazNLVWJRcU5XWHBBRE1FSUN1bHpWZGp3a1dMU1c2bHpXM2FFTlJQQ0hGejA0b0xhX0NKdFVXRVVUaHh3d3c1bWtsa1k?oc=5",
    "at": "2026-09-30T10:47+09:00"
   },
-  "연애전쟁": {
-   "t": "삐에로 남친 “2억은커녕 2000만원도 없어”…서장훈 분노 (연애전쟁)",
-   "s": "스포츠동아",
-   "u": "https://sports.donga.com/ent/article/all/20260929/134749048/1",
-   "at": "2026-09-30T10:37+09:00"
-  },
-  "국군 의 날": {
-   "t": "세븐일레븐, 국군의 날 맞아 제2작전사령부에 4000만원 상당 물품 지원 - 머니투데이",
-   "s": "머니투데이",
-   "u": "https://www.mt.co.kr/living/2026/09/30/2026093009185733788",
-   "at": "2026-09-30T11:08+09:00"
-  },
   "원주시": {
-   "t": "이병동 씨, 원주 첫 복숭아 농업마이스터 선정",
-   "s": "원주신문",
-   "u": "http://www.iwjnews.com/news/articleView.html?idxno=72070",
-   "at": "2026-09-30T09:13+09:00"
+   "t": "원주 달빛도깨비야시장 10월 재개…6회 운영에 9천253명 방문",
+   "s": "Daum",
+   "u": "https://v.daum.net/v/20260930092003730",
+   "at": "2026-09-30T11:13+09:00"
   },
   "빈곤": {
    "t": "“국민연금 65세→68세로 늦추자?”…개혁 또 나오는 이유는? [잇슈 머니]",
@@ -1772,12 +1760,6 @@
    "u": "https://v.daum.net/v/WS01kKmjHT",
    "at": "2026-09-30T10:15+09:00"
   },
-  "국민연금 기금 고갈": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T10:15+09:00"
-  },
   "아시안게임 롤": {
    "t": "'페이커' 두번째 AG 金 딸까…LoL 국대, 오늘 조별리그 첫 경기",
    "s": "Daum",
@@ -1796,28 +1778,10 @@
    "u": "https://mashable.com/entertainment/mexico-peru-international-friendly-2026-live-stream-for-free",
    "at": "2026-09-30T10:37+09:00"
   },
-  "유엔사 정전협정 위반": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-09-30T10:52+09:00"
-  },
-  "아시안게임": {
-   "t": "‘세계 최강’ 한국 양궁, 아시안게임 ‘金’ 10개 싹쓸이 도전",
-   "s": "문화일보",
-   "u": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFA3aWRFcG1HaXFULTYxSjlFbVlXTjZBMkcxLUFEQ1ZoTDBkVFoyRmV3VFdINUxONHZ1LTFzZDdhQTZEb3MzTk8zYWwwbGtrV0Nu?oc=5",
-   "at": "2026-09-30T10:52+09:00"
-  },
   "2차 국민참여성장펀드 출시": {
    "t": "오늘 ‘2차 국민참여성장펀드’ 출시…이번에도 흥행할까",
    "s": "KBS 뉴스",
    "u": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5jbkZScHF3Y1ZqbU9TdmcxUVY1MHY4bjhZSGpGdUMxdmZicERraVFpQlhlY2tfUnhmb0Y4WVFGS3F2Z0VxNjdyOG5mRDZPWEdiUVd5UTdqeXdDTUk?oc=5",
-   "at": "2026-09-30T10:52+09:00"
-  },
-  "이재명 DMZ 폭발 진상": {
-   "t": "",
-   "s": "",
-   "u": "",
    "at": "2026-09-30T10:52+09:00"
   },
   "정부 이란 다야니 ISDS 승소": {
@@ -1916,11 +1880,59 @@
    "u": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB1RVd3cmYtRHlpZ1hDOUJnSGtENVVYSFFXcHpzbDJPRm45YnZLS0p2eC1mNWh6YTBhdTU5STk0bDlwRi1SZGU5RFB3NUtud0FURkM2X3hNejJBNmc?oc=5",
    "at": "2026-09-30T11:03+09:00"
   },
-  "발언하는 김민석 대표": {
-   "t": "최고위 발언하는 김민석 대표",
-   "s": "서울신문",
-   "u": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1CVmMyeW1QczFtclV1ZWp3eUhvMC0wQmhIblg2cVZic1FuVWw1ZmszSGRvbGlyWk5QN095b2xDdDQwclpWQTJmdDI2UnNNakZEblNYaW5BY3Yyb2lQcjdFVHk5MUsxc0dTY3hCQjdia0U?oc=5",
-   "at": "2026-09-30T11:03+09:00"
+  "유재명": {
+   "t": "‘백발’ 유재명, 유재석보다 동생이었다..“이름 부르기 좀” 반전 나이에 폭소 [Oh!쎈 예고]",
+   "s": "Daum",
+   "u": "https://v.daum.net/v/GvS5FVIkCB",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "경기도교육청": {
+   "t": "부산시교육청, 국·공·사립 중등학교 교사 471명 선발",
+   "s": "Daum",
+   "u": "https://v.daum.net/v/20260930103416006",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "양궁 컴파운드 단체전": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "한가인 저격 사과": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "코스피 상승": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "정유성 SSG 서진용과": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "생산 소비 투자": {
+   "t": "자동차 생산 줄어 소비에 불똥…8월 “생산·소비·투자 모두 감소”",
+   "s": "에너지경제신문",
+   "u": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE43M0VJRDFtWmh4alBmNWtGaUdvZWFYRjNfZ3ZMZHNHdWMzWnduZXdyUGJmamJTOFE2TjFmU2pRb0FCNUxIeS1HOWY2MXkzY2lQYlQtYW1NVTM5dF80d2g1NTcxbw?oc=5",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "군 DMZ 지뢰 북한 사과 촉구": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T11:13+09:00"
+  },
+  "지자체 지방교부세 반대": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-09-30T11:13+09:00"
   }
  },
  "disc": {
@@ -5828,8 +5840,8 @@
   }
  },
  "ogTried": [
-  "https://www.fnnews.com/news/202609300931282436",
   "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.fnnews.com/news/202609300931282436",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29095"
  ]
 }
