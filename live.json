@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-10-01T07:30+09:00",
- "updatedLabel": "10월 1일 07:30",
+ "updatedAt": "2026-10-01T07:35+09:00",
+ "updatedLabel": "10월 1일 07:35",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-10-01T07:30+09:00",
+   "at": "2026-10-01T07:35+09:00",
    "items": [
     "카와 극장판",
     "응원 하트",
@@ -31,40 +31,40 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-10-01T07:30+09:00",
+   "at": "2026-10-01T07:35+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "맨체스터 시티 fc",
     "김하성",
     "kf-21 보라매",
     "상어",
     "철도",
     "아이유",
-    "신혼여행",
     "마크 도스 산토스",
-    "경찰",
-    "제네시스"
+    "신혼여행",
+    "경찰"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-10-01T07:30+09:00",
+   "at": "2026-10-01T07:35+09:00",
    "url": "https://www.signal.bz/",
    "items": [
-    "나는 솔로",
-    "트럼프, 알래스카 LNG 투자 발표",
+    "트럼프 알래스카 LNG 투자",
     "미국 8월 PCE 물가",
+    "나는 솔로",
+    "박정윤, 아시안게임에서 두 메달 획득!",
+    "김하성",
     "북한군 MDL 침범",
-    "2026 아시안게임 한국 일정",
-    "시청률",
-    "황신혜",
-    "김정난 갑상샘암 투병",
-    "여객기 추락 시도",
-    "백종헌 보좌관 뇌물 기소"
+    "김정난 갑상샘암 수술 고백",
+    "kf-21 보라매",
+    "국민참여성장펀드 판매",
+    "여객기 추락 시도"
    ]
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-10-01T07:30+09:00",
+   "at": "2026-10-01T07:35+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "트럼프 알래스카 LNG",
@@ -76,7 +76,7 @@
   },
   "zum": {
    "label": "줌",
-   "at": "2026-10-01T07:30+09:00",
+   "at": "2026-10-01T07:35+09:00",
    "url": "https://zum.com/",
    "items": [
     "미국 8월 PCE 물가",
@@ -1976,12 +1976,6 @@
    "u": "",
    "at": "2026-10-01T06:05+09:00"
   },
-  "백종헌 보좌관 뇌물 기소": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T06:32+09:00"
-  },
   "$EDEL": {
    "t": "",
    "s": "",
@@ -2054,40 +2048,10 @@
    "u": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA2dkdtVHhHYmR1NEI5UVNnVi1yRzY5QnlKVzFYbzVkYTU4RVlZR3lZTWxmNTdqOExRV2xSdXVwRXJyTFk3VmhEOEFsNmlaX21JeEhFODExZnRkRFXSAWBBVV95cUxQZXZHdmIycWF4XzNZbVlaT1NISXRmcjh3TExUdWVPRlhsXzdaLTV1amJ6dF8xSmMwMlZCWmZzanJmb2poNXpSd3JSVllLLXJMVHNOZThKamVqMVE2SXF2U04?oc=5",
    "at": "2026-10-01T06:27+09:00"
   },
-  "시청률": {
-   "t": "'국민MC' 유재석, 시청률 '30.4%' 위용 뽐냈다…'동시간대 1위' 싹쓸이 중인 韓 예능 ('틈만나면,')",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/20260930183856793",
-   "at": "2026-10-01T06:53+09:00"
-  },
-  "황신혜": {
-   "t": "황신혜, 나이 거꾸로 60대의 청청 핏! 버킷햇에 레드 니트까지 역대급 청청 스트릿룩",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/W6AEhXJ6ix",
-   "at": "2026-10-01T06:53+09:00"
-  },
   "알래스카 LNG": {
    "t": "[속보] 트럼프 \"한국, 美에 최대 2천억달러 투자…알래스카 LNG 파이프라인·원전 8기 건설\"",
    "s": "조선일보",
    "u": "https://news.google.com/rss/articles/CBMingFBVV95cUxNTkRHeE5JU3E3QjdsSjhNN3NXZDNuYjJIUDlEMjh1c2lGR2dmUkpNRThoVkRBUXRZQVNjRzV2cWtFZ04tQUhXeHVWbHBKM2QtcWJ4Y3hjNGJCbVBuTDZDeHAwLVllcGk3NExDWTNpRGIzLWk2QXRHZFNZV0x0RjExTW4yZFY3UFpCZlFaZmVQS0pzZ2ZtNlE5VTdGVl82UQ?oc=5",
-   "at": "2026-10-01T07:04+09:00"
-  },
-  "트럼프, 알래스카 LNG 투자 발표": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T07:04+09:00"
-  },
-  "2026 아시안게임 한국 일정": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T07:04+09:00"
-  },
-  "김정난 갑상샘암 투병": {
-   "t": "",
-   "s": "",
-   "u": "",
    "at": "2026-10-01T07:04+09:00"
   },
   "정부 이란 다야니 ISDS 승소": {
@@ -2118,12 +2082,6 @@
    "t": "[단독] 경찰 ‘총경 특별승진’ 신설 “부담 커진 만큼 당근 필요”",
    "s": "Daum",
    "u": "https://v.daum.net/v/20261001000655719",
-   "at": "2026-10-01T07:15+09:00"
-  },
-  "제네시스": {
-   "t": "전기차 충전 20% 적립·70만원 바우처… 제네시스 현대카드 출시 - 머니투데이",
-   "s": "머니투데이",
-   "u": "https://www.mt.co.kr/finance/2026/09/30/2026093010385569934",
    "at": "2026-10-01T07:15+09:00"
   },
   "김하성": {
@@ -2179,172 +2137,35 @@
    "s": "starnewskorea.com",
    "u": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPQ3UxXzhjUmszbHgtOG04SS1EYXF2Y0F4dEN3WTNZZF9KV0hnUngwbUJ1TVR2aEtBSG53d29UaDBZTGk0TDZOQ2t3UWwyWWZuSnFRcEEza0IyU19BX21ZOTBlZWZqT3o2WkNYc3VERUFaYll6NktYcHJlTm5WMWNtbQ?oc=5",
    "at": "2026-10-01T07:30+09:00"
+  },
+  "맨체스터 시티 fc": {
+   "t": "‘장부 조작’ 맨시티…EPL 퇴출에 줄소송으로 공중분해될 수도",
+   "s": "Daum",
+   "u": "https://v.daum.net/v/VGP3tYRf5j",
+   "at": "2026-10-01T07:35+09:00"
+  },
+  "트럼프 알래스카 LNG 투자": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T07:35+09:00"
+  },
+  "박정윤, 아시안게임에서 두 메달 획득!": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T07:35+09:00"
+  },
+  "김정난 갑상샘암 수술 고백": {
+   "t": "아무도 몰랐다, '김수현 고모' 김정난 '갑상샘암 수술' 고백 [스타이슈]",
+   "s": "starnewskorea.com",
+   "u": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPQ3UxXzhjUmszbHgtOG04SS1EYXF2Y0F4dEN3WTNZZF9KV0hnUngwbUJ1TVR2aEtBSG53d29UaDBZTGk0TDZOQ2t3UWwyWWZuSnFRcEEza0IyU19BX21ZOTBlZWZqT3o2WkNYc3VERUFaYll6NktYcHJlTm5WMWNtbQ?oc=5",
+   "at": "2026-10-01T07:35+09:00"
   }
  },
  "disc": {
   "date": "2026-10-01",
   "items": {
-   "xRrTmfEOKPE": {
-    "t": "2026년 하반기 하나은행 신입행원 채용설명회",
-    "ch": "하나은행",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "Edt4SOu1WVM": {
-    "t": "\"땅값 이하로 그냥 줍습니다!\" 땅 655평+시골집 전체가 1.3억? 반값으로 떨어진 역대급 물건",
-    "ch": "여기어때",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "CgrEoxZ45qE": {
-    "t": "🛞한국타이어 TBX! 볼보트럭🚚 서비스캠프에 다녀왔습니다!",
-    "ch": "한국타이어",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "Ed06DVdKeBI": {
-    "t": "팝업스토어 | B라거 제로 팝업 현장스케치 | 한국타이어",
-    "ch": "한국타이어",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "WFylFBN2olg": {
-    "t": "[UPDATE] 더 나은 플레이를 위한 한 걸음 | 넥슨 9월 업데이트 안내",
-    "ch": "넥슨",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "t_VRIlnnAAM": {
-    "t": "[동원그룹 2026 브랜드 캠페인] 미래가 필요한 자리에, 답을 만든다",
-    "ch": "동원",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "SqiL2zQx2Kw": {
-    "t": "[롯데 자일리톨] 🦷🪥치아가 건강한 대한민국! 닥터자일리톨 버스가 간다! 🚎",
-    "ch": "롯데웰푸드",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "g-XktzQ04G4": {
-    "t": "[롯데 빼빼로] 해피홈 캠페인, 아이들의 하루를 바꾸는 빼빼로의 기적 🏠🤎",
-    "ch": "롯데웰푸드",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "vQcCjB_3caA": {
-    "t": "울고불고 거부하는데도 80m 협곡으로 밀어넣은 집라인 / 연합뉴스 (Yonhapnews)",
-    "ch": "연합뉴스 Yonhapnews",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "ISz9AZTaMzk": {
-    "t": "'자주국방 상징' 차세대 이지스함 대호김종서함 진수 / 연합뉴스 (Yonhapnews)",
-    "ch": "연합뉴스 Yonhapnews",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "dkUgWwRW9-U": {
-    "t": "[뉴스A다!] 170분 보디캠에 찍힌 지뢰 폭발 현장 / 채널A / 뉴스A",
-    "ch": "채널A News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "xyKLfeZwUCM": {
-    "t": "일상에 변화 주기 | 긴 브이로그",
-    "ch": "Jules LeBlanc",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "FjiiwHQWG14": {
-    "t": "ASMR MUKBANG 직접 만든 불닭 버섯 불닭쌈 양념치킨 소세지 먹방 & 레시피 FRIED CHICKEN AND FIRE NOODLES EA",
-    "ch": "Jelly BoBa",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "S87jQT1S9w8": {
-    "t": "첫 번째 포켓몬 챔피언스 글로벌 챌린지에서 최고의 성적을 거둔 팀들",
-    "ch": "TheBattleRoom",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "-SsoJkhduK0": {
-    "t": "레드 푸드 vs 블루 푸드 컬러 챌린지 | 미친 주방 상황 Multi DO Challenge",
-    "ch": "Multi DO Challenge",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "nwziFw2qxgw": {
-    "t": "2조5000억 쏟고도 아시안게임 잇단 '참사'…고개숙인 日나고야 시장",
-    "ch": "뉴스1TV",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "wufIiRCuuqE": {
-    "t": "\"팔이 안 움직이는데..\" 예상치 못한 일이?..쿠라시 첫 금메달 비하인드 '단독' 공개 / SBS / 나고야체크인 EP.12",
-    "ch": "SBS 뉴스",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "pkAi-i5lvSw": {
-    "t": "풍경보며 운전하는 게 끝인데 '압긍' 받은 게임",
-    "ch": "배드마우스 게임",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "ryfyEPTkXmA": {
-    "t": "[하이큐!!] 땅 VS 하늘 극장판 리액션 | 🦉vs🐈vs🐍 | ハイキュー!! / HAIKYU!! reaction🏐",
-    "ch": "🌙 루루의 세계 Ruruの世界",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "yOPSHNB3d9A": {
-    "t": "한국주택금융공사 2012 TVCF 광고 ",
-    "ch": "임현진",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "DHA1uVVwmNo": {
-    "t": "Beyond Innovation | 현대자동차그룹 배터리 비전",
-    "ch": "현대자동차",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "BS3QTRl8qyg": {
-    "t": "현대자동차그룹 x 블룸버그 l 로보틱스 경쟁, 그 최전선에서",
-    "ch": "현대자동차",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "hlRdF0NJCuU": {
-    "t": "[인재/채용] AI 데이터센터의 뼈대를 그리다, AIDC 엔지니어 듀오의 하루",
-    "ch": "LG유플러스",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
    "W1xeNmkVPYo": {
     "t": "[U+SASE] GenAI 기능 시연",
     "ch": "LG유플러스",
@@ -3722,6 +3543,167 @@
     "ch": "iQIYI Korea - Get the iQIYI APP",
     "fmt": "영상",
     "kind": "gen",
+    "since0": false
+   },
+   "v0oeF6JBW2I": {
+    "t": "[TVCHOSUN LIVE] 9월 30일 (수) #뉴스9 - 제넨셀 창업자 '징역 4년' 법정구속",
+    "ch": "뉴스TVCHOSUN",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "SgmslzjcKfY": {
+    "t": "이게 수비라고? 안세영 vs 야마구치 역대급 52구 랠리에 전세계가 경악한 이유",
+    "ch": "스포츠 세계로",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "KLkXOkxVb9c": {
+    "t": "비상! 핫소스 건강 프로젝트! 본죽 먹방!",
+    "ch": "핫식당",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "1qosqZbd-vY": {
+    "t": "수학여행 한명만 가면 생기는 일 ㅋㅋㅋ",
+    "ch": "토깽이네",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "jqpT08YAxFQ": {
+    "t": "[카사베르디 X 리센느] GOOD BETTER VERDI | TVCF 45s 4K",
+    "ch": "LXC",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "Q-XLdWMj1Iw": {
+    "t": "이래도 영상 제작이 어렵다고? 사진 한 장으로 쇼츠부터 광고 영상까지 만드는 가장 쉬운 방법 (feat. higgsfield AI)",
+    "ch": "인프제 INFJ",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "o61iOrjfN9c": {
+    "t": "[skinnara brand film #01] Land of Balance, skinnara | 스킨나라 브랜드필름 #01",
+    "ch": "skinnara",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "jsVmd15z0aA": {
+    "t": "VÉLOA 무설치 식기세척기 브랜드 필름",
+    "ch": "눈뽕귀뽕",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "RQZ4fVC-YdA": {
+    "t": "100% AI로 만든 브랜드 필름 | 충북, 잇다",
+    "ch": "uel",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "9cPJH_5jYFk": {
+    "t": "서울대학교 로보틱스연구소 브랜드 필름",
+    "ch": "ACTAL",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "2lcY24p03PU": {
+    "t": "[skinnara brand film #02] Land of Balance, skinnara | 스킨나라 브랜드필름 #02",
+    "ch": "skinnara",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "wufZAZ7jn3Q": {
+    "t": "명윤곽 도산점 브랜드 필름 | 4단계의 균형",
+    "ch": "명윤곽",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "sZ8AYJH8b9k": {
+    "t": "같은 순간, 서로 다른 분위기｜BOBSTER 브랜드필름",
+    "ch": "밥스터",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "dH6fyMFCem8": {
+    "t": "[브랜드 필름 영상] 당신의 오늘에도 CUㅣCU 브랜드 필름 | 광팔자 X O.F.A. X 광고토대왕 | CU 프로모션",
+    "ch": "광팔자 GWANGPALJA",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "SDxopMyXH-s": {
+    "t": "아크메드라비 26 가을/겨울 3차 발매",
+    "ch": "MUSINSA",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "OFk8CRZuC5U": {
+    "t": "현대 N x 토요타 GAZOO Racing 짐카나 데이 리뷰ㅣ현대자동차",
+    "ch": "현대자동차",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "7dTsKetz1Hc": {
+    "t": "현대자동차그룹 x 블룸버그 l 로보틱스 경쟁, 그 최전선에서",
+    "ch": "현대자동차",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "6Ym-r0VYc_Y": {
+    "t": "Walkaround | THE NEW BMW 3 and THE NEW BMW i3.",
+    "ch": "BMW",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "wRaOVsnEUaQ": {
+    "t": "Heads or Tails | THE NEW BMW 3 and THE NEW BMW i3.",
+    "ch": "BMW",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "0LSafHbtP4Q": {
+    "t": "염라대왕님, 화가 많~이 나죠? (feat. 차승원, 차우민) | 새로 캠페인 본편",
+    "ch": "롯데칠성",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "EXvOqdNpL7o": {
+    "t": "[COWAY] 처리부터 관리까지 완벽하게, 코웨이 제로 음식물처리기",
+    "ch": "코웨이",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "BCKDaAKP20I": {
+    "t": "삼성생명 보드게임 전격 공개🎲 보드게임 고인물들의 0% 레이스 | 이벤트🎁",
+    "ch": "삼성생명",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "oyg7kzcjm2M": {
+    "t": "[KB국민은행 × aespa] 에스파가 전하는 2026년 한가위 인사 🌕✨",
+    "ch": "KB국민은행",
+    "fmt": "영상",
+    "kind": "ad",
     "since0": false
    }
   },
@@ -5267,7 +5249,7 @@
     "since0": true
    }
   },
-  "at": "2026-10-01T07:09+09:00"
+  "at": "2026-10-01T07:35+09:00"
  },
  "adMonth": {
   "RDQmUgW8eZs": {
@@ -5486,7 +5468,7 @@
    "ud": "2026-09-10"
   },
   "_C1dPhM7IKc": {
-   "t": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 주말 대청소도 근사해지는 퓨전 재즈 플레이리스트 | BLUE MONDAY MIX | DJ MAD MAESTRO (Tiny P",
+   "t": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 월요일이 오기 전에 대청소를 합시다 | BLUE MONDAY MIX | DJ MAD MAESTRO (Tiny Puppet S",
    "ch": "토스",
    "ud": "2026-09-20"
   },
@@ -7193,27 +7175,27 @@
   }
  },
  "ogTried": [
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
   "https://biz.heraldcorp.com/article/10888599",
-  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
   "https://www.wikitree.co.kr/articles/1161400",
   "https://zdnet.co.kr/view/?no=20260930160948",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
   "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
   "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
+  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
   "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
-  "https://www.i-boss.co.kr/ab-2877-18127"
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
@@ -7572,17 +7554,6 @@
   "46A2PqwFgJk": "요즘, 육퇴하고 뭐 하나고요?",
   "W1xeNmkVPYo": "U+SASE의 생성형 AI 사용에 대한 보안 기능인 Gen AI Security 기능 시연입니다.",
   "yOPSHNB3d9A": "U보금자리론 편",
-  "ryfyEPTkXmA": "❣️ 시청해주셔서 감사합니다 ❣️",
-  "pkAi-i5lvSw": "",
-  "wufIiRCuuqE": "대한민국 사상 최초로 쿠라시 종목에서 금메달을 따낸 김민영 선수. 그런데! 경기 중 예상치 못한 일이? 과연 무슨 일이 벌어진 걸까? 김태원 기자가 그 현장 비하",
-  "nwziFw2qxgw": "(서울=뉴스1) 정윤경 기자 = 일본 아이치·나고야 아시안게임이 수송과 숙박, 의전, 경기 판정까지 잇단 운영 미숙으로 비판받고 있습니다.",
-  "-SsoJkhduK0": "새로운 음식 챌린지에 참여할 준비가 되셨나요? 재미있고 매우 흥미로울 것입니다!",
-  "S87jQT1S9w8": "오늘은 2027 시즌 첫 번째 포켓몬 챔피언스 글로벌 챌린지에서 최고의 팀들을 분석해 보겠습니다! 정말 멋진 팀들과 선수들이 많았어요! 함께 살펴볼까요!",
-  "FjiiwHQWG14": "ASMR MUKBANG 직접 만든 불닭 버섯 불닭쌈 양념치킨 소세지 먹방 & 레시피 FRIED CHICKEN AND FIRE NOODLES EATING",
-  "xyKLfeZwUCM": "이 영상은 살로몬의 후원을 받았습니다.",
-  "dkUgWwRW9-U": "[뉴스A다!] 170분 보디캠에 찍힌 지뢰 폭발 현장",
-  "ISz9AZTaMzk": "(서울=연합뉴스) 해군의 8천200t급 차세대 이지스구축함(정조대왕급) 3번함인 '대호김종서함'이 30일 HD현대중공업 울산조선소에서 진수됐습니다.",
-  "vQcCjB_3caA": "울고불고 거부하는데도 80m 협곡으로 밀어넣은 집라인",
   "dNX7DtQtMyk": "미래를 바꾸는 LG전자의 솔루션,",
   "EabgHTZOG4k": "",
   "Oir7vSk2NMk": "김순탄이 운영하는 여행사 \"순탄트립\"",
@@ -7770,7 +7741,11 @@
   "duVGUk1qRrk": "",
   "alS6NKQXn0I": "옳라프친구들 안녕^0^",
   "pQyWeualFzY": "빠른 속도로 전동킥보드를 몰던 중학생 두 명이 마주 오는 모녀를 그대로 들이받습니다.",
-  "uBvBtxAz_34": "치솟는 분양가와 높아지는 청약 문턱에 지친 2030세대가 전통적인 내 집 마련 수단으로 여겨졌던 청약통장을 잇달아 해지하고 있습니다."
+  "uBvBtxAz_34": "치솟는 분양가와 높아지는 청약 문턱에 지친 2030세대가 전통적인 내 집 마련 수단으로 여겨졌던 청약통장을 잇달아 해지하고 있습니다.",
+  "1qosqZbd-vY": "수학여행 둘다 가면 너무 좋을텐데",
+  "KLkXOkxVb9c": "",
+  "SgmslzjcKfY": "이게 수비라고 감탄이 절로 나오는 안세영 야마구치 맞대결! 전 세계를 경악하게 만든 안세영 52구 랠리와 숨 막히는 명장면을 한데 모은 안세영 하이라이트 영상입니",
+  "v0oeF6JBW2I": "[TVCHOSUN LIVE] 9월 30일 (수) '뉴스 9' 주요뉴스"
  },
  "bnews": {
   "하나은행": {
