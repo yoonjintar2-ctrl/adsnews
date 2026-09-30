@@ -1792,7 +1792,7 @@ function boot(D){
     var i=list.findIndex(function(x){return x.date===cur}); if(i<0)i=0;
     var older=list[i+1], newer=i>0?list[i-1]:null;
     el.innerHTML='<a class="ed-a'+(older?'':' off')+'" '+(older?'href="'+url(older.date)+'"':'aria-disabled="true"')+' title="지난 호" aria-label="지난 호">‹</a>'+
-      '<button type="button" id="edList" title="지난 호 목록">제'+iss(cur)+'호'+(ED?' · '+md(cur):'')+'</button>'+
+      '<button type="button" id="edList" title="지난 호 목록">제'+iss(cur)+'호</button>'+
       '<a class="ed-a'+(newer?'':' off')+'" '+(newer?'href="'+url(newer.date)+'"':'aria-disabled="true"')+' title="다음 호" aria-label="다음 호">›</a>';
     document.getElementById('edList').onclick=function(){
       var m=document.getElementById('modal'),b=document.getElementById('mbody');
