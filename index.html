@@ -1228,8 +1228,15 @@ function boot(D){
     function legacy(){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();done(ok);if(!ok)window.prompt('아래 링크를 복사하세요',t)}
     if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(function(){done(true)},legacy);else legacy();
   }
-  $('edLink').addEventListener('click',function(){var e=(EDS&&EDS[edIdx])||{date:edition()};copyText(SITE+'#ed-'+e.date,this)});
-  $('cpLink').addEventListener('click',function(){copyText(SITE+'#camp-'+((CAMP_ARC&&CAMP_ARC.date)||edition()),this)});
+  // 공유 페이지(s/…html: 제목·썸네일 미리보기)가 있으면 그 주소를, 아직 없으면 바로가기 주소를 복사.
+  // 아이폰은 클릭 직후에만 복사를 허용하므로 페이지 존재 여부는 미리 확인해 둔다.
+  var SHARE_OK={};
+  function probe(key){if(!window.fetch||SHARE_OK[key])return;fetch(SITE+'s/'+key+'.html',{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)SHARE_OK[key]=1},function(){})}
+  function shareLink(key,btn){copyText(SHARE_OK[key]?SITE+'s/'+key+'.html':SITE+'#'+key,btn);probe(key)}
+  setTimeout(function(){probe('ed-'+edition());probe('camp-'+edition())},800);
+  ['edPrev','edNext'].forEach(function(id){$(id).addEventListener('click',function(){setTimeout(function(){if(EDS&&EDS[edIdx])probe('ed-'+EDS[edIdx].date)},0)})});
+  $('edLink').addEventListener('click',function(){var e=(EDS&&EDS[edIdx])||{date:edition()};shareLink('ed-'+e.date,this)});
+  $('cpLink').addEventListener('click',function(){shareLink('camp-'+((CAMP_ARC&&CAMP_ARC.date)||edition()),this)});
   function goTo(sel){var el=document.querySelector(sel);if(!el)return;var go=function(){el.scrollIntoView({block:'start'})};go();[300,900,1800].forEach(function(t){setTimeout(go,t)})}
   var edsReady=new Promise(function(res){var n=0,iv=setInterval(function(){if(EDS||++n>40){clearInterval(iv);res()}},100)});
   function openHash(){
@@ -1239,7 +1246,7 @@ function boot(D){
     if((m=h.match(/^camp(?:-(\d{4}-\d\d-\d\d))?$/))){
       var d=m[1];
       if(!d||d===edition()){CAMP_ARC=null;renderCamps();goTo('.a-camps');return;}
-      fetch('featured.json?'+Date.now()).then(function(r){return r.json()}).then(function(a){var e=(a||[]).filter(function(x){return x.date===d})[0];CAMP_ARC=e||null;renderCamps();goTo('.a-camps')}).catch(function(){goTo('.a-camps')});
+      fetch('featured.json?'+Date.now()).then(function(r){return r.json()}).then(function(a){var e=(a||[]).filter(function(x){return x.date===d})[0];CAMP_ARC=e||null;if(e)probe('camp-'+d);renderCamps();goTo('.a-camps')}).catch(function(){goTo('.a-camps')});
     }
   }
   window.addEventListener('hashchange',openHash);
