@@ -385,8 +385,8 @@ body.live-all .a-live .news.over{display:grid}
 .np-row4 .np-sec:first-child{padding-left:0}
 .np-row4 .np-sec:last-child{padding-right:0}
 .np-row4 .np-sec+.np-sec{border-left:1px solid var(--rule)}
-.np-row4 .cut{display:none!important}
-.np-row4 .np-sec.open .cut{display:revert!important}
+.np-row4 .np-sec:not(.open) .cut{display:none!important}
+
 .np-row4 .more-btn{margin-top:auto}
 @media (max-width:1180px){.np-row4{grid-template-columns:1fr 1fr;row-gap:18px}.np-row4 .np-sec:nth-child(3){border-left:0;padding-left:0}}
 @media (max-width:620px){.np-row4{grid-template-columns:1fr}.np-row4 .np-sec{border-left:0!important;padding:0!important}}
@@ -521,6 +521,14 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .np-row4.measuring #fitems>*,.np-row4.measuring #plat>*{display:none!important}
 .r4-ad{align-self:start}
 .fill-ad{flex:0 0 auto}
+
+/* v11 하단 출처 */
+.foot{display:block!important;white-space:normal!important;overflow:visible!important;border-top:3px double var(--ink)!important;margin-top:22px!important;padding-top:10px!important;font-size:.72rem;line-height:1.8}
+.foot-src{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;color:var(--muted)}
+.foot-src b{color:var(--ink);margin-right:6px;font-weight:700}
+.foot-src i,.foot-col i{font-style:normal;color:var(--rule)}
+.foot-col{margin-top:8px;padding-top:6px;border-top:1px solid var(--rule);text-align:center;color:var(--faint)}
+.foot-col b{color:var(--ink);font-weight:900;margin-right:4px}
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -832,7 +840,8 @@ function boot(D){
   function renderANews(){$('anews').innerHTML = A.news.map(function(n){return link(n.url,'<span class="d">'+esc(n.date)+'</span><span>'+esc(n.title)+'</span>')}).join('');}
   function renderPlat(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
-  $('foot').innerHTML = '<span>출처</span>' + D.sources.slice(0,10).map(function(s){return link(s.url,esc(s.name))}).join('');
+  $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
+    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 사설·만평 클로드 기자 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
 
   var follows = [], dbRef = null, db = null, local = false;
   var norm = function(s){return String(s).toLowerCase().replace(/\s+/g,'')};
