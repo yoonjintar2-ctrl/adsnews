@@ -773,6 +773,22 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:980px){.rv-cols{display:block;columns:2;column-gap:22px}}
 @media (max-width:699px){.rv-cols{columns:1}}
 .rep{border-top:0!important;padding-top:4px!important}
+
+/* v21 */
+.dl-s{display:none}
+@media (max-width:620px){.dl-l{display:none}.dl-s{display:inline}.dateline .dl-mid{display:none!important}.dateline{justify-content:center!important;font-size:.78rem}.dl-s b{color:var(--red)}}
+.subm-box{max-width:26rem}
+.subm-box .t{display:block;font-size:.72rem;font-weight:700;color:var(--red);letter-spacing:.06em}
+.subm-box h3{font-size:1.25rem!important;margin:4px 0 8px}
+.subm-d{font-size:.9rem!important;line-height:1.6!important;color:var(--muted);margin:0 0 10px}
+.subm-s{margin:0 0 12px;padding-left:1.3em;font-size:.95rem;line-height:1.7}
+.subm-s b{font-weight:900}
+.subm-b{display:flex;gap:6px}
+.subm-b button{font:inherit;font-family:var(--serif);font-weight:700;font-size:.85rem;padding:6px 14px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer}
+.subm-b button+button{background:transparent;color:var(--ink)}
+.subm-msg{font-size:.8rem;color:var(--muted);margin:8px 0 0;word-break:break-all}
+.subm-x{float:right;border:0;background:none;font-size:1.1rem;cursor:pointer;color:var(--ink)}
+.r4-ad .adslot{height:9rem!important}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -799,7 +815,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
     <h1>광고늬우스</h1>
     
-    <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.84V3.5a1.5 1.5 0 0 0-3 0v.66A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></svg><span id="subtxt">무료로 구독하기</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v19l-7-4.5L5 22V3a1 1 0 0 1 1-1z"/></svg><span id="subtxt">구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="dl-mid" id="dl-mid"></span><span class="pref" id="dl-pref"></span><span id="dl-right">광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -914,7 +930,8 @@ function boot(D){
     var term=start===0?'오늘 '+NAMES[cur]:'절기 '+NAMES[cur]+'('+md(start)+')';
     var next=NAMES[(cur+1)%24]+' '+(nx===1?'내일':'D-'+nx);
     var issue=Math.floor((kstDay(0).getTime()-Date.UTC(2026,8,27,14,59))/864e5)+1;
-    $('dl-left').innerHTML=esc(ymd)+'<i>·</i>'+esc(lunar)+'<i>·</i>단기 '+(kstY+2333)+'년';
+    var sd=new Intl.DateTimeFormat('ko-KR',Object.assign({month:'long',day:'numeric',weekday:'short'},tz)).format(now);
+    $('dl-left').innerHTML='<span class="dl-l">'+esc(ymd)+'<i>·</i>'+esc(lunar)+'<i>·</i>단기 '+(kstY+2333)+'년</span><span class="dl-s">'+esc(sd)+'<i>·</i>'+esc(lunar.replace('음력 ','음 '))+'<i>·</i><b>'+esc(NAMES[cur])+'</b><i>·</i>'+esc(NAMES[(cur+1)%24])+' '+(nx===1?'내일':'D-'+nx)+'</span>';
     $('dl-mid').innerHTML='<b>'+esc(term)+'</b><i>·</i>다음 '+esc(next);
     $('dl-right').innerHTML='제'+issue+'호<i>·</i>발행인 SM C&amp;C 윤석진';
   })();
@@ -1314,7 +1331,7 @@ function boot(D){
     var rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
     var hs=secs.filter(function(s){var l=s.getAttribute('data-list');return l==='reps'||l==='anews'}).map(h).filter(function(x){return x>0});
     if(!hs.length) return;
-    var H=Math.min(Math.min.apply(null,hs),24*rem);
+    var H=Math.min(Math.min.apply(null,hs),15*rem);
     secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l==='reps'||l==='anews')trim(sec,H)});
     // 2) 행 높이 = 리포트·업계 + 광고 지면. 팔로잉·매체 칸을 잠시 접고 광고 하단 위치를 잰다
     var row=document.querySelector('.np-row4'), adEl=document.querySelector('.r4-ad .adslot');
@@ -1442,31 +1459,32 @@ function boot(D){
 </script>
 
 <script>
-/* 정기구독 = 매일 아침 웹 푸시 (OneSignal 무료) */
+/* 구독 = 즐겨찾기 안내 */
 (function(){
-  var btn=document.getElementById('subbtn'), txt=document.getElementById('subtxt');
-  function toast(m,ms){var t=document.createElement('div');t.className='subtoast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},ms||3200)}
-  var ios=/iP(hone|ad|od)/.test(navigator.userAgent), standalone=window.navigator.standalone||matchMedia('(display-mode: standalone)').matches;
-  var OS=null, ready=false;
-  function mark(on){txt.textContent=on?'구독 중 · 해지':'무료로 구독하기';btn.title=on?'누르면 구독을 해지해요':'매일 아침 오늘의 사설을 알림으로 받아요';btn.classList.toggle('on',!!on)}
-  fetch('push.json?'+Date.now()).then(function(r){return r.json()}).then(function(c){
-    if(!c.appId) return;
-    window.OneSignalDeferred=window.OneSignalDeferred||[];
-    var sc=document.createElement('script');sc.src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';sc.defer=true;document.head.appendChild(sc);
-    OneSignalDeferred.push(async function(O){
-      await O.init({appId:c.appId,serviceWorkerPath:'adsnews/OneSignalSDKWorker.js',serviceWorkerParam:{scope:'/adsnews/'},notifyButton:{enable:false},promptOptions:{slidedown:{prompts:[]}}});
-      OS=O;ready=true;mark(O.User.PushSubscription.optedIn);
-      O.User.PushSubscription.addEventListener('change',function(e){mark(e.current.optedIn)});
-    });
-  }).catch(function(){});
-  btn.addEventListener('click',function(){
-    if(ios&&!standalone){toast('아이폰은 Safari 공유 버튼 → "홈 화면에 추가" 후, 홈 화면의 광고늬우스를 열고 정기구독을 눌러 주세요.',6000);return}
-    if(!('Notification' in window)){toast('이 브라우저는 알림을 지원하지 않아요.');return}
-    if(!ready){toast('무료 구독은 곧 열려요. 조금만 기다려 주세요!');return}
-    if(OS.User.PushSubscription.optedIn){OS.User.PushSubscription.optOut().then(function(){toast('구독을 해지했어요. 다시 누르면 언제든 재구독할 수 있어요.')});return}
-    if(Notification.permission==='denied'){toast('브라우저 설정에서 이 사이트의 알림을 허용해 주세요.',5000);return}
-    OS.User.PushSubscription.optIn().then(function(){if(OS.User.PushSubscription.optedIn)toast('구독 완료! 매일 아침 7시쯤 오늘의 사설을 보내드릴게요.',4500)});
-  });
+  var btn=document.getElementById('subbtn'); if(!btn) return;
+  var ua=navigator.userAgent, ios=/iP(hone|ad|od)/.test(ua), android=/Android/.test(ua), mac=/Mac/.test(navigator.platform||ua), kakao=/KAKAOTALK/i.test(ua);
+  function steps(){
+    if(kakao) return ['오른쪽 아래 <b>⋯(더보기)</b>를 누르고 <b>다른 브라우저로 열기</b>를 눌러요.','열린 브라우저에서 아래 방법으로 즐겨찾기에 추가해요.'];
+    if(ios) return ['Safari 아래쪽 <b>공유 버튼(□↑)</b>을 눌러요.','<b>즐겨찾기에 추가</b> 또는 <b>홈 화면에 추가</b>를 눌러요.','홈 화면에 추가하면 앱처럼 아이콘 한 번으로 열려요.'];
+    if(android) return ['Chrome 오른쪽 위 <b>⋮(메뉴)</b>를 눌러요.','<b>☆(북마크)</b> 또는 <b>홈 화면에 추가</b>를 눌러요.'];
+    return ['키보드에서 <b>'+(mac?'⌘ + D':'Ctrl + D')+'</b>를 누르면 바로 즐겨찾기에 추가돼요.','주소창 오른쪽 <b>☆</b>를 눌러도 돼요.'];
+  }
+  var m=document.createElement('div');m.className='modal subm';m.hidden=true;m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');
+  document.body.appendChild(m);
+  function open(){
+    m.innerHTML='<div class="modal-box subm-box"><button type="button" class="subm-x" aria-label="닫기">✕</button><span class="t">구독 안내</span><h3>광고늬우스를 즐겨찾기에 담아 두세요</h3>'+
+      '<p class="subm-d">매일 아침 새 사설·만평과 오늘의 광고 캠페인이 올라와요. 즐겨찾기에 두고 출근길에 한 번씩 열어 보세요.</p>'+
+      '<ol class="subm-s">'+steps().map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol>'+
+      '<div class="subm-b"><button type="button" class="subm-copy">링크 복사</button>'+(navigator.share?'<button type="button" class="subm-share">공유하기</button>':'')+'</div><p class="subm-msg" aria-live="polite"></p></div>';
+    m.hidden=false;
+    m.querySelector('.subm-x').onclick=close;
+    m.querySelector('.subm-copy').onclick=function(){var u=location.origin+location.pathname;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){m.querySelector('.subm-msg').textContent='링크를 복사했어요. 메신저에 붙여 넣어 동료에게도 알려 주세요.'}).catch(function(){m.querySelector('.subm-msg').textContent=u})};
+    var sh=m.querySelector('.subm-share');if(sh)sh.onclick=function(){navigator.share({title:'광고늬우스',text:'광고업계 뉴스, 노른자만 골라 떠먹여 드립니다',url:location.origin+location.pathname}).catch(function(){})};
+  }
+  function close(){m.hidden=true}
+  m.addEventListener('click',function(e){if(e.target===m)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  btn.addEventListener('click',open);
 })();
 </script>
 <script>
