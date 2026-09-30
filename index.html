@@ -788,7 +788,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .subm-b button+button{background:transparent;color:var(--ink)}
 .subm-msg{font-size:.8rem;color:var(--muted);margin:8px 0 0;word-break:break-all}
 .subm-x{float:right;border:0;background:none;font-size:1.1rem;cursor:pointer;color:var(--ink)}
-.r4-ad .adslot{height:9rem!important}
+.r4-ad .adslot{height:14rem!important}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1331,7 +1331,7 @@ function boot(D){
     var rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
     var hs=secs.filter(function(s){var l=s.getAttribute('data-list');return l==='reps'||l==='anews'}).map(h).filter(function(x){return x>0});
     if(!hs.length) return;
-    var H=Math.min(Math.min.apply(null,hs),15*rem);
+    var H=Math.min(Math.min.apply(null,hs),23*rem);
     secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l==='reps'||l==='anews')trim(sec,H)});
     // 2) 행 높이 = 리포트·업계 + 광고 지면. 팔로잉·매체 칸을 잠시 접고 광고 하단 위치를 잰다
     var row=document.querySelector('.np-row4'), adEl=document.querySelector('.r4-ad .adslot');
