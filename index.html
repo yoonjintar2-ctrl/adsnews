@@ -939,6 +939,14 @@ body,button,input,select,textarea{font-family:var(--serif)}
   .a-vids .rk-m .ds,.a-vids .tv-pt{display:none!important}
   .np-row4 .ci-d{display:none!important}
 }
+
+/* v26: 사설·캠페인 링크 복사 */
+.kick .kr{display:inline-flex;align-items:center;gap:8px;font-size:.78rem}
+.cplink{display:inline-flex;align-items:center;gap:4px;font:inherit;font-family:var(--serif);font-size:.72rem!important;font-weight:700;line-height:1;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:3px 7px 3px 5px;cursor:pointer;white-space:nowrap}
+.cplink svg{width:.9rem;height:.9rem;flex:none}
+.cplink:hover,.cplink.ok{background:var(--ink);color:var(--paper)}
+#kcampsub a{color:inherit;text-decoration:underline}
+@media (max-width:620px){.cplink span{display:none}.cplink.ok span{display:inline}.cplink{padding:3px 5px}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -983,12 +991,12 @@ body,button,input,select,textarea{font-family:var(--serif)}
   <main class="np">
     <div class="np-left">
       <section class="np-sec a-brief" aria-labelledby="k-brief">
-        <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span class="ednav"><button type="button" id="edPrev" aria-label="이전 사설" title="지난 사설">‹</button><span id="edDate"></span><button type="button" id="edNext" aria-label="다음 사설" title="다음 사설" disabled>›</button></span></div>
+        <div class="kick"><h2 id="k-brief">오늘의 미니 사설</h2><span class="kr"><button type="button" class="cplink" id="edLink" title="이 사설 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button><span class="ednav"><button type="button" id="edPrev" aria-label="이전 사설" title="지난 사설">‹</button><span id="edDate"></span><button type="button" id="edNext" aria-label="다음 사설" title="다음 사설" disabled>›</button></span></span></div>
         <article class="lead"><h2 id="bh"></h2><div class="lead-b"><figure class="toon" id="toon" hidden></figure><p class="dek" id="bl"></p></div></article>
         <div class="pts" id="pts" hidden></div>
       </section>
       <section class="np-sec a-camps" aria-labelledby="k-camps">
-        <div class="kick"><h2 id="k-camps">오늘의 광고 캠페인</h2><span id="kcampsub">캠페인 읽기</span></div>
+        <div class="kick"><h2 id="k-camps">오늘의 광고 캠페인</h2><span class="kr"><span id="kcampsub">캠페인 읽기</span><button type="button" class="cplink" id="cpLink" title="이 캠페인 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
         <div class="feat" id="camps"></div>
       </section>
     </div>
@@ -1212,6 +1220,30 @@ function boot(D){
     a=a.filter(function(e){return e.date!==cur});a.unshift({date:cur,headline:hl,body:D.brief.body||D.brief.lede,cartoon:D.brief.cartoon||{}});
     EDS=a;$('edPrev').disabled=a.length<2;
   }).catch(function(){$('edPrev').disabled=true});
+  // 링크 복사: 사설·캠페인을 날짜별 주소로 공유 (#ed-YYYY-MM-DD, #camp-YYYY-MM-DD)
+  var SITE=location.origin+location.pathname;
+  function edition(){return (D.brief.cartoon||{}).date||new Date(Date.now()+9*36e5).toISOString().slice(0,10)}
+  function copyText(t,btn){
+    function done(ok){var sp=btn.querySelector('span'),o=sp.textContent;sp.textContent=ok?'복사됨 ✓':'복사 실패';btn.classList.add('ok');setTimeout(function(){sp.textContent='링크 복사';btn.classList.remove('ok')},1600)}
+    function legacy(){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();done(ok);if(!ok)window.prompt('아래 링크를 복사하세요',t)}
+    if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(function(){done(true)},legacy);else legacy();
+  }
+  $('edLink').addEventListener('click',function(){var e=(EDS&&EDS[edIdx])||{date:edition()};copyText(SITE+'#ed-'+e.date,this)});
+  $('cpLink').addEventListener('click',function(){copyText(SITE+'#camp-'+((CAMP_ARC&&CAMP_ARC.date)||edition()),this)});
+  function goTo(sel){var el=document.querySelector(sel);if(!el)return;var go=function(){el.scrollIntoView({block:'start'})};go();[300,900,1800].forEach(function(t){setTimeout(go,t)})}
+  var edsReady=new Promise(function(res){var n=0,iv=setInterval(function(){if(EDS||++n>40){clearInterval(iv);res()}},100)});
+  function openHash(){
+    var h=decodeURIComponent(location.hash.slice(1)),m;
+    if(!h)return;
+    if((m=h.match(/^ed(?:-(\d{4}-\d\d-\d\d))?$/))){edsReady.then(function(){if(m[1]&&EDS){for(var i=0;i<EDS.length;i++)if(EDS[i].date===m[1]){showEd(i);break}}goTo('.a-brief')});return;}
+    if((m=h.match(/^camp(?:-(\d{4}-\d\d-\d\d))?$/))){
+      var d=m[1];
+      if(!d||d===edition()){CAMP_ARC=null;renderCamps();goTo('.a-camps');return;}
+      fetch('featured.json?'+Date.now()).then(function(r){return r.json()}).then(function(a){var e=(a||[]).filter(function(x){return x.date===d})[0];CAMP_ARC=e||null;renderCamps();goTo('.a-camps')}).catch(function(){goTo('.a-camps')});
+    }
+  }
+  window.addEventListener('hashchange',openHash);
+  if(document.readyState==='complete')setTimeout(openHash,60);else window.addEventListener('load',function(){setTimeout(openHash,60)});
   $('edPrev').addEventListener('click',function(){showEd(edIdx+1)});
   $('edNext').addEventListener('click',function(){showEd(edIdx-1)});
   $('toon').addEventListener('click',openEditorial);
@@ -1361,9 +1393,13 @@ function boot(D){
       '<span class="b">'+(f?'<span class="star">★ </span>':'')+esc(c.brand)+' · '+esc(c.date)+'</span><h4>'+link(c.url,esc(c.title))+'</h4>'+
       '<span class="m">'+esc(c.metric||((c.media||[]).length?(c.media||[]).join(' · ')+' 집행':'')||(c.date?c.date+' 공개':'')||'주목 캠페인')+'</span>'+(c.photo?'<img class="cph" src="'+esc(c.photo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<p>'+esc(c.story)+'</p><span class="lk">'+yt+'</span></div></article>';
   }
+  var CAMP_ARC=null;
   function renderCamps(){
     var all=D.campaigns||[], main=all.filter(function(c){return c.feature})[0]||all[0];
     var rest=prefSort(all.filter(function(c){return c!==main}),function(c){return c.tags}).slice(0,12);
+    if(CAMP_ARC&&CAMP_ARC.main){main=CAMP_ARC.main;rest=(CAMP_ARC.picks||[]).slice(0,4);
+      $('kcampsub').innerHTML=esc(fmtEd(CAMP_ARC.date))+'자 캠페인 · <a href="#camp" id="campToday">오늘 캠페인 보기</a>';}
+    else $('kcampsub').textContent='캠페인 읽기';
     campRest=rest;
     var yt=function(c){return c.yt?'<a class="cyt" href="https://www.youtube.com/results?search_query='+encodeURIComponent(c.yt)+'" target="_blank" rel="noopener">영상 보기 ↗</a>':''};
     var rv=main.review||main.why||'';
