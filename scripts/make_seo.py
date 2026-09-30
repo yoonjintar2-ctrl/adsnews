@@ -1,7 +1,7 @@
 """Search-engine pages: every edition as plain HTML that crawlers can read without JavaScript.
 
   e/YYYY-MM-DD.html  — that day's 미니 사설 (full text + 만평), 오늘의 광고 캠페인 (+ 금로동 기자의 한마디),
-                       오늘의 광고인물, 실시간 이슈 headlines with 금로동 기자 comments
+                       오늘의 광고인, 실시간 이슈 headlines with 금로동 기자 comments
   e/index.html       — list of all editions (지난 호 모아보기)
   sitemap.xml        — for Google Search Console / 네이버 서치어드바이저
 Back issues come from archive/YYYY-MM-DD/data.json; today's page from data.json.
@@ -138,11 +138,20 @@ def page_html(d, D, prev_d, next_d, has_card):
                 f"<li><b>{esc(c.get('brand'))}</b> — {esc(c.get('title'))}. {esc(clip(c.get('story'), 120))}</li>" for c in picks) + "</ul>")
         out.append("</section>")
     if P.get("name"):
-        out.append(f"""<section><h2>오늘의 광고인물</h2>
+        out.append(f"""<section><h2>오늘의 광고인</h2>
 <h3>{esc(P.get('name'))} <span class="meta">{esc(' · '.join([x for x in [P.get('nameEn'), P.get('years'), P.get('country')] if x]))}</span></h3>
 <p class="meta">{esc(P.get('role'))}</p><p><b>{esc(P.get('line'))}</b></p><p>{esc(P.get('intro'))}</p>""")
+        sv = safe_svg(P.get("svg"))
+        if sv:
+            out.append(f"<figure>{sv}{f'<figcaption>{esc(P.get(chr(99)+chr(97)+chr(112)+chr(116)+chr(105)+chr(111)+chr(110)))}</figcaption>' if P.get('caption') else ''}</figure>")
         if P.get("works"):
-            out.append("<p><b>대표 작업</b> · " + " · ".join(esc(w) for w in P["works"]) + "</p>")
+            ws = []
+            for w in P["works"]:
+                if isinstance(w, dict):
+                    ws.append(f"<a href=\"{esc(w.get('url'))}\" rel=\"nofollow noopener\">{esc(w.get('t'))}</a>" if w.get("url") else esc(w.get("t")))
+                else:
+                    ws.append(esc(w))
+            out.append("<p><b>대표 작업</b> · " + " · ".join(ws) + "</p>")
         if P.get("lesson"):
             out.append(f"<div class=\"op\"><b>금로동 기자의 한마디</b>{esc(P['lesson'])}</div>")
         out.append("</section>")
@@ -187,11 +196,11 @@ def main():
     idx = f"""<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>지난 호 모아보기 · 광고늬우스</title>
-<meta name="description" content="광고늬우스 금로동 기자의 미니 사설·오늘의 광고 캠페인·오늘의 광고인물을 날짜별로 모았습니다.">
+<meta name="description" content="광고늬우스 금로동 기자의 미니 사설·오늘의 광고 캠페인·오늘의 광고인을 날짜별로 모았습니다.">
 <link rel="canonical" href="{SITE}e/"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>{CSS}</style></head><body><div class="w">
 <header><a class="m" href="../">광고늬우스</a><p>지난 호 모아보기 · 발행인 SM C&amp;C 윤석진</p></header>
-<p>매일 아침 금로동 기자가 쓰는 미니 사설과 만평, 오늘의 광고 캠페인, 오늘의 광고인물을 날짜별로 모았어요.</p>
+<p>매일 아침 금로동 기자가 쓰는 미니 사설과 만평, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
 <ul>{rows}</ul>
 <a class="go" href="../">오늘 신문 보기 →</a>
 </div></body></html>

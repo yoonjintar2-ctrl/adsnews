@@ -1011,6 +1011,27 @@ body,button,input,select,textarea{font-family:var(--serif)}
 }
 
 .arcl{text-align:center;font-size:.8rem;margin:10px 0 24px}.arcl a{color:var(--muted,#555)}
+
+/* v31: 오늘의 광고인 — 사설과 같은 글자·단 */
+.a-person .ps-h{font-size:1.35rem;font-weight:900;line-height:1.3;margin:6px 0 2px}
+.a-person .ps-h small{font-size:.8rem;font-weight:700;color:var(--faint);margin-left:4px}
+.a-person .ps-meta{font-size:.8rem;font-weight:700;color:var(--red,#a01e1e);margin:0 0 10px}
+.ps-cols{columns:4;column-gap:22px;column-rule:1px solid var(--rule-soft);column-fill:balance}
+.ps-cols p{font-size:1.02rem;line-height:1.85;margin:0 0 .6em;text-align:justify;word-break:normal;overflow-wrap:anywhere}
+.ps-cols .ps-line{font-weight:900;text-align:left}
+.ps-cols .ps-intro{text-indent:1em}
+.ps-cols .ps-works,.ps-cols .ps-les{text-align:left}
+.ps-cols .ps-works b,.ps-cols .ps-les b{font-weight:900;margin-right:4px}
+.ps-cols .ps-works a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ps-cols .ps-src{font-size:.8rem;color:var(--faint)}
+.ps-cols .ps-src a{color:inherit}
+.ps-fig{break-inside:avoid;margin:0 0 10px;border:1px solid var(--ink);background:#f4f4f2;padding:3px}
+.ps-fig svg,.ps-fig img{display:block;width:100%;height:auto}
+.ps-fig img{filter:grayscale(1) contrast(1.05)}
+.ps-fig figcaption{font-size:.72rem;text-align:center;color:var(--faint);margin-top:3px}
+@media (max-width:980px){.ps-cols{columns:2}}
+@media (max-width:699px){.ps-cols{columns:1}}
+@media (max-width:620px){.ps-cols p{font-size:1rem!important;line-height:1.7!important;text-align:left}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1070,9 +1091,12 @@ body,button,input,select,textarea{font-family:var(--serif)}
         <div class="kick"><h2 id="k-camps">오늘의 광고 캠페인</h2><span class="kr"><span id="kcampsub">캠페인 읽기</span><button type="button" class="cplink" id="cpLink" title="이 캠페인 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
         <div class="feat" id="camps"></div>
       </section>
+      <section class="np-sec a-person" id="a-person" aria-labelledby="k-person" hidden>
+        <div class="kick"><h2 id="k-person">오늘의 광고인</h2><span>금로동 기자가 소개합니다</span></div>
+        <div id="person"></div>
+      </section>
     </div>
     <section class="np-sec a-live" aria-labelledby="k-live">
-      <div class="person" id="person" hidden></div>
       <div class="kick"><h2 id="k-live">실시간 이슈</h2><span id="livesub">최신순</span></div>
       <div id="live"></div>
       <button type="button" class="more-btn" id="livemore">실시간 이슈 더 보기 ▼</button>
@@ -1126,7 +1150,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
   </section>
   </div>
   <footer class="foot" id="foot"></footer>
-  <p class="arcl"><a href="e/">지난 호 모아보기 — 금로동 기자의 사설·오늘의 광고 캠페인·오늘의 광고인물</a></p>
+  <p class="arcl"><a href="e/">지난 호 모아보기 — 금로동 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
 </div>
 
 <div id="setWrap" hidden>
@@ -1441,28 +1465,21 @@ function boot(D){
     }).join('');
   }
   function ogOf(u){return ((D.og||{})[u])||{}}
-  // 오늘의 광고인물: 금로동 기자가 독자에게 한 사람을 소개
+  // 오늘의 광고인: 금로동 기자가 독자에게 한 사람을 소개 (사설과 같은 단 구성, 그림은 금기자가 그린 흑백 일러스트)
   function renderPerson(){
-    var P=D.person, el=$('person'); if(!el) return;
-    if(!P||!P.name){el.hidden=true;return;}
-    var img=P.photo||ogOf(P.url).i||'';
-    var meta=[P.nameEn,P.years,P.country].filter(Boolean).join(' · ');
-    el.innerHTML='<div class="kick"><h2>오늘의 광고인물</h2><span>'+RNAME+'가 소개합니다</span></div>'+
-      '<button type="button" class="ps-b" id="psOpen" aria-label="'+esc(P.name)+' 소개 전체 보기">'+
-      '<span class="ps-ph">'+(img?'<img src="'+esc(img)+'" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'noimg\');this.remove()">':'')+'<i>'+esc(String(P.name).slice(0,1))+'</i></span>'+
-      '<span class="ps-t"><b>'+esc(P.name)+'</b>'+(meta?'<small>'+esc(meta)+'</small>':'')+(P.role?'<em>'+esc(P.role)+'</em>':'')+
-      '<span class="ps-l">'+esc(P.line||'')+'</span><span class="ps-i">'+esc(P.intro||'')+'</span><span class="ps-m">소개 전체 보기 →</span></span></button>';
-    if(!img) el.querySelector('.ps-ph').classList.add('noimg');
-    el.hidden=false;
-    $('psOpen').onclick=function(){
-      openModal('<span class="t">오늘의 광고인물 · '+RNAME+'가 소개합니다</span><h3>'+esc(P.name)+(P.nameEn?' <small>'+esc(P.nameEn)+'</small>':'')+'</h3>'+
-        '<p class="ps-mm">'+esc([P.years,P.country,P.role].filter(Boolean).join(' · '))+'</p>'+
-        (img?'<figure class="ps-mf"><img src="'+esc(img)+'" alt="'+esc(P.name)+' 관련 이미지" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></figure>':'')+
-        '<p>'+esc(P.intro||'')+'</p>'+
-        ((P.works||[]).length?'<p><b>대표 작업</b> · '+P.works.map(esc).join(' · ')+'</p>':'')+
-        (P.lesson?'<p class="op"><b>'+RNAME+'의 한마디</b>'+esc(P.lesson)+'</p>':'')+
-        (P.url?'<p class="ps-src">'+link(P.url,'관련 기사 보기 ↗')+(P.wiki?' · '+link(P.wiki,'위키백과 ↗'):'')+'</p>':''));
-    };
+    var P=D.person, el=$('person'), sec=$('a-person'); if(!el||!sec) return;
+    if(!P||!P.name){sec.hidden=true;return;}
+    var sv=safeSvg(P.svg), img=P.photo||'';
+    var fig=sv?'<figure class="ps-fig">'+sv+(P.caption?'<figcaption>'+esc(P.caption)+'</figcaption>':'')+'</figure>':
+      img?'<figure class="ps-fig"><img src="'+esc(img)+'" alt="'+esc(P.name)+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></figure>':'';
+    var works=(P.works||[]).map(function(w){if(typeof w==='string')return esc(w);return w.url?link(w.url,esc(w.t)+' ↗'):esc(w.t)}).join(' · ');
+    var meta=[P.years,P.country,P.role].filter(Boolean).join(' · ');
+    el.innerHTML='<h3 class="ps-h">'+esc(P.name)+(P.nameEn?' <small>'+esc(P.nameEn)+'</small>':'')+'</h3>'+(meta?'<p class="ps-meta">'+esc(meta)+'</p>':'')+
+      '<div class="ps-cols">'+fig+(P.line?'<p class="ps-line">'+esc(P.line)+'</p>':'')+'<p class="ps-intro">'+esc(P.intro||'')+'</p>'+
+      (works?'<p class="ps-works"><b>대표 작업</b> '+works+'</p>':'')+
+      (P.lesson?'<p class="ps-les"><b>'+RNAME+'의 한마디</b> '+esc(P.lesson)+'</p>':'')+
+      ((P.url||P.wiki)?'<p class="ps-src">'+[P.url?link(P.url,'관련 기사 ↗'):'',P.wiki?link(P.wiki,'위키백과 ↗'):''].filter(Boolean).join(' · ')+'</p>':'')+'</div>';
+    sec.hidden=false;
   }
   function ph(label,dark){var t=String(label||'').replace(/\s+/g,'');return '<span class="ci-ph'+(dark?' dark':'')+'"><span>'+esc(t.slice(0,dark?6:2))+'</span>'+(dark?'<em>PDF</em>':'')+'</span>'}
   function cleanDesc(d){d=String(d||'').replace(/^\s*\[[^\]]{1,30}\]\s*/,'').replace(/^[^=|]{0,30}(기자|특파원|에디터)\s*[=|]\s*/,'').replace(/^[^=]{1,20}=\s*/,'').replace(/^[^|]{0,20}\|\s*/,'').trim();return d.length<18?'':d}

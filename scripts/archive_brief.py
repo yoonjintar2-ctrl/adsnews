@@ -54,7 +54,7 @@ def archive_campaign():
 
 
 def archive_person():
-    """Keep every day's 오늘의 광고인물 in people.json (so the content task never repeats a person)."""
+    """Keep every day's 오늘의 광고인 in people.json (so the content task never repeats a person)."""
     p = json.load(open("data.json", encoding="utf-8")).get("person") or {}
     if not p.get("name") or not p.get("date"):
         return
