@@ -1063,6 +1063,9 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .adslot .ad-cr img{width:100%;height:100%;object-fit:cover;display:block}
 .adslot .ad-mk{position:absolute;right:0;top:0;font:700 .58rem/1 var(--serif);font-style:normal;letter-spacing:.08em;background:rgba(26,26,26,.72);color:#f4f4f2;padding:2px 4px;pointer-events:none}
 
+/* v38: 통계 암호 입력 */
+.st-pw{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.st-pw p{width:100%;margin:0 0 4px}.st-pw input{font:inherit;font-family:var(--serif);border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:6px 8px;flex:1 1 12rem;min-width:0}.st-pw .more-btn{width:auto;padding:6px 18px;margin:0}
+
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
@@ -1247,7 +1250,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
   </section>
   </div>
   <footer class="foot" id="foot"></footer>
-  <p class="arcl"><span class="adq">광고 문의 <a href="mailto:yoonjintar@naver.com">yoonjintar@naver.com</a></span><a href="#" id="admLink" hidden>관리자</a><a href="e/">지난 호 모아보기 — 금로동 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
+  <p class="arcl"><span class="adq">광고 문의 <a href="mailto:yoonjintar@naver.com">yoonjintar@naver.com</a></span><a href="#" id="admLink">통계</a><a href="e/">지난 호 모아보기 — 금로동 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
 </div>
 
 <div id="setWrap" hidden>
@@ -2109,14 +2112,18 @@ function boot(D){
 </script>
 
 <script>
-/* 방문 통계 (Firebase Firestore) — 일자별 노출수·도달자·체류시간. 관리자 메뉴는 ?admin 으로 한 번 들어오면 이 기기에서만 보임 */
+/* 방문 통계 (Firebase Firestore) — 일자별 노출수·도달자·체류시간.
+   하단 「통계」 버튼 → 암호 입력 후 열람. 암호는 해시로만 비교(원문은 코드에 없음).
+   암호를 한 번 맞힌 기기는 관리자 기기로 보고 집계에서 뺀다. */
 (function(){
   var FB_CFG = null; // Firebase 웹 앱 설정 { apiKey, authDomain, projectId, appId }
-  var V='10.12.2', SDK=['firebase-app-compat','firebase-firestore-compat','firebase-auth-compat'];
+  var PW_HASH = 'abad4d283128a6f13c3c7d856211e60ebf65821d447296590f5d933301b1202a'; // sha256('adsnews-stats:' + 암호)
+  var V='10.12.2', SDK=['firebase-app-compat','firebase-firestore-compat'];
   function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function ss(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){return null}}
   if(/[?&]admin\b/.test(location.search)){ls('ads-admin','1');history.replaceState(null,'',location.pathname+location.hash);}
   var isAdmin=ls('ads-admin')==='1', link=document.getElementById('admLink');
-  if(isAdmin&&link)link.hidden=false;
+  if(link)link.hidden=false;
   function day(){return new Date(Date.now()+9*36e5).toISOString().slice(0,10)}
   var loading=null;
   function load(){ if(loading) return loading; loading=SDK.reduce(function(p,n){return p.then(function(){return new Promise(function(res,rej){var s=document.createElement('script');s.src='https://www.gstatic.com/firebasejs/'+V+'/'+n+'.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)})})},Promise.resolve()).then(function(){if(!firebase.apps.length)firebase.initializeApp(FB_CFG);return firebase}); return loading; }
@@ -2136,14 +2143,12 @@ function boot(D){
     }).catch(function(){});
   }
   function mmss(s){s=Math.round(s||0);return Math.floor(s/60)+'분 '+('0'+s%60).slice(-2)+'초'}
-  function show(html){var m=document.getElementById('modal'),b=document.getElementById('mbody');b.innerHTML='<span class="t">관리자</span><h3>방문 통계</h3>'+html;m.firstElementChild.classList.add('wide');m.hidden=false;}
-  if(link) link.addEventListener('click',function(e){
-    e.preventDefault();
+  function show(html){var m=document.getElementById('modal'),b=document.getElementById('mbody');b.innerHTML='<span class="t">광고늬우스</span><h3>방문 통계</h3>'+html;m.firstElementChild.classList.add('wide');m.hidden=false;}
+  function sha(t){if(!(window.crypto&&crypto.subtle))return Promise.reject();return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){return [].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}
+  function stats(){
     if(!FB_CFG){show('<p>통계 저장소(Firebase)가 아직 연결되지 않았어요. 연결되면 이 창에 일자별·누적 노출수, 도달자 수, 평균 체류시간이 나와요.</p>');return;}
     show('<p class="ps-mm">불러오는 중…</p>');
     load().then(function(fb){
-      var auth=fb.auth();
-      function render(){
         var db=fb.firestore(), days=[]; for(var i=0;i<14;i++)days.push(new Date(Date.now()+9*36e5-i*864e5).toISOString().slice(0,10));
         return Promise.all([db.collection('stats').doc('total').get()].concat(days.map(function(d){return db.collection('stats').doc(d).get()}))).then(function(r){
           var T=r[0].data()||{}, rows=r.slice(1).map(function(x,i){var v=x.data()||{};return {d:days[i],views:v.views||0,vis:v.visitors||0,dw:v.dwell||0}});
@@ -2151,18 +2156,20 @@ function boot(D){
           var w7=rows.slice(0,7), sv=w7.reduce(function(a,x){return a+x.views},0), su=w7.reduce(function(a,x){return a+x.vis},0), sd=w7.reduce(function(a,x){return a+x.dw},0);
           show('<div class="st-k"><div><b>'+(T.views||0).toLocaleString()+'</b><span>누적 노출수</span></div><div><b>'+(T.visitors||0).toLocaleString()+'</b><span>누적 도달자</span></div><div><b>'+Math.round(sv/7).toLocaleString()+'</b><span>최근 7일 일평균 노출</span></div><div><b>'+mmss(su?sd/su:0)+'</b><span>최근 7일 평균 체류</span></div></div>'+
             '<table class="st-t"><thead><tr><th>날짜</th><th>노출수</th><th>도달자</th><th>1인 평균 체류</th></tr></thead><tbody>'+rows.map(function(x){return '<tr><td>'+x.d.slice(5).replace('-','.')+'</td><td><i style="width:'+Math.round(x.views/mx*100)+'%"></i>'+x.views.toLocaleString()+'</td><td>'+x.vis.toLocaleString()+'</td><td>'+(x.vis?mmss(x.dw/x.vis):'—')+'</td></tr>'}).join('')+'</tbody></table>'+
-            '<p class="ps-src">노출수 = 페이지 열람 수 · 도달자 = 하루 기준 순 방문자(같은 기기 1회) · 체류 = 화면을 보고 있던 시간. 관리자 본인 방문은 빠져요.</p><p class="ps-src"><a href="#" id="stOut">로그아웃</a></p>');
-          var o=document.getElementById('stOut'); if(o)o.onclick=function(ev){ev.preventDefault();auth.signOut();document.getElementById('modal').hidden=true};
-        }).catch(function(){show('<p>이 계정으로는 통계를 볼 수 없어요. 관리자 구글 계정으로 로그인해 주세요.</p><p><button type="button" class="more-btn" id="stIn2">다른 계정으로 로그인</button></p>');var b=document.getElementById('stIn2');if(b)b.onclick=function(){auth.signOut().then(function(){return auth.signInWithPopup(new fb.auth.GoogleAuthProvider())}).then(render)}});
-      }
-      if(auth.currentUser) return render();
-      return new Promise(function(res){var un=auth.onAuthStateChanged(function(u){un();res(u)})}).then(function(u){
-        if(u) return render();
-        show('<p>통계는 관리자 구글 계정으로 로그인해야 볼 수 있어요.</p><p><button type="button" class="more-btn" id="stIn">구글로 로그인</button></p>');
-        document.getElementById('stIn').onclick=function(){auth.signInWithPopup(new fb.auth.GoogleAuthProvider()).then(render).catch(function(){show('<p>로그인하지 못했어요. 팝업 차단을 풀고 다시 시도해 주세요.</p>')})};
-      });
+            '<p class="ps-src">노출수 = 페이지 열람 수 · 도달자 = 하루 기준 순 방문자(같은 기기 1회) · 체류 = 화면을 보고 있던 시간. 관리자 본인 방문은 빠져요.</p><p class="ps-src"><a href="#" id="stOut">잠그기</a></p>');
+          var o=document.getElementById('stOut'); if(o)o.onclick=function(ev){ev.preventDefault();ss('ads-stat-ok','');document.getElementById('modal').hidden=true};
+        }).catch(function(){show('<p>통계를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.</p>')});
     }).catch(function(){show('<p>통계를 불러오지 못했어요.</p>')});
-  });
+  }
+  function ask(msg){
+    show('<form id="stPw" class="st-pw"><p>'+(msg||'통계를 보려면 암호를 입력해 주세요.')+'</p><input type="password" id="stPwIn" autocomplete="current-password" aria-label="암호"><button type="submit" class="more-btn">확인</button></form>');
+    var f=document.getElementById('stPw'), i=document.getElementById('stPwIn'); setTimeout(function(){i.focus()},30);
+    f.onsubmit=function(ev){ev.preventDefault();sha('adsnews-stats:'+i.value).then(function(h){
+      if(h===PW_HASH){ss('ads-stat-ok','1');ls('ads-admin','1');stats();}
+      else ask('<b style="color:var(--red)">암호가 맞지 않아요.</b> 다시 입력해 주세요.');
+    },function(){ask('이 브라우저에서는 암호 확인을 할 수 없어요.')})};
+  }
+  if(link) link.addEventListener('click',function(e){e.preventDefault();if(ss('ads-stat-ok')==='1')stats();else ask();});
 })();
 </script>
 </body>
