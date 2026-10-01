@@ -1046,6 +1046,24 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tn-s{font-size:.75rem;color:var(--faint);margin:0}
 .tn-s a{color:inherit}
 @media (max-width:980px){.tn-g{grid-template-columns:1fr!important;row-gap:16px}.tn+.tn{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
+/* v37: 광고 지면 = 정해진 소재 크기(px). 좁은 화면에선 비율 그대로 축소. 테두리는 outline이라 소재가 칸을 꽉 채움 */
+.adslot[data-slot]{box-sizing:border-box;border:0!important;outline:1px dashed var(--faint);outline-offset:0;width:var(--aw)!important;max-width:100%!important;aspect-ratio:var(--ar);height:auto!important;min-height:0!important;flex:none!important;margin:0 auto;position:relative;overflow:hidden;gap:2px!important}
+.adslot[data-slot="top"]{--aw:234px;--ar:234/60;flex-direction:row!important;gap:8px!important;margin:0 0 0 auto}
+.adslot[data-slot="side"],.adslot[data-slot="fill"]{--aw:300px;--ar:300/250}
+.adslot[data-slot="bottom"]{--aw:640px;--ar:640/200;margin:0}
+.adslot .ad-sz{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:.72rem!important;font-weight:700;letter-spacing:.02em;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.adslot .ad-sz small{display:block;font-size:.62rem;font-weight:400;color:var(--faint);text-align:center}
+.adslot[data-slot="top"] .ad-sz small{display:none}
+.live-ad{flex:1 1 auto!important;min-height:0!important;align-items:center;justify-content:center}
+.fill-ad{min-height:0!important;flex:none!important;justify-content:center;margin-top:14px}
+.r4-ad{display:flex;align-items:flex-start;min-width:0}
+.mast .r .ear.er{min-width:0}.mast .ear .adslot[data-slot]{min-width:0}
+.adslot.on{outline:1px solid var(--rule);background:var(--paper)!important}
+.adslot .ad-cr{position:absolute;inset:0;display:block}
+.adslot .ad-cr img{width:100%;height:100%;object-fit:cover;display:block}
+.adslot .ad-mk{position:absolute;right:0;top:0;font:700 .58rem/1 var(--serif);font-style:normal;letter-spacing:.08em;background:rgba(26,26,26,.72);color:#f4f4f2;padding:2px 4px;pointer-events:none}
+@media (max-width:620px){.r4-ad{justify-content:center}.adslot[data-slot="bottom"]{margin:0 auto}}
+
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
@@ -1115,12 +1133,32 @@ body,button,input,select,textarea{font-family:var(--serif)}
   if(q&&/^\d{4}-\d\d-\d\d$/.test(q)&&q<t){window.__ED=q;window.__BASE='archive/'+q+'/';window.__NOW=Date.UTC(+q.slice(0,4),+q.slice(5,7)-1,+q.slice(8,10),14,59);document.documentElement.classList.add('past');}
   window.nowMs=function(){return window.__NOW||Date.now()};})();
 </script>
+<script>
+/* 광고 지면: 크기 가이드 + ads.json 소재 표시.
+   ads.json 예) {"side":{"img":"ads/brand-300x250.png","url":"https://광고주 랜딩","alt":"광고주명","from":"2026-10-01","until":"2026-10-31"}}
+   슬롯: top 234×60(제호 옆) · side 300×250(실시간 이슈 아래) · bottom 640×200(하단, 모바일은 비율 축소) · fill 300×250(남는 칸) */
+(function(){
+  var SPEC={top:[234,60],side:[300,250],bottom:[640,200],fill:[300,250]}, ADS={};
+  function today(){return new Date(Date.now()+9*36e5).toISOString().slice(0,10)}
+  function live(a){if(!a||!a.img||!/^https?:\/\//.test(a.url||''))return false;var d=today();return (!a.from||a.from<=d)&&(!a.until||a.until>=d)}
+  function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  window.adFill=function(el){var k=el.getAttribute('data-slot'),sp=SPEC[k];if(!sp)return;var a=ADS[k];
+    if(live(a)){el.classList.add('on');el.innerHTML='<a class="ad-cr" href="'+esc(a.url)+'" target="_blank" rel="sponsored noopener" title="'+esc(a.alt||'광고')+'"><img src="'+esc(a.img)+'" alt="'+esc(a.alt||'광고')+'" width="'+sp[0]+'" height="'+sp[1]+'"></a><i class="ad-mk">AD</i>';return}
+    el.classList.remove('on');
+    var sz='<span class="ad-sz">'+sp[0]+' × '+sp[1]+' px<small>'+(k==='bottom'?'모바일은 같은 비율로 축소 · ':'')+'2배 소재 '+sp[0]*2+'×'+sp[1]*2+' 권장</small></span>';
+    el.innerHTML=k==='top'?'<b>AD</b>'+sz:'<b>AD</b><span>광고 지면</span>'+sz;
+    el.title='광고 지면 '+sp[0]+'×'+sp[1]+'px · 문의 yoonjintar@naver.com'};
+  function all(){[].forEach.call(document.querySelectorAll('.adslot[data-slot]'),adFill)}
+  document.addEventListener('DOMContentLoaded',function(){all();
+    fetch('ads.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{}}).then(function(j){ADS=j||{};all()},function(){})});
+})();
+</script>
 </head>
 <body>
 <div class="paper">
   <header class="mast">
     <div class="l" hidden><span id="upd"></span></div>
-    <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
+    <aside class="ear" aria-label="광고"><div class="adslot" data-slot="top"><b>AD</b><span>광고 지면</span></div></aside>
     <div class="mt"><h1>광고늬우스</h1><p class="slogan">광고계 노른자 소식들, 한 입에 떠-먹여 드려요.</p></div>
     
     <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v19l-7-4.5L5 22V3a1 1 0 0 1 1-1z"/></svg><span id="subtxt">구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
@@ -1154,7 +1192,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
       <div class="kick"><h2 id="k-live">실시간 이슈</h2><span id="livesub">최신순</span></div>
       <div id="live"></div>
       <button type="button" class="more-btn" id="livemore">실시간 이슈 더 보기 ▼</button>
-      <aside class="live-ad" id="livead" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
+      <aside class="live-ad" id="livead" aria-label="광고"><div class="adslot" data-slot="side"><b>AD</b><span>광고 지면</span></div></aside>
     </section>
     <section class="np-sec a-vids" id="trcol" aria-labelledby="k-trend">
       <div class="kick"><h2 id="k-trend">요즘 뜨는 영상</h2><span id="trsrc"></span></div>
@@ -1178,7 +1216,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
       <section class="np-sec r4 r4-plat" data-list="plat"><div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div><div id="plat"></div></section>
       <section class="np-sec r4 r4-reps" data-list="reps"><div class="kick"><h2>리포트</h2><span>렙사 · 광고회사 · 기관</span></div><div class="blist" id="reps"></div></section>
       <section class="np-sec r4 r4-news" data-list="anews"><div class="kick"><h2>업계 소식</h2><span>광고회사 · 매체</span></div><div class="blist" id="anews"></div></section>
-      <aside class="r4-ad" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
+      <aside class="r4-ad" aria-label="광고"><div class="adslot" data-slot="bottom"><b>AD</b><span>광고 지면</span></div></aside>
     </div>
   </main>
 
@@ -1748,7 +1786,8 @@ function boot(D){
     secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l!=='fitems'&&l!=='plat')return;if(sec.querySelector('.more-btn'))return;
       var its=items(sec);if(!its.length||!adBottom)return;
       var gap=adBottom-sec.lastElementChild.getBoundingClientRect().bottom;
-      if(gap>110){var f=document.createElement('aside');f.className='fill-ad';f.setAttribute('aria-label','광고');f.innerHTML='<div class="adslot"><b>AD</b><span>광고 지면</span></div>';f.style.height=(gap-10)+'px';sec.appendChild(f);}});
+      var bw=Math.min(300,sec.clientWidth-(parseFloat(getComputedStyle(sec).paddingLeft)||0)-(parseFloat(getComputedStyle(sec).paddingRight)||0)), bh=bw*250/300;
+      if(gap>bh+24){var f=document.createElement('aside');f.className='fill-ad';f.setAttribute('aria-label','광고');f.innerHTML='<div class="adslot" data-slot="fill"></div>';sec.appendChild(f);adFill(f.firstChild);}});
   }
   function balance(){
     var two=window.innerWidth>980;
@@ -1762,9 +1801,10 @@ function boot(D){
     if(!two){btn.hidden=true;lad.classList.remove('measure');return;}
     var lim2=L.getBoundingClientRect().bottom-btn.offsetHeight-8, hid=0;
     items.forEach(function(n){if(n.getBoundingClientRect().bottom>lim2){n.classList.add('over');hid++}});
-    // 광고 지면 자리: 보이는 이슈를 3건 더 줄임
+    // 광고 지면 자리: 300×250 박스가 들어갈 만큼 이슈를 줄임
+    var box=lad.querySelector('.adslot'), need=(box?Math.min(300,lad.clientWidth||300)*250/300:250)+14;
     var vis=items.filter(function(n){return !n.classList.contains('over')});
-    vis.slice(Math.max(1,vis.length-3)).forEach(function(n){n.classList.add('over');hid++});
+    for(var k=vis.length-1;k>0&&vis[k].getBoundingClientRect().bottom>lim2-need;k--){vis[k].classList.add('over');hid++}
     lad.classList.remove('measure');
     btn.hidden=!hid; btn.textContent=document.body.classList.contains('live-all')?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
   }
