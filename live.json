@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-10-01T10:11+09:00",
- "updatedLabel": "10월 1일 10:11",
+ "updatedAt": "2026-10-01T10:16+09:00",
+ "updatedLabel": "10월 1일 10:16",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-10-01T10:11+09:00",
+   "at": "2026-10-01T10:16+09:00",
    "items": [
     "카와 극장판",
     "이번달도",
@@ -31,9 +31,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-10-01T10:11+09:00",
+   "at": "2026-10-01T10:16+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "토스증권",
     "네이버",
     "손혁",
     "chat gpt",
@@ -42,13 +43,12 @@
     "argentina vs bolivia",
     "양민혁",
     "호날두",
-    "아르헨티나 대 볼리비아",
-    "쓰레기봉투"
+    "아르헨티나 대 볼리비아"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-10-01T10:11+09:00",
+   "at": "2026-10-01T10:16+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "9월 수출 사상 최대",
@@ -64,26 +64,26 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-10-01T10:11+09:00",
+   "at": "2026-10-01T10:16+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "주재하는 이형일 부총리",
-    "구교환 이옥섭 혼인신고",
-    "아시안게임",
-    "삼성전자 갤럭시 공개",
-    "9월 역대 최대"
+    "코스피 하락 출발해",
+    "호날두 포르투갈 대표팀",
+    "암살자들",
+    "알래스카 LNG 투자",
+    "국민의힘 최고위원회의"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-10-01T10:11+09:00",
+   "at": "2026-10-01T10:16+09:00",
    "url": "https://zum.com/",
    "items": [
-    "9월 수출 사상 최대",
     "산업장관 대미 관세",
+    "9월 수출 사상 최대",
     "미국 8월 PCE 물가",
     "정부 이란 다야니 ISDS 승소",
-    "코스피 약보합 출발"
+    "한정애 알래스카 LNG"
    ]
   }
  },
@@ -2082,12 +2082,6 @@
    "u": "",
    "at": "2026-10-01T09:55+09:00"
   },
-  "코스피 약보합 출발": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T09:55+09:00"
-  },
   "더이유 생기흡수앰플": {
    "t": "",
    "s": "",
@@ -2104,12 +2098,6 @@
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T10:06+09:00"
-  },
-  "쓰레기봉투": {
-   "t": "“종량제 봉투 아끼려면?”…페트병 압착·상자 접어 분리배출",
-   "s": "제주교통복지신문",
-   "u": "https://www.jejutwn.com/news/article.html?no=460760",
    "at": "2026-10-01T10:06+09:00"
   },
   "이형일 부총리 경제회의 주재": {
@@ -2130,187 +2118,52 @@
    "u": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFAzX1F0NFdHTVJ3SGxwSUk5Z2NUcExFdTBTRnNEMWZ4ME5lNUZ1VklCNDJpdnE3d1hoSHVNWWJjeFRUaEdEVXowYTZqMnJTajlHSnBlM2ZKdmZyNkJjdXpOdEJhYU5LV1dW?oc=5",
    "at": "2026-10-01T10:06+09:00"
   },
-  "주재하는 이형일 부총리": {
-   "t": "취임 이후 첫 비상경제본부회의 주재하는 이형일 부총리",
-   "s": "v.daum.net",
-   "u": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBkdDBlVkdPRTZQWGVHaXJiclFkXzdkZ0pHd3dxZTBrNm9hdG1HbE9qV2JHMjdRZHFnN2tlYzdMNy1Jd0k5ZkZfd2V1S0Exazg?oc=5",
-   "at": "2026-10-01T10:11+09:00"
+  "토스증권": {
+   "t": "[토스, 증권을 품은 대가①] 몸집은 금융그룹, 내부통제는 따라왔나",
+   "s": "한국아이닷컴",
+   "u": "https://www.hankooki.com/news/articleView.html?idxno=344707",
+   "at": "2026-10-01T10:16+09:00"
   },
-  "구교환 이옥섭 혼인신고": {
-   "t": "구교환·이옥섭 감독, 이미 부부였다…\"2022년 혼인신고\"",
-   "s": "연합뉴스",
-   "u": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9jQnV5c2JNemF5WnRlOXJzNFkwczduU2tMLVI4eTNBVjZSZjh1V0g3cTZ2WEl1OFN4LTFueEZHUWw2X3NOV2NhZ0VFMlh6MHdxX1A5ZnNjWm9JMDDSAWBBVV95cUxNaWdNWW5QZmVWT1pScmhVQ1lJd3pFM1VteXRWeW55M2ZLa3ltOXBhTVp0V0tSaTFfNFZyQVhHZml3NVFON0ZuTUZLc2hjaDhUWTNtSHpyYnVOX0tKQmNkOUE?oc=5",
-   "at": "2026-10-01T10:11+09:00"
-  },
-  "아시안게임": {
-   "t": "아시안게임 유도: 허미미·김민종 포함 한국 대표팀 경기 결과·메달 모아보기 [아이치-나고야 2026]",
-   "s": "olympics.com",
-   "u": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5rQzJXZEJMam9lM2hROE9YTVpqRjJKLVVBLTNpcm5kaWJ2YTIyWGxNbjMyQnRBelFvcXBxM0tGb1FoVE9tUjFRTzMybGM5MEhUNVVzc0ZTdXY5UmNST2xYVG15WWVydGZjTDZyVWpleWxnN011VzVUekFxUWs2QQ?oc=5",
-   "at": "2026-10-01T10:11+09:00"
-  },
-  "삼성전자 갤럭시 공개": {
+  "코스피 하락 출발해": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T10:11+09:00"
+   "at": "2026-10-01T10:16+09:00"
   },
-  "9월 역대 최대": {
+  "호날두 포르투갈 대표팀": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T10:11+09:00"
+   "at": "2026-10-01T10:16+09:00"
+  },
+  "암살자들": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T10:16+09:00"
+  },
+  "알래스카 LNG 투자": {
+   "t": "한국은 검토 중인데…미 “알래스카 LNG 500억달러 투자” 일방 발표",
+   "s": "한겨레",
+   "u": "https://news.google.com/rss/articles/CBMib0FVX3lxTE40MElvSE4zUlliQXdWTUpGbmJxYzVtT0d1cnlwTGdWLVFVbERvR0RPakJuWXZvRTNVTzBXQThYM2k3TnRicjQzeS1MTkJhS3ZlR01XYjNUTUlOb0o0MUYyQmhWdmd1WDNlUkRIQk83TQ?oc=5",
+   "at": "2026-10-01T10:16+09:00"
+  },
+  "국민의힘 최고위원회의": {
+   "t": "국민의힘 최고위원회의 참석",
+   "s": "뉴시스",
+   "u": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5TNjA0MEk4MnhESXBJR08tS1dvaV9ydmxpS0tySW9YQl8zbEV1aTU3d1NGNG56VDRyN1dOM1J2UWkzYlh0N19hemhJMFVFLVU0SnpBNnU1ZnA4SUV6ME9GUkNUX3Z0UQ?oc=5",
+   "at": "2026-10-01T10:16+09:00"
+  },
+  "한정애 알래스카 LNG": {
+   "t": "與한정애 \"알래스카 LNG 투자 확정 아냐…美입장 강조한 듯\"",
+   "s": "news.einfomax.co.kr",
+   "u": "https://news.google.com/rss/articles/CBMicEFVX3lxTE50WVFUcWVtWGY2VjNrbk9mWUp6am5qYmhVci1zZ3ZxZ1l2N1U2dDVqWFBsVENOV0pXb2M3VVlkNkRmQXRCTDVCVDNKZFBLcUJTZ1ZQZ1NmZ2lrNDhmdnBnczFOWE12WVV5dHh2OXdqMUk?oc=5",
+   "at": "2026-10-01T10:16+09:00"
   }
  },
  "disc": {
   "date": "2026-10-01",
   "items": {
-   "3kAPkkebdrs": {
-    "t": "[자막뉴스] '벤츠 살까??' 한국만 초특가…독일 사람도 깜짝 놀랄 일이 / JTBC News",
-    "ch": "JTBC News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "szEzJKK8oyU": {
-    "t": "\"세계 9위 한국 왜 건드렸나!\"..'선빵' 날린 우크라 '안절부절' (자막뉴스) / SBS",
-    "ch": "SBS 뉴스",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "2FqHOJeP3Fg": {
-    "t": "\"아빠 : 먹어도 먹어도 끝이 안 나냐!!😂\" 아빠랑 미친 양의 즉석떡볶이 특대에 김밥 순대 튀김까지 둘 다 배 터질 뻔 했어요 ㅋㅋㅋ 만리 만",
-    "ch": "만리 manli",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "aWtH7RNczj0": {
-    "t": "ASMR 🦐 오독오독 생새우 육회 새우라면 리얼먹방 :) raw shrimp , Korean style raw beef , Ramyun MUKB",
-    "ch": "[AmiAmi]아미아미",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "rt7fIlko0CM": {
-    "t": "Keyveatz(키비츠) - ‘A1ㄱ’ Official MV",
-    "ch": "Keyveatz 및 AOMGOFFICIAL",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "bR0enogrGvA": {
-    "t": "'날씨 대반전' 추위 온다...내일 아침부터 기온 '뚝' [자막뉴스] / YTN",
-    "ch": " YTN",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "X0HRKPH5Z7w": {
-    "t": "[자막뉴스] \"제가 암에 걸려서\" 우는데…아고다 진짜 이랬다고? '분노' / JTBC News",
-    "ch": "JTBC News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "3sPNkyaU5cs": {
-    "t": "'400만' 지무비도 영상 삭제...'암살자(들)' 커지는 논란 [자막뉴스] / YTN",
-    "ch": " YTN",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "F4Q3KAFMVXA": {
-    "t": "[자막뉴스] \"괜찮아?\" 달려간 순간 또 폭발…DMZ 지뢰 사고 당시 상황 보니 / KBS 2026.09.30.",
-    "ch": "KBS News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "oNy0rWIq-y4": {
-    "t": "\"완전히 아수라장\"...역대급 홍수에 태국 수도까지 '마비' [자막뉴스] / YTN",
-    "ch": " YTN",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "gG5ShloroLM": {
-    "t": "강호동이랑 야차룰 예능⁉️ 진짜 미친(p) 야망을 드러낸 김원훈ㅋㅋ｜아는 형님｜JTBC 251025 방송",
-    "ch": "JTBC Voyage",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "_cLogu4Q1Tg": {
-    "t": "[놀면뭐하니?] 예능에 개그맨 없으면 안 되는 이유ㅋㅋㅋ 요즘 폼 미쳤다는 레전드 입담꾼 허경환 | #허경환 #놀뭐 251108방송",
-    "ch": "엠뚜루마뚜루 : MBC 공식 종합 채널",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "4GuP9drQvOE": {
-    "t": "노가리",
-    "ch": "런닝맨 - 스브스 공식 채널",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "Mf8UffRqZE4": {
-    "t": "[하이라이트] 라인업 미쳤음 (P) | 🔔유튜버 골든벨",
-    "ch": "채널십오야",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "FqBKajecMdo": {
-    "t": "한국 대 중국 2-1 전체 골 및 하이라이트 -- 2026년 아이치·나고야 아시안 게임 -- 2026년 9월 30일",
-    "ch": "يوميات سماسماسيمو",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "RaZIH1HxcqY": {
-    "t": "입 말고 손을 움직이라니깐요 (w. 에픽하이)",
-    "ch": "카더정원",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "Lx1yLfFoiGk": {
-    "t": "맨날 도쿄 가는 사람의 도쿄여행🗼임산부 먹방 여행, 긴자 코스 추천, 도쿄 쇼핑템 터짐, 아카리 조명, 도쿄 맛집! 회전초밥, 야키니꾸, 츠케맨",
-    "ch": "지혜사랑JIHYESARANG",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "6ddJ83tTi6g": {
-    "t": "\"카카오 주주 설득 못하면 카카오모빌리티 상장은 택도 없다!\" (나은수 기업경제센터 기자) / 이슈체크",
-    "ch": "야놀자",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "MXsDqkrx90s": {
-    "t": "어느 내비게이션이 더 빨랐나…비교해 보니 / 채널A / 뉴스A",
-    "ch": "채널A News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "F5XOlhZ690E": {
-    "t": "추석 연휴 시작‥ 1인 가구에 달라지는 풍경 (2026.09.24/뉴스데스크/제주MBC)",
-    "ch": "MBCNEWS",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "lmGNgxGKuAc": {
-    "t": "【#예능썰】수준이 다른 조롱ㅋㅋㅋ #곽범, #이재율, #문세윤 레전드 개그맨 성대모사 썰 모음🤣 | 라디오스타 | TVPP | MBC 26031",
-    "ch": "TV-People",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
    "v962nUTDir8": {
     "t": "[놀면뭐하니?] 김밥 다 싸놨는데 중식당으로 향하는 차? ㄷㄷ 못 참고 핸들 돌린 유재석 MBC260725방송 #곽범 #김원훈",
     "ch": "픽잇 :Pick it",
@@ -3703,6 +3556,153 @@
     "fmt": "영상",
     "kind": "ad",
     "since0": true
+   },
+   "KEf4RMwOer0": {
+    "t": "\"연차내고 가는 관광지냐?\"...불만 폭주한 사람들 [자막뉴스] / YTN",
+    "ch": " YTN",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "eeNEgg_OLfA": {
+    "t": "[오늘 이 뉴스] \"국회의 권한을 거꾸로 썼다\".. '준엄 질타' 20년형 구형 (2026.09.30/MBC뉴스)",
+    "ch": "MBCNEWS",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "olU97XcLuQ4": {
+    "t": "한동훈 \"민주당, 제가 졌습니다\"..\"대외비 누설은 바로 이 사람\" (자막뉴스) / SBS",
+    "ch": "SBS 뉴스",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "qx77K5zb1S4": {
+    "t": "[자막뉴스] 감옥에서 무슨 짓을 했길래…'더는 못 참아' 교도소 발칵 / JTBC News",
+    "ch": "JTBC News",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "x_jj9L7CVdQ": {
+    "t": "진짜라구여..? 근데 싫다.. [9월 29일 KT전 하이라이트]",
+    "ch": "사이다 타이거즈",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "nWLO0ueHrBs": {
+    "t": "여러분 저 임신했어요!!..👶🏻❤️ 남편 서프라이즈 반응!",
+    "ch": "빙빙이 bingbing",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "s93PuITCzlA": {
+    "t": "[SUB] 데이트 할 때 뭐하냐면요...",
+    "ch": "유시은 sieun",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "QA5YniGTmKs": {
+    "t": "라식 하고 염증 생겨서 하루종일 오열하는 브이로그",
+    "ch": "쓰까르",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "OC8wV-vGMWc": {
+    "t": "불닭마요 날치알 스리라차 통연어,새우회와 까르보나라불닭볶음면 먹방~!! Sriracha salmon, Carbo Buldak",
+    "ch": "떵개떵",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "igWedlWk_8g": {
+    "t": "ขังหัวใจ (Cage) - Zom Marie | Ost.ข่มขลัง (Khom Khlang The Series) [Official MV]",
+    "ch": "ZOMMARIE MUSIC 외 2명",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "xXUxJs0gOIM": {
+    "t": "\"신이었던 이 직업, 아직 괜찮을까?\" - 메이플 제논 밸패 리뷰",
+    "ch": "도루",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "vLmDjTWNiVc": {
+    "t": "\"이게 세계 1위 게 요리라고..?\" 게를 좋아하는 일본 여자들에게 간장게장 사주자..ㄷㄷ (역대급 반응)",
+    "ch": "세상모든이야기",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "1_P1TSzOuE8": {
+    "t": "#한국여행#서울여행#한국일상#한국생활#한국음식#맛집#먹방#KPOP#케이팝#한국드라마 #K드라마 #한국브이로그#브이로그#일상 ##좋아요 #여행 #",
+    "ch": "funny video120",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "tsHj4aP9QyI": {
+    "t": "지인과 태국 여행가서 행복해보인다는 조권",
+    "ch": "돌바라기",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "IFBzyv3Z9x0": {
+    "t": "\"저게 다 사람이야?\" 중국인들 '쫙' 퍼진다 #shorts",
+    "ch": "SBS 뉴스",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "BXw-o4Vkfs4": {
+    "t": "1500만원 쓰리룸 비행기",
+    "ch": "곽튜브",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "h8VWud8CrHE": {
+    "t": "이번에도 그런 연애가 될까 봐 | 하트로드 321km | EP.1 2부",
+    "ch": "기아",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "_TpOhrlDEnY": {
+    "t": "[사용방법] 제로 음식물처리기_미생물형(WMB-0703)_부스터 기능",
+    "ch": "코웨이",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": true
+   },
+   "eDVEIY1wbMA": {
+    "t": "[사용방법] 제로 음식물처리기 미생물형(WMB-0703)_도어를 열면 물이 떨어져요",
+    "ch": "코웨이",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": true
+   },
+   "o09jt8yxcoM": {
+    "t": "경쟁이 없어진 학교에서 아이들은 더 행복해졌을까 | 우리아이연구소 EP.9",
+    "ch": "현대해상",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "-D_9SjAJ_Tg": {
+    "t": "노쇼사기 예방 캠페인｜’오늘도 걸려온 수상한 전화’",
+    "ch": "신한은행",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
    }
   },
   "prev": {
@@ -5247,7 +5247,7 @@
     "since0": true
    }
   },
-  "at": "2026-10-01T09:49+09:00"
+  "at": "2026-10-01T10:16+09:00"
  },
  "adMonth": {
   "RDQmUgW8eZs": {
@@ -5608,7 +5608,7 @@
   "oyg7kzcjm2M": {
    "t": "[KB국민은행 × aespa] 에스파가 전하는 2026년 한가위 인사 🌕✨",
    "ch": "KB국민은행",
-   "ud": "2026-09-24"
+   "ud": "2026-09-23"
   },
   "YI14Sij9zLE": {
    "t": "[KB스타뱅킹] 금융 생활의 시작부터 20대의 내일까지KB STAR Banking",
@@ -5733,7 +5733,7 @@
   "Mkrb61QMhRo": {
    "t": "동원그룹, 2026 하반기 신입사원 공개 채용",
    "ch": "동원",
-   "ud": "2026-09-22"
+   "ud": "2026-09-21"
   },
   "nJvxl_-pPkY": {
    "t": "2026 하반기 동원그룹 신입사원 채용 📢 | 채용 담당자에게 다 물어봄 | JOB학사전 채용 특별편",
@@ -5903,7 +5903,7 @@
   "_-cB2FnoDYE": {
    "t": "삼성생명에서 보드게임을 왜 만드는건데요😯 넉살의 훈수 폭격 가득한 제작 회의 현장 | 댓글 이벤트🎁",
    "ch": "삼성생명",
-   "ud": "2026-09-02"
+   "ud": "2026-09-03"
   },
   "eVfp7Un11bM": {
    "t": "[KB글로벌스타×aespa] 원하는 언어 그대로! KB글로벌스타 (30s)",
@@ -5913,7 +5913,7 @@
   "n6k1yLue4XQ": {
    "t": "[KB글로벌스타×aespa] 메이킹 필름도, 에스파와 함께 따라와⭐",
    "ch": "KB국민은행",
-   "ud": "2026-09-23"
+   "ud": "2026-09-22"
   },
   "R1atfXeD4Lw": {
    "t": "우주에서 신발이 떨어지는 웅장한 AI 브랜드필름",
@@ -6123,7 +6123,7 @@
   "o09jt8yxcoM": {
    "t": "경쟁이 없어진 학교에서 아이들은 더 행복해졌을까 | 우리아이연구소 EP.9",
    "ch": "현대해상",
-   "ud": "2026-09-24"
+   "ud": "2026-09-25"
   },
   "NQUFQt9aYxo": {
    "t": "THE FIRST 4 | 한계를 넘어, 더 빠른 속도로 | 한국타이어",
@@ -6869,6 +6869,16 @@
    "t": "🥸수염 예스입니다 사실 노입니다 생각해보니 예스❓같습니다│삼성화재 vs 한양대 연습경기 비하인드",
    "ch": "삼성화재",
    "ud": "2026-09-10"
+  },
+  "_TpOhrlDEnY": {
+   "t": "[사용방법] 제로 음식물처리기_미생물형(WMB-0703)_부스터 기능",
+   "ch": "코웨이",
+   "ud": "2026-10-01"
+  },
+  "eDVEIY1wbMA": {
+   "t": "[사용방법] 제로 음식물처리기 미생물형(WMB-0703)_도어를 열면 물이 떨어져요",
+   "ch": "코웨이",
+   "ud": "2026-10-01"
   }
  },
  "adHist": {
@@ -7208,31 +7218,31 @@
   }
  },
  "ogTried": [
-  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.newsspace.kr/news/article.html?no=15937",
+  "https://www.ajunews.com/view/20260928082838817",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
   "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
   "https://zdnet.co.kr/view/?no=20260929094619",
   "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.ajunews.com/view/20260928082838817",
-  "https://biz.heraldcorp.com/article/10888599",
-  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
-  "https://www.wikitree.co.kr/articles/1161400",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://zdnet.co.kr/view/?no=20260930160948",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://www.newsspace.kr/news/article.html?no=15937",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
   "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
   "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115"
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://zdnet.co.kr/view/?no=20260930160948",
+  "https://biz.heraldcorp.com/article/10888599"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
@@ -7604,23 +7614,6 @@
   "GVWOZHYTLAU": "",
   "g8pZ6fN8SnE": "\"대리점장한테 속았다.\"",
   "jXSc870IWAE": "학회 교류 프로그램 O.G.G",
-  "rt7fIlko0CM": "Keyveatz(키비츠) Mixtape : A1ㄱ",
-  "aWtH7RNczj0": "안녕하세요아미입니다",
-  "2FqHOJeP3Fg": "✨비즈니스메일 : manli@alohamedia.co.kr",
-  "szEzJKK8oyU": "북한군 포로 2명의 한국 이송 사실을 일방적으로 공개한 우크라이나가 한국과의 외교적 마찰로 향후 군사 협력까지 어려워질 수 있다는 우크라이나 현지 언론 분석이 나",
-  "3kAPkkebdrs": "요즘 우리나라에서 팔리는 전기자동차의 가격이 전세계에서 가장 쌉니다. 독일의 벤츠, 스웨덴의 볼보처럼 유럽보다 한국에서 수천만원이 더 싼 전기차들이 있습니다. 이",
-  "Lx1yLfFoiGk": "여러분 민도쿄 돌아온 또 도쿄 여행 재밌게 봐주실거죠...?",
-  "RaZIH1HxcqY": "오늘의 멤버: 카더가든, 넉살, 투컷, 타블로, 미쓰라, 오존, 목사님",
-  "FqBKajecMdo": "한국 대 중국 u-23",
-  "Mf8UffRqZE4": "대한민국 최고의 유튜버들이 한 자리에 모였다!",
-  "4GuP9drQvOE": "노가리.zip 《런닝맨 / 예능맛ZIP / RunningMan 》",
-  "_cLogu4Q1Tg": "[놀면 뭐하니?] 토요일 저녁 6시 30분 방송!",
-  "gG5ShloroLM": "🔥강호동 VS 싸움짱 100명🔥",
-  "oNy0rWIq-y4": "수도 방콕 동부 방카피 지역 강으로 변해버린 거리엔 차량이 물에 잠겨 있고, 거세게 퍼붓던 폭우가 잦아들면서 물이 빠지기 시작했지만, 거리 곳곳에서 여전히 무릎까",
-  "F4Q3KAFMVXA": "발목 위로 올라온 무성한 수풀 사이.",
-  "3sPNkyaU5cs": "조회 수 100만 회를 넘길 정도로 인기였지만, 돌연 자취를 감췄습니다.",
-  "X0HRKPH5Z7w": "국내 점유율 1위인 글로벌 여행 플랫폼 아고다에서 피해를 입었다는 소비자 신고가 3년새 50배 넘게 폭증했습니다. 소비자원에 접수된 항공 관련 민원 5건 가운데 ",
-  "bR0enogrGvA": "계절의 시계는 밤사이 한 달가량 앞서 갈 것으로 보입니다.",
   "GpyrwGP1d4M": "오늘은 당신의 모든 상상력을 보여줘야 합니다! 새로운 창의적 도전은 매우 흥미로울 겁니다, 우리와 함께 하세요!",
   "oclZ-rVjI1w": "▼촬영 이야기▼",
   "zBHCzlCa0gc": "안녕하세요 엄마가 만든 추석 음식으로 맛있는 집밥 먹었습니다. 밥 세 그릇 뚝딱이네요! 여러분들 덕분에 정말 맛있게 잘 먹었습니다. 추석 연휴 잘 보내십시오! 오",
@@ -7635,9 +7628,6 @@
   "IoT8boYtl9Y": "",
   "9N1ITJEeOno": "순도 100%! KIA 김도영의 2루타에 이어 결정적인 순간 터진 카스트로의 선제 투런포! | KT vs KIA | 9.30 | 크보모먼트 | KBO 야구 하이라",
   "v962nUTDir8": "[놀면 뭐하니?] 토요일 저녁 6시 30분 방송!",
-  "lmGNgxGKuAc": "조롱의 神 타임라인",
-  "F5XOlhZ690E": "지역사 채널의 동영상 링크 ( • 추석 연휴 시작‥1인 가구에 달라지는 풍경 )",
-  "MXsDqkrx90s": "어느 내비게이션이 더 빨랐나…비교해 보니",
   "nEraCNFo5E8": "🇸🇪 아빠가 수육국밥이 진짜 맛있었대요!!",
   "_uwPFMcJywA": "제목: 최강의 왕, 두 번째 인생에는 무엇을 하는가? 1화 - 6화",
   "H9CHsUFNlTY": "해당 영상은 100%픽션, AI창작물 입니다.",
@@ -7783,7 +7773,25 @@
   "1OBdsglfJOE": "국대 먹방 타임라인✨",
   "DTyAtAZ7elk": "티빙에서 스트리밍",
   "6oxgtcJo3ug": "✨비즈니스메일 : manli@alohamedia.co.kr",
-  "9uBj-HKUJOg": "오늘도 KBO 리그는 티빙에서 📺"
+  "9uBj-HKUJOg": "오늘도 KBO 리그는 티빙에서 📺",
+  "eDVEIY1wbMA": "[사용방법] 제로 음식물처리기 미생물형(WMB-0703)_도어를 열면 물이 떨어져요",
+  "_TpOhrlDEnY": "[사용방법] 제로 음식물처리기_미생물형(WMB-0703)_부스터 기능",
+  "BXw-o4Vkfs4": "insta : @jbkwak",
+  "IFBzyv3Z9x0": "제작 : 한상우, 윤성식",
+  "tsHj4aP9QyI": "",
+  "1_P1TSzOuE8": "",
+  "vLmDjTWNiVc": "\"간장게장이 세계 게요리 1위를 했다고?\"",
+  "xXUxJs0gOIM": "메이플 직업 제논 밸패 리뷰",
+  "igWedlWk_8g": "AVAILABLE ON ALL STREAMING",
+  "OC8wV-vGMWc": "opklrnr0@nate.com",
+  "QA5YniGTmKs": "",
+  "s93PuITCzlA": "토롱이들 안녕🐰🩷",
+  "nWLO0ueHrBs": "안녕하세요 여러분..ㅎㅎㅎ 긴시간 잠수(?) 끝에.. 서프라이즈 소식을 들고 왔습니다!!",
+  "x_jj9L7CVdQ": "♪사이다 풀영상 : / @cider-re",
+  "qx77K5zb1S4": "고 김창민 감독을 때려 사망에 이르게 한 혐의로 재판을 받고 있는 이모 씨가 교도소에서 '금치' 처분을 받은 것으로 취재됐습니다. 동료 수용자를 괴롭히고 교정시설",
+  "olU97XcLuQ4": "한동훈 무소속 의원이 자신을 겨냥한 더불어민주당의 기밀 유출 공세에 '대외비'라고 적힌 문건을 공개한 이재명 대통령의 게시글을 공유하며 맞섰습니다.",
+  "eeNEgg_OLfA": "",
+  "KEf4RMwOer0": "은행 영업시간이 짧아서 이용하기 불편하다, 직장 다니는 분들이면 한 번쯤 느껴보셨을 것 같습니다."
  },
  "bnews": {
   "하나은행": {
