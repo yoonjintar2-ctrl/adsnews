@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-10-01T12:30+09:00",
- "updatedLabel": "10월 1일 12:30",
+ "updatedAt": "2026-10-01T12:36+09:00",
+ "updatedLabel": "10월 1일 12:36",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-10-01T12:30+09:00",
+   "at": "2026-10-01T12:36+09:00",
    "items": [
     "오하욘사",
     "카와 극장판",
@@ -31,9 +31,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-10-01T12:30+09:00",
+   "at": "2026-10-01T12:36+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "애틀랜타 브레이브스",
     "택시",
     "나는 solo",
     "노윤주",
@@ -42,30 +43,29 @@
     "국민은행",
     "김태형",
     "돌싱글즈",
-    "chatgpt",
-    "토스증권"
+    "chatgpt"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-10-01T12:30+09:00",
+   "at": "2026-10-01T12:36+09:00",
    "url": "https://www.signal.bz/",
    "items": [
-    "사열하는 이재명 대통령",
-    "장세윤, 아시안게임 은메달 획득",
+    "이재명 대통령 기념사",
+    "신한은행 개인정보 유출",
     "산업장관 대미 관세",
-    "동대구역 박정희 동상 존치 결정",
+    "국군의 날 기념식 참석",
+    "김영광 채수빈 로코 완벽 호흡",
+    "택시",
+    "강연서 컴파운드 동메달",
     "나는 solo",
-    "노윤주",
     "석유화학 담합 기소",
-    "송민호 징역 집행유예 2년.",
-    "인스타그램",
-    "9월 수출 사상 최대"
+    "동대구역 박정희 동상 유지"
    ]
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-10-01T12:30+09:00",
+   "at": "2026-10-01T12:36+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "송민호 집행유예 2년",
@@ -77,7 +77,7 @@
   },
   "zum": {
    "label": "줌",
-   "at": "2026-10-01T12:30+09:00",
+   "at": "2026-10-01T12:36+09:00",
    "url": "https://zum.com/",
    "items": [
     "신한은행 개인정보 유출",
@@ -2028,12 +2028,6 @@
    "u": "",
    "at": "2026-10-01T12:09+09:00"
   },
-  "토스증권": {
-   "t": "‘전통 증권사’ 아성 넘보는 토스증권…‘고객층 확보’ 전략 따라가는 경쟁사",
-   "s": "쿠키뉴스",
-   "u": "https://www.kukinews.com/article/view/kuk202609300144",
-   "at": "2026-10-01T12:20+09:00"
-  },
   "김태형": {
    "t": "'또또 비밀번호' 경신 확정, 롯데 9년 연속 가을야구 실패→오프시즌 '피바람' 불어닥치나?",
    "s": "Daum",
@@ -2106,18 +2100,6 @@
    "u": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5fc3dVTTdfYUhKSUY2RU9yUGZ3blZ1U0FuMVpmRTd5bFB4ZzA0bWVfTnRTSkQxekN3MjFBdkZlLU5ubC1qeHhnZk5fSGxhLVFjaVRzOUN3bTlpS0s3aUE?oc=5",
    "at": "2026-10-01T11:04+09:00"
   },
-  "사열하는 이재명 대통령": {
-   "t": "사열하는 이재명 대통령",
-   "s": "yna.co.kr",
-   "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TQ19JazRBUjJ3S3RUWnY2b0tvUHYzOXJZdDNFMnlCXzVFQnlUU20xRW5IbHVSOUhsclMzdWVQRGZBeFlaYV95Zk8xSVh0TGVUbHZwVlJmRjd6aTBROGktUNIBYEFVX3lxTE5TQ19JazRBUjJ3S3RUWnY2b0tvUHYzOXJZdDNFMnlCXzVFQnlUU20xRW5IbHVSOUhsclMzdWVQRGZBeFlaYV95Zk8xSVh0TGVUbHZwVlJmRjd6aTBROGktUA?oc=5",
-   "at": "2026-10-01T11:31+09:00"
-  },
-  "장세윤, 아시안게임 은메달 획득": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T11:36+09:00"
-  },
   "오하욘사": {
    "t": "",
    "s": "",
@@ -2149,18 +2131,6 @@
    "at": "2026-10-01T12:03+09:00"
   },
   "김정관 장관님": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T12:03+09:00"
-  },
-  "동대구역 박정희 동상 존치 결정": {
-   "t": "동대구역 박정희 동상, 법원 판결로 현 위치 존치 결정",
-   "s": "진주뉴스",
-   "u": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9IQlI0UG5hdGk5Z3NBdWlzaW5oVDZOZjFrUVV6X2lvQ0d3N3AzZENoM2VJblN4YWtmZlNHOUtmWXEzRnhza3lEZUd2Qm1SLXJZS09DbUNaTDdZY3VpTjcweXlGTFVnRERxUEE?oc=5",
-   "at": "2026-10-01T12:03+09:00"
-  },
-  "송민호 징역 집행유예 2년.": {
    "t": "",
    "s": "",
    "u": "",
@@ -2219,6 +2189,42 @@
    "s": "연합뉴스",
    "u": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9jQnV5c2JNemF5WnRlOXJzNFkwczduU2tMLVI4eTNBVjZSZjh1V0g3cTZ2WEl1OFN4LTFueEZHUWw2X3NOV2NhZ0VFMlh6MHdxX1A5ZnNjWm9JMDDSAWBBVV95cUxNaWdNWW5QZmVWT1pScmhVQ1lJd3pFM1VteXRWeW55M2ZLa3ltOXBhTVp0V0tSaTFfNFZyQVhHZml3NVFON0ZuTUZLc2hjaDhUWTNtSHpyYnVOX0tKQmNkOUE?oc=5",
    "at": "2026-10-01T12:30+09:00"
+  },
+  "애틀랜타 브레이브스": {
+   "t": "‘어쩐지 운수가 좋더라니’ 김하성, 행운의 번트+득점 활약…ATL, 연장 혈투 3:4 역전패→1승 1패 [MLWC2 리뷰]",
+   "s": "Daum",
+   "u": "https://v.daum.net/v/9gAlns9UWw",
+   "at": "2026-10-01T12:36+09:00"
+  },
+  "이재명 대통령 기념사": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T12:36+09:00"
+  },
+  "국군의 날 기념식 참석": {
+   "t": "李대통령, 78주년 국군의날 기념식 참석…'대체불가 국군' 강조",
+   "s": "연합뉴스",
+   "u": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAxTjY3WWVQVVpPRDU5WVFjcTlYcDNCOUlHLXprYTcxRDJxZF9sb0Yzd2dodEZKTExoN1RUbkRhN3Z5QzRJRldZZDRkQXlrOFhjVTVrdDMwWlNfcFHSAWBBVV95cUxNOTUxRXVtNG9qcWllOURhN0F5LXVoenZ5UW1iNHliVHdTUllVZ2Jlano3eTk0QmhyWXFjaXFlVGdwdFd3NlZZcENRYUtfdFVrVTcwYnZDY05KNFpuVmpBZUo?oc=5",
+   "at": "2026-10-01T12:36+09:00"
+  },
+  "김영광 채수빈 로코 완벽 호흡": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T12:36+09:00"
+  },
+  "강연서 컴파운드 동메달": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T12:36+09:00"
+  },
+  "동대구역 박정희 동상 유지": {
+   "t": "\"동대구역 박정희 동상 그대로 둬야\"...1심 대구시 승소",
+   "s": "YTN",
+   "u": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFAyeDFrZl8zZnRwMmJUWWI4cF9IVVlsdnlNZVVseEFlenJpSUR4YVNoRzJXWk05OHR0a015NzlkOEQwaElDcktOanpic2FQZGxjZUFXT0gydTRTaUtzRXc?oc=5",
+   "at": "2026-10-01T12:36+09:00"
   }
  },
  "disc": {
@@ -7333,40 +7339,40 @@
   }
  },
  "ogTried": [
-  "https://www.fnnews.com/news/202610011002099226",
-  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491708",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29130",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
-  "https://zdnet.co.kr/view/?no=20260929094619",
   "https://zdnet.co.kr/view/?no=20260930160948",
+  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
+  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6314",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.wikitree.co.kr/articles/1161400",
-  "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://zdnet.co.kr/view/?no=20261001102641",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29130",
+  "https://www.fnnews.com/news/202610011002099226",
   "https://www.newsspace.kr/news/article.html?no=15937",
   "https://www.fnnews.com/news/202610011051433977",
   "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
-  "https://www.fnnews.com/news/202610010959386992",
-  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
-  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
-  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://www.segye.com/newsView/20261001504622",
-  "https://www.ajunews.com/view/20260928082838817",
-  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://zdnet.co.kr/view/?no=20261001102641",
   "https://biz.heraldcorp.com/article/10888599",
-  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115"
+  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491708",
+  "https://www.ajunews.com/view/20260928082838817",
+  "https://zdnet.co.kr/view/?no=20260929094619",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.fnnews.com/news/202610010959386992",
+  "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
+  "https://www.segye.com/newsView/20261001504622",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6314",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
+  "https://www.fnnews.com/news/202609300931282436"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
