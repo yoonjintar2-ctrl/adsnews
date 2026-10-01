@@ -71,7 +71,26 @@ def archive_person():
     print("archived person", p["date"])
 
 
+def archive_trends():
+    """Keep the tags of every day's 트렌드 노트 in trendnotes.json so topics are not repeated."""
+    t = json.load(open("data.json", encoding="utf-8")).get("trendNotes") or {}
+    if not t.get("date") or not t.get("items"):
+        return
+    try:
+        arr = json.load(open("trendnotes.json", encoding="utf-8"))
+    except Exception:
+        arr = []
+    entry = {"date": t["date"], "tags": [x.get("tag") for x in t["items"]]}
+    if next((e for e in arr if e.get("date") == t["date"]), None) == entry:
+        return
+    arr = [e for e in arr if e.get("date") != t["date"]] + [entry]
+    arr.sort(key=lambda e: e["date"], reverse=True)
+    json.dump(arr, open("trendnotes.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("archived trend notes", t["date"])
+
+
 if __name__ == "__main__":
     main()
     archive_campaign()
     archive_person()
+    archive_trends()

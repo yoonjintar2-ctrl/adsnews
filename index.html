@@ -1032,6 +1032,21 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:980px){.ps-cols{columns:2}}
 @media (max-width:699px){.ps-cols{columns:1}}
 @media (max-width:620px){.ps-cols p{font-size:1rem!important;line-height:1.7!important;text-align:left}}
+
+/* v32: 금기자의 트렌드 노트 */
+.a-tnote{grid-column:1/-1;border-top:3px double var(--ink);margin-top:18px;padding-top:12px}
+.tn-g{display:grid;column-gap:22px;margin-top:8px}
+.tn{min-width:0}
+.tn+.tn{border-left:1px solid var(--rule-soft);padding-left:22px;margin-left:-11px}
+.tn-tag{display:inline-block;font-size:1.5rem;font-weight:900;letter-spacing:-.02em;line-height:1.2;border-bottom:3px solid var(--ink);padding-bottom:2px}
+.tn h3{font-size:1.02rem;font-weight:800;margin:8px 0 6px;line-height:1.45}
+.tn-b{font-size:1.02rem;line-height:1.85;text-align:justify;text-indent:1em;margin:0 0 8px;word-break:normal;overflow-wrap:anywhere}
+.tn-p{font-size:.95rem;line-height:1.7;margin:0 0 6px}
+.tn-p b{font-weight:900;margin-right:4px;color:var(--red,#a01e1e)}
+.tn-s{font-size:.75rem;color:var(--faint);margin:0}
+.tn-s a{color:inherit}
+@media (max-width:980px){.tn-g{grid-template-columns:1fr!important;row-gap:16px}.tn+.tn{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
+@media (max-width:620px){.tn-b,.tn-p{font-size:1rem!important;line-height:1.7!important;text-align:left}.tn-tag{font-size:1.35rem}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1110,6 +1125,10 @@ body,button,input,select,textarea{font-family:var(--serif)}
         <div class="tcol" id="tc-m"><div class="rk-sec" id="tr-am"></div></div>
         <div class="tcol" id="tc-tv"><div class="rk-sec" id="tr-tv"></div></div>
       </div>
+    </section>
+    <section class="np-sec a-tnote" id="a-tnote" aria-labelledby="k-tnote" hidden>
+      <div class="kick"><h2 id="k-tnote">금기자의 트렌드 노트</h2><span>요즘 뜨는 흐름, 광고인의 눈으로</span></div>
+      <div class="tn-g" id="tnote"></div>
     </section>
     <div class="np-row4">
       <section class="np-sec a-fol r4 r4-fol" data-list="fitems" aria-labelledby="k-fol">
@@ -1465,6 +1484,17 @@ function boot(D){
     }).join('');
   }
   function ogOf(u){return ((D.og||{})[u])||{}}
+  // 금기자의 트렌드 노트: 요즘 뜨는 소비·문화 흐름 2~3개
+  function renderTNote(){
+    var T=D.trendNotes, el=$('tnote'), sec=$('a-tnote'); if(!el||!sec) return;
+    var L=(T&&T.items)||[]; if(!L.length){sec.hidden=true;return;}
+    el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
+    el.innerHTML=L.slice(0,3).map(function(t){
+      return '<article class="tn"><span class="tn-tag">#'+esc(t.tag)+'</span><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
+        (t.point?'<p class="tn-p"><b>광고인 포인트</b> '+esc(t.point)+'</p>':'')+
+        ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</article>'}).join('');
+    sec.hidden=false;
+  }
   // 오늘의 광고인: 금로동 기자가 독자에게 한 사람을 소개 (사설과 같은 단 구성, 그림은 금기자가 그린 흑백 일러스트)
   function renderPerson(){
     var P=D.person, el=$('person'), sec=$('a-person'); if(!el||!sec) return;
@@ -1620,7 +1650,7 @@ function boot(D){
       if(!over) break; el.removeChild(el.lastElementChild);
     }
   }
-  function renderFlow(){ renderPerson(); renderLive(); renderVids(); renderTV(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
+  function renderFlow(){ renderTNote(); renderPerson(); renderLive(); renderVids(); renderTV(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
   function fitAll(){
     renderFlow();
     [0,300,1200,3000].forEach(function(t){setTimeout(balance,t)});
