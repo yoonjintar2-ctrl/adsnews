@@ -1048,21 +1048,20 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:980px){.tn-g{grid-template-columns:1fr!important;row-gap:16px}.tn+.tn{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
 /* v37: 광고 지면 = 정해진 소재 크기(px). 좁은 화면에선 비율 그대로 축소. 테두리는 outline이라 소재가 칸을 꽉 채움 */
 .adslot[data-slot]{box-sizing:border-box;border:0!important;outline:1px dashed var(--faint);outline-offset:0;width:var(--aw)!important;max-width:100%!important;aspect-ratio:var(--ar);height:auto!important;min-height:0!important;flex:none!important;margin:0 auto;position:relative;overflow:hidden;gap:2px!important}
-.adslot[data-slot="top"]{--aw:234px;--ar:234/60;flex-direction:row!important;gap:8px!important;margin:0 0 0 auto}
-.adslot[data-slot="side"],.adslot[data-slot="fill"]{--aw:300px;--ar:300/250}
-.adslot[data-slot="bottom"]{--aw:640px;--ar:640/200;margin:0}
+.adslot[data-slot="top"]{--aw:234px;--ar:234/60;flex-direction:row!important;gap:8px!important;margin:0}
+.adslot[data-slot="side"],.adslot[data-slot="fill"]{--aw:100%;--ar:300/250}
+.adslot[data-slot="bottom"]{--aw:100%;--ar:640/200;margin:0}
 .adslot .ad-sz{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:.72rem!important;font-weight:700;letter-spacing:.02em;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 .adslot .ad-sz small{display:block;font-size:.62rem;font-weight:400;color:var(--faint);text-align:center}
 .adslot[data-slot="top"] .ad-sz small{display:none}
-.live-ad{flex:1 1 auto!important;min-height:0!important;align-items:center;justify-content:center}
-.fill-ad{min-height:0!important;flex:none!important;justify-content:center;margin-top:14px}
+.live-ad{flex:1 1 auto!important;min-height:0!important;align-items:flex-end;justify-content:center}
+.fill-ad{min-height:0!important;flex:none!important;justify-content:center;margin-top:auto;padding-top:14px}
 .r4-ad{display:flex;align-items:flex-start;min-width:0}
 .mast .r .ear.er{min-width:0}.mast .ear .adslot[data-slot]{min-width:0}
 .adslot.on{outline:1px solid var(--rule);background:var(--paper)!important}
 .adslot .ad-cr{position:absolute;inset:0;display:block}
 .adslot .ad-cr img{width:100%;height:100%;object-fit:cover;display:block}
 .adslot .ad-mk{position:absolute;right:0;top:0;font:700 .58rem/1 var(--serif);font-style:normal;letter-spacing:.08em;background:rgba(26,26,26,.72);color:#f4f4f2;padding:2px 4px;pointer-events:none}
-@media (max-width:620px){.r4-ad{justify-content:center}.adslot[data-slot="bottom"]{margin:0 auto}}
 
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
@@ -1138,6 +1137,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
    ads.json 예) {"side":{"img":"ads/brand-300x250.png","url":"https://광고주 랜딩","alt":"광고주명","from":"2026-10-01","until":"2026-10-31"}}
    슬롯: top 234×60(제호 옆) · side 300×250(실시간 이슈 아래) · bottom 640×200(하단, 모바일은 비율 축소) · fill 300×250(남는 칸) */
 (function(){
+  // [표시 기준 가로, 세로]. side·bottom·fill은 칸 너비에 맞춰 같은 비율로 늘고 줄어듦 → 소재는 2배 크기로
   var SPEC={top:[234,60],side:[300,250],bottom:[640,200],fill:[300,250]}, ADS={};
   function today(){return new Date(Date.now()+9*36e5).toISOString().slice(0,10)}
   function live(a){if(!a||!a.img||!/^https?:\/\//.test(a.url||''))return false;var d=today();return (!a.from||a.from<=d)&&(!a.until||a.until>=d)}
@@ -1145,9 +1145,10 @@ body,button,input,select,textarea{font-family:var(--serif)}
   window.adFill=function(el){var k=el.getAttribute('data-slot'),sp=SPEC[k];if(!sp)return;var a=ADS[k];
     if(live(a)){el.classList.add('on');el.innerHTML='<a class="ad-cr" href="'+esc(a.url)+'" target="_blank" rel="sponsored noopener" title="'+esc(a.alt||'광고')+'"><img src="'+esc(a.img)+'" alt="'+esc(a.alt||'광고')+'" width="'+sp[0]+'" height="'+sp[1]+'"></a><i class="ad-mk">AD</i>';return}
     el.classList.remove('on');
-    var sz='<span class="ad-sz">'+sp[0]+' × '+sp[1]+' px<small>'+(k==='bottom'?'모바일은 같은 비율로 축소 · ':'')+'2배 소재 '+sp[0]*2+'×'+sp[1]*2+' 권장</small></span>';
+    var note=k==='top'?'234×60 고정':(sp[0]+'×'+sp[1]+' 비율 · 칸 너비에 맞춰 표시');
+    var sz='<span class="ad-sz">소재 '+sp[0]*2+' × '+sp[1]*2+' px<small>'+note+'</small></span>';
     el.innerHTML=k==='top'?'<b>AD</b>'+sz:'<b>AD</b><span>광고 지면</span>'+sz;
-    el.title='광고 지면 '+sp[0]+'×'+sp[1]+'px · 문의 yoonjintar@naver.com'};
+    el.title='광고 소재 '+sp[0]*2+'×'+sp[1]*2+'px ('+note+') · 문의 yoonjintar@naver.com'};
   function all(){[].forEach.call(document.querySelectorAll('.adslot[data-slot]'),adFill)}
   document.addEventListener('DOMContentLoaded',function(){all();
     fetch('ads.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{}}).then(function(j){ADS=j||{};all()},function(){})});
@@ -1786,7 +1787,7 @@ function boot(D){
     secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l!=='fitems'&&l!=='plat')return;if(sec.querySelector('.more-btn'))return;
       var its=items(sec);if(!its.length||!adBottom)return;
       var gap=adBottom-sec.lastElementChild.getBoundingClientRect().bottom;
-      var bw=Math.min(300,sec.clientWidth-(parseFloat(getComputedStyle(sec).paddingLeft)||0)-(parseFloat(getComputedStyle(sec).paddingRight)||0)), bh=bw*250/300;
+      var bw=(sec.clientWidth-(parseFloat(getComputedStyle(sec).paddingLeft)||0)-(parseFloat(getComputedStyle(sec).paddingRight)||0)), bh=bw*250/300;
       if(gap>bh+24){var f=document.createElement('aside');f.className='fill-ad';f.setAttribute('aria-label','광고');f.innerHTML='<div class="adslot" data-slot="fill"></div>';sec.appendChild(f);adFill(f.firstChild);}});
   }
   function balance(){
@@ -1802,7 +1803,7 @@ function boot(D){
     var lim2=L.getBoundingClientRect().bottom-btn.offsetHeight-8, hid=0;
     items.forEach(function(n){if(n.getBoundingClientRect().bottom>lim2){n.classList.add('over');hid++}});
     // 광고 지면 자리: 300×250 박스가 들어갈 만큼 이슈를 줄임
-    var box=lad.querySelector('.adslot'), need=(box?Math.min(300,lad.clientWidth||300)*250/300:250)+14;
+    var lcs=getComputedStyle(lad.parentNode), lw=lad.parentNode.clientWidth-(parseFloat(lcs.paddingLeft)||0)-(parseFloat(lcs.paddingRight)||0), need=lw*250/300+14;
     var vis=items.filter(function(n){return !n.classList.contains('over')});
     for(var k=vis.length-1;k>0&&vis[k].getBoundingClientRect().bottom>lim2-need;k--){vis[k].classList.add('over');hid++}
     lad.classList.remove('measure');
