@@ -1088,6 +1088,17 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .news.tg .ins .op::before{left:auto!important;right:14px;top:-7px!important;border-left:1px solid var(--rule);border-bottom:0!important;border-top:1px solid var(--rule);transform:rotate(45deg)}
 @media (prefers-reduced-motion:reduce){.ins-tg .tg-bub,.ins-tg .tg-bub b{animation:none;transform:none;opacity:1}}
 
+/* v40: 모바일 순서 — 사설 → 오늘의 광고 캠페인 → 실시간 이슈 → 오늘의 광고인 → 나머지 */
+@media (max-width:620px){
+  .np-left{display:contents}
+  .np>*{order:10}
+  .np-left>.a-brief{order:1}
+  .np-left>.a-camps{order:2;margin-top:18px}
+  .np>.a-live{order:3}
+  .np-left>.a-person{order:4;margin-top:18px}
+  .np-left>*:not(.a-brief):not(.a-camps):not(.a-person){order:5;margin-top:18px}
+}
+
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
