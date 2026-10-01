@@ -2116,7 +2116,8 @@ function boot(D){
    하단 「통계」 버튼 → 암호 입력 후 열람. 암호는 해시로만 비교(원문은 코드에 없음).
    암호를 한 번 맞힌 기기는 관리자 기기로 보고 집계에서 뺀다. */
 (function(){
-  var FB_CFG = null; // Firebase 웹 앱 설정 { apiKey, authDomain, projectId, appId }
+  // Firebase 웹 앱 설정 (공개용 식별값 — 접근 제한은 Firestore 규칙이 담당)
+  var FB_CFG = {apiKey:"AIzaSyD-TYG7JzOrvNAFUiS30-ka0glh_U4ok2w",authDomain:"adsnews-848bf.firebaseapp.com",projectId:"adsnews-848bf",storageBucket:"adsnews-848bf.firebasestorage.app",messagingSenderId:"946071403830",appId:"1:946071403830:web:57118d93388e37f4f94797"};
   var PW_HASH = 'abad4d283128a6f13c3c7d856211e60ebf65821d447296590f5d933301b1202a'; // sha256('adsnews-stats:' + 암호)
   var V='10.12.2', SDK=['firebase-app-compat','firebase-firestore-compat'];
   function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
