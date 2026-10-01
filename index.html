@@ -1047,6 +1047,27 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tn-s a{color:inherit}
 @media (max-width:980px){.tn-g{grid-template-columns:1fr!important;row-gap:16px}.tn+.tn{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
 @media (max-width:620px){.tn-b,.tn-p{font-size:1rem!important;line-height:1.7!important;text-align:left}.tn-tag{font-size:1.35rem}}
+
+.tn-fig{margin:0 0 10px;border:1px solid var(--ink);background:#f4f4f2;padding:3px}
+.tn-fig svg{display:block;width:100%;height:auto}
+.arcl{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.adq{font-weight:700;color:var(--ink)}.adq a{color:inherit!important}
+
+/* v33: 관리자 통계 */
+.st-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0 14px}
+.st-k div{border:1px solid var(--ink);padding:8px 10px;background:#fff}
+.st-k b{display:block;font-size:1.25rem;font-weight:900}
+.st-k span{font-size:.75rem;color:var(--faint)}
+.st-t{width:100%;border-collapse:collapse;font-size:.85rem}
+.st-t th,.st-t td{border-bottom:1px solid var(--rule);padding:5px 6px;text-align:right}
+.st-t th:first-child,.st-t td:first-child{text-align:left}
+.st-t td:nth-child(2){position:relative}
+.st-t td i{position:absolute;left:0;top:25%;height:50%;background:#e2dfd8;z-index:-1}
+@media (max-width:620px){.st-k{grid-template-columns:1fr 1fr}}
+
+.tn.has-fig{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:16px;align-items:start}
+.tn.has-fig .tn-fig{margin:4px 0 0}
+@media (max-width:1180px){.tn.has-fig{grid-template-columns:1fr}.tn.has-fig .tn-fig{max-width:420px;margin:0 0 10px}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1169,7 +1190,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
   </section>
   </div>
   <footer class="foot" id="foot"></footer>
-  <p class="arcl"><a href="e/">지난 호 모아보기 — 금로동 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
+  <p class="arcl"><span class="adq">광고 문의 <a href="mailto:yoonjintar@naver.com">yoonjintar@naver.com</a></span><a href="#" id="admLink" hidden>관리자</a><a href="e/">지난 호 모아보기 — 금로동 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
 </div>
 
 <div id="setWrap" hidden>
@@ -1490,9 +1511,10 @@ function boot(D){
     var L=(T&&T.items)||[]; if(!L.length){sec.hidden=true;return;}
     el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
     el.innerHTML=L.slice(0,3).map(function(t){
-      return '<article class="tn"><span class="tn-tag">#'+esc(t.tag)+'</span><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
+      var sv=safeSvg(t.svg);
+      return '<article class="tn'+(sv?' has-fig':'')+'">'+(sv?'<figure class="tn-fig">'+sv+'</figure>':'')+'<div class="tn-x"><span class="tn-tag">#'+esc(t.tag)+'</span><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
         (t.point?'<p class="tn-p"><b>광고인 포인트</b> '+esc(t.point)+'</p>':'')+
-        ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</article>'}).join('');
+        ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</div></article>'}).join('');
     sec.hidden=false;
   }
   // 오늘의 광고인: 금로동 기자가 독자에게 한 사람을 소개 (사설과 같은 단 구성, 그림은 금기자가 그린 흑백 일러스트)
@@ -2010,6 +2032,64 @@ function boot(D){
   fetch(window.__BASE+'hidden.json?'+Date.now()).then(function(r){return r.json()}).then(function(h){if(!h||!h.svg||!/^<svg[\s>]/.test(h.svg)||/<script|on\w+=|javascript:|<foreignObject/i.test(h.svg))throw 0;H=h;KEY='adsnews-hidden-'+h.date;
     try{found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
     $('hdcap').textContent=h.inspired?('✎ '+h.inspired+' · 아래 '+h.targets.length+'가지를 찾아보세요'):'';render()}).catch(function(){var s=document.querySelector('.a-hid');if(s)s.hidden=true});
+})();
+</script>
+
+<script>
+/* 방문 통계 (Firebase Firestore) — 일자별 노출수·도달자·체류시간. 관리자 메뉴는 ?admin 으로 한 번 들어오면 이 기기에서만 보임 */
+(function(){
+  var FB_CFG = null; // Firebase 웹 앱 설정 { apiKey, authDomain, projectId, appId }
+  var V='10.12.2', SDK=['firebase-app-compat','firebase-firestore-compat','firebase-auth-compat'];
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  if(/[?&]admin\b/.test(location.search)){ls('ads-admin','1');history.replaceState(null,'',location.pathname+location.hash);}
+  var isAdmin=ls('ads-admin')==='1', link=document.getElementById('admLink');
+  if(isAdmin&&link)link.hidden=false;
+  function day(){return new Date(Date.now()+9*36e5).toISOString().slice(0,10)}
+  var loading=null;
+  function load(){ if(loading) return loading; loading=SDK.reduce(function(p,n){return p.then(function(){return new Promise(function(res,rej){var s=document.createElement('script');s.src='https://www.gstatic.com/firebasejs/'+V+'/'+n+'.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)})})},Promise.resolve()).then(function(){if(!firebase.apps.length)firebase.initializeApp(FB_CFG);return firebase}); return loading; }
+  // 집계: 관리자 본인 방문과 지난 호(?d=) 보기는 제외
+  if(FB_CFG && !isAdmin){
+    load().then(function(fb){
+      var db=fb.firestore(), inc=fb.firestore.FieldValue.increment, d=day(), ref=db.collection('stats').doc(d), tot=db.collection('stats').doc('total');
+      var up={views:inc(1)}, tup={views:inc(1)};
+      if(ls('ads-seen-day')!==d){up.visitors=inc(1);ls('ads-seen-day',d);}
+      if(!ls('ads-vid')){tup.visitors=inc(1);ls('ads-vid',String(Date.now()));}
+      ref.set(up,{merge:true}).catch(function(){}); tot.set(tup,{merge:true}).catch(function(){});
+      var acc=0,last=Date.now(),vis=!document.hidden;
+      function flush(min){var now=Date.now();if(vis)acc+=(now-last)/1000;last=now;var s=Math.round(acc);if(s>=min&&s<1800){acc-=s;db.collection('stats').doc(day()).set({dwell:inc(s)},{merge:true}).catch(function(){})}}
+      setInterval(function(){flush(30)},30000);
+      document.addEventListener('visibilitychange',function(){flush(5);vis=!document.hidden;last=Date.now()});
+      window.addEventListener('pagehide',function(){flush(5)});
+    }).catch(function(){});
+  }
+  function mmss(s){s=Math.round(s||0);return Math.floor(s/60)+'분 '+('0'+s%60).slice(-2)+'초'}
+  function show(html){var m=document.getElementById('modal'),b=document.getElementById('mbody');b.innerHTML='<span class="t">관리자</span><h3>방문 통계</h3>'+html;m.firstElementChild.classList.add('wide');m.hidden=false;}
+  if(link) link.addEventListener('click',function(e){
+    e.preventDefault();
+    if(!FB_CFG){show('<p>통계 저장소(Firebase)가 아직 연결되지 않았어요. 연결되면 이 창에 일자별·누적 노출수, 도달자 수, 평균 체류시간이 나와요.</p>');return;}
+    show('<p class="ps-mm">불러오는 중…</p>');
+    load().then(function(fb){
+      var auth=fb.auth();
+      function render(){
+        var db=fb.firestore(), days=[]; for(var i=0;i<14;i++)days.push(new Date(Date.now()+9*36e5-i*864e5).toISOString().slice(0,10));
+        return Promise.all([db.collection('stats').doc('total').get()].concat(days.map(function(d){return db.collection('stats').doc(d).get()}))).then(function(r){
+          var T=r[0].data()||{}, rows=r.slice(1).map(function(x,i){var v=x.data()||{};return {d:days[i],views:v.views||0,vis:v.visitors||0,dw:v.dwell||0}});
+          var mx=Math.max.apply(null,rows.map(function(x){return x.views}).concat([1]));
+          var w7=rows.slice(0,7), sv=w7.reduce(function(a,x){return a+x.views},0), su=w7.reduce(function(a,x){return a+x.vis},0), sd=w7.reduce(function(a,x){return a+x.dw},0);
+          show('<div class="st-k"><div><b>'+(T.views||0).toLocaleString()+'</b><span>누적 노출수</span></div><div><b>'+(T.visitors||0).toLocaleString()+'</b><span>누적 도달자</span></div><div><b>'+Math.round(sv/7).toLocaleString()+'</b><span>최근 7일 일평균 노출</span></div><div><b>'+mmss(su?sd/su:0)+'</b><span>최근 7일 평균 체류</span></div></div>'+
+            '<table class="st-t"><thead><tr><th>날짜</th><th>노출수</th><th>도달자</th><th>1인 평균 체류</th></tr></thead><tbody>'+rows.map(function(x){return '<tr><td>'+x.d.slice(5).replace('-','.')+'</td><td><i style="width:'+Math.round(x.views/mx*100)+'%"></i>'+x.views.toLocaleString()+'</td><td>'+x.vis.toLocaleString()+'</td><td>'+(x.vis?mmss(x.dw/x.vis):'—')+'</td></tr>'}).join('')+'</tbody></table>'+
+            '<p class="ps-src">노출수 = 페이지 열람 수 · 도달자 = 하루 기준 순 방문자(같은 기기 1회) · 체류 = 화면을 보고 있던 시간. 관리자 본인 방문은 빠져요.</p><p class="ps-src"><a href="#" id="stOut">로그아웃</a></p>');
+          var o=document.getElementById('stOut'); if(o)o.onclick=function(ev){ev.preventDefault();auth.signOut();document.getElementById('modal').hidden=true};
+        }).catch(function(){show('<p>이 계정으로는 통계를 볼 수 없어요. 관리자 구글 계정으로 로그인해 주세요.</p><p><button type="button" class="more-btn" id="stIn2">다른 계정으로 로그인</button></p>');var b=document.getElementById('stIn2');if(b)b.onclick=function(){auth.signOut().then(function(){return auth.signInWithPopup(new fb.auth.GoogleAuthProvider())}).then(render)}});
+      }
+      if(auth.currentUser) return render();
+      return new Promise(function(res){var un=auth.onAuthStateChanged(function(u){un();res(u)})}).then(function(u){
+        if(u) return render();
+        show('<p>통계는 관리자 구글 계정으로 로그인해야 볼 수 있어요.</p><p><button type="button" class="more-btn" id="stIn">구글로 로그인</button></p>');
+        document.getElementById('stIn').onclick=function(){auth.signInWithPopup(new fb.auth.GoogleAuthProvider()).then(render).catch(function(){show('<p>로그인하지 못했어요. 팝업 차단을 풀고 다시 시도해 주세요.</p>')})};
+      });
+    }).catch(function(){show('<p>통계를 불러오지 못했어요.</p>')});
+  });
 })();
 </script>
 </body>

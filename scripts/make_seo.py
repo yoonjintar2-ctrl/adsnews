@@ -142,7 +142,8 @@ def page_html(d, D, prev_d, next_d, has_card):
         out.append("<section><h2>금기자의 트렌드 노트</h2>")
         for t in TN[:3]:
             src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in t.get("sources") or [] if x.get("url"))
-            out.append(f"<h3>#{esc(t.get('tag'))} — {esc(t.get('title'))}</h3><p>{esc(t.get('body'))}</p>"
+            tsv = safe_svg(t.get("svg"))
+            out.append((f"<figure>{tsv}</figure>" if tsv else "") + f"<h3>#{esc(t.get('tag'))} — {esc(t.get('title'))}</h3><p>{esc(t.get('body'))}</p>"
                        + (f"<p><b>광고인 포인트</b> {esc(t.get('point'))}</p>" if t.get("point") else "")
                        + (f"<p class=\"meta\">{src}</p>" if src else ""))
         out.append("</section>")
