@@ -1,37 +1,37 @@
 {
- "updatedAt": "2026-10-01T15:00+09:00",
- "updatedLabel": "10월 1일 15:00",
+ "updatedAt": "2026-10-01T15:05+09:00",
+ "updatedLabel": "10월 1일 15:05",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-10-01T15:00+09:00",
+   "at": "2026-10-01T15:05+09:00",
    "items": [
+    "리제생일",
+    "아카네리제",
     "신한은행",
-    "카와 극장판",
+    "리제탄신일",
     "이광수 버블",
-    "이번달도",
+    "위버스 디엠",
     "유니버셜",
-    "$EDEL",
-    "응원 하트",
     "위버스 재팬",
-    "카와 영화",
-    "개인정보",
-    "다크모드",
+    "수특 표지",
+    "불후의명곡",
+    "불의의 사고",
+    "국군의날",
+    "날씨 너무",
     "리제 오하",
-    "필라테스 갈때",
-    "오운완햇",
-    "마이크론",
-    "리제 생일",
-    "알래스카",
-    "오하욘사",
     "타워레코드",
-    "국군의날"
+    "공포 블러",
+    "오하욘사",
+    "위버스샵",
+    "에이티즈 8주년",
+    "블루록 팝업"
    ]
   },
   "google": {
    "label": "구글",
-   "at": "2026-10-01T15:00+09:00",
+   "at": "2026-10-01T15:05+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
     "정치",
@@ -48,36 +48,36 @@
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-10-01T15:00+09:00",
+   "at": "2026-10-01T15:05+09:00",
    "url": "https://www.signal.bz/",
    "items": [
-    "아시안게임 사격 금메달",
-    "허미미 4강 진출!",
     "신임 정책실장에 하준경",
-    "중수청 앞 국민의힘 의총 진행",
+    "남자 속사권총 단체전 금메달",
+    "산업장관 대미 관세",
+    "33기 현숙 직업 논란 사과",
     "서울시 자율주행버스 도입",
-    "육영수",
-    "ssg 랜더스",
-    "석유화학 담합 기소",
+    "줄타기 선보이는 얀 루스",
+    "120M 높이 아슬아슬 슬랙라인 퍼포먼스",
+    "정치",
     "신한은행 개인정보 유출",
-    "이재명 대통령 국군의 날 참석"
+    "이상준"
    ]
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-10-01T15:00+09:00",
+   "at": "2026-10-01T15:05+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "가을 운동회",
-    "이재명 대통령 날",
-    "박정희 동상 철거",
-    "암살자들",
-    "허미미 4강 진출"
+    "새벽 MV 촬영",
+    "한병도 원내대표",
+    "검찰청 간판",
+    "박정희 동상 철거"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-10-01T15:00+09:00",
+   "at": "2026-10-01T15:05+09:00",
    "url": "https://zum.com/",
    "items": [
     "산업장관 대미 관세",
@@ -1898,18 +1898,6 @@
   }
  },
  "reasons": {
-  "이번달도": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:17+09:00"
-  },
-  "마이크론": {
-   "t": "美 마이크론, ‘AI 붐’ 타고 실적 5배… 韓 반도체도 청신호",
-   "s": "조선일보",
-   "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNanduUjFZT0hXTzNmcnpUS1UzSDJzd1UyTFExUTI2UXFwWUNsVGVhQjJoRkRqNWhsd3FLRk1UOGFRT1lHbjVKVENvU0lkem1DcjJiM3VuSE8wMC1NZEptcDVhQ0gtUW4xR0ZHVC15NmJjNXh5R3NJbE9PUHFpMGgzdHo4aw?oc=5",
-   "at": "2026-10-01T14:17+09:00"
-  },
   "9월 수출 사상 최대": {
    "t": "",
    "s": "",
@@ -1960,27 +1948,21 @@
   },
   "신한은행": {
    "t": "신한은행 고객 정보 2만 5천 건 유출‥금감원 현장 조사",
-   "s": "MBC 뉴스",
+   "s": "imnews.imbc.com",
    "u": "https://news.google.com/rss/articles/CBMidEFVX3lxTE83Y1JqWHhpdTZmQV9RT3BpeVo2VUNvM2RDTkpnMDM5SnJFcHJBeFEzMFBfSTVRU1BqcEd4WFl1YnNodGZYZGphaHhrTDZpSHdCbndQVVJZa1JraXVaQ1p0a2xtTW51WlZWbS1JWmVfWWtILVFw0gF0QVVfeXFMTVppU2l1VDRuMXdpejJ0dHhnMmNfcGRDQnFWZUhadHUyNGZCTjF6SXpEOUlhbVJQdUJmWTVFRTdzdF9CVjcwQmtuWmMzdy1ZNzdKUkozSzBWMDhuUkplaURWcjZKSFR5eGFaMEdQTVM1amV5WWU?oc=5",
-   "at": "2026-10-01T13:03+09:00"
+   "at": "2026-10-01T15:05+09:00"
   },
   "리제 오하": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T13:03+09:00"
+   "at": "2026-10-01T15:05+09:00"
   },
   "타워레코드": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T13:03+09:00"
-  },
-  "알래스카": {
-   "t": "한국은 검토 중인데…미 “알래스카 LNG 500억달러 투자” 일방 발표",
-   "s": "한겨레",
-   "u": "https://news.google.com/rss/articles/CBMib0FVX3lxTE40MElvSE4zUlliQXdWTUpGbmJxYzVtT0d1cnlwTGdWLVFVbERvR0RPakJuWXZvRTNVTzBXQThYM2k3TnRicjQzeS1MTkJhS3ZlR01XYjNUTUlOb0o0MUYyQmhWdmd1WDNlUkRIQk83TQ?oc=5",
-   "at": "2026-10-01T13:03+09:00"
+   "at": "2026-10-01T15:05+09:00"
   },
   "나솔": {
    "t": "‘나솔사계’ 미스터 서 승부욕 발동, 7기 옥순이 빵 터졌다",
@@ -1994,61 +1976,7 @@
    "u": "https://www.news1.kr/local/daejeon-chungnam/6306436",
    "at": "2026-10-01T13:56+09:00"
   },
-  "카와 극장판": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
   "이광수 버블": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "$EDEL": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "응원 하트": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "카와 영화": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "개인정보": {
-   "t": "신한은행 2만 5천 명 개인정보 유출 사고...금융당국 긴급 점검",
-   "s": "YTN",
-   "u": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1DcUNJaFJIVG14ZGlUTGtiWm5kcFFKRGlSaWdGV1lKQmxraWxfVWhxNk56QS1EbG9Fa1luTXRDSkZIUkxYVGxZajdqWlBXYnhaV1hlS2g1Zk9GSGRCLUE?oc=5",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "다크모드": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "필라테스 갈때": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "오운완햇": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:01+09:00"
-  },
-  "리제 생일": {
    "t": "",
    "s": "",
    "u": "",
@@ -2064,12 +1992,6 @@
    "t": "[아시안게임] 정하은·윤규성, 태권도 품새 나란히 조 1위로 결승행",
    "s": "Daum",
    "u": "https://v.daum.net/v/20261001132418099",
-   "at": "2026-10-01T14:06+09:00"
-  },
-  "중수청 앞 국민의힘 의총 진행": {
-   "t": "'검찰청 폐지 D-1' 중수청 앞 국민의힘 현장 의총",
-   "s": "연합뉴스",
-   "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9QN2JVTTJBblJUczFJUzBocXNMTjZ3LUtJOENoS2ZndzNpaEE0NWpuZjgzSGVUVzNUMVJrMDRCRGdLMUl1LVc1N2N1bi1Qc1hWR0VaMDFRamEtQWpzNTFVYdIBYEFVX3lxTE9QN2JVTTJBblJUczFJUzBocXNMTjZ3LUtJOENoS2ZndzNpaEE0NWpuZjgzSGVUVzNUMVJrMDRCRGdLMUl1LVc1N2N1bi1Qc1hWR0VaMDFRamEtQWpzNTFVYQ?oc=5",
    "at": "2026-10-01T14:06+09:00"
   },
   "서울시 자율주행버스 도입": {
@@ -2102,24 +2024,6 @@
    "u": "https://v.daum.net/v/20261001043304799",
    "at": "2026-10-01T14:34+09:00"
   },
-  "아시안게임 사격 금메달": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:34+09:00"
-  },
-  "허미미 4강 진출!": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:34+09:00"
-  },
-  "이재명 대통령 국군의 날 참석": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-01T14:34+09:00"
-  },
   "정치": {
    "t": "신임 정책실장 하준경·경제수석 문신학…靑 \"강훈식 거취는 고민 중\"(종합)",
    "s": "Daum",
@@ -2144,29 +2048,125 @@
    "u": "https://news.google.com/rss/articles/CBMickFVX3lxTE5OX1RLaHNra3E0S2h0WmpZYkNNZmh2MDNfMTZBNjhneUJMcWdlYmIySFVsRXBBTW1pTUhLMVo0QjVmOU02SnJQY0tDV1RJYUpPS3UyNzIzY3RFWW1lMDIxN2ZqMXFBOGtIVlpiaFpKdEl3Z9IBckFVX3lxTE5OX1RLaHNra3E0S2h0WmpZYkNNZmh2MDNfMTZBNjhneUJMcWdlYmIySFVsRXBBTW1pTUhLMVo0QjVmOU02SnJQY0tDV1RJYUpPS3UyNzIzY3RFWW1lMDIxN2ZqMXFBOGtIVlpiaFpKdEl3Zw?oc=5",
    "at": "2026-10-01T14:55+09:00"
   },
-  "이재명 대통령 날": {
-   "t": "이재명 대통령, 국군의 날 기념사",
-   "s": "yna.co.kr",
-   "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE90eXBQeDRiVFFwdndIX21rQU9nNmxfQzhtb0djYmZ5TGV1eDN2eWVnSkFJaHZacW1kLUc1cDIzN3RsZklUaGZtcVR2MUVtc21zZlJYN3RROW4ybGItV2E3R9IBYEFVX3lxTE90eXBQeDRiVFFwdndIX21rQU9nNmxfQzhtb0djYmZ5TGV1eDN2eWVnSkFJaHZacW1kLUc1cDIzN3RsZklUaGZtcVR2MUVtc21zZlJYN3RROW4ybGItV2E3Rw?oc=5",
-   "at": "2026-10-01T14:55+09:00"
-  },
   "박정희 동상 철거": {
    "t": "법원 “동대구역 박정희 동상 철거할 필요 없다”…대구시 승소",
    "s": "한겨레",
    "u": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE0teFZDZ3I4emhVR1JNczQwblVwazdDXzlzU3NWTTI0czJHQ2RZaFdvWUNqWS0xTEI4Ym1EMTBOamY1bWRzRGNScmdIaEdHNDlTS0phTEVxS1hlTzBvR21tMHdIM1Y?oc=5",
    "at": "2026-10-01T14:55+09:00"
   },
-  "암살자들": {
+  "리제생일": {
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T14:55+09:00"
+   "at": "2026-10-01T15:05+09:00"
   },
-  "허미미 4강 진출": {
-   "t": "허미미 4강 진출, 누르기",
-   "s": "뉴시스",
-   "u": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5XanNWOXZ2QkpwUUV1UDFHTUNienBSLTNOeDVsSllKVFhYa1lyOFFkaC1vMFlQRDF1Z05JQmhFX2Jqb0U1bWRmcGdyb3JLUTQta1hBaGw1Y25kbWFOeUdQXzd1Mkdhb0Q5N2dFNHJlaUtaN1FScXRuONIBeEFVX3lxTE5XanNWOXZ2QkpwUUV1UDFHTUNienBSLTNOeDVsSllKVFhYa1lyOFFkaC1vMFlQRDF1Z05JQmhFX2Jqb0U1bWRmcGdyb3JLUTQta1hBaGw1Y25kbWFOeUdQXzd1Mkdhb0Q5N2dFNHJlaUtaN1FScXRuOA?oc=5",
-   "at": "2026-10-01T14:55+09:00"
+  "아카네리제": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "리제탄신일": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "위버스 디엠": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "수특 표지": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "불후의명곡": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "불의의 사고": {
+   "t": "[속보] 이 대통령 \"DMZ 불의의 사고 부상 장병에 마음 아파…쾌유 빌어\"",
+   "s": "연합뉴스TV",
+   "u": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1pNEtqUlpsalZxemdENzNRXy05S1NOQ3NPZzlrb0RLSEFoczBLNmxrT3RPd0xaOFV3QWtQTjE5VWhNRmt4aWkxY2FydEc0cG5vU3BZa1hQOHVrVVI2VHpodWM1Zl9JVlE?oc=5",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "날씨 너무": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "공포 블러": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "위버스샵": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "에이티즈 8주년": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "블루록 팝업": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "남자 속사권총 단체전 금메달": {
+   "t": "[속보] 25m 남자 속사권총, AG 단체전 금메달",
+   "s": "연합뉴스TV",
+   "u": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8zTlItbTJOVTNCdWtpUUVYVzV3a2lIMGgtY2pZSWdOa2NXTVVGTlQwa0lDMWR5R0RtQmJLUy1XcXNJMmRranY5WHZVOThXSGtQeEhFeVBaZ3RtOTFNN1h5OGhnVzhBb2c?oc=5",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "33기 현숙 직업 논란 사과": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "줄타기 선보이는 얀 루스": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "120M 높이 아슬아슬 슬랙라인 퍼포먼스": {
+   "t": "[포토] 120m 높이 아슬아슬 슬랙라인 퍼포먼스",
+   "s": "브릿지경제",
+   "u": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1ILUdFTWNUamNZMk1Mbzcydzg2N1ZnT1U2bW4teUVac054Y3JKendKLWkzY0J6eERNaG9Od0NuUW42NDJ3d0R6S2JFbmpMczNXSTF5OHZIeTBTZw?oc=5",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "새벽 MV 촬영": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "한병도 원내대표": {
+   "t": "의원총회에서 발언하는 한병도 원내대표",
+   "s": "newspim.com",
+   "u": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9yRDBzdFlUeXQtMGdNaUpOdUNrVHktZ0tKcm9iLVNpUmF4S0pzeXhiMV84a1h5b0dRczRzdTRKQ1NkRXlteTg2UVZ1clBROExKRTAzWG1va001QVlz?oc=5",
+   "at": "2026-10-01T15:05+09:00"
+  },
+  "검찰청 간판": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-01T15:05+09:00"
   }
  },
  "disc": {
@@ -7316,46 +7316,46 @@
   }
  },
  "ogTried": [
-  "https://www.ajunews.com/view/20260928082838817",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://zdnet.co.kr/view/?no=20260930160948",
-  "https://www.fnnews.com/news/202610011002099226",
-  "https://www.newsspace.kr/news/article.html?no=15937",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29130",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
   "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491708",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
-  "https://zdnet.co.kr/view/?no=20261001102641",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://zdnet.co.kr/view/?no=20260929094619",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
-  "https://www.newswire.co.kr/newsRead.php?no=1043736",
+  "https://www.ajunews.com/view/20260928082838817",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29130",
   "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6314",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
   "https://www.nextdaily.co.kr/news/articleView.html?idxno=253527",
   "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
-  "https://kbench.com/?q=node%2F282273",
-  "https://www.fnnews.com/news/202610011051433977",
-  "https://www.segye.com/newsView/20261001504622",
-  "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
-  "https://www.fnnews.com/news/202610010959386992",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6314",
-  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://biz.heraldcorp.com/article/10888599",
-  "https://view.asiae.co.kr/article/2026100110334769177",
-  "https://www.news1.kr/industry/distribution/6307213",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
   "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.fnnews.com/news/202609301024069967",
+  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
+  "https://www.segye.com/newsView/20261001504622",
+  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491708",
+  "https://zdnet.co.kr/view/?no=20260929094619",
+  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
   "https://biz.heraldcorp.com/article/10888970",
-  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159"
+  "https://biz.heraldcorp.com/article/10888599",
+  "https://www.newsspace.kr/news/article.html?no=15937",
+  "https://www.youthdaily.co.kr/news/article.html?no=227764",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://zdnet.co.kr/view/?no=20261001102641",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.newswire.co.kr/newsRead.php?no=1043736",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
+  "https://www.news1.kr/industry/distribution/6307213",
+  "https://www.fnnews.com/news/202610011002099226",
+  "https://kbench.com/?q=node%2F282273",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
+  "https://view.asiae.co.kr/article/2026100110334769177",
+  "https://www.fnnews.com/news/202610010959386992",
+  "https://www.fnnews.com/news/202610011051433977",
+  "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://zdnet.co.kr/view/?no=20260930160948"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
