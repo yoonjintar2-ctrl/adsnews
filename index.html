@@ -1066,6 +1066,28 @@ body,button,input,select,textarea{font-family:var(--serif)}
 /* v38: 통계 암호 입력 */
 .st-pw{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.st-pw p{width:100%;margin:0 0 4px}.st-pw input{font:inherit;font-family:var(--serif);border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:6px 8px;flex:1 1 12rem;min-width:0}.st-pw .more-btn{width:auto;padding:6px 18px;margin:0}
 
+/* v39: 실시간 이슈 — 맨 위 이슈만 한마디 펼침, 나머지는 제목 옆 금로동 아이콘을 눌러 펼치기 */
+.news .hrow{display:flex;align-items:flex-start;gap:8px}
+.news .hrow h3{flex:1;min-width:0}
+.ins-tg{flex:none;position:relative;width:1.95rem;height:1.95rem;margin:-2px 4px 0 0;padding:0;border:0;background:none;cursor:pointer;line-height:0;color:inherit}
+.ins-tg .ins-ph{display:block;width:100%;line-height:0}
+.ins-tg .ins-ph svg{width:100%;height:auto;display:block}
+.ins-tg .tg-bub{position:absolute;right:-7px;top:-7px;display:flex;gap:2px;align-items:center;background:#fff;border:1px solid var(--ink);border-radius:9px;padding:3px 4px;transform-origin:0 100%;animation:tgPeek 2.8s ease-in-out infinite}
+.ins-tg .tg-bub::after{content:"";position:absolute;left:1px;bottom:-4px;width:6px;height:6px;background:#fff;border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);transform:skewY(-30deg)}
+.ins-tg .tg-bub b{width:3px;height:3px;border-radius:50%;background:var(--ink);animation:tgDot 1.4s infinite}
+.ins-tg .tg-bub b:nth-child(2){animation-delay:.2s}.ins-tg .tg-bub b:nth-child(3){animation-delay:.4s}
+@keyframes tgPeek{0%,100%{transform:scale(.55);opacity:.55}35%,70%{transform:scale(1);opacity:1}}
+@keyframes tgDot{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.ins-tg:hover .tg-bub,.ins-tg:focus-visible .tg-bub{animation:none;transform:scale(1);opacity:1}
+.news.ins-open .ins-tg .tg-bub{animation:none;transform:scale(1);opacity:1;background:var(--ink)}
+.news.ins-open .ins-tg .tg-bub b{background:#fff;animation:none;opacity:1}
+.news.ins-open .ins-tg .tg-bub::after{background:var(--ink)}
+.news.tg .ins{display:none!important}
+.news.tg.ins-open .ins{display:flex!important}
+.news.tg .ins .ins-ph{display:none!important}
+.news.tg .ins .op::before{left:auto!important;right:14px;top:-7px!important;border-left:1px solid var(--rule);border-bottom:0!important;border-top:1px solid var(--rule);transform:rotate(45deg)}
+@media (prefers-reduced-motion:reduce){.ins-tg .tg-bub,.ins-tg .tg-bub b{animation:none;transform:none;opacity:1}}
+
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
@@ -1345,12 +1367,16 @@ function boot(D){
   function liveKey(i){var m=String(i.date||'').match(/(\d+)\.(\d+)/),t=new Date(nowMs()+9*36e5),y=t.getUTCFullYear();if(!m)return '';var mo=+m[1];if(mo>t.getUTCMonth()+2)y--;return y+'-'+('0'+mo).slice(-2)+'-'+('0'+m[2]).slice(-2)+' '+(i.at||'')}
   function liveSorted(){return (D.live||[]).map(function(x,i){return {x:x,i:i,k:liveKey(x),f:liked(x.tags)}}).sort(function(a,b){return a.k<b.k?1:a.k>b.k?-1:a.i-b.i})}
   function renderLive(){
-    $('live').innerHTML = liveSorted().map(function(o){var i=o.x;
+    $('live').innerHTML = liveSorted().map(function(o,k){var i=o.x, tg=i.insight&&k>0;
       var img = i.photo ? '<img class="thumb" src="'+esc(i.photo)+'" alt="" referrerpolicy="no-referrer" onerror="var a=this.closest(\'.news\');a&&a.classList.add(\'noimg\');this.remove()">' : '';
-      return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+'">'+img+'<div class="nt"><div class="meta">'+(heat[i.hot]?'<span class="heat h'+i.hot+'">'+heat[i.hot]+'</span>':'')+'<span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+(i.at?' '+esc(i.at):'')+'</span></div>'+
-        '<h3>'+link(i.url,esc(i.title))+'</h3><p>'+esc(i.summary)+'</p>'+(i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'의 한마디</b>'+esc(i.insight)+'</p></div>':'')+'</div></article>';
+      return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+(tg?' tg':'')+'">'+img+'<div class="nt"><div class="meta">'+(heat[i.hot]?'<span class="heat h'+i.hot+'">'+heat[i.hot]+'</span>':'')+'<span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+(i.at?' '+esc(i.at):'')+'</span></div>'+
+        (tg?'<div class="hrow"><h3>'+link(i.url,esc(i.title))+'</h3><button type="button" class="ins-tg" aria-expanded="false" title="'+RNAME+'의 한마디 보기"><span class="ins-ph">'+REPORTER_BARE+'</span><i class="tg-bub" aria-hidden="true"><b></b><b></b><b></b></i></button></div>':'<h3>'+link(i.url,esc(i.title))+'</h3>')+'<p>'+esc(i.summary)+'</p>'+(i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'의 한마디</b>'+esc(i.insight)+'</p></div>':'')+'</div></article>';
     }).join('');
   }
+
+  // 금로동 기자 아이콘을 누르면 한마디가 펼쳐지고, 다시 누르면 접힘
+  $('live').addEventListener('click',function(e){var b=e.target.closest('.ins-tg');if(!b)return;var a=b.closest('.news'),on=!a.classList.contains('ins-open');
+    a.classList.toggle('ins-open',on);b.setAttribute('aria-expanded',on?'true':'false');b.title=RNAME+(on?'의 한마디 접기':'의 한마디 보기');if(typeof balance==='function')balance();});
 
   $('bh').textContent = D.brief.headline;
   if(D.brief.weekly) $('k-brief').textContent='이번 주 광고계 결산';
