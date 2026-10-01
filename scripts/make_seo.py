@@ -117,6 +117,8 @@ def page_html(d, D, prev_d, next_d, has_card):
 <span class="k">{esc(kick)} · 금로동 기자</span>
 <h1>{esc(head)}</h1>"""]
     svg = safe_svg((b.get("cartoon") or {}).get("svg"))
+    if (b.get("cartoon") or {}).get("img"):
+        svg = f'<img src="../{esc(b["cartoon"]["img"])}" alt="{esc((b.get("cartoon") or {}).get("caption"))}" style="display:block;width:100%;filter:grayscale(1)">'
     if svg:
         cap = (b.get("cartoon") or {}).get("caption")
         out.append(f"<figure>{svg}{f'<figcaption>{esc(cap)}</figcaption>' if cap else ''}</figure>")
@@ -142,7 +144,7 @@ def page_html(d, D, prev_d, next_d, has_card):
         out.append("<section><h2>금기자의 트렌드 노트</h2>")
         for t in TN[:3]:
             src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in t.get("sources") or [] if x.get("url"))
-            tsv = safe_svg(t.get("svg"))
+            tsv = f'<img src="../{esc(t["img"])}" alt="{esc(t.get("tag"))}" style="display:block;width:100%;filter:grayscale(1)">' if t.get("img") else safe_svg(t.get("svg"))
             out.append((f"<figure>{tsv}</figure>" if tsv else "") + f"<h3>#{esc(t.get('tag'))} — {esc(t.get('title'))}</h3><p>{esc(t.get('body'))}</p>"
                        + (f"<p><b>광고인 포인트</b> {esc(t.get('point'))}</p>" if t.get("point") else "")
                        + (f"<p class=\"meta\">{src}</p>" if src else ""))
@@ -151,7 +153,7 @@ def page_html(d, D, prev_d, next_d, has_card):
         out.append(f"""<section><h2>오늘의 광고인</h2>
 <h3>{esc(P.get('name'))} <span class="meta">{esc(' · '.join([x for x in [P.get('nameEn'), P.get('years'), P.get('country')] if x]))}</span></h3>
 <p class="meta">{esc(P.get('role'))}</p><p><b>{esc(P.get('line'))}</b></p><p>{esc(P.get('intro'))}</p>""")
-        sv = safe_svg(P.get("svg"))
+        sv = f'<img src="../{esc(P["img"])}" alt="{esc(P.get("name"))}" style="display:block;width:100%;filter:grayscale(1)">' if P.get("img") else safe_svg(P.get("svg"))
         if sv:
             out.append(f"<figure>{sv}{f'<figcaption>{esc(P.get(chr(99)+chr(97)+chr(112)+chr(116)+chr(105)+chr(111)+chr(110)))}</figcaption>' if P.get('caption') else ''}</figure>")
         if P.get("works"):

@@ -182,6 +182,10 @@ def main():
         key = f"ed-{d}"
         kick = "이번 주 광고계 결산" if e.get("weekly") else "오늘의 미니 사설"
         svg = safe_svg((e.get("cartoon") or {}).get("svg"))
+        cimg = (e.get("cartoon") or {}).get("img")
+        if cimg and os.path.exists(cimg):
+            svg = f'<img src="file://{os.path.abspath(cimg)}" style="display:block;width:540px;height:auto;border:3px solid #1a1a1a;filter:grayscale(1)">'
+
         lede = clip(e.get("lede") or e.get("body"), 90)
         sig = hashlib.md5(json.dumps([e.get("headline"), lede, svg, kick, 2], ensure_ascii=False).encode()).hexdigest()[:12]
         hp = f"{OUT}/{key}.html"

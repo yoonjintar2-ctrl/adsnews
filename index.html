@@ -1068,6 +1068,15 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tn.has-fig{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:16px;align-items:start}
 .tn.has-fig .tn-fig{margin:4px 0 0}
 @media (max-width:1180px){.tn.has-fig{grid-template-columns:1fr}.tn.has-fig .tn-fig{max-width:420px;margin:0 0 10px}}
+
+/* v34: GPT 그림 */
+.toon-im{position:relative;display:block}
+.toon-im img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.05)}
+.toon-bub{position:absolute;right:4%;top:6%;max-width:46%;background:#fff;border:2px solid #1a1a1a;border-radius:14px;padding:6px 10px;font-weight:800;font-size:.9rem;line-height:1.45;word-break:keep-all}
+.toon-bub::after{content:"";position:absolute;left:18%;bottom:-10px;border:9px solid transparent;border-top-color:#1a1a1a;border-bottom:0}
+.toon-tag{position:absolute;left:8px;top:8px;background:#1a1a1a;color:#f4f4f2;font-size:.68rem;font-weight:700;padding:2px 7px}
+.tn-fig img,.ps-fig img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.05)}
+@media (max-width:620px){.toon-bub{font-size:.8rem;padding:4px 8px}}
 </style>
 
 <meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
@@ -1339,7 +1348,12 @@ function boot(D){
   $('pts').addEventListener('click',function(e){var t=e.target.closest('.pt');if(t)openPt(+t.getAttribute('data-i'))});
   $('pts').addEventListener('keydown',function(e){var t=e.target.closest('.pt');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openPt(+t.getAttribute('data-i'))}});
   function openModal(html,wide){$('mbody').innerHTML=html;$('modal').firstElementChild.classList.toggle('wide',!!wide);$('modal').hidden=false;$('mclose').focus();}
-  function toonHtml(){var T=(CE&&CE.cartoon)||D.brief.cartoon;return T&&T.svg&&!$('toon').hidden?'<figure class="toon">'+T.svg+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
+  // 만평 그림: GPT 이미지(img)가 있으면 그것을, 없으면 금기자가 그린 SVG를 쓴다. 말풍선 글은 그림 위에 얹는다
+  function toonInner(T){if(!T)return '';
+    if(T.img)return '<span class="toon-im"><img src="'+esc(T.img)+'" alt="'+esc(T.caption||'광고늬우스 만평')+'" onerror="this.parentNode.outerHTML=window.__toonSvg||\'\'">'+(T.bubble?'<span class="toon-bub">'+esc(T.bubble)+'</span>':'')+'<span class="toon-tag">광고늬우스 만평</span></span>';
+    return T.svg&&/^<svg[\s>]/.test(T.svg)&&!/<script|on\w+=|javascript:|<foreignObject/i.test(T.svg)?T.svg:''}
+  window.__toonSvg=(D.brief.cartoon&&D.brief.cartoon.svg)||'';
+  function toonHtml(){var T=(CE&&CE.cartoon)||D.brief.cartoon;var x=toonInner(T);return x&&!$('toon').hidden?'<figure class="toon">'+x+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
   var CE=null;
   function openEditorial(){var e=CE||{headline:D.brief.headline,body:D.brief.body||D.brief.lede,date:(D.brief.cartoon||{}).date};openModal('<span class="t">'+(edIdx>0?'지난 사설 · '+esc(fmtEd(e.date)):'오늘의 미니 사설')+' · by '+RNAME+'</span><h3>'+esc(e.headline)+'</h3>'+toonHtml()+'<p class="mcols">'+esc(e.body)+'</p>'+bylineHtml,true)}
   var EDS=null, edIdx=0;
@@ -1376,8 +1390,10 @@ function boot(D){
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')$('modal').hidden=true});
   var TC=D.brief.cartoon;
-  if(TC&&TC.svg&&/^<svg[\s>]/.test(TC.svg)&&!/<script|on\w+=|javascript:|<foreignObject/i.test(TC.svg)){
-    $('toon').innerHTML=TC.svg+(TC.caption?'<figcaption>'+esc(TC.caption)+'</figcaption>':'');$('toon').hidden=false;$('toon').parentElement.classList.add('has-toon');
+  var TCin=toonInner(TC);
+  if(TCin){
+    $('toon').innerHTML=TCin+(TC.caption?'<figcaption>'+esc(TC.caption)+'</figcaption>':'');$('toon').hidden=false;$('toon').parentElement.classList.add('has-toon');
+    var ti=$('toon').querySelector('img'); if(ti) ti.addEventListener('load',function(){layoutEditorial();if(typeof balance==='function')setTimeout(balance,30)});
   }
   layoutEditorial(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layoutEditorial);
 
@@ -1511,7 +1527,7 @@ function boot(D){
     var L=(T&&T.items)||[]; if(!L.length){sec.hidden=true;return;}
     el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
     el.innerHTML=L.slice(0,3).map(function(t){
-      var sv=safeSvg(t.svg);
+      var sv=t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.tag)+'" loading="lazy">':safeSvg(t.svg);
       return '<article class="tn'+(sv?' has-fig':'')+'">'+(sv?'<figure class="tn-fig">'+sv+'</figure>':'')+'<div class="tn-x"><span class="tn-tag">#'+esc(t.tag)+'</span><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
         (t.point?'<p class="tn-p"><b>광고인 포인트</b> '+esc(t.point)+'</p>':'')+
         ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</div></article>'}).join('');
@@ -1521,9 +1537,9 @@ function boot(D){
   function renderPerson(){
     var P=D.person, el=$('person'), sec=$('a-person'); if(!el||!sec) return;
     if(!P||!P.name){sec.hidden=true;return;}
-    var sv=safeSvg(P.svg), img=P.photo||'';
+    var sv=P.img?'':safeSvg(P.svg), img=P.img||P.photo||'';
     var fig=sv?'<figure class="ps-fig">'+sv+(P.caption?'<figcaption>'+esc(P.caption)+'</figcaption>':'')+'</figure>':
-      img?'<figure class="ps-fig"><img src="'+esc(img)+'" alt="'+esc(P.name)+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></figure>':'';
+      img?'<figure class="ps-fig"><img src="'+esc(img)+'" alt="'+esc(P.name)+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()">'+(P.caption?'<figcaption>'+esc(P.caption)+'</figcaption>':'')+'</figure>':'';
     var works=(P.works||[]).map(function(w){if(typeof w==='string')return esc(w);return w.url?link(w.url,esc(w.t)+' ↗'):esc(w.t)}).join(' · ');
     var meta=[P.years,P.country,P.role].filter(Boolean).join(' · ');
     el.innerHTML='<h3 class="ps-h">'+esc(P.name)+(P.nameEn?' <small>'+esc(P.nameEn)+'</small>':'')+'</h3>'+(meta?'<p class="ps-meta">'+esc(meta)+'</p>':'')+
