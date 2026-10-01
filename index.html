@@ -1046,6 +1046,9 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tn-s{font-size:.75rem;color:var(--faint);margin:0}
 .tn-s a{color:inherit}
 @media (max-width:980px){.tn-g{grid-template-columns:1fr!important;row-gap:16px}.tn+.tn{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
+/* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
+.tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.tn-hd .cplink{margin-bottom:5px}
 @media (max-width:620px){.tn-b,.tn-p{font-size:1rem!important;line-height:1.7!important;text-align:left}.tn-tag{font-size:1.35rem}}
 
 .tn-fig{margin:0 0 10px;border:1px solid var(--ink);background:#f4f4f2;padding:3px}
@@ -1118,7 +1121,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
   <header class="mast">
     <div class="l" hidden><span id="upd"></span></div>
     <aside class="ear" aria-label="광고"><div class="adslot"><b>AD</b><span>광고 지면</span></div></aside>
-    <div class="mt"><h1>광고늬우스</h1><p class="slogan">흩어진 광고계 소식, 매일 아침 한 장에</p></div>
+    <div class="mt"><h1>광고늬우스</h1><p class="slogan">광고계 노른자 소식들, 한 입에 떠-먹여 드려요.</p></div>
     
     <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v19l-7-4.5L5 22V3a1 1 0 0 1 1-1z"/></svg><span id="subtxt">구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
@@ -1143,7 +1146,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
         <div class="feat" id="camps"></div>
       </section>
       <section class="np-sec a-person" id="a-person" aria-labelledby="k-person" hidden>
-        <div class="kick"><h2 id="k-person">오늘의 광고인</h2><span>금로동 기자가 소개합니다</span></div>
+        <div class="kick"><h2 id="k-person">오늘의 광고인</h2><span class="kr"><span>금로동 기자가 소개합니다</span><button type="button" class="cplink" id="psLink" title="오늘의 광고인 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
         <div id="person"></div>
       </section>
     </div>
@@ -1377,17 +1380,24 @@ function boot(D){
   // 아이폰은 클릭 직후에만 복사를 허용하므로 페이지 존재 여부는 미리 확인해 둔다.
   var SHARE_OK={};
   function probe(key){if(!window.fetch||SHARE_OK[key])return;fetch(SITE+'s/'+key+'.html',{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)SHARE_OK[key]=1},function(){})}
-  function shareLink(kind,btn){var d=edition(),key=kind+'-'+d;copyText(SHARE_OK[key]?SITE+'s/'+key+'.html':SITE+'?d='+d+'#'+kind,btn);probe(key)}
-  setTimeout(function(){probe('ed-'+edition());probe('camp-'+edition())},800);
+  // key: s/ 아래 공유 페이지 이름, d: 그날 신문, hash: 신문 안의 위치
+  function shareTo(key,d,hash,btn){copyText(SHARE_OK[key]?SITE+'s/'+key+'.html':SITE+'?d='+d+'#'+hash,btn);probe(key)}
+  function shareLink(kind,btn){var d=edition();shareTo(kind+'-'+d,d,kind,btn)}
+  function psDate(){return (D.person&&D.person.date)||edition()}
+  function tnDate(){return (D.trendNotes&&D.trendNotes.date)||edition()}
+  setTimeout(function(){probe('ed-'+edition());probe('camp-'+edition());probe('person-'+psDate());
+    ((D.trendNotes&&D.trendNotes.items)||[]).slice(0,3).forEach(function(_,i){probe('tn-'+tnDate()+'-'+(i+1))})},800);
   $('edLink').addEventListener('click',function(){shareLink('ed',this)});
   $('cpLink').addEventListener('click',function(){shareLink('camp',this)});
+  $('psLink').addEventListener('click',function(){var d=psDate();shareTo('person-'+d,d,'person',this)});
+  $('tnote').addEventListener('click',function(e){var b=e.target.closest('[data-tn]');if(!b)return;var d=tnDate(),n=b.getAttribute('data-tn');shareTo('tn-'+d+'-'+n,d,'tn'+n,b)});
   function goTo(sel){var el=document.querySelector(sel);if(!el)return;var go=function(){el.scrollIntoView({block:'start'})};go();[300,900,1800].forEach(function(t){setTimeout(go,t)})}
   function openHash(){
     var h=decodeURIComponent(location.hash.slice(1)),m;
     if(!h)return;
     // 예전 링크(#ed-날짜, #camp-날짜)는 그날 신문으로 보낸다
     if((m=h.match(/^(ed|camp)-(\d{4}-\d\d-\d\d)$/))){ if(m[2]!==edition()){location.replace(SITE+'?d='+m[2]+'#'+m[1]);return;} h=m[1]; }
-    if(h==='ed')goTo('.a-brief'); else if(h==='camp')goTo('.a-camps'); else if(h==='person')goTo('#person');
+    if(h==='ed')goTo('.a-brief'); else if(h==='camp')goTo('.a-camps'); else if(h==='person')goTo('#a-person'); else if((m=h.match(/^tn([1-3])$/)))goTo('#tn-'+m[1]);
   }
   window.addEventListener('hashchange',openHash);
   if(document.readyState==='complete')setTimeout(openHash,60);else window.addEventListener('load',function(){setTimeout(openHash,60)});
@@ -1532,9 +1542,9 @@ function boot(D){
     var T=D.trendNotes, el=$('tnote'), sec=$('a-tnote'); if(!el||!sec) return;
     var L=(T&&T.items)||[]; if(!L.length){sec.hidden=true;return;}
     el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
-    el.innerHTML=L.slice(0,3).map(function(t){
+    el.innerHTML=L.slice(0,3).map(function(t,i){
       var sv=t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.tag)+'" loading="lazy">':safeSvg(t.svg);
-      return '<article class="tn'+(sv?' has-fig':'')+'">'+(sv?'<figure class="tn-fig">'+sv+'</figure>':'')+'<div class="tn-x"><span class="tn-tag">#'+esc(t.tag)+'</span><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
+      return '<article class="tn'+(sv?' has-fig':'')+'" id="tn-'+(i+1)+'">'+(sv?'<figure class="tn-fig">'+sv+'</figure>':'')+'<div class="tn-x"><div class="tn-hd"><span class="tn-tag">#'+esc(t.tag)+'</span><button type="button" class="cplink" data-tn="'+(i+1)+'" title="이 트렌드 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></div><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
         (t.point?'<p class="tn-p"><b>광고인 포인트</b> '+esc(t.point)+'</p>':'')+
         ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</div></article>'}).join('');
     sec.hidden=false;

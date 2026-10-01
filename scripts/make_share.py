@@ -3,6 +3,7 @@
 For every archived editorial (editorials.json) and featured campaign (featured.json) this writes
   s/ed-YYYY-MM-DD.html   + s/ed-YYYY-MM-DD.png  (1200x630 card: headline + 만평)
   s/camp-YYYY-MM-DD.html (preview image = the campaign's own photo)
+  s/person-YYYY-MM-DD.html, s/tn-YYYY-MM-DD-N.html (+ .png: 오늘의 광고인 / 트렌드 노트 with 금기자's drawing)
 Each page carries its own og:title / og:description / og:image for messenger previews
 (KakaoTalk, Slack, etc.) and sends a human visitor on to the right spot of the paper
 (index.html#ed-… / #camp-…). A page is rebuilt only when its content changes.
@@ -144,6 +145,26 @@ def render_cards(jobs):
         b.close()
 
 
+def daily_items():
+    """오늘의 광고인 / 트렌드 노트 by date: today's data.json plus every back issue in archive/."""
+    srcs = ["data.json"]
+    if os.path.isdir("archive"):
+        srcs += [os.path.join("archive", d, "data.json") for d in sorted(os.listdir("archive"), reverse=True)[:KEEP_DAYS]]
+    persons, trends = {}, {}
+    for f in srcs:
+        try:
+            data = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        p = data.get("person") or {}
+        if p.get("date") and p.get("name") and p["date"] not in persons:
+            persons[p["date"]] = p
+        t = data.get("trendNotes") or {}
+        if t.get("date") and t.get("items") and t["date"] not in trends:
+            trends[t["date"]] = t["items"][:3]
+    return persons, trends
+
+
 def old_body(path):
     try:
         return open(path, encoding="utf-8").read()
@@ -225,6 +246,37 @@ def main():
         jobs.append((card, f"{OUT}/{key}.png"))
         pages.append((hp, body))
 
+    def add_card(key, d, hash_, title, desc, kick, head, lede, svg, cap):
+        sig = hashlib.md5(json.dumps([title, desc, kick, head, lede, svg, cap, 1], ensure_ascii=False).encode()).hexdigest()[:12]
+        hp = f"{OUT}/{key}.html"
+        body = page(key, title, desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"?d={d}#{hash_}", sig, SITE + f"e/{d}.html")
+        if old_sig(hp) == sig and os.path.exists(f"{OUT}/{key}.png"):
+            if old_body(hp) != body:
+                keep_pages.append((hp, body))
+            return
+        card = (CARD.replace("__DATE__", esc(md(d)) + "자").replace("__KICK__", esc(kick))
+                .replace("__HEAD__", esc(head)).replace("__LEDE__", esc(lede))
+                .replace("__SVG__", svg).replace("__CAP__", esc(cap)))
+        jobs.append((card, f"{OUT}/{key}.png"))
+        pages.append((hp, body))
+
+    persons, trends = daily_items()
+    for d, p in persons.items():
+        name = p["name"] + (f" ({p['nameEn']})" if p.get("nameEn") else "")
+        meta = " · ".join(x for x in (p.get("years"), p.get("role")) if x)
+        add_card(f"person-{d}", d, "person", f"오늘의 광고인 · {name}",
+                 f"[오늘의 광고인 · {md(d)}] " + clip(p.get("line") or p.get("intro"), 40) + " " + clip(p.get("intro"), 80),
+                 "오늘의 광고인", p["name"], clip((p.get("line") or "") + (" — " + meta if meta else ""), 90),
+                 safe_svg(p.get("svg")), p.get("caption") or f"금로동 기자가 그린 {p['name']}")
+    for d, items in trends.items():
+        for i, t in enumerate(items, 1):
+            if not t.get("title"):
+                continue
+            add_card(f"tn-{d}-{i}", d, f"tn{i}", f"#{t.get('tag', '')} — {t['title']}",
+                     f"[금기자의 트렌드 노트 · {md(d)}] " + clip(t.get("body"), 110),
+                     f"금기자의 트렌드 노트 · #{t.get('tag', '')}", t["title"], clip(t.get("body"), 90),
+                     safe_svg(t.get("svg")), "")
+
     try:
         render_cards(jobs)
     except Exception as ex:  # 카드 이미지를 못 만들면 사설 페이지는 다음 기회에
@@ -233,7 +285,8 @@ def main():
     for path, body in pages + keep_pages:
         open(path, "w", encoding="utf-8").write(body)
     # 오래된 공유 페이지 정리
-    keep = {f"ed-{e.get('date')}" for e in eds} | {f"camp-{f.get('date')}" for f in feats}
+    keep = {f"ed-{e.get('date')}" for e in eds} | {f"camp-{f.get('date')}" for f in feats} | {f"person-{d}" for d in persons}
+    keep |= {f"tn-{d}-{i}" for d, items in trends.items() for i in range(1, len(items) + 1)}
     for fn in os.listdir(OUT):
         if os.path.splitext(fn)[0] not in keep:
             os.remove(os.path.join(OUT, fn))
