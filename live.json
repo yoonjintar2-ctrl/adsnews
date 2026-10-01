@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-10-02T00:21+09:00",
- "updatedLabel": "10월 2일 00:21",
+ "updatedAt": "2026-10-02T00:26+09:00",
+ "updatedLabel": "10월 2일 00:26",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-10-02T00:21+09:00",
+   "at": "2026-10-02T00:26+09:00",
    "items": [
     "본방 예매 완료",
     "이광수 버블",
@@ -31,9 +31,10 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-10-02T00:21+09:00",
+   "at": "2026-10-02T00:26+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "자동차",
     "탄약",
     "분당구",
     "포스코 퓨처 엠",
@@ -42,13 +43,12 @@
     "강화도",
     "청라하늘대교",
     "구속",
-    "송강",
-    "최태원"
+    "송강"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-10-02T00:21+09:00",
+   "at": "2026-10-02T00:26+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "김종호 남자 금메달",
@@ -65,19 +65,19 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-10-02T00:21+09:00",
+   "at": "2026-10-02T00:26+09:00",
    "url": "https://www.nate.com/",
    "items": [
-    "알래스카 LNG",
-    "톰 크루즈",
-    "유관기관 간담회 이형일",
-    "역사 속으로",
-    "암살자 이민호 취소"
+    "태권도 품새 금메달",
+    "현대차 9월 판매",
+    "현판 교체 작업",
+    "중수청 차장 전종민",
+    "영업익 5% 과징금"
    ]
   },
   "zum": {
    "label": "줌",
-   "at": "2026-10-02T00:21+09:00",
+   "at": "2026-10-02T00:26+09:00",
    "url": "https://zum.com/",
    "items": [
     "코스피 코스닥 상승 반도체",
@@ -1478,7 +1478,7 @@
    "t": "",
    "s": "",
    "u": "",
-   "at": "2026-10-01T22:24+09:00"
+   "at": "2026-10-02T00:26+09:00"
   },
   "공공부문 AI 윤리기준": {
    "t": "행안부 공공부문 AI 윤리기준 확정, \"AI 최종 책임은 사람에게\"",
@@ -1497,12 +1497,6 @@
    "s": "",
    "u": "",
    "at": "2026-10-02T00:11+09:00"
-  },
-  "최태원": {
-   "t": "최태원, 김희영과 공식석상 등장…밴 플리트 시상식 동행",
-   "s": "Daum",
-   "u": "https://v.daum.net/v/20261001175430586",
-   "at": "2026-10-01T23:01+09:00"
   },
   "투바투 콘서트": {
    "t": "",
@@ -1690,41 +1684,47 @@
    "u": "",
    "at": "2026-10-02T00:06+09:00"
   },
-  "암살자 이민호 취소": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-10-02T00:11+09:00"
-  },
   "탄약": {
    "t": "로켓 파편 살펴보는 우크라이나 소년",
    "s": "뉴시스",
    "u": "https://mobile.newsis.com/photo/NISI20261001_0002252689",
    "at": "2026-10-02T00:16+09:00"
   },
-  "알래스카 LNG": {
-   "t": "트럼프 \"알래스카 LNG 500억 달러 투자\" 일방 발표‥'표심' 겨냥한 관권선거용?",
-   "s": "MBC 뉴스",
-   "u": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9IVWpwRHUyNkNFYkZ2cTVOQXVjWUk4c2tzWHl4RHNyVGFWYUxmX3EtOVFNYkwtdlNIemZBQzNRQW1sdGU0VmFtVlhKcUs0b2JXR2hZSVJfR3BzUnlDZXdHenRXbWdVRTRTMmlSS3RndzY3T0tyQkk2b9IBeEFVX3lxTE03aTdWanVXRjV1cTZfVWpheTdFaGpHS3VablFPT0pRbjdLZTdyZ3lPV2JBenVzN1V6WGpwUDFPekZpdXVWaE1JNTJGNndLMTl1ZFktV3dWbHF3Rm9oS3FLdDQ4eV9Da2pJN1ROUTJFRG9SNURwY2tRNg?oc=5",
-   "at": "2026-10-02T00:21+09:00"
+  "자동차": {
+   "t": "현대차·기아 9월 실적 명암…추석 탓하기엔 뼈아픈 현대차 역성장",
+   "s": "경향신문",
+   "u": "https://www.khan.co.kr/article/202610011702001",
+   "at": "2026-10-02T00:26+09:00"
   },
-  "톰 크루즈": {
-   "t": "톰 크루즈 \"오스카상보단 작품 우선…46년 영화 인생이 특권\"(종합)",
-   "s": "연합뉴스",
-   "u": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE84LW02Vlpxcno4MnhOX21xZ3pONmNLbFRwUV9Vd3QxUlFqdXNhUjBfOXljNUpwTVVsSm5wY2hxc1dhd0tOc0F3X080SDEyWHpONFVlRzhvbFlEeVhZbUd5Q9IBYEFVX3lxTE84LW02Vlpxcno4MnhOX21xZ3pONmNLbFRwUV9Vd3QxUlFqdXNhUjBfOXljNUpwTVVsSm5wY2hxc1dhd0tOc0F3X080SDEyWHpONFVlRzhvbFlEeVhZbUd5Qw?oc=5",
-   "at": "2026-10-02T00:21+09:00"
+  "태권도 품새 금메달": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-02T00:26+09:00"
   },
-  "유관기관 간담회 이형일": {
-   "t": "이형일, 첫 유관기관 간담회…\"핵심과제 국민 체감 때까지 이행\"",
-   "s": "연합인포맥스",
-   "u": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNUZMU1JGT2JtUl9QSDJMUjVUXzYwRUYwUXpNeEZTVVFWLUlNRjRWTENqc0tkc3RSc3lWc2sxVUVOUWVhVkN6Sm4xaV9Cb282YUZTWjhmczRJQ09zVlFGWEROUlFNcEhJa1FTaEZHYkk?oc=5",
-   "at": "2026-10-02T00:21+09:00"
+  "현대차 9월 판매": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-02T00:26+09:00"
   },
-  "역사 속으로": {
-   "t": "[투나잇이슈] 검찰청, 역사 속으로…김지용 후보자 임명 수순",
-   "s": "연합뉴스TV",
-   "u": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE01WlZQMzhONVhSd3FfeEdzNnJ2ZjJCQkVqdU5LQkc1QXFqZnIzNlE3NmdpNG9YNzBJdGxULW9mc0tpYmtDVVltRG4wNDdqTC1wTDdmcnRMdFFlQ29OZGRDbGJaWUJoR1E?oc=5",
-   "at": "2026-10-02T00:21+09:00"
+  "현판 교체 작업": {
+   "t": "비공개로 진행되는 현판 교체 작업",
+   "s": "뉴시스",
+   "u": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFByTEg4WWxXSHNfQTBYQi1MR3dYb3FrSzFDVTBvQzQtMHo0enU0bUpjNnRqWWpyMDJpenA0TXZwV1lVZGk1V3ZOblJXQ2ZvMG56N283bHcyOHRBcnUzcGZMdVBZYUMwdw?oc=5",
+   "at": "2026-10-02T00:26+09:00"
+  },
+  "중수청 차장 전종민": {
+   "t": "",
+   "s": "",
+   "u": "",
+   "at": "2026-10-02T00:26+09:00"
+  },
+  "영업익 5% 과징금": {
+   "t": "사망사고 영업익 5% 과징금…경제계 \"기업 존폐 우려\"(종합2보)",
+   "s": "뉴스1",
+   "u": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9kY1lWUTZhNUp5TFY2cXlCaUg4bkZjQWVEX2VSYVRaQWNMR0wyLTBxYmFfTkpRLTR0SGdYdG8yZW96STlya0pDNGMwOGcyLXJ2ZEI3MGIta0JFbFpqYk1uenhWZS3SAWpBVV95cUxNRmdteUc5RWxiWDJXY1dKaE5OVVMtNUEzTUZXZzV0WkwwS0M5TGpmcHFYQ3JJcm5QeUZpYno0R083Y3NQNW5JWGJxRzVhbEVKTldyNEFONUlpN0NNZDhlakNrc3d1VGtmTGpn?oc=5",
+   "at": "2026-10-02T00:26+09:00"
   }
  },
  "disc": {
@@ -2720,6 +2720,104 @@
    "OLfAP8ub9F0": {
     "t": "[PEPERO x Stray Kids] PEPERO DAY Digital Film (15”)",
     "ch": "롯데웰푸드",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "wTm_VRnrZ7o": {
+    "t": "[예고] 단독 예능 첫 출연! 시청률 여왕 김지원👑 야구 유망주 하현승, 아시안게임 금빛 주인공들까지🏅#유퀴즈온더블럭 | YOU QUIZ ON ",
+    "ch": "tvN Joy",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "VcbAwbRrYdw": {
+    "t": "한국 우루과이전, 한반두 선발 출전 하이라이트 모음(feat.모레노 감독의 숨은 전략 대공개)",
+    "ch": "피까축",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "ZwjPd4mnKGE": {
+    "t": "[밀면편] 내 몸엔 냉면육수가 흘러...🌊먹방브이로그 (밀면, 중국냉면, 묵밥, 함흥냉면, 집들이, 금남야시장, 한방통닭)",
+    "ch": "우니의끼니 UNIII",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "-_w8tlWmUCU": {
+    "t": "대표팀 분위기 메이커는 누구? 선수들의 인간미 넘치는 훈련 현장! | 9·10월 친선경기 EP.10",
+    "ch": "KFATV 대한민국 축구 국가대표팀",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "QXmZlbvo6zY": {
+    "t": "??? : 시청자 다 덤벼!! (선수 스펠링을 틀리며..)ㅣ축구 땅따먹기 시참",
+    "ch": "박종윤(축구)",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "5H5xAhkLJj0": {
+    "t": "인도 대 스리랑카 경기 전체 하이라이트 제2차 준결승전, 2026 아시안 게임 | 인도 대 스리랑카",
+    "ch": "BATA TV",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "_mls4iLdMEc": {
+    "t": "5초 안에 독도 영양도 먹는 보드게임ㄷㄷㄷ",
+    "ch": "왈도쿤",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "ZsnnDgWGt4w": {
+    "t": "\"한국 선수로 뛰라는 할머니 유언 덕분에\" [2026 아시안게임]",
+    "ch": "스탐",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "mGE-m7AbzJ4": {
+    "t": "일본어 몰라도 남의 쇼츠 번역 부업으로 11억 집 산 99년생 | 박준휘",
+    "ch": "월급밖수업",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "4MIodT7mZs0": {
+    "t": "[소개팅]띱오랑캐 화끈한 소개팅 라이브 방송 #소개팅 #쇼츠 #shorts #데이트 #이성만남 #예능 #예능방송 #코미디   #문돌이 #어금니 ",
+    "ch": "띱오랑캐",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "GSUBt1MylGc": {
+    "t": "부모님 모시고 안동여행, 탈춤도 보고 간고등어 뜯고~[2026 안동탈춤페스티벌]",
+    "ch": "흥삶이네 Heungsam's Life",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "JpjpKimXQXY": {
+    "t": "KTF 굿타임 시네마 파티 추억의 (AD) 2005 TVCF 광고",
+    "ch": "임현진",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "yJ-dR-H-K0I": {
+    "t": "Introducing the new BMW i3 50 xDrive First Edition | BMW UK",
+    "ch": "BMW",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "Gw2mAioyDZ8": {
+    "t": "6억짜리가 1억으로 폭락? 땅값도 안 되는 바다 앞 전원주택 공짜 수준입니다",
+    "ch": "여기어때",
     "fmt": "영상",
     "kind": "ad",
     "since0": false
@@ -4267,7 +4365,7 @@
     "since0": true
    }
   },
-  "at": "2026-10-02T00:00+09:00"
+  "at": "2026-10-02T00:26+09:00"
  },
  "adMonth": {
   "RDQmUgW8eZs": {
@@ -4443,7 +4541,7 @@
   "yde-l7v7fKY": {
    "t": "[U+홈캠Lite] 가격은 라이트하게, 보험은 타이트하게. 우리집 첫 홈캠!",
    "ch": "LG유플러스",
-   "ud": "2026-09-10"
+   "ud": "2026-09-11"
   },
   "Bq0mi-qto-E": {
    "t": "“배달이 세상에서 가장 멋있는 일인 것 같아요.” | 배민커넥트 라이더 리얼 다큐",
@@ -4486,9 +4584,9 @@
    "ud": "2026-09-11"
   },
   "_C1dPhM7IKc": {
-   "t": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 주말 대청소도 근사해지는 퓨전 재즈 플레이리스트 | BLUE MONDAY MIX | DJ MAD MAESTRO (Tiny P",
+   "t": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 월요일이 오기 전에 대청소를 합시다 | BLUE MONDAY MIX | DJ MAD MAESTRO (Tiny Puppet S",
    "ch": "토스",
-   "ud": "2026-09-19"
+   "ud": "2026-09-20"
   },
   "naQTFLXQxt0": {
    "t": "문과 나와서 뭐먹고 살래?🧐문송합니다!ㅣ돈키타카",
@@ -4583,7 +4681,7 @@
   "H0Wyn2NdMM4": {
    "t": "앞으로도 무사고 기록에서 깨지 않도록🚙 | 삼성화재 다이렉트 자동차보험",
    "ch": "삼성화재",
-   "ud": "2026-09-01"
+   "ud": "2026-09-02"
   },
   "KofL2C8a6IM": {
    "t": "쉿, 세상에서 가장 조용한 기록🌙 | 삼성화재 다이렉트 자동차보험",
@@ -4608,7 +4706,7 @@
   "DhIB4IJjLq0": {
    "t": "[현대해상] 기업PR ‘이름 곁에 평생‘ 편_30s",
    "ch": "현대해상",
-   "ud": "2026-09-17"
+   "ud": "2026-09-11"
   },
   "E47DK3uzkNc": {
    "t": "[KB스타뱅킹] 2천만이 선택한 KB STAR Banking",
@@ -4713,7 +4811,7 @@
   "Gw2mAioyDZ8": {
    "t": "6억짜리가 1억으로 폭락? 땅값도 안 되는 바다 앞 전원주택 공짜 수준입니다",
    "ch": "여기어때",
-   "ud": "2026-09-26"
+   "ud": "2026-09-27"
   },
   "8TRmcmbs4W0": {
    "t": "[한국타이어] 한타人사이드 | 혁신을 현실로 만드는 사람들",
@@ -4728,7 +4826,7 @@
   "EjymChbmK0Y": {
    "t": "THE FIRST 4 | 24시간 극한의 레이스 | 한국타이어",
    "ch": "한국타이어",
-   "ud": "2026-09-17"
+   "ud": "2026-09-18"
   },
   "n9bGn1w_BeA": {
    "t": "한국테크노돔 | 타이어에 진심인 권석준 교수님과 전기차 전용 타이어 '아이온'을 살펴보다 |  한국타이어",
@@ -4771,7 +4869,7 @@
    "ud": "2026-09-18"
   },
   "wg7uDI1Rd9E": {
-   "t": "[콩쥐팥쥐] 콩쥐 추석 브이로그 찍다가 인생역전?! ㅣ 청호나이스",
+   "t": "[콩쥐팥쥐] 추석 브이로그, 명절에도 쉴 틈 없는 콩쥐에게 귀인이 찾아온다면? ㅣ 청호나이스",
    "ch": "청호나이스",
    "ud": "2026-09-22"
   },
@@ -4843,7 +4941,7 @@
   "MuCsJH0pyac": {
    "t": "내가 지원할 회사에 직접 와봤습니다👀 | 동원그룹 OPEN HOUSE",
    "ch": "동원",
-   "ud": "2026-09-17"
+   "ud": "2026-09-18"
   },
   "yO4xh4WhqqA": {
    "t": "[바디프랜드 X JYP] 승·하차 지원부터 전신 스트레칭까지, 차원이 다른 헬스케어로봇의 완성 (15’) A",
@@ -5068,7 +5166,7 @@
   "4g-Bv4KZq_c": {
    "t": "내 말을 끝까지 들어주는 사람",
    "ch": "LG유플러스",
-   "ud": "2026-09-23"
+   "ud": "2026-09-24"
   },
   "2JG622LzsJc": {
    "t": "기분 좋은 일상을 준비합니다, 삼성화재N잡크루｜자영업자 Ver.",
@@ -5078,7 +5176,7 @@
   "1Q4iETGZG_Y": {
    "t": "👌Starbuck Jazz 2026 스타벅스 매장음악🎼실시간 음악 🌹매장음악 광고없는☕週末の朝カフェBGM 📖STARBUCKS Soothing J",
    "ch": "스타벅스",
-   "ud": "2026-09-10"
+   "ud": "2026-09-11"
   },
   "-73ckBBH4og": {
    "t": "삼성 스마트카메라   TVCF",
@@ -5093,7 +5191,7 @@
   "yJ-dR-H-K0I": {
    "t": "Introducing the new BMW i3 50 xDrive First Edition | BMW UK",
    "ch": "BMW",
-   "ud": "2026-09-29"
+   "ud": "2026-09-30"
   },
   "gK5ZEDA4w9w": {
    "t": "[갤럭시 Z 폴더블 8]다시 뭉친 허간민이 읽어주는 더 심플한 AI 세상 #허간민 #AI",
@@ -5153,7 +5251,7 @@
   "ORxgGKyVVsU": {
    "t": "퇴근했는데 또 출근한다고요?ㅋㅋ 직장인들의 수상한 퇴근 후 생활",
    "ch": "동원",
-   "ud": "2026-09-10"
+   "ud": "2026-09-11"
   },
   "ZJA09N-pbQ4": {
    "t": "[태국 2026] 방콕의 성수동 쏭왓로드 이런 여행 어떠세요?",
@@ -5438,7 +5536,7 @@
   "e_CsGocUUNI": {
    "t": "CLA electric (전기차)ㅣ라인업 / 옵션 / 주행성능 총정리.",
    "ch": "메르세데스-벤츠",
-   "ud": "2026-09-03"
+   "ud": "2026-09-04"
   },
   "9kjKVHnpZ9M": {
    "t": "유해진 광고 영상 '댓글 차단'…지무비·이동진은 좌표 찍히자 비공개 [자막뉴스] / 채널A",
@@ -5543,7 +5641,7 @@
   "Vzrva9mS0NY": {
    "t": "\"8천만 원 전격 인하!\" 땅 500평에 운동장만 한 앞마당 가진 시골집을 이 가격에 파네요",
    "ch": "여기어때",
-   "ud": "2026-09-10"
+   "ud": "2026-09-11"
   },
   "Iwy-4WSqIXA": {
    "t": "[굿즈 혜택 공개] 네이버 멤버십 회원만을 위한 특별한 경험, 넾페스타",
@@ -6139,6 +6237,16 @@
    "t": "끝까지 끝내주는 AI, 네이버 AI탭 (Full)",
    "ch": "네이버",
    "ud": "2026-09-11"
+  },
+  "JpjpKimXQXY": {
+   "t": "KTF 굿타임 시네마 파티 추억의 (AD) 2005 TVCF 광고",
+   "ch": "임현진",
+   "ud": "2026-10-02"
+  },
+  "s3O1Trndym8": {
+   "t": "현대자동차 영업사원들의 솔직한 이야기｜‘결승전’ 시작합니다!",
+   "ch": "현대자동차",
+   "ud": "2026-09-19"
   }
  },
  "adHist": {
@@ -6735,58 +6843,58 @@
   }
  },
  "ogTried": [
-  "https://kbench.com/?q=node%2F282273",
+  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
+  "https://biz.heraldcorp.com/article/10888970",
+  "https://www.fnnews.com/news/202610011002099226",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253527",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6314",
+  "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
+  "https://www.mhns.co.kr/news/articleView.html?idxno=762240",
+  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
+  "https://www.ddaily.co.kr/page/view/2026093009350433994",
+  "https://view.asiae.co.kr/article/2026100110334769177",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
+  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491708",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
+  "https://www.i-boss.co.kr/ab-2877-18127",
+  "https://www.wikitree.co.kr/articles/1161400",
+  "https://zdnet.co.kr/view/?no=20260929094619",
+  "https://www.kukinews.com/article/view/kuk202610010053",
+  "https://biz.heraldcorp.com/article/10888599",
+  "https://zdnet.co.kr/view/?no=20260930160948",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29133",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
+  "https://www.newswire.co.kr/newsRead.php?no=1043736",
+  "https://www.news1.kr/industry/distribution/6307213",
+  "https://www.g-enews.com/article/Distribution/2026/10/202610011147567755740eacf404_1",
+  "https://news.mtn.co.kr/news-detail/2026100110044081644",
+  "https://www.ajunews.com/view/20260928082838817",
+  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
   "https://www.ezyeconomy.com/news/articleView.html?idxno=240407",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29130",
+  "https://www.news1.kr/life-culture/general-cultural/6306763",
+  "https://www.newspim.com/news/view/20261001001193",
+  "https://zdnet.co.kr/view/?no=20261001102641",
   "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
   "https://www.youthdaily.co.kr/news/article.html?no=227764",
-  "https://view.asiae.co.kr/article/2026100110334769177",
-  "https://www.starnewskorea.com/business-life/2026/09/28/2026092812141485718",
-  "https://zdnet.co.kr/view/?no=20261001102641",
-  "https://www.fnnews.com/news/202609301024069967",
-  "https://www.fnnews.com/news/202610011051433977",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.mobiinside.co.kr/2026/09/30/x-ads-marketing-guide-2026/",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
-  "https://www.ddaily.co.kr/page/view/2026093009350433994",
-  "https://www.kukinews.com/article/view/kuk202610010053",
-  "https://biz.heraldcorp.com/article/10888970",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://www.ajunews.com/view/20260928082838817",
-  "https://www.mt.co.kr/society/2026/09/30/2026093007083379328",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.fnnews.com/news/202610010959386992",
   "https://zdnet.co.kr/view/?no=20260930141113",
+  "https://www.fnnews.com/news/202609301024069967",
   "https://www.newsspace.kr/news/article.html?no=15937",
+  "https://m.news.nate.com/view/20261001n25772",
+  "https://www.segye.com/newsView/20261001504622",
+  "https://kbench.com/?q=node%2F282273",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253052",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
   "https://m.news.nate.com/view/20261001n25831",
   "https://isplus.com/article/view/isp202609290030",
-  "https://m.news.nate.com/view/20261001n25772",
-  "https://www.i-boss.co.kr/ab-2877-18127",
-  "https://www.mhns.co.kr/news/articleView.html?idxno=762240",
-  "https://www.fnnews.com/news/202610011002099226",
-  "https://www.seoul.co.kr/news/economy/car/2026/10/01/20261001030002",
-  "https://www.news1.kr/life-culture/general-cultural/6306763",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253527",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29095",
-  "https://zdnet.co.kr/view/?no=20260929094619",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.g-enews.com/article/Distribution/2026/10/202610011147567755740eacf404_1",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29130",
-  "https://zdnet.co.kr/view/?no=20260930160948",
   "https://www.seoul.co.kr/news/economy/2026/09/30/20260930500115",
-  "https://www.segye.com/newsView/20261001504622",
-  "https://www.wikitree.co.kr/articles/1161400",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29113",
-  "https://www.fnnews.com/news/202610010959386992",
-  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
-  "https://www.newswire.co.kr/newsRead.php?no=1043736",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29121",
-  "https://news.mtn.co.kr/news-detail/2026100110044081644",
-  "https://biz.heraldcorp.com/article/10888599",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6314",
-  "https://www.newspim.com/news/view/20261001001193",
-  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491708",
-  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29133",
-  "https://www.news1.kr/industry/distribution/6307213"
+  "https://www.fnnews.com/news/202610011051433977"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
@@ -7323,7 +7431,20 @@
   "qykJyZkiZNw": "와플이들 하잉 ! 오늘도 왔어요 🖤",
   "3l0SLHrd_94": "",
   "3cQMlY7djjI": "먼저 비난의 화살이 쏟아진 건 주연 배우 유해진을 광고모델로 내세운 버거킹입니다.",
-  "l3UBQvEtXH4": "예루살렘으로 가던 한 여객기가 어제(30일) 비상착륙하는 사고가 있었습니다. 부기장이 기장을 흉기로 찌른 뒤 강제 추락 시키려 한 것으로 전해졌는데, 참사를 막은"
+  "l3UBQvEtXH4": "예루살렘으로 가던 한 여객기가 어제(30일) 비상착륙하는 사고가 있었습니다. 부기장이 기장을 흉기로 찌른 뒤 강제 추락 시키려 한 것으로 전해졌는데, 참사를 막은",
+  "s3O1Trndym8": "안녕하세요! 현대자동차 결승전입니다 🚗",
+  "JpjpKimXQXY": "",
+  "GSUBt1MylGc": "[이 영상은 '안동탈춤페스티벌 한국정신문화재단'으로부터 제작비를 지원받아 제작되었습니다.]",
+  "4MIodT7mZs0": "",
+  "mGE-m7AbzJ4": "📌 10월 12일(월) 해외 쇼츠 수익화 무료 특강",
+  "ZsnnDgWGt4w": "",
+  "_mls4iLdMEc": "썸네일은 만화 '바키'의 영양 섭취 패러디입니다.",
+  "5H5xAhkLJj0": "2026 아시안게임 인도 대 스리랑카 2차 준결승전 하이라이트 | 인도 대 스리랑카",
+  "QXmZlbvo6zY": "광고문의 : choojongyoon@gmail.com",
+  "-_w8tlWmUCU": "베네수엘라전 D-1🔥",
+  "ZwjPd4mnKGE": "이번 영상은 조금 시끌시끌하고 온 몸에 냉면이 흐르는 느낌일수도🫠🌊〰️",
+  "VcbAwbRrYdw": "■ 본 영상은 AI 기술로 생성된 가상의 패러디 영상입니다. 실제 인물 및 사건과는 아무런 관련이 없으니 재미로만 즐겨주세요! (과몰입 방지 존)",
+  "wTm_VRnrZ7o": "티빙에서 스트리밍"
  },
  "bnews": {
   "하나은행": {
