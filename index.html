@@ -1341,11 +1341,14 @@ function boot(D){
   document.addEventListener('click',function(e){if(!$('allnews').hidden&&!e.target.closest('#allnews,#rollmore'))toggleAll(false)});
 
   var heat = {3:'급상승',2:'주목',1:'참고'};
-  function renderLive(){var insN=0;
-    $('live').innerHTML = prefSort(D.live,function(i){return i.tags}).map(function(o){var i=o.x;
+  // 실시간 이슈: 최신순(날짜 → 올라온 시각). 관심 분야는 순서를 바꾸지 않고 표시만
+  function liveKey(i){var m=String(i.date||'').match(/(\d+)\.(\d+)/),t=new Date(nowMs()+9*36e5),y=t.getUTCFullYear();if(!m)return '';var mo=+m[1];if(mo>t.getUTCMonth()+2)y--;return y+'-'+('0'+mo).slice(-2)+'-'+('0'+m[2]).slice(-2)+' '+(i.at||'')}
+  function liveSorted(){return (D.live||[]).map(function(x,i){return {x:x,i:i,k:liveKey(x),f:liked(x.tags)}}).sort(function(a,b){return a.k<b.k?1:a.k>b.k?-1:a.i-b.i})}
+  function renderLive(){
+    $('live').innerHTML = liveSorted().map(function(o){var i=o.x;
       var img = i.photo ? '<img class="thumb" src="'+esc(i.photo)+'" alt="" referrerpolicy="no-referrer" onerror="var a=this.closest(\'.news\');a&&a.classList.add(\'noimg\');this.remove()">' : '';
-      return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+'">'+img+'<div class="nt"><div class="meta">'+(heat[i.hot]?'<span class="heat h'+i.hot+'">'+heat[i.hot]+'</span>':'')+'<span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+'</span></div>'+
-        '<h3>'+link(i.url,esc(i.title))+'</h3><p>'+esc(i.summary)+'</p>'+(i.insight&&(insN++)<3?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'의 한마디</b>'+esc(i.insight)+'</p></div>':'')+'</div></article>';
+      return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+'">'+img+'<div class="nt"><div class="meta">'+(heat[i.hot]?'<span class="heat h'+i.hot+'">'+heat[i.hot]+'</span>':'')+'<span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+(i.at?' '+esc(i.at):'')+'</span></div>'+
+        '<h3>'+link(i.url,esc(i.title))+'</h3><p>'+esc(i.summary)+'</p>'+(i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'의 한마디</b>'+esc(i.insight)+'</p></div>':'')+'</div></article>';
     }).join('');
   }
 
