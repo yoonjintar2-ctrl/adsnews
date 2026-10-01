@@ -24,9 +24,6 @@ jobs:
       - name: Share-card renderer
         run: pip install -q playwright pillow || true
       - name: Refresh every 5 minutes
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          IMAGE_MODEL: ${{ secrets.IMAGE_MODEL }}
         run: |
           git config user.name "ad-radar-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -39,7 +36,6 @@ jobs:
             python scripts/fill_desc.py || echo "desc failed"
             python scripts/brand_news.py || echo "bnews failed"
             python scripts/fill_og.py || echo "og failed"
-            python scripts/gen_images.py || echo "images failed"
             python scripts/archive_brief.py || echo "archive failed"
             python scripts/make_puzzle.py || echo "puzzle failed"
             python scripts/make_share.py || echo "share failed"
