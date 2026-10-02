@@ -1340,6 +1340,13 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 @media (max-width:760px){.minis-g{grid-template-columns:1fr;row-gap:18px}.minis-g .mini+.mini{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:14px}.mini-b{text-align:left}}
 @media (min-width:981px){.a-live .news.tg.pc3 .ins3{display:block}.a-live .news.tg.pc3 .ins3 .ins{display:flex!important}.a-live .news.tg.pc3 .ins-tg{display:none}}
 .ins-tg .tg-gm{left:-9px;top:auto;bottom:-6px}
+.dbt-t.gm{margin-left:auto;flex-direction:row-reverse;text-align:left}
+.dbt-sep{display:flex;align-items:center;gap:10px;margin:6px 0 0;font-size:.72rem;font-weight:900;color:var(--muted);letter-spacing:.06em}
+.dbt-sep::before,.dbt-sep::after{content:"";flex:1;border-top:1px dotted var(--rule)}
+.dbt-b b{flex-wrap:wrap;row-gap:2px}.dbt-n,.dbt-b b i,.dbt-b b .dbt-to{white-space:nowrap}
+.dbt-note{margin:8px 0 0;font-size:.74rem;color:var(--faint)}
+.dbt-b b .dbt-to{font-style:normal;font-weight:700;font-size:.66rem;color:var(--red);margin-left:2px}
+.dbt-t.gm .dbt-b{background:#f9f9f6}
 @media (max-width:980px){.staff-g{column-gap:22px!important}.staff-g .staff,.staff-g .staff+.staff,.staff-g .staff:nth-child(n){border-left:0!important;padding-left:0!important;padding-right:0!important}}
 </style>
 
@@ -1609,8 +1616,9 @@ function boot(D){
   function debateHtml(main){var B=D.db||{}; if(!B.turns||!B.turns.length||B.url!==main.url) return '';
     var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,'제민아 대리'],gk:[GK_AV,'김그록 사원']};
     return '<div class="dbt"><div class="dbt-h"><b>AI '+(B.turns.some(function(t){return t.who==='gm'})?'4':'3')+'대장의 토론</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+'</div><ol class="dbt-l">'+
-      B.turns.map(function(t){var w=who[t.who]||['',''];return '<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b>'+esc(w[1])+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
-      '</ol></div>'}
+      B.turns.map(function(t,ix){var w=who[t.who]||['',''];var sep=(t.tag==='마무리'&&ix>0&&B.turns[ix-1].tag!=='마무리')?'<li class="dbt-sep"><span>마무리 한마디</span></li>':'';var to=(t.to||[]).concat([]).map(function(x){return (who[x]||['',''])[1]}).filter(Boolean);
+        return sep+'<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b><span class="dbt-n">'+esc(w[1])+'</span>'+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+(to.length?'<em class="dbt-to">→ '+esc(to.join('·'))+'</em>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
+      '</ol>'+(B.note?'<p class="dbt-note">'+esc(B.note)+'</p>':'')+'</div>'}
   // 김그록 사원의 X 반응 체크: 오늘의 캠페인에 대한 X 반응 온도와 한 줄 촌평
   function xPulse(main){var X=(D.gk||{}).xpulse; if(!X||X.url!==main.url||!X.summary) return '';
     return '<div class="xp"><span class="xp-h">X 반응 체크 <i>'+esc(X.temp||'')+'</i></span><p class="xp-s">'+esc(X.summary)+'</p>'+
