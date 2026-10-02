@@ -93,7 +93,7 @@ def svg_targets(path):
                 continue
         pg = b.new_page()
         pg.set_content(f"<html><body style='margin:0'>{svg}</body></html>")
-        res = pg.evaluate("""()=>[...document.querySelectorAll('svg [id^="hidden-"],svg [data-name]')].map(e=>{const b=e.getBBox();
+        res = pg.evaluate("""()=>[...document.querySelectorAll('svg [id^="hidden-"],svg [data-name]')].filter(e=>typeof e.getBBox==='function'&&(e.hasAttribute('data-name')||/^hidden-\\d+$/.test(e.id))).map(e=>{const b=e.getBBox();
           return {name:e.getAttribute('data-name')||e.id,x:b.x+b.width/2,y:b.y+b.height/2,w:b.width,h:b.height}})""")
         b.close()
     out, seen = [], set()
@@ -135,12 +135,14 @@ def check_targets(ts, w, h):
 def preview_hidden(img, ts, w, h, out):
     """정답 위치를 빨간 원으로 표시한 미리보기 — 사람이 눈으로 확인한다."""
     from playwright.sync_api import sync_playwright
-    href = os.path.abspath(img)
+    import base64, mimetypes
+    mt = "image/svg+xml" if img.endswith(".svg") else (mimetypes.guess_type(img)[0] or "image/png")
+    href = f"data:{mt};base64," + base64.b64encode(open(img, "rb").read()).decode()
     marks = "".join(f'<circle cx="{t["x"]}" cy="{t["y"]}" r="{t["r"]}" fill="none" stroke="red" stroke-width="3"/>'
                     f'<text x="{t["x"]}" y="{float(t["y"]) - float(t["r"]) - 4}" font-size="14" fill="red" text-anchor="middle" font-weight="700">{t["name"]}</text>'
                     for t in ts)
     page = (f"<html><body style='margin:0'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {w} {h}' width='{min(1200, w * 2)}'>"
-            f"<image href='file://{href}' width='{w}' height='{h}'/>{marks}</svg></body></html>")
+            f"<image href='{href}' width='{w}' height='{h}'/>{marks}</svg></body></html>")
     with sync_playwright() as p:
         b = None
         for kw in ({"channel": "chrome"}, {}, {"executable_path": "/opt/pw-browsers/chromium"}):
@@ -185,7 +187,7 @@ def main():
     model = M.get("model") or "ChatGPT"
     stamp = now_kst().isoformat(timespec="seconds")
     new = json.loads(json.dumps(jp))
-    new["author"] = dict(AUTHOR, model=model)
+    new["author"] = dict(AUTHOR, **{k: v for k, v in (jp.get("author") or {}).items() if k in ("intro", "avatar")}, model=model)
 
     E = M.get("editorial")
     if E:
