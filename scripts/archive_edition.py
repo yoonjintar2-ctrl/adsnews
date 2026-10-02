@@ -65,7 +65,7 @@ def write(date, src="."):
     json.dump(data, open(os.path.join(out, "data.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     json.dump(trim_live(load(os.path.join(src, "live.json"), {}), data), open(os.path.join(out, "live.json"), "w", encoding="utf-8"),
               ensure_ascii=False, separators=(",", ":"))
-    for f in ("puzzle.json", "hidden.json"):
+    for f in ("puzzle.json", "hidden.json", "jipiltae.json"):
         if os.path.exists(os.path.join(src, f)):
             shutil.copyfile(os.path.join(src, f), os.path.join(out, f))
     return True

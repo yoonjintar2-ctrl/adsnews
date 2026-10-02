@@ -78,7 +78,12 @@ a{color:#1a1a1a}
 .go{display:block;text-align:center;border:1px solid #1a1a1a;padding:10px;margin:18px 0;font-weight:700;text-decoration:none;background:#fff}"""
 
 
-def page_html(d, D, prev_d, next_d, has_card):
+JP_START = "2026-10-02"
+JPN = "지필태 기자"
+
+
+def page_html(d, D, prev_d, next_d, has_card, J=None):
+    J = J or {}
     b = D.get("brief") or {}
     camps = D.get("campaigns") or []
     feat = next((c for c in camps if c.get("feature")), camps[0] if camps else {})
@@ -117,7 +122,11 @@ def page_html(d, D, prev_d, next_d, has_card):
 <span class="k">{esc(kick)} · 금로동 기자</span>
 <h1>{esc(head)}</h1>"""]
     svg = safe_svg((b.get("cartoon") or {}).get("svg"))
-    if (b.get("cartoon") or {}).get("img"):
+    jc = J.get("cartoon") or {}
+    if jc.get("img") and jc.get("for") == d:
+        svg = f'<img src="../{esc(jc["img"])}" alt="{esc(jc.get("alt") or jc.get("caption"))}" style="display:block;width:100%">'
+        b = dict(b, cartoon=dict(b.get("cartoon") or {}, caption=(jc.get("caption") or "") + " · 만평 지필태 기자(ChatGPT)"))
+    elif (b.get("cartoon") or {}).get("img"):
         svg = f'<img src="../{esc(b["cartoon"]["img"])}" alt="{esc((b.get("cartoon") or {}).get("caption"))}" style="display:block;width:100%;filter:grayscale(1)">'
     if svg:
         cap = (b.get("cartoon") or {}).get("caption")
@@ -126,13 +135,22 @@ def page_html(d, D, prev_d, next_d, has_card):
     for para in [p for p in re.split(r"\n+", body) if p.strip()]:
         out.append(f"<p>{esc(para)}</p>")
     out.append("</article>")
+    je = J.get("editorial") or {}
+    if je.get("date") == d and je.get("body"):
+        src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in je.get("sources") or [] if x.get("url"))
+        out.append(f"<article id=\"jp\"><span class=\"k\">미니 사설 · {JPN} (ChatGPT 기반)</span><h1>{esc(je.get('headline'))}</h1>"
+                   + "".join(f"<p>{esc(x)}</p>" for x in re.split(r"\n+", je["body"]) if x.strip())
+                   + (f"<p class=\"meta\">출처 · {src}</p>" if src else "") + "</article>")
     if feat.get("title"):
         out.append(f"""<section><h2>오늘의 광고 캠페인</h2>
 <span class="k">{esc(feat.get('brand'))}</span><h3>{esc(feat.get('title'))}</h3>
 <p class="meta">{esc(' · '.join([x for x in [feat.get('date'), ' · '.join(feat.get('media') or []), feat.get('metric')] if x]))}</p>
 <p>{esc(feat.get('story'))}</p>""")
         if feat.get("review") or feat.get("why"):
-            out.append(f"<div class=\"op\"><b>금로동 기자의 한마디</b>{esc(feat.get('review') or feat.get('why'))}</div>")
+            out.append(f"<div class=\"op\"><b>금로동 기자의 분석 (Claude)</b>{esc(feat.get('review') or feat.get('why'))}</div>")
+        jk = J.get("campaign") or {}
+        if jk.get("url") == feat.get("url") and jk.get("review"):
+            out.append(f"<div class=\"op\"><b>{JPN}의 분석 (ChatGPT)</b>{esc(jk['review'])}</div>")
         if feat.get("url"):
             out.append(f"<p class=\"meta\"><a href=\"{esc(feat['url'])}\" rel=\"nofollow noopener\">관련 기사 ↗</a></p>")
         if picks:
@@ -140,12 +158,17 @@ def page_html(d, D, prev_d, next_d, has_card):
                 f"<li><b>{esc(c.get('brand'))}</b> — {esc(c.get('title'))}. {esc(clip(c.get('story'), 120))}</li>" for c in picks) + "</ul>")
         out.append("</section>")
     TN = (D.get("trendNotes") or {}).get("items") or []
+    if d >= JP_START:
+        TN = [dict(t, by="금로동 기자 (Claude)") for t in TN[:1]]
+        jt = J.get("trend") or {}
+        if jt.get("date") == ((D.get("trendNotes") or {}).get("date") or d) and jt.get("body"):
+            TN.append(dict(jt, by=JPN + " (ChatGPT)"))
     if TN:
-        out.append("<section><h2>금기자의 트렌드 노트</h2>")
+        out.append("<section><h2>트렌드 노트</h2>")
         for t in TN[:3]:
             src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in t.get("sources") or [] if x.get("url"))
             tsv = f'<img src="../{esc(t["img"])}" alt="{esc(t.get("tag"))}" style="display:block;width:100%;filter:grayscale(1)">' if t.get("img") else safe_svg(t.get("svg"))
-            out.append((f"<figure>{tsv}</figure>" if tsv else "") + f"<h3>#{esc(t.get('tag'))} — {esc(t.get('title'))}</h3><p>{esc(t.get('body'))}</p>"
+            out.append((f"<figure>{tsv}</figure>" if tsv else "") + f"<h3>#{esc(t.get('tag'))} — {esc(t.get('title'))}</h3>" + (f"<p class=\"meta\">글 {esc(t['by'])}</p>" if t.get("by") else "") + f"<p>{esc(t.get('body'))}</p>"
                        + (f"<p><b>광고인 포인트</b> {esc(t.get('point'))}</p>" if t.get("point") else "")
                        + (f"<p class=\"meta\">{src}</p>" if src else ""))
         out.append("</section>")
@@ -171,6 +194,9 @@ def page_html(d, D, prev_d, next_d, has_card):
         out.append("<section><h2>실시간 이슈</h2><ul>")
         for x in live:
             ins = f"<br><i>금로동 기자: {esc(x['insight'])}</i>" if x.get("insight") else ""
+            jl = (J.get("live") or {}).get(x.get("url")) or {}
+            if jl.get("comment") and (not jl.get("title") or jl.get("title") == x.get("title")):
+                ins += f"<br><i>{JPN}: {esc(jl['comment'])}</i>"
             out.append(f"<li><b>{esc(x.get('title'))}</b> <span class=\"meta\">{esc(x.get('date'))}</span><br>{esc(x.get('summary'))}{ins}"
                        + (f" <a class=\"meta\" href=\"{esc(x['url'])}\" rel=\"nofollow noopener\">기사 ↗</a>" if x.get("url") else "") + "</li>")
         out.append("</ul></section>")
@@ -184,22 +210,24 @@ def page_html(d, D, prev_d, next_d, has_card):
 
 def main():
     os.makedirs("e", exist_ok=True)
-    eds = {}
+    eds, jps = {}, {}
     if os.path.isdir("archive"):
         for d in os.listdir("archive"):
             p = os.path.join("archive", d, "data.json")
             if re.fullmatch(r"\d{4}-\d\d-\d\d", d) and os.path.exists(p):
                 eds[d] = load(p, {})
+                jps[d] = load(os.path.join("archive", d, "jipiltae.json"), {})
     cur = load("data.json", {})
     today = ((cur.get("brief") or {}).get("cartoon") or {}).get("date") or datetime.now(KST).strftime("%Y-%m-%d")
     if cur.get("brief"):
         eds[today] = cur
+        jps[today] = load("jipiltae.json", {})
     dates = sorted(eds)
     n = 0
     for i, d in enumerate(dates):
         prev_d = dates[i - 1] if i > 0 else None
         next_d = dates[i + 1] if i + 1 < len(dates) else None
-        n += put(f"e/{d}.html", page_html(d, eds[d], prev_d, next_d, os.path.exists(f"s/ed-{d}.png")))
+        n += put(f"e/{d}.html", page_html(d, eds[d], prev_d, next_d, os.path.exists(f"s/ed-{d}.png"), jps.get(d)))
     rows = "".join(
         f"<li><a href=\"{d}.html\"><b>제{issue_no(d)}호 · {esc(md(d))}</b> {esc((eds[d].get('brief') or {}).get('headline'))}</a>"
         + (f"<br><span class=\"meta\">캠페인 · {esc(next((c.get('brand', '') + ' ' + c.get('title', '') for c in eds[d].get('campaigns') or [] if c.get('feature')), ''))}"
@@ -237,6 +265,16 @@ def main():
             f"오늘의 광고 캠페인: {feat.get('brand', '')} {feat.get('title', '')}".strip() if feat.get("title") else "",
             f"오늘의 광고인: {per}" if per else ""] if x)
         desc = clip(b.get("lede") or b.get("body"), 200) + (f" ({extra})" if extra else "")
+        je = (jps.get(d) or {}).get("editorial") or {}
+        if je.get("date") == d and je.get("headline"):
+            items.append(f"""  <item>
+   <title>{esc(je['headline'])} — 지필태 기자</title>
+   <link>{SITE}e/{d}.html#jp</link>
+   <guid isPermaLink="true">{SITE}e/{d}.html#jp</guid>
+   <pubDate>{rfc(d)}</pubDate>
+   <description>{esc(clip(je.get('lede') or je.get('body'), 200))}</description>
+  </item>
+""")
         items.append(f"""  <item>
    <title>{esc(b['headline'])}</title>
    <link>{SITE}e/{d}.html</link>

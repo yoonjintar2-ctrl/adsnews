@@ -80,7 +80,14 @@ def archive_trends():
         arr = json.load(open("trendnotes.json", encoding="utf-8"))
     except Exception:
         arr = []
-    entry = {"date": t["date"], "tags": [x.get("tag") for x in t["items"]]}
+    tags = [x.get("tag") for x in t["items"]]
+    try:  # 지필태 기자의 같은 날 트렌드 주제도 함께 기록 → 두 기자 모두 30일 안에 같은 주제를 피한다
+        jt = (json.load(open("jipiltae.json", encoding="utf-8")).get("trend") or {})
+        if jt.get("date") == t["date"] and jt.get("tag") and jt["tag"] not in tags:
+            tags.append(jt["tag"])
+    except Exception:
+        pass
+    entry = {"date": t["date"], "tags": tags}
     if next((e for e in arr if e.get("date") == t["date"]), None) == entry:
         return
     arr = [e for e in arr if e.get("date") != t["date"]] + [entry]
