@@ -291,6 +291,12 @@ def main():
                 err("숨은그림: 그림 크기를 알 수 없어요 (SVG는 viewBox 필요)")
             else:
                 ts = svg_targets(p) if p.endswith(".svg") and not Hd.get("targets") else (Hd.get("targets") or [])
+                src = os.path.join(src_dir, Hd.get("file") or "")
+                if ts and not p.endswith(".svg") and os.path.exists(src):
+                    sw, _ = img_size(src)  # 원본 픽셀 좌표 → 줄여 저장한 그림 좌표
+                    k = w / sw if sw else 1
+                    if abs(k - 1) > 1e-6:
+                        ts = [dict(t, x=round(float(t["x"]) * k, 1), y=round(float(t["y"]) * k, 1), r=round(float(t["r"]) * k, 1)) for t in ts]
                 check_targets(ts, w, h)
                 prev = f"jipiltae/preview/hidden-{date}.png"
                 os.makedirs("jipiltae/preview", exist_ok=True)
