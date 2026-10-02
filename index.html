@@ -1169,6 +1169,9 @@ body,button,input,select,textarea{font-family:var(--serif)}
 @media (max-width:980px){.staff-g{grid-template-columns:1fr}.staff{padding:10px 0}.staff+.staff{border-left:0;padding-left:0;border-top:1px solid var(--rule-soft)}}
 @media (max-width:620px){.st-t p{font-size:.95rem}}
 
+/* v43: 첫 정렬 전에는 하단 4칸을 미리 눌러 둔다(처음에 길게 늘어졌다 줄어드는 현상 방지) */
+body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
+
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
@@ -1752,7 +1755,7 @@ function boot(D){
     sec.hidden=false;
   }
   function ph(label,dark){var t=String(label||'').replace(/\s+/g,'');return '<span class="ci-ph'+(dark?' dark':'')+'"><span>'+esc(t.slice(0,dark?6:2))+'</span>'+(dark?'<em>PDF</em>':'')+'</span>'}
-  function cleanDesc(d){d=String(d||'').replace(/^\s*\[[^\]]{1,30}\]\s*/,'').replace(/^[^=|]{0,30}(기자|특파원|에디터)\s*[=|]\s*/,'').replace(/^[^=]{1,20}=\s*/,'').replace(/^[^|]{0,20}\|\s*/,'').trim();return d.length<18?'':d}
+  function cleanDesc(d){d=String(d||'');if(d.indexOf('\ufffd')>-1)return '';d=d.replace(/^\s*\[[^\]]{1,30}\]\s*/,'').replace(/^[^=|]{0,30}(기자|특파원|에디터)\s*[=|]\s*/,'').replace(/^[^=]{1,20}=\s*/,'').replace(/^[^|]{0,20}\|\s*/,'').trim();return d.length<18?'':d}
   function card(o){var g=ogOf(o.url),img=o.img||g.i,d=cleanDesc(o.desc||g.d||'');
     var pic=img?'<span class="ci-ph"><img src="'+esc(img)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<span>'+esc(String(o.ph||'').slice(0,2))+'</span>\'"></span>':ph(o.ph,o.dark);
     return '<a class="ci" href="'+esc(o.url||'#')+'" target="_blank" rel="noopener">'+pic+'<span class="ci-t"><span class="ci-k">'+(o.kick?'<b>'+esc(o.kick)+'</b>':'')+(o.date?'<i>'+esc(o.date)+'</i>':'')+(o.src?'<i>'+esc(o.src)+'</i>':'')+'</span><strong>'+esc(o.title)+'</strong>'+(d&&d.replace(/\s/g,'')!==String(o.title).replace(/\s/g,'')?'<span class="ci-d">'+esc(d)+'</span>':'')+'</span></a>'}
@@ -1914,6 +1917,7 @@ function boot(D){
 
   function backTo(el){var r=el.getBoundingClientRect();if(r.top<0)window.scrollTo(0,window.pageYOffset+r.top-8)}
   function balanceRow4(){
+    document.body.classList.add('r4-ok');
     var secs=[].slice.call(document.querySelectorAll('.np-row4 .r4'));
     secs.forEach(function(sec){[].forEach.call(sec.querySelectorAll('.cut'),function(e){e.classList.remove('cut')});var b=sec.querySelector('.more-btn');if(b)b.remove();});
     function items(sec){var el=document.getElementById(sec.getAttribute('data-list'));return el?[].slice.call(el.children):[]}
@@ -1936,7 +1940,8 @@ function boot(D){
     if(window.innerWidth<=1180){ secs.forEach(function(sec){trim(sec,(window.innerWidth<=620?21:24)*rem)}); return; }
     // 1) 리포트·업계: 둘 중 짧은 쪽 높이, 단 너무 길어지지 않게 상한
     var hs=secs.filter(function(s){var l=s.getAttribute('data-list');return l==='reps'||l==='anews'}).map(h).filter(function(x){return x>0});
-    if(!hs.length) return;
+    // 리포트·업계 칸이 아직 비어 있어도(데이터 도착 전) 길게 펼쳐 두지 않고 기본 높이로 자른다
+    if(!hs.length) hs=[23*rem];
     var H=Math.min(Math.min.apply(null,hs),23*rem);
     secs.forEach(function(sec){var l=sec.getAttribute('data-list');if(l==='reps'||l==='anews')trim(sec,H)});
     // 2) 행 높이 = 리포트·업계 + 광고 지면. 팔로잉·매체 칸을 잠시 접고 광고 하단 위치를 잰다

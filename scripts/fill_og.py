@@ -19,6 +19,22 @@ def meta(x, *names):
     return ""
 
 
+def decode(raw, ctype=""):
+    """한국 언론사 중 EUC-KR(CP949) 페이지가 있어 UTF-8로만 읽으면 글자가 깨진다 → 선언된 문자셋을 따르고, 없으면 차례로 시도."""
+    cands = []
+    m = re.search(r"charset=([\w-]+)", ctype or "", re.I) or re.search(rb"<meta[^>]+charset=[\"']?([\w-]+)", raw[:6000], re.I)
+    if m:
+        cs = m.group(1)
+        cands.append(cs.decode() if isinstance(cs, bytes) else cs)
+    cands += ["utf-8", "cp949"]
+    for cs in cands:
+        try:
+            return raw.decode({"euc-kr": "cp949", "ks_c_5601-1987": "cp949"}.get(cs.lower(), cs))
+        except Exception:
+            continue
+    return raw.decode("utf-8", "replace")
+
+
 def fetch(url):
     req = urllib.request.Request(url, headers=HDR)
     with urllib.request.urlopen(req, timeout=10) as r:
@@ -26,7 +42,7 @@ def fetch(url):
         ctype = r.headers.get("Content-Type", "")
         if "html" not in ctype:
             return {"i": "", "d": ""}
-        x = r.read(500000).decode("utf-8", "replace")
+        x = decode(r.read(500000), ctype)
     # Google News article links answer with a small page that points to the publisher
     if "news.google.com" in final:
         m = re.search(r'data-n-au=["\']([^"\']+)', x) or re.search(r'<a[^>]+href=["\'](https?://(?!news\.google)[^"\']+)', x)
@@ -38,6 +54,8 @@ def fetch(url):
     if not img.startswith("http"):
         img = ""
     d = re.sub(r"\s+", " ", meta(x, "og:description", "description", "twitter:description"))[:160]
+    if "\ufffd" in d:  # 그래도 깨졌으면 설명은 비운다
+        d = ""
     return {"i": img, "d": d}
 
 
@@ -63,6 +81,8 @@ def main():
     data = json.load(open("data.json", encoding="utf-8"))
     live = json.load(open("live.json", encoding="utf-8"))
     OG = live.get("og") or {}
+    for u in [u for u, v in OG.items() if "\ufffd" in (v.get("d") or "")]:
+        OG.pop(u)  # 예전에 문자셋을 잘못 읽어 깨진 설명은 다시 가져온다
     want = urls(data, live)
     t0, n = time.time(), 0
     for u in want:
