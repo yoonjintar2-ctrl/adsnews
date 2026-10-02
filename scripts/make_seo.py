@@ -125,7 +125,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
     jc = J.get("cartoon") or {}
     if jc.get("img") and jc.get("for") == d:
         svg = f'<img src="../{esc(jc["img"])}" alt="{esc(jc.get("alt") or jc.get("caption"))}" style="display:block;width:100%">'
-        b = dict(b, cartoon=dict(b.get("cartoon") or {}, caption=(jc.get("caption") or "") + " · 만평 지필태 기자(ChatGPT)"))
+        b = dict(b, cartoon=dict(b.get("cartoon") or {}, caption=(jc.get("caption") or "") + " · 만평 지필태 기자"))
     elif (b.get("cartoon") or {}).get("img"):
         svg = f'<img src="../{esc(b["cartoon"]["img"])}" alt="{esc((b.get("cartoon") or {}).get("caption"))}" style="display:block;width:100%;filter:grayscale(1)">'
     if svg:
@@ -138,7 +138,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
     je = J.get("editorial") or {}
     if je.get("date") == d and je.get("body"):
         src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in je.get("sources") or [] if x.get("url"))
-        out.append(f"<article id=\"jp\"><span class=\"k\">미니 사설 · {JPN} (ChatGPT 기반)</span><h1>{esc(je.get('headline'))}</h1>"
+        out.append(f"<article id=\"jp\"><span class=\"k\">미니 사설 · {JPN}</span><h1>{esc(je.get('headline'))}</h1>"
                    + "".join(f"<p>{esc(x)}</p>" for x in re.split(r"\n+", je["body"]) if x.strip())
                    + (f"<p class=\"meta\">출처 · {src}</p>" if src else "") + "</article>")
     if feat.get("title"):
@@ -147,10 +147,10 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
 <p class="meta">{esc(' · '.join([x for x in [feat.get('date'), ' · '.join(feat.get('media') or []), feat.get('metric')] if x]))}</p>
 <p>{esc(feat.get('story'))}</p>""")
         if feat.get("review") or feat.get("why"):
-            out.append(f"<div class=\"op\"><b>금로동 기자의 분석 (Claude)</b>{esc(feat.get('review') or feat.get('why'))}</div>")
+            out.append(f"<div class=\"op\"><b>금로동 기자의 분석</b>{esc(feat.get('review') or feat.get('why'))}</div>")
         jk = J.get("campaign") or {}
         if jk.get("url") == feat.get("url") and jk.get("review"):
-            out.append(f"<div class=\"op\"><b>{JPN}의 분석 (ChatGPT)</b>{esc(jk['review'])}</div>")
+            out.append(f"<div class=\"op\"><b>{JPN}의 분석</b>{esc(jk['review'])}</div>")
         if feat.get("url"):
             out.append(f"<p class=\"meta\"><a href=\"{esc(feat['url'])}\" rel=\"nofollow noopener\">관련 기사 ↗</a></p>")
         if picks:
@@ -159,10 +159,10 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
         out.append("</section>")
     TN = (D.get("trendNotes") or {}).get("items") or []
     if d >= JP_START:
-        TN = [dict(t, by="금로동 기자 (Claude)") for t in TN[:1]]
+        TN = [dict(t, by="금로동 기자") for t in TN[:1]]
         jt = J.get("trend") or {}
         if jt.get("date") == ((D.get("trendNotes") or {}).get("date") or d) and jt.get("body"):
-            TN.append(dict(jt, by=JPN + " (ChatGPT)"))
+            TN.append(dict(jt, by=JPN))
     if TN:
         out.append("<section><h2>트렌드 노트</h2>")
         for t in TN[:3]:

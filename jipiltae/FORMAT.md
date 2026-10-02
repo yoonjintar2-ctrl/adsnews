@@ -16,11 +16,16 @@
 | edition | 호 날짜 `YYYY-MM-DD` | |
 | author | `"지필태"` | 다르면 거부 |
 | model | 사용한 GPT 모델 이름 | 화면·기록에 남김 |
-| editorial | `{headline, lede, body, sources[{t,url}]}` | 본문 공백 제외 700~1300자, 출처 URL 1개 이상 |
-| cartoon | `{file, caption, bubble, alt}` — 금로동 사설용 만평 | png/jpg/webp/svg, 4MB 이하 |
-| campaign | `{url, review}` — 오늘의 캠페인 분석 | url이 오늘의 캠페인과 같아야 화면에 나옴 |
-| live | `[{id, url, comment}]` — 이슈별 한 줄 | url이 현재 실시간 목록에 있어야 함 |
+| editorial | `{headline, lede, body, sources[{t,url}], cartoon?{file,caption,bubble,bubblePos}}` | 본문 400~700자(목표 500~600), 출처 URL 1개 이상. cartoon = 지필태 사설에 붙는 만평 |
+| editorialCartoon | `{file, caption, bubble, bubblePos}` | 사설은 이미 받았고 만평만 따로 보낼 때 |
+| cartoon | `{file, caption, bubble, bubblePos, alt}` — 금로동 사설용 만평 | png/jpg/webp(→1600px JPEG로 저장), 4MB 이하 |
+| campaign | `{url, review}` — 오늘의 캠페인 분석(120~260자, 목표 150~200) | url이 오늘의 캠페인과 같아야 화면에 나옴 |
+| live | `[{id, url, comment}]` — 이슈별 한 줄(40자 안팎) | url이 현재 실시간 목록에 있어야 함 |
 | trend | `{tag, title, body, point, sources, file?}` | 최근 30일 태그와 겹치면 거부, 출처 필수 |
+| trendImage | `{file, alt?}` | 이미 받은 지필태 트렌드 노트에 그림만 붙일 때 |
+| trendArt | `{file, tag, alt?}` | 금로동 트렌드 노트에 붙는 지필태 그림(태그가 같아야 표시) |
+| person | `{file, name, alt?}` | 오늘의 인물 시네마틱 일러스트(이름이 같아야 표시, 'AI 일러스트' 표기) |
+| publisher | `{file}` | 필진 소개용 발행인 초상 |
 | hidden | `{file, title, inspired, targets?}` | 물건 6~10개, 그림 안 좌표, 미리보기 확인 후 공개 |
 | avatar | `{file}` | 프로필 그림(처음 한 번) |
 
@@ -31,3 +36,6 @@
 - `img/jp/` — 지필태 그림
 - `jipiltae/manuscripts/` — 받은 원고 원본 보관
 - `archive/<날짜>/jipiltae.json` — 지난 호 보존(23:45~23:59 자동 복사)
+
+## 그림을 받아 오는 길
+ChatGPT 화면의 그림은 파일로 내려받지 않습니다(발행인 결정). 금로동이 크롬에서 그림만 화면 가득 띄워 캡처 → GitHub `jp-inbox` 브랜치에 업로드(사이트에 게시되지 않음) → 여기서 받아 테두리를 잘라 `img/jp/`로 반영합니다. 그림마다 손·팔 개수, 얼굴, 원근을 금로동이 먼저 확인하고 이상하면 돌려보냅니다.

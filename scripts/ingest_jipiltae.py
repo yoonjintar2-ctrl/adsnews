@@ -56,17 +56,22 @@ def put_image(src_dir, fname, kind, date):
             err(f"{kind}: SVG에 스크립트·외부 링크가 있거나 <svg>로 시작하지 않아요")
             return None
     os.makedirs(JP_IMG, exist_ok=True)
-    out = f"{JP_IMG}/{kind}-{date}{'.jpg' if ext == '.jpeg' else ext}"
+    out = f"{JP_IMG}/{kind}-{date}{'.svg' if ext == '.svg' else '.jpg'}"
     if ext in (".png", ".jpg", ".jpeg", ".webp"):
-        try:  # 너무 큰 그림은 가로 1600px로 줄인다
+        try:  # 생성 그림은 가로 1600px 이하 JPEG로 가볍게 저장한다
             from PIL import Image
             im = Image.open(p)
+            if im.mode in ("RGBA", "LA", "P"):
+                im = im.convert("RGBA"); bg = Image.new("RGB", im.size, (255, 255, 255)); bg.paste(im, mask=im.split()[-1]); im = bg
+            else:
+                im = im.convert("RGB")
             if im.width > 1600:
-                im = im.resize((1600, round(im.height * 1600 / im.width)))
-            im.save(out)
+                im = im.resize((1600, round(im.height * 1600 / im.width)), Image.LANCZOS)
+            im.save(out, "JPEG", quality=86, optimize=True, progressive=True)
             return out
-        except Exception:
-            pass
+        except Exception as e:
+            err(f"{kind}: 그림을 열 수 없어요 — {fname} ({e})")
+            return None
     shutil.copyfile(p, out)
     return out
 
@@ -191,15 +196,34 @@ def main():
 
     E = M.get("editorial")
     if E:
-        if chk_len("사설 본문", E.get("body"), 700, 1300) and E.get("headline"):
+        if chk_len("사설 본문", E.get("body"), 400, 700) and E.get("headline"):
             gh = (data.get("brief") or {}).get("headline", "")
             if gh and len(set(gh.split()) & set(E["headline"].split())) >= 3:
                 warn("사설: 금로동 사설 제목과 단어가 많이 겹쳐요 — 독립 주제인지 확인")
             new["editorial"] = {"date": date, "headline": E["headline"].strip(), "lede": (E.get("lede") or "").strip(),
                                 "body": " ".join(E["body"].split()), "sources": chk_sources("사설", E.get("sources")),
                                 "model": model, "at": stamp}
+            EC = E.get("cartoon")
+            if EC:
+                p = put_image(src_dir, EC.get("file"), "edcartoon", date) if not a.dry_run else EC.get("file")
+                if p:
+                    new["editorial"]["cartoon"] = {"img": p, "caption": (EC.get("caption") or "").strip(), "bubble": (EC.get("bubble") or "").strip(),
+                                                   "bubblePos": EC.get("bubblePos") if EC.get("bubblePos") in ("tl", "tr", "bl", "br") else "",
+                                                   "alt": (EC.get("alt") or EC.get("caption") or "만평").strip()}
+            elif (jp.get("editorial") or {}).get("date") == date and (jp["editorial"].get("cartoon")):
+                new["editorial"]["cartoon"] = jp["editorial"]["cartoon"]
         else:
             err("사설: headline과 body가 필요해요")
+    elif (M.get("editorialCartoon") or {}).get("file"):
+        EC = M["editorialCartoon"]
+        if (new.get("editorial") or {}).get("date") != date:
+            err("사설 만평: 오늘 자 지필태 사설이 아직 없어요")
+        else:
+            p = put_image(src_dir, EC.get("file"), "edcartoon", date) if not a.dry_run else EC.get("file")
+            if p:
+                new["editorial"]["cartoon"] = {"img": p, "caption": (EC.get("caption") or "").strip(), "bubble": (EC.get("bubble") or "").strip(),
+                                               "bubblePos": EC.get("bubblePos") if EC.get("bubblePos") in ("tl", "tr", "bl", "br") else "",
+                                               "alt": (EC.get("alt") or EC.get("caption") or "만평").strip()}
 
     C = M.get("cartoon")
     if C:
@@ -214,7 +238,7 @@ def main():
         feat = feature_campaign(data)
         if K.get("url") != feat.get("url"):
             warn(f"캠페인: 오늘의 캠페인과 URL이 달라요 (오늘: {feat.get('brand')} {feat.get('title')}) — 화면에는 같은 캠페인일 때만 나와요")
-        if chk_len("캠페인 분석", K.get("review"), 250, 480):
+        if chk_len("캠페인 분석", K.get("review"), 120, 260):
             new["campaign"] = {"date": date, "url": K.get("url"), "title": feat.get("title") if K.get("url") == feat.get("url") else K.get("title", ""),
                                "review": " ".join(K["review"].split()), "model": model, "at": stamp}
 
@@ -226,7 +250,7 @@ def main():
             u, c = x.get("url"), (x.get("comment") or "").strip()
             if u not in cur:
                 warn(f"실시간 코멘트: 지금 목록에 없는 기사라 건너뜀 — {u}"); continue
-            if not (20 <= len(c) <= 140):
+            if not (15 <= len(c) <= 70):
                 warn(f"실시간 코멘트 길이 {len(c)}자 — {cur[u].get('title')}")
             if not c:
                 continue
@@ -245,6 +269,8 @@ def main():
         for e in load("trendnotes.json", []) or []:
             used |= set(e.get("tags") or [])
         used |= {t.get("tag") for t in (data.get("trendNotes") or {}).get("items") or []}
+        if (jp.get("trend") or {}).get("date") == date:
+            used.discard((jp.get("trend") or {}).get("tag"))
         if T.get("tag") in used:
             err(f"트렌드: '#{T.get('tag')}'는 최근에 이미 다룬 주제예요")
         if chk_len("트렌드 본문", T.get("body"), 180, 360) and T.get("tag") and T.get("title"):
@@ -273,6 +299,36 @@ def main():
                                  "verified": None, "preview": prev, "model": model, "at": stamp}
                 print("숨은그림 미리보기:", prev, "— 눈으로 확인 후 --approve-hidden")
 
+    PS = M.get("person")
+    if PS and PS.get("file"):
+        pn = (data.get("person") or {}).get("name", "")
+        if PS.get("name") and PS["name"] != pn:
+            warn(f"오늘의 인물: 이름이 달라요 (오늘: {pn}) — 화면에는 같은 인물일 때만 나와요")
+        p = put_image(src_dir, PS.get("file"), "person", date) if not a.dry_run else PS.get("file")
+        if p:
+            new["person"] = {"date": date, "name": PS.get("name") or pn, "img": p, "alt": (PS.get("alt") or "").strip(), "model": model, "at": stamp}
+    TI = M.get("trendImage")
+    if TI and TI.get("file") and not T:
+        if (new.get("trend") or {}).get("date") != date:
+            err("트렌드 사진: 오늘 자 지필태 트렌드 노트가 아직 없어요")
+        elif not a.dry_run:
+            p = put_image(src_dir, TI.get("file"), "trend", date)
+            if p:
+                new["trend"]["img"] = p
+                new["trend"]["alt"] = (TI.get("alt") or "").strip()
+    TA = M.get("trendArt")
+    if TA and TA.get("file"):
+        gt = [t.get("tag") for t in ((data.get("trendNotes") or {}).get("items") or [])]
+        if TA.get("tag") not in gt:
+            warn(f"트렌드 그림: 금로동 노트 태그와 달라요 (오늘: {gt}) — 화면에는 같은 태그일 때만 나와요")
+        p = put_image(src_dir, TA.get("file"), "trendart", date) if not a.dry_run else TA.get("file")
+        if p:
+            new["trendArt"] = {"date": date, "tag": TA.get("tag", ""), "img": p, "alt": (TA.get("alt") or "").strip(), "model": model, "at": stamp}
+    if (M.get("publisher") or {}).get("file") and not a.dry_run:
+        p = put_image(src_dir, M["publisher"]["file"], "publisher", "profile")
+        if p:
+            new.setdefault("staffArt", {})["publisher"] = p
+
     if (M.get("profile") or {}).get("intro"):
         intro = " ".join(M["profile"]["intro"].split())
         if len(intro) > 140:
@@ -295,7 +351,7 @@ def main():
     dump(JP_FILE, new)
     os.makedirs("jipiltae/manuscripts", exist_ok=True)
     shutil.copyfile(a.manuscript, f"jipiltae/manuscripts/{date}-{now_kst().strftime('%H%M')}.json")
-    print("jipiltae.json 반영 완료:", ", ".join(k for k in ("editorial", "cartoon", "campaign", "trend", "hidden") if M.get(k)),
+    print("jipiltae.json 반영 완료:", ", ".join(k for k in ("editorial", "editorialCartoon", "cartoon", "campaign", "trend", "trendImage", "trendArt", "person", "hidden", "publisher", "avatar") if M.get(k)),
           f"/ 실시간 {len(L)}건")
 
 
