@@ -271,6 +271,11 @@ def main():
                                  "verified": None, "preview": prev, "model": model, "at": stamp}
                 print("숨은그림 미리보기:", prev, "— 눈으로 확인 후 --approve-hidden")
 
+    if (M.get("profile") or {}).get("intro"):
+        intro = " ".join(M["profile"]["intro"].split())
+        if len(intro) > 140:
+            warn(f"자기소개가 {len(intro)}자 — 140자 안으로 줄이는 게 좋아요")
+        new["author"]["intro"] = intro
     if M.get("avatar") and not a.dry_run:
         p = put_image(src_dir, M["avatar"].get("file"), "avatar", "profile")
         if p:

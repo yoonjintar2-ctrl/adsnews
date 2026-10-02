@@ -1151,6 +1151,24 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tn-by b{color:var(--ink);font-weight:900}
 .hd-pic{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 
+/* v42: 필진 소개 */
+.a-staff{grid-column:1/-1;border-top:3px double var(--ink);margin-top:22px;padding-top:12px}
+.staff-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.staff{display:grid;grid-template-columns:4.6rem minmax(0,1fr);gap:12px;align-items:start;padding:4px 18px 6px 0}
+.staff+.staff{border-left:1px solid var(--rule-soft);padding-left:18px}
+.st-ph{display:block;width:4.6rem;line-height:0;border:1px solid var(--ink);background:#f4f4f2}
+.st-ph svg,.st-ph img{width:100%;height:auto;display:block}
+.st-ph .jp-mono,.st-ph .pub-mono{border-radius:0;border:0;font-size:1.8rem}
+.pub-mono{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:120/140;background:var(--ink);color:var(--paper);font:900 2rem/1 var(--serif)}
+.staff.jp .jp-mono{aspect-ratio:120/140}
+.st-t b{display:block;font-family:var(--serif);font-weight:900;font-size:1.08rem}
+.st-r{display:block;font-size:.74rem;color:var(--muted);margin-top:1px}
+.st-ai{display:inline-block;font-size:.66rem;font-weight:700;color:var(--faint);border:1px solid var(--rule);border-radius:8px;padding:0 6px;margin-top:4px}
+.st-t p{margin:6px 0 0;font-size:.88rem;line-height:1.65;color:var(--ink)}
+.st-pend{color:var(--faint)}
+@media (max-width:980px){.staff-g{grid-template-columns:1fr}.staff{padding:10px 0}.staff+.staff{border-left:0;padding-left:0;border-top:1px solid var(--rule-soft)}}
+@media (max-width:620px){.st-t p{font-size:.95rem}}
+
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
@@ -1336,6 +1354,10 @@ body,button,input,select,textarea{font-family:var(--serif)}
     <div class="pz-btns"><button type="button" id="hdshow">정답 보기</button><button type="button" id="hdreset">다시 하기</button><span class="hd-msg" id="hdmsg" aria-live="polite"></span></div>
   </section>
   </div>
+  <section class="np-sec a-staff" id="staff" aria-labelledby="k-staff">
+    <div class="kick"><h2 id="k-staff">필진 소개</h2><span>세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다</span></div>
+    <div class="staff-g" id="staffg"></div>
+  </section>
   <footer class="foot" id="foot"></footer>
   <p class="arcl"><span class="adq">광고 문의 <a href="mailto:yoonjintar@naver.com">yoonjintar@naver.com</a></span><a href="#" id="admLink">통계</a><a href="e/">지난 호 모아보기 — 금로동·지필태 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
 </div>
@@ -1818,6 +1840,13 @@ function boot(D){
     $('plat').innerHTML=mix.map(function(r){return card({url:r.u,title:r.t,kick:r.p,ph:r.p})}).join('');}
   function renderPlatOld(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
+  (function(){var el=$('staffg'); if(!el) return; var A=JP.author||{};
+    function card(ph,name,role,ai,intro,cls){return '<article class="staff'+(cls?' '+cls:'')+'"><span class="st-ph">'+ph+'</span><div class="st-t"><b>'+name+'</b><span class="st-r">'+role+'</span>'+(ai?'<span class="st-ai">'+ai+'</span>':'')+'<p>'+intro+'</p></div></article>'}
+    el.innerHTML=
+      card('<span class="pub-mono">윤</span>','윤석진','발행인','SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
+      card(REPORTER,RNAME,'선임 기자 · 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐','Claude · Anthropic','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 지필태 기자에게 그날의 일감을 넘깁니다.')+
+      card(JP_AV,JPN,'기자 · 사설·캠페인 분석·실시간 코멘트·트렌드 노트·만평·숨은그림찾기','ChatGPT · OpenAI',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 기자가 직접 보내오면 실려요.</span>','jp');
+  })();
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
     '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 공동 집필 '+RNAME+'(Claude)·지필태 기자(ChatGPT) <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
 
