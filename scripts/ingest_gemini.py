@@ -1,8 +1,8 @@
-"""제민아 대리(Gemini)의 원고를 검사해 gemini.json에 반영한다.
+"""재미나 대리(Gemini)의 원고를 검사해 gemini.json에 반영한다.
 
-- 영상 해부: {"video": {"url": 오늘의 캠페인 URL, "videoUrl": 영상 URL, "timeline": [{"t": "0:00–0:03", "text": "…"}], "notes": ["…"]}}
+- 캠페인 족보(리서치): {"lineage": {"url": 오늘의 캠페인 URL, "rows": [{"year": "2022", "name": "…", "desc": "…", "src": "https://…"}], "flow": "…"}}
 - 자기소개: {"intro": "…"}
-- gemini.json은 data.json·jipiltae.json·grok.json과 따로 저장한다. 금로동은 검수·반영만 한다.
+- gemini.json은 data.json·jipiltae.json·grok.json과 따로 저장한다. 금로동은 검수·반영만 한다(글을 대신 쓰지 않는다).
 
 사용: python scripts/ingest_gemini.py 원고.json [--dry-run]
 """
@@ -20,20 +20,28 @@ def main():
     a = ap.parse_args()
     M = json.load(open(a.manuscript, encoding="utf-8"))
     gm = load(GM_FILE, {}) or {}
-    gm.setdefault("author", {"name": "제민아", "role": "대리", "ai": "Gemini (Google)"})
+    gm.setdefault("author", {})
+    gm["author"].update({"name": "재미나", "role": "대리", "ai": "Gemini (Google)"})
     stamp = now_kst().isoformat(timespec="seconds")
     date = M.get("edition") or now_kst().strftime("%Y-%m-%d")
-    V = M.get("video")
-    if V:
+    L = M.get("lineage")
+    if L:
         data = load("data.json", {})
         feat = next((c for c in data.get("campaigns") or [] if c.get("feature")), {})
-        if V.get("url") != feat.get("url"):
+        if L.get("url") != feat.get("url"):
             print("⚠ 오늘의 캠페인 URL과 달라요 — 화면에는 같은 캠페인일 때만 나와요")
-        tl = [{"t": str(r.get("t", "")).strip(), "text": " ".join(str(r.get("text", "")).split())} for r in V.get("timeline") or [] if r.get("text")]
-        if not (3 <= len(tl) <= 8):
-            sys.exit(f"타임라인은 3~8줄이어야 해요 (지금 {len(tl)}줄)")
-        gm["video"] = {"date": date, "url": V.get("url"), "videoUrl": V.get("videoUrl") if str(V.get("videoUrl", "")).startswith("http") else "",
-                       "timeline": tl, "notes": [" ".join(n.split()) for n in V.get("notes") or [] if n.strip()][:4], "at": stamp}
+        rows = []
+        for r in L.get("rows") or []:
+            row = {k: " ".join(str(r.get(k, "")).split()) for k in ("year", "name", "desc", "src")}
+            if not row["src"].startswith("http"):
+                print("✗ 출처 없는 줄은 뺐어요:", row["name"]); continue
+            if not (row["year"] and row["name"]):
+                continue
+            rows.append(row)
+        if not (2 <= len(rows) <= 6):
+            sys.exit(f"족보는 출처 있는 줄이 2~6줄이어야 해요 (지금 {len(rows)}줄)")
+        gm["lineage"] = {"date": date, "url": L.get("url"), "rows": rows, "flow": " ".join(str(L.get("flow", "")).split()), "at": stamp}
+    gm.pop("video", None)
     if M.get("intro"):
         gm["author"]["intro"] = " ".join(M["intro"].split())
     if M.get("avatar"):
@@ -44,7 +52,7 @@ def main():
     dump(GM_FILE, gm)
     os.makedirs("gemini/manuscripts", exist_ok=True)
     shutil.copyfile(a.manuscript, f"gemini/manuscripts/{date}-{now_kst().strftime('%H%M')}.json")
-    print("gemini.json 반영:", ", ".join(k for k in ("video", "intro", "avatar") if M.get(k)))
+    print("gemini.json 반영:", ", ".join(k for k in ("lineage", "intro", "avatar") if M.get(k)))
 
 
 if __name__ == "__main__":

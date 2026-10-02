@@ -1198,13 +1198,17 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 .tn.has-fig .tn-fig{margin:4px 0 0}
 @media (max-width:1180px){.tn.has-fig{grid-template-columns:1fr}.tn.has-fig .tn-fig{max-width:420px;margin:0 0 10px}}
 
-/* v48: 제민아 대리 · 영상 해부 · 필진 5인 */
+/* v48: 재미나 대리 · 캠페인 족보 · 필진 5인 */
+.vdx-t li span strong{font-weight:900}
+.vdx-t li span a{font-size:.78rem;color:var(--faint);white-space:nowrap}
+.vdx-f::before{content:"→ ";color:var(--red)}
+.vdx-f{margin:10px 0 0;font-size:.92rem;line-height:1.6;font-weight:700;color:#222}
 .gm-mono{background:#f4f4f2!important;color:var(--ink)!important;border-style:double!important;border-width:3px!important}
 .vdx{grid-column:1/-1;margin-top:16px;border-top:1px dotted var(--rule);padding-top:12px}
 .vdx .dbt-h span{display:inline-flex;align-items:center;gap:6px}
 .vdx .dbt-h span img,.vdx .dbt-h span .jp-mono{width:1.3rem;height:1.3rem;border-radius:50%;font-size:.6rem}
 .vdx-t{list-style:none;margin:0;padding:0;border-left:2px solid var(--ink);padding-left:12px;display:grid;gap:5px}
-.vdx-t li{display:grid;grid-template-columns:6.2rem minmax(0,1fr);gap:8px;font-size:.92rem;line-height:1.55}
+.vdx-t li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:8px;font-size:.92rem;line-height:1.55}
 .vdx-t b{font-family:var(--mono);font-size:.8rem;color:var(--red);font-weight:700}
 .vdx-n{margin:10px 0 0;padding-left:1.1em;font-size:.92rem;line-height:1.6;color:#333}
 .vdx-n li+li{margin-top:3px}
@@ -1571,14 +1575,14 @@ function boot(D){
     var k='<div class="ins gk'+(gok?'':' pend')+'"><span class="ins-ph">'+GK_AV+'</span><p class="op"><b>김그록 사원</b>'+(gok?esc(K.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
     return '<div class="ins3">'+g+j+(JP_ON?k:'')+'</div>';
   }
-  // 제민아 대리의 오늘의 광고 영상 해부: 영상을 직접 보고 타임라인과 관찰을 정리
-  function videoHtml(main){var V=(D.gm||{}).video; if(!V||V.url!==main.url||!(V.timeline||[]).length) return '';
-    return '<div class="vdx"><div class="dbt-h"><b>영상 해부</b><span>'+GM_AV+'제민아 대리가 직접 보고 정리'+(V.videoUrl?' · '+link(V.videoUrl,'영상 보기 ↗'):'')+'</span></div>'+
-      '<ol class="vdx-t">'+V.timeline.map(function(r){return '<li><b>'+esc(r.t)+'</b><span>'+esc(r.text)+'</span></li>'}).join('')+'</ol>'+
-      ((V.notes||[]).length?'<ul class="vdx-n">'+V.notes.map(function(n){return '<li>'+esc(n)+'</li>'}).join('')+'</ul>':'')+'</div>'}
+  // 재미나 대리의 캠페인 족보: 오늘의 캠페인 브랜드가 해 온 캠페인을 리서치해 연도순으로 정리(줄마다 출처)
+  function lineageHtml(main){var L=(D.gm||{}).lineage; if(!L||L.url!==main.url||!(L.rows||[]).length) return '';
+    return '<div class="vdx"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+'재미나 대리가 찾아 정리</span></div>'+
+      '<ol class="vdx-t">'+L.rows.map(function(r){return '<li><b>'+esc(r.year)+'</b><span><strong>'+esc(r.name)+'</strong> — '+esc(r.desc)+(r.src?' '+link(r.src,'출처 ↗'):'')+'</span></li>'}).join('')+'</ol>'+
+      (L.flow?'<p class="vdx-f">'+esc(L.flow)+'</p>':'')+'</div>'}
   // 오늘의 광고 캠페인 — AI 3대장의 토론: 세 사람이 각자 직접 쓴 말만 차례대로 싣는다
   function debateHtml(main){var B=D.db||{}; if(!B.turns||!B.turns.length||B.url!==main.url) return '';
-    var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,'제민아 대리'],gk:[GK_AV,'김그록 사원']};
+    var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,'재미나 대리'],gk:[GK_AV,'김그록 사원']};
     return '<div class="dbt"><div class="dbt-h"><b>AI '+(B.turns.some(function(t){return t.who==='gm'})?'4':'3')+'대장의 토론</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+'</div><ol class="dbt-l">'+
       B.turns.map(function(t){var w=who[t.who]||['',''];return '<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b>'+esc(w[1])+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
       '</ol></div>'}
@@ -1613,7 +1617,7 @@ function boot(D){
   var JP_ON=ED_DATE>=JP_START;
   var JP_AV=(JP.author&&JP.author.avatar)?'<img src="'+esc(JP.author.avatar)+'" alt="지필태 대리">':'<span class="jp-mono" aria-label="지필태 대리">지</span>';
   var GK_AV=((JP.staffArt||{}).grok)?'<img src="'+esc(JP.staffArt.grok)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>';
-  var GM_AV=(function(){var A=((D.gm||{}).author)||{}; var src=A.avatar||((JP.staffArt||{}).gemini); return src?'<img src="'+esc(src)+'" alt="제민아 대리">':'<span class="jp-mono gm-mono" aria-label="제민아 대리">민</span>'})();
+  var GM_AV=(function(){var A=((D.gm||{}).author)||{}; var src=A.avatar||((JP.staffArt||{}).gemini); return src?'<img src="'+esc(src)+'" alt="재미나 대리">':'<span class="jp-mono gm-mono" aria-label="재미나 대리">미</span>'})();
   var JP_AI='ChatGPT(OpenAI) 기반';
   var jpByline='<div class="rep jp"><span class="rep-ph">'+JP_AV+'</span><span class="rep-t"><b>'+JPN+'</b><span>AI 기자</span><span class="rep-m">gpt@adsnews</span></span></div>';
   function jpPending(what){return '<p class="jp-pend"><span class="jp-av">'+JP_AV+'</span><span><b>'+JPN+'</b>의 '+what+'은(는) 준비 중이에요.</span></p>'}
@@ -1924,14 +1928,14 @@ function boot(D){
       '<h3>'+link(main.url,esc(main.title))+'</h3>'+(main.metric?'<span class="cm-m">'+esc(main.metric)+'</span>':'')+
       '<p class="cm-s">'+esc(main.story||'')+'</p>'+yt(main)+'</div>'+
       (JP_ON?
-        (debateHtml(main)?debateHtml(main)+videoHtml(main)+'<details class="rv-more"><summary>각자의 분석 전문 보기</summary><div class="cm-rv cm-rv2"><div class="rv2">'+
+        (debateHtml(main)?debateHtml(main)+lineageHtml(main)+'<details class="rv-more"><summary>각자의 분석 전문 보기</summary><div class="cm-rv cm-rv2"><div class="rv2">'+
           '<section class="rvb"><b class="cm-rv-h">'+RNAME+'의 분석</b>'+(rv?'<p>'+esc(rv)+'</p>':'<p class="jp-pend-t">분석 준비 중</p>')+'<span class="rvby">'+REPORTER_BARE+'<b>'+RNAME+'</b></span></section>'+
           '<section class="rvb jp"><b class="cm-rv-h">'+JPN+'의 분석</b>'+((JP.campaign&&JP.campaign.url===main.url&&JP.campaign.review)?'<p>'+esc(JP.campaign.review)+'</p>':'<p class="jp-pend-t">'+JPN+'의 분석은 준비 중이에요.</p>')+'<span class="rvby">'+JP_AV+'<b>'+JPN+'</b></span></section>'+
         '</div>'+xPulse(main)+'</div></details>':
         '<div class="cm-rv cm-rv2"><div class="rv2">'+
           '<section class="rvb"><b class="cm-rv-h">'+RNAME+'의 분석</b>'+(rv?'<p>'+esc(rv)+'</p>':'<p class="jp-pend-t">분석 준비 중</p>')+'<span class="rvby">'+REPORTER_BARE+'<b>'+RNAME+'</b></span></section>'+
           '<section class="rvb jp"><b class="cm-rv-h">'+JPN+'의 분석</b>'+((JP.campaign&&JP.campaign.url===main.url&&JP.campaign.review)?'<p>'+esc(JP.campaign.review)+'</p>':'<p class="jp-pend-t">'+JPN+'의 분석은 준비 중이에요.</p>')+'<span class="rvby">'+JP_AV+'<b>'+JPN+'</b></span></section>'+
-        '</div>'+xPulse(main)+'</div>')
+        '</div>'+xPulse(main)+'</div>'+lineageHtml(main))
       :(rv?'<div class="cm-rv"><b class="cm-rv-h">'+RNAME+'의 한마디</b><div class="rv-cols"><p>'+esc(rv)+'</p>'+bylineHtml+'</div></div>':''))+
       '</article>';
     var picks=rest.slice(0,4).map(function(o){var c=o.x||o;return '<article class="cp">'+
@@ -2009,7 +2013,7 @@ function boot(D){
       card(SA.publisher?'<img src="'+esc(SA.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
       card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐 · 편집','','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 후배들에게 그날의 일감을 나눕니다.')+
       card(JP_AV,JPN,'대리 · 사설·캠페인 분석·실시간 코멘트·트렌드 노트·삽화·숨은그림찾기','',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 대리가 직접 보내오면 실려요.</span>','jp')+
-      card(GM_AV,'제민아 대리','대리 · 영상 해부·AI 4대장 토론','',((D.gm||{}).author||{}).intro?esc(D.gm.author.intro):'<span class="st-pend">자기소개는 제민아 대리가 직접 보내오면 실려요.</span>','gm')+
+      card(GM_AV,'재미나 대리','대리 · 리서치·이미지·영상·AI 4대장 토론','',((D.gm||{}).author||{}).intro?esc(D.gm.author.intro):'<span class="st-pend">자기소개는 재미나 대리가 직접 보내오면 실려요.</span>','gm')+
       card((SA.grok||GK.avatar)?'<img src="'+esc(SA.grok||GK.avatar)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>','김그록 사원','사원(막내) · 4컷 만평·X 반응 체크·실시간 한마디','',GK.intro?esc(GK.intro):'광고판 이슈를 매일 네 컷으로 비틀고, X에서 사람들이 진짜 뭐라 하는지 전합니다. 웃기지만 아무도 다치지 않게, 막내의 눈으로 업계의 습관을 찌릅니다.','gk');
   })();
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
