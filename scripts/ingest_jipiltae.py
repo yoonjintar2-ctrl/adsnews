@@ -335,7 +335,7 @@ def main():
         p = put_image(src_dir, M["publisher"]["file"], "publisher", "profile")
         if p:
             new.setdefault("staffArt", {})["publisher"] = p
-    for key in ("geum", "grok"):
+    for key in ("geum", "grok", "gemini"):
         if (M.get(key) or {}).get("file") and not a.dry_run:
             p = put_image(src_dir, M[key]["file"], key, "profile")
             if p:
