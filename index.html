@@ -1198,6 +1198,24 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 .tn.has-fig .tn-fig{margin:4px 0 0}
 @media (max-width:1180px){.tn.has-fig{grid-template-columns:1fr}.tn.has-fig .tn-fig{max-width:420px;margin:0 0 10px}}
 
+/* v46: 실시간 한마디 묶음 · X 반응 흰 박스 · 둥근 초상 */
+.news .ins3{margin-top:8px;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:2px 12px}
+.news.tg:not(.ins-open) .ins3{display:none}
+.news:not(.tg) .ins3 .ins,.news.tg.ins-open .ins3 .ins{display:flex!important}
+.news .ins3 .ins{gap:8px;align-items:flex-start;margin:0!important;padding:7px 0!important;border:0!important;border-top:1px dotted var(--rule)!important}
+.news .ins3 .ins:first-child{border-top:0!important}
+.news .ins3 .ins .ins-ph{display:block!important;width:1.55rem!important;flex:none;margin-top:1px!important;line-height:0}
+.news .ins3 .ins-ph img,.news .ins3 .ins-ph svg{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:50%;border:1px solid var(--rule)}
+.news .ins3 .ins-ph .jp-mono{font-size:.6rem;border-width:1.2px}
+.news .ins3 .op{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;margin:0!important;font-size:.84rem!important;line-height:1.5!important;color:#333!important}
+.news .ins3 .op::before{display:none!important}
+.news .ins3 .op b{display:inline!important;font-size:.74rem!important;margin:0 6px 0 0!important;color:var(--ink)!important}
+.news .ins3 .op b::after{display:none!important}
+@media (max-width:620px){.a-live .news:not(.tg) .nt>p:not(.op){display:-webkit-box!important}.a-live .news .ins3 .op{font-size:.9rem!important}}
+.ins-tg img,.rvby img,.xp-by img,.rep-ph img.pf-img,.tg-jp img{border-radius:50%;aspect-ratio:1;object-fit:cover}
+.rep-ph img.pf-img{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+.ins-tg .ins-ph img,.rvby img.pf-img{display:block;width:100%;height:auto}
+.xp{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:12px 14px;margin-top:16px;border-top:1px solid var(--rule)}
 /* v45: 4컷 만평 · 필진 4인 */
 .xp{margin-top:14px;border-top:1px dotted var(--rule);padding-top:10px}
 .xp-h{display:inline-flex;gap:8px;align-items:center;font-weight:900;font-size:.82rem;letter-spacing:.02em}
@@ -1503,12 +1521,12 @@ function boot(D){
   function liveKey(i){var m=String(i.date||'').match(/(\d+)\.(\d+)/),t=new Date(nowMs()+9*36e5),y=t.getUTCFullYear();if(!m)return '';var mo=+m[1];if(mo>t.getUTCMonth()+2)y--;return y+'-'+('0'+mo).slice(-2)+'-'+('0'+m[2]).slice(-2)+' '+(i.at||'')}
   function liveSorted(){return (D.live||[]).map(function(x,i){return {x:x,i:i,k:liveKey(x),f:liked(x.tags)}}).sort(function(a,b){return a.k<b.k?1:a.k>b.k?-1:a.i-b.i})}
   function liveIns(i){
-    var g=i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'의 한마디</b>'+esc(i.insight)+'</p></div>':'';
+    var g=i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'</b>'+esc(i.insight)+'</p></div>':'';
     var J=(JP.live||{})[i.url], ok=J&&J.comment&&(!J.title||J.title===i.title);
-    var j='<div class="ins jp'+(ok?'':' pend')+'"><span class="ins-ph">'+JP_AV+'</span><p class="op"><b>'+JPN+'의 한마디</b>'+(ok?esc(J.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
+    var j='<div class="ins jp'+(ok?'':' pend')+'"><span class="ins-ph">'+JP_AV+'</span><p class="op"><b>'+JPN+'</b>'+(ok?esc(J.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
     var K=((D.gk||{}).live||{})[i.url], gok=K&&K.comment&&(!K.title||K.title===i.title);
-    var k='<div class="ins gk'+(gok?'':' pend')+'"><span class="ins-ph">'+GK_AV+'</span><p class="op"><b>김그록 사원의 한마디</b>'+(gok?esc(K.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
-    return g+j+(JP_ON?k:'');
+    var k='<div class="ins gk'+(gok?'':' pend')+'"><span class="ins-ph">'+GK_AV+'</span><p class="op"><b>김그록 사원</b>'+(gok?esc(K.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
+    return '<div class="ins3">'+g+j+(JP_ON?k:'')+'</div>';
   }
   // 김그록 사원의 X 반응 체크: 오늘의 캠페인에 대한 X 반응 온도와 한 줄 촌평
   function xPulse(main){var X=(D.gk||{}).xpulse; if(!X||X.url!==main.url||!X.summary) return '';
@@ -1536,6 +1554,7 @@ function boot(D){
   var bylineHtml='<div class="rep"><span class="rep-ph">'+REPORTER+'</span><span class="rep-t"><b>'+RNAME+'</b><span>AI 기자</span><span class="rep-m">claude@adsnews</span></span></div>';
   // ── 공동 집필: 지필태 대리(ChatGPT 기반). 원고는 jipiltae.json에만 있고 data.json과 섞지 않는다 ──
   var JP=D.jp||{}, JPN='지필태 대리', JP_START='2026-10-02';
+  if((JP.staffArt||{}).geum){ REPORTER=REPORTER_BARE='<img class="pf-img" src="'+esc(JP.staffArt.geum)+'" alt="금로동 과장">'; bylineHtml='<div class="rep"><span class="rep-ph">'+REPORTER+'</span><span class="rep-t"><b>'+RNAME+'</b><span>AI 기자</span><span class="rep-m">claude@adsnews</span></span></div>'; }
   var ED_DATE=(D.brief.cartoon||{}).date||window.__ED||new Date(nowMs()+9*36e5).toISOString().slice(0,10);
   var JP_ON=ED_DATE>=JP_START;
   var JP_AV=(JP.author&&JP.author.avatar)?'<img src="'+esc(JP.author.avatar)+'" alt="지필태 대리">':'<span class="jp-mono" aria-label="지필태 대리">지</span>';
