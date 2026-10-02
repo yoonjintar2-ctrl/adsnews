@@ -23,6 +23,10 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     M = json.load(open(a.script, encoding="utf-8"))
+    if M.get("xpulse") and not M.get("panels"):
+        return ingest_xpulse(M, a)
+    if M.get("live") and not M.get("panels"):
+        return ingest_live(M, a)
     errs = []
     P = M.get("panels") or []
     if len(P) != 4:
@@ -79,6 +83,51 @@ def main():
     os.makedirs("grok/manuscripts", exist_ok=True)
     shutil.copyfile(a.script, f"grok/manuscripts/{date}-{now_kst().strftime('%H%M')}.json")
     print("grok.json 반영:", M.get("title"), "/ 그림", sum(1 for x in imgs if x), "컷")
+
+
+def ingest_xpulse(M, a):
+    """X 반응 체크: {"xpulse": {"url": 오늘의 캠페인 URL, "temp", "summary", "quip", "links": []}}"""
+    X = M["xpulse"]
+    data = load("data.json", {})
+    feat = next((c for c in data.get("campaigns") or [] if c.get("feature")), {})
+    if X.get("url") != feat.get("url"):
+        print("⚠ 오늘의 캠페인 URL과 달라요 — 화면에는 같은 캠페인일 때만 나와요")
+    if X.get("temp") not in ("뜨거움", "따뜻함", "미지근함", "차가움", "반응 적음"):
+        sys.exit("온도는 뜨거움/따뜻함/미지근함/차가움/반응 적음 중 하나")
+    gk = load(GK_FILE, {}) or {}
+    stamp = now_kst().isoformat(timespec="seconds")
+    gk["xpulse"] = {"date": M.get("edition"), "url": X.get("url"), "temp": X["temp"], "summary": " ".join(X.get("summary", "").split()),
+                    "quip": (X.get("quip") or "").strip(), "links": [u for u in X.get("links") or [] if u.startswith("http")][:3], "at": stamp}
+    gk["updatedAt"] = stamp
+    if not a.dry_run:
+        dump(GK_FILE, gk)
+    print("X 반응 체크 반영:", X["temp"])
+
+
+def ingest_live(M, a):
+    """실시간 이슈 한마디: {"live": [{"url": ..., "comment": ...}]} — URL이 지금 목록에 있어야 반영."""
+    data = load("data.json", {})
+    cur = {x.get("url"): x for x in data.get("live") or []}
+    gk = load(GK_FILE, {}) or {}
+    gk.setdefault("author", {"name": "김그록", "role": "사원", "ai": "Grok (xAI)"})
+    live = gk.setdefault("live", {})
+    stamp = now_kst().isoformat(timespec="seconds")
+    n = 0
+    for x in M["live"]:
+        u, c = x.get("url"), " ".join((x.get("comment") or "").split())
+        if u not in cur or not c:
+            print("건너뜀:", u); continue
+        if len(c) > 70:
+            print(f"⚠ 길어요({len(c)}자):", c)
+        live[u] = {"comment": c, "title": cur[u].get("title", ""), "at": stamp}
+        n += 1
+    keep = set(cur) | set(list(live)[-300:])
+    gk["live"] = {k: v for k, v in live.items() if k in keep}
+    gk["updatedAt"] = stamp
+    if a.dry_run:
+        print("검사 통과(dry-run)", n); return
+    dump(GK_FILE, gk)
+    print("김그록 한마디", n, "건 반영")
 
 
 if __name__ == "__main__":
