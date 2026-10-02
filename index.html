@@ -1206,6 +1206,12 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 .toon-tag{position:absolute;left:8px;top:8px;background:#1a1a1a;color:#f4f4f2;font-size:.68rem;font-weight:700;padding:2px 7px}
 .tn-fig img,.ps-fig img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.05)}
 @media (max-width:620px){.toon-bub{font-size:.8rem;padding:4px 8px}}
+/* 말풍선 위치: 그림마다 빈 자리에 (tl·tr·bl·br) */
+.toon-bub.p-br{top:auto;bottom:6%;right:3%}
+.toon-bub.p-br::after{bottom:auto;top:-10px;left:auto;right:22%;border-top:0;border-bottom:9px solid #1a1a1a}
+.toon-bub.p-bl{top:auto;bottom:6%;right:auto;left:3%}
+.toon-bub.p-bl::after{bottom:auto;top:-10px;border-top:0;border-bottom:9px solid #1a1a1a}
+.toon-bub.p-tl{right:auto;left:3%;top:12%}
 
 /* v35: 제호 크기 조정 + 슬로건 */
 .mast .mt{text-align:center;min-width:0}
@@ -1535,7 +1541,7 @@ function boot(D){
   function openModal(html,wide){$('mbody').innerHTML=html;$('modal').firstElementChild.classList.toggle('wide',!!wide);$('modal').hidden=false;$('mclose').focus();}
   // 만평 그림: GPT 이미지(img)가 있으면 그것을, 없으면 금기자가 그린 SVG를 쓴다. 말풍선 글은 그림 위에 얹는다
   function toonInner(T){if(!T)return '';
-    if(T.img)return '<span class="toon-im"><img src="'+esc(T.img)+'" alt="'+esc(T.caption||'광고늬우스 만평')+'" onerror="this.parentNode.outerHTML=window.__toonSvg||\'\'">'+(T.bubble?'<span class="toon-bub">'+esc(T.bubble)+'</span>':'')+'<span class="toon-tag">광고늬우스 만평</span></span>';
+    if(T.img)return '<span class="toon-im"><img src="'+esc(T.img)+'" alt="'+esc(T.caption||'광고늬우스 만평')+'" onerror="this.parentNode.outerHTML=window.__toonSvg||\'\'">'+(T.bubble?'<span class="toon-bub'+(/^(tl|tr|bl|br)$/.test(T.bubblePos||'')?' p-'+T.bubblePos:'')+'">'+esc(T.bubble)+'</span>':'')+'<span class="toon-tag">광고늬우스 만평</span></span>';
     return T.svg&&/^<svg[\s>]/.test(T.svg)&&!/<script|on\w+=|javascript:|<foreignObject/i.test(T.svg)?T.svg:''}
   window.__toonSvg=(D.brief.cartoon&&D.brief.cartoon.svg)||'';
   function toonHtml(){var T=(CE&&CE.cartoon)||D.brief.cartoon;var x=toonInner(T);return x&&!$('toon').hidden?'<figure class="toon">'+x+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
@@ -1582,7 +1588,7 @@ function boot(D){
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')$('modal').hidden=true});
   var TC=D.brief.cartoon, TCby='그림 '+RNAME;
-  if(JP_ON&&JP.cartoon&&JP.cartoon.img&&JP.cartoon.for===ED_DATE){TC={img:JP.cartoon.img,caption:JP.cartoon.caption,bubble:JP.cartoon.bubble,svg:(D.brief.cartoon||{}).svg};TCby='만평 '+JPN+' · ChatGPT';}
+  if(JP_ON&&JP.cartoon&&JP.cartoon.img&&JP.cartoon.for===ED_DATE){TC={img:JP.cartoon.img,caption:JP.cartoon.caption,bubble:JP.cartoon.bubble,bubblePos:JP.cartoon.bubblePos,svg:(D.brief.cartoon||{}).svg};TCby='만평 '+JPN+' · ChatGPT';}
   var TCin=toonInner(TC);
   if(TCin){
     $('toon').innerHTML=TCin+'<figcaption>'+(TC.caption?esc(TC.caption)+' ':'')+'<span class="toon-by">'+esc(TCby)+'</span></figcaption>';$('toon').hidden=false;$('toon').parentElement.classList.add('has-toon');

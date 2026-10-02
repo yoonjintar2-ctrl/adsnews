@@ -204,7 +204,7 @@ def main():
         p = put_image(src_dir, C.get("file"), "cartoon", date) if not a.dry_run else C.get("file")
         if p:
             new["cartoon"] = {"date": date, "for": date, "img": p, "caption": (C.get("caption") or "").strip(),
-                              "bubble": (C.get("bubble") or "").strip(), "alt": (C.get("alt") or C.get("caption") or "만평").strip(),
+                              "bubble": (C.get("bubble") or "").strip(), "bubblePos": C.get("bubblePos") if C.get("bubblePos") in ("tl", "tr", "bl", "br") else "", "alt": (C.get("alt") or C.get("caption") or "만평").strip(),
                               "forHeadline": (data.get("brief") or {}).get("headline", ""), "model": model, "at": stamp}
 
     K = M.get("campaign")
