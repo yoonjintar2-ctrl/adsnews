@@ -47,9 +47,9 @@ def main():
     E = M.get("editorial")
     if E:
         body = " ".join(str(E.get("body", "")).split())
-        n = len(body.replace(" ", ""))
-        if not (200 <= n <= 330):
-            sys.exit(f"미니 사설 본문은 240~280자 안팎이어야 해요 (지금 공백 빼고 {n}자)")
+        n = len(body)
+        if not (220 <= n <= 320):
+            sys.exit(f"미니 사설 본문은 240~280자(공백 포함) 안팎이어야 해요 (지금 {n}자)")
         if not E.get("headline"):
             sys.exit("미니 사설 제목이 없어요")
         srcs = [{"t": " ".join(str(x.get("t", "출처")).split()), "url": x["url"]} for x in E.get("sources") or [] if str(x.get("url", "")).startswith("http")]
