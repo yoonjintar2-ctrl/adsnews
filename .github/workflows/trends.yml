@@ -41,7 +41,7 @@ jobs:
             python scripts/make_share.py || echo "share failed"
             python scripts/archive_edition.py || echo "edition failed"
             python scripts/make_seo.py || echo "seo failed"
-            git add live.json data.json editorials.json puzzle.json featured.json people.json trendnotes.json img s archive e sitemap.xml
+            git add live.json data.json editorials.json puzzle.json featured.json people.json trendnotes.json img s archive e sitemap.xml rss.xml
             if ! git diff --cached --quiet; then
               git commit -q -m "실시간 트렌드 $(TZ=Asia/Seoul date '+%m/%d %H:%M')"
               for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && break; sleep 5; done

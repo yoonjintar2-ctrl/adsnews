@@ -222,6 +222,41 @@ def main():
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
         f"  <url><loc>{u}</loc>{f'<lastmod>{d}</lastmod>' if d else ''}</url>\n" for u, d in urls) + "</urlset>\n"
     n += put("sitemap.xml", sm)
+    # RSS — 네이버 서치어드바이저 RSS 제출, 피드 리더·슬랙 RSS 구독용 (최근 30호)
+    def rfc(d, hh=7):
+        dt = datetime.strptime(d, "%Y-%m-%d").replace(hour=hh, tzinfo=KST)
+        return dt.strftime("%a, %d %b %Y %H:%M:%S +0900")
+    items = []
+    for d in list(reversed(dates))[:30]:
+        D = eds[d]; b = D.get("brief") or {}
+        if not b.get("headline"):
+            continue
+        feat = next((c for c in D.get("campaigns") or [] if c.get("feature")), {})
+        per = (D.get("person") or {}).get("name")
+        extra = " · ".join(x for x in [
+            f"오늘의 광고 캠페인: {feat.get('brand', '')} {feat.get('title', '')}".strip() if feat.get("title") else "",
+            f"오늘의 광고인: {per}" if per else ""] if x)
+        desc = clip(b.get("lede") or b.get("body"), 200) + (f" ({extra})" if extra else "")
+        items.append(f"""  <item>
+   <title>{esc(b['headline'])}</title>
+   <link>{SITE}e/{d}.html</link>
+   <guid isPermaLink="true">{SITE}e/{d}.html</guid>
+   <pubDate>{rfc(d)}</pubDate>
+   <description>{esc(desc)}</description>
+  </item>
+""")
+    rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+  <title>광고늬우스</title>
+  <link>{SITE}</link>
+  <atom:link href="{SITE}rss.xml" rel="self" type="application/rss+xml"/>
+  <description>광고계 노른자 소식들, 한 입에 떠-먹여 드려요. 금로동 기자의 미니 사설·오늘의 광고 캠페인·오늘의 광고인·트렌드 노트.</description>
+  <language>ko</language>
+{"".join(items)} </channel>
+</rss>
+"""
+    n += put("rss.xml", rss)
     print("seo pages written:", n, "editions:", len(dates))
 
 
