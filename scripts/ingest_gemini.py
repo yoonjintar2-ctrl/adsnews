@@ -7,6 +7,7 @@
 - gemini.json은 data.json·jipiltae.json·grok.json과 따로 저장한다. 금로동은 검수·반영만 한다(글을 대신 쓰지 않는다).
 
 사용: python scripts/ingest_gemini.py 원고.json [--dry-run]
+      python scripts/ingest_gemini.py --cartoon 그림.png --caption "캡션" [--by "지필태 대리"]   # 미니 사설 삽화(그림은 지필태 대리)
 """
 import argparse, json, os, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
@@ -17,9 +18,12 @@ GM_FILE = "gemini.json"
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("manuscript")
+    ap.add_argument("manuscript", nargs="?")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--cartoon"); ap.add_argument("--caption", default=""); ap.add_argument("--by", default="지필태 대리")
     a = ap.parse_args()
+    if a.cartoon:
+        return put_cartoon(a)
     M = json.load(open(a.manuscript, encoding="utf-8"))
     gm = load(GM_FILE, {}) or {}
     gm.setdefault("author", {})
@@ -87,6 +91,27 @@ def main():
     os.makedirs("gemini/manuscripts", exist_ok=True)
     shutil.copyfile(a.manuscript, f"gemini/manuscripts/{date}-{now_kst().strftime('%H%M')}.json")
     print("gemini.json 반영:", ", ".join(k for k in ("editorial", "live", "lineage", "intro", "avatar") if M.get(k)))
+
+
+def put_cartoon(a):
+    from PIL import Image
+    gm = load(GM_FILE, {}) or {}
+    E = gm.get("editorial") or {}
+    if not E.get("body"):
+        sys.exit("미니 사설이 먼저 있어야 삽화를 붙일 수 있어요")
+    im = Image.open(a.cartoon).convert("RGB")
+    if im.width > 1400:
+        im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)
+    os.makedirs("img/gm", exist_ok=True)
+    out = f"img/gm/edcartoon-{E['date']}.jpg"
+    if not a.dry_run:
+        im.save(out, "JPEG", quality=82, optimize=True, progressive=True)
+    stamp = now_kst().isoformat(timespec="seconds")
+    E["cartoon"] = {"img": out + "?v=" + now_kst().strftime("%H%M"), "caption": " ".join(a.caption.split()), "by": a.by}
+    gm["editorial"] = E; gm["updatedAt"] = stamp
+    if not a.dry_run:
+        dump(GM_FILE, gm)
+    print("미니 사설 삽화 반영:", out, im.size)
 
 
 if __name__ == "__main__":

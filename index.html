@@ -1589,15 +1589,16 @@ function boot(D){
   function liveKey(i){var m=String(i.date||'').match(/(\d+)\.(\d+)/),t=new Date(nowMs()+9*36e5),y=t.getUTCFullYear();if(!m)return '';var mo=+m[1];if(mo>t.getUTCMonth()+2)y--;return y+'-'+('0'+mo).slice(-2)+'-'+('0'+m[2]).slice(-2)+' '+(i.at||'')}
   function liveSorted(){return (D.live||[]).map(function(x,i){return {x:x,i:i,k:liveKey(x),f:liked(x.tags)}}).sort(function(a,b){return a.k<b.k?1:a.k>b.k?-1:a.i-b.i})}
   function liveIns(i){
-    var g=i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'</b>'+esc(i.insight)+'</p></div>':'';
-    var J=(JP.live||{})[i.url], ok=J&&J.comment&&(!J.title||J.title===i.title);
-    var j='<div class="ins jp'+(ok?'':' pend')+'"><span class="ins-ph">'+JP_AV+'</span><p class="op"><b>'+JPN+'</b>'+(ok?esc(J.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
-    var K=((D.gk||{}).live||{})[i.url], gok=K&&K.comment&&(!K.title||K.title===i.title);
-    var k='<div class="ins gk'+(gok?'':' pend')+'"><span class="ins-ph">'+GK_AV+'</span><p class="op"><b>김그록 사원</b>'+(gok?esc(K.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
-    var M=((D.gm||{}).live||{})[i.url], mok=M&&M.comment&&(!M.title||M.title===i.title);
-    var m='<div class="ins gm'+(mok?'':' pend')+'"><span class="ins-ph">'+GM_AV+'</span><p class="op"><b>제민아 대리</b>'+(mok?esc(M.comment):'<span class="pend-t">준비 중</span>')+'</p></div>';
-    return '<div class="ins3">'+g+j+(JP_ON?m+k:'')+'</div>';
+    // 기자마다 관심 있는 이슈에만 한마디를 단다. 단 사람만 보여 주고, 아무도 안 달면 상자도 없다.
+    function one(cls,av,name,x){return '<div class="ins '+cls+'"><span class="ins-ph">'+av+'</span><p class="op"><b>'+name+'</b>'+esc(x)+'</p></div>'}
+    function pick(src){var c=(src||{})[i.url];return c&&c.comment&&(!c.title||c.title===i.title)?c.comment:''}
+    var h='';
+    if(i.insight) h+=one('',REPORTER_BARE,RNAME,i.insight);
+    if(JP_ON){var j=pick(JP.live),m=pick((D.gm||{}).live),k=pick((D.gk||{}).live);
+      if(j)h+=one('jp',JP_AV,JPN,j); if(m)h+=one('gm',GM_AV,'제민아 대리',m); if(k)h+=one('gk',GK_AV,'김그록 사원',k);}
+    return h?'<div class="ins3">'+h+'</div>':'';
   }
+
   // 제민아 대리의 캠페인 족보: 오늘의 캠페인 브랜드가 해 온 캠페인을 리서치해 연도순으로 정리(줄마다 출처)
   function lineageHtml(main){var L=(D.gm||{}).lineage; if(!L||L.url!==main.url||!(L.rows||[]).length) return '';
     return '<div class="vdx"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+'제민아 대리가 찾아 정리</span></div>'+
@@ -1615,7 +1616,7 @@ function boot(D){
       (X.quip?'<p class="xp-q">“'+esc(X.quip)+'”</p>':'')+
       '<p class="xp-by">'+(X.links||[]).slice(0,3).map(function(u,i){return link(u,(/x\.com|twitter\.com/.test(u)?'X 게시물':'관련 기사')+' ↗')}).join(' · ')+' <span>'+GK_AV+'김그록 사원</span></p></div>'}
   function renderLive(){
-    $('live').innerHTML = liveSorted().map(function(o,k){var i=o.x, tg=(i.insight||JP_ON)&&k>0, pc3=tg&&k<3;
+    $('live').innerHTML = liveSorted().map(function(o,k){var i=o.x, tg=false, pc3=false; // 한마디는 접지 않고 모두 펼친다
       var img = i.photo ? '<img class="thumb" src="'+esc(i.photo)+'" alt="" referrerpolicy="no-referrer" onerror="var a=this.closest(\'.news\');a&&a.classList.add(\'noimg\');this.remove()">' : '';
       return '<article class="news'+(img?'':' noimg')+(o.f?' fav':'')+(tg?' tg':'')+(pc3?' pc3':'')+'">'+img+'<div class="nt"><div class="meta">'+(heat[i.hot]?'<span class="heat h'+i.hot+'">'+heat[i.hot]+'</span>':'')+'<span class="c">'+esc((i.tags||[i.cat]).slice(0,2).join('·'))+'</span><span>'+esc(i.date)+(i.at?' '+esc(i.at):'')+'</span></div>'+
         (tg?'<div class="hrow"><h3>'+link(i.url,esc(i.title))+'</h3><button type="button" class="ins-tg" aria-expanded="false" title="'+(JP_ON?'네 사람의 한마디 보기':RNAME+'의 한마디 보기')+'"><span class="ins-ph">'+REPORTER_BARE+'</span><i class="tg-bub" aria-hidden="true"><b></b><b></b><b></b></i>'+(JP_ON?'<i class="tg-jp" aria-hidden="true">'+JP_AV+'</i><i class="tg-jp tg-gk" aria-hidden="true">'+GK_AV+'</i><i class="tg-jp tg-gm" aria-hidden="true">'+GM_AV+'</i>':'')+'</button></div>':'<h3>'+link(i.url,esc(i.title))+'</h3>')+'<p>'+esc(i.summary)+'</p>'+(JP_ON?liveIns(i):i.insight?'<div class="ins"><span class="ins-ph">'+REPORTER_BARE+'</span><p class="op"><b>'+RNAME+'의 한마디</b>'+esc(i.insight)+'</p></div>':'')+'</div></article>';
@@ -2147,6 +2148,9 @@ function boot(D){
       var bw=(sec.clientWidth-(parseFloat(getComputedStyle(sec).paddingLeft)||0)-(parseFloat(getComputedStyle(sec).paddingRight)||0)), bh=bw*250/300;
       if(gap>bh+24){var f=document.createElement('aside');f.className='fill-ad';f.setAttribute('aria-label','광고');f.innerHTML='<div class="adslot" data-slot="fill"></div>';sec.appendChild(f);adFill(f.firstChild);}});
   }
+  // 실시간 이슈 표시 개수: PC에서 왼쪽 단(약 3600px) 안에 들어갈 만큼을 '한마디 수'로 어림해 정하고, 모바일도 같은 개수를 보여 준다
+  function liveCount(items){var q=+(new URLSearchParams(location.search).get('ln'));if(q)return q;
+    var B=3600,acc=0,n=0;for(var k=0;k<items.length;k++){var r=items[k].querySelectorAll('.ins3 .ins').length,e=105+(r?4+38*r:0);if(n>=4&&acc+e>B)break;acc+=e;n++}return n;}
   function balance(){
     var two=window.innerWidth>980;
     // 캠페인 카드: 대표 캠페인 높이만큼만
@@ -2154,17 +2158,20 @@ function boot(D){
     balanceRow4();
     var L=document.querySelector('.np-left'), items=[].slice.call(document.querySelectorAll('.a-live .news'));
     items.forEach(function(n){n.classList.remove('over')});
-    var btn=$('livemore');
+    var btn=$('livemore'), all=document.body.classList.contains('live-all'), hid=0;
+    // 실시간 이슈는 PC·모바일 모두 같은 개수(LIVE_N)만 보여 주고, 나머지는 '더 보기'로
+    var LIVE_N=liveCount(items);
+    items.forEach(function(n,k){if(k>=LIVE_N){n.classList.add('over');hid++}});
     var lad=$('livead'); lad.classList.add('measure');
-    if(!two){btn.hidden=true;lad.classList.remove('measure');return;}
-    var lim2=L.getBoundingClientRect().bottom-btn.offsetHeight-8, hid=0;
-    items.forEach(function(n){if(n.getBoundingClientRect().bottom>lim2){n.classList.add('over');hid++}});
+    if(!two){lad.classList.remove('measure');btn.hidden=!hid;btn.textContent=all?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';return;}
+    var lim2=L.getBoundingClientRect().bottom-btn.offsetHeight-8;
+    items.forEach(function(n){if(!n.classList.contains('over')&&n.getBoundingClientRect().bottom>lim2){n.classList.add('over');hid++}});
     // 광고 지면 자리: 300×250 박스가 들어갈 만큼 이슈를 줄임
     var lcs=getComputedStyle(lad.parentNode), lw=lad.parentNode.clientWidth-(parseFloat(lcs.paddingLeft)||0)-(parseFloat(lcs.paddingRight)||0), need=lw*250/300+14;
     var vis=items.filter(function(n){return !n.classList.contains('over')});
     for(var k=vis.length-1;k>0&&vis[k].getBoundingClientRect().bottom>lim2-need;k--){vis[k].classList.add('over');hid++}
     lad.classList.remove('measure');
-    btn.hidden=!hid; btn.textContent=document.body.classList.contains('live-all')?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
+    btn.hidden=!hid; btn.textContent=all?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
   }
   $('livemore').addEventListener('click',function(){document.body.classList.toggle('live-all');balance();if(!document.body.classList.contains('live-all'))backTo(document.querySelector('.a-live'))});
   window.addEventListener('load',function(){setTimeout(balance,50)});
