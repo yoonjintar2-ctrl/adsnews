@@ -1198,7 +1198,29 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 .tn.has-fig .tn-fig{margin:4px 0 0}
 @media (max-width:1180px){.tn.has-fig{grid-template-columns:1fr}.tn.has-fig .tn-fig{max-width:420px;margin:0 0 10px}}
 
-/* v44: 지필태 그림 크레디트·사설 만평 */
+/* v45: 4컷 만평 · 필진 4인 */
+.a-strip{margin-top:18px;border-top:3px double var(--ink);padding-top:12px}
+.a-strip .st-h{font-family:var(--serif);font-size:1.35rem;font-weight:900;margin:2px 0 10px}
+.strip-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:2px solid var(--ink)}
+.st-p{margin:0;position:relative;display:flex;flex-direction:column;border-left:2px solid var(--ink)}
+.st-p:first-child{border-left:0}
+.st-n{position:absolute;left:6px;top:6px;z-index:1;background:#1a1a1a;color:#f4f4f2;font-size:.7rem;font-weight:800;width:1.3rem;height:1.3rem;display:grid;place-items:center;border-radius:50%}
+.st-pic{display:block;aspect-ratio:1/1;background:#f4f4f2;overflow:hidden;border-bottom:1px solid var(--ink)}
+.st-pic img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.st-pic.conti{background:repeating-linear-gradient(45deg,#efede8 0 6px,#e8e5de 6px 7px)}
+.st-conti{display:block;padding:30px 12px 10px;font-size:.82rem;line-height:1.55;color:#555}
+.st-conti b{display:block;font-size:.66rem;letter-spacing:.08em;color:var(--faint);margin-bottom:4px}
+.st-p figcaption{padding:8px 10px 10px;font-size:.92rem;line-height:1.5;min-height:3.2em}
+.st-l{display:block}.st-l b{font-weight:800}
+.st-punch{margin:10px 0 0;font-family:var(--serif);font-weight:700;font-size:1rem}
+.st-cr{margin:6px 0 0;font-size:.74rem;color:var(--faint);text-align:right}
+@media (max-width:699px){.strip-g{grid-template-columns:1fr 1fr}.st-p:nth-child(3){border-left:0}.st-p:nth-child(n+3){border-top:2px solid var(--ink)}}
+.staff-g{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media (max-width:1180px){.staff-g{grid-template-columns:1fr 1fr!important}}
+@media (max-width:699px){.staff-g{grid-template-columns:1fr!important}}
+.st-ph img{display:block;width:100%;height:100%;object-fit:cover}
+.gk-mono{background:#1a1a1a;color:#f4f4f2}
+/* v44: 지필태 그림 크레디트·사설 삽화 */
 .tn-cr{font-size:.66rem;color:var(--faint);text-align:right;padding:3px 2px 0}
 .jp-ed .lead-b{margin-top:10px}
 /* v34: GPT 그림 */
@@ -1223,11 +1245,11 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 @media (max-width:620px){.mast h1{font-size:2.9rem!important}.mast .slogan{font-size:.78rem;letter-spacing:.06em;margin-top:6px}}
 </style>
 
-<meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
+<meta name="description" content="광고업계 뉴스, 노른자만 골라 매일 아침 떠먹여 드립니다. 오늘의 사설·삽화·4컷 만평, 오늘의 광고 캠페인, 실시간 이슈와 뜨는 영상까지 한 장에.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="광고늬우스">
 <meta property="og:title" content="광고늬우스 · 광고업계 뉴스, 노른자만 골라 떠먹여 드립니다">
-<meta property="og:description" content="매일 아침 사설·만평부터 오늘의 광고 캠페인, 실시간 이슈와 뜨는 광고 영상까지. 광고인을 위한 한 장짜리 신문.">
+<meta property="og:description" content="매일 아침 사설·4컷 만평부터 오늘의 광고 캠페인, 실시간 이슈와 뜨는 광고 영상까지. 광고인을 위한 한 장짜리 신문.">
 <meta property="og:url" content="https://yoonjintar2-ctrl.github.io/adsnews/">
 <meta property="og:image" content="https://yoonjintar2-ctrl.github.io/adsnews/og.png">
 <meta property="og:image:width" content="1200">
@@ -1300,12 +1322,16 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
         <div class="pts" id="pts" hidden></div>
         <article class="lead jp-ed" id="jped" hidden></article>
       </section>
+      <section class="np-sec a-strip" id="a-strip" aria-labelledby="k-strip" hidden>
+        <div class="kick"><h2 id="k-strip">오늘의 4컷 만평</h2><span id="stripsub">광고판 이슈 하나, 네 컷으로 비틀기</span></div>
+        <div id="strip"></div>
+      </section>
       <section class="np-sec a-camps" aria-labelledby="k-camps">
         <div class="kick"><h2 id="k-camps">오늘의 광고 캠페인</h2><span class="kr"><span id="kcampsub">캠페인 읽기</span><button type="button" class="cplink" id="cpLink" title="이 캠페인 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
         <div class="feat" id="camps"></div>
       </section>
       <section class="np-sec a-person" id="a-person" aria-labelledby="k-person" hidden>
-        <div class="kick"><h2 id="k-person">오늘의 광고인</h2><span class="kr"><span>금로동 기자가 소개합니다</span><button type="button" class="cplink" id="psLink" title="오늘의 광고인 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
+        <div class="kick"><h2 id="k-person">오늘의 광고인</h2><span class="kr"><span>금로동 과장가 소개합니다</span><button type="button" class="cplink" id="psLink" title="오늘의 광고인 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
         <div id="person"></div>
       </section>
     </div>
@@ -1325,7 +1351,7 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
       </div>
     </section>
     <section class="np-sec a-tnote" id="a-tnote" aria-labelledby="k-tnote" hidden>
-      <div class="kick"><h2 id="k-tnote">트렌드 노트</h2><span>금로동·지필태 기자가 하나씩 고른 요즘 흐름</span></div>
+      <div class="kick"><h2 id="k-tnote">트렌드 노트</h2><span>금로동 과장·지필태 대리가 하나씩 고른 요즘 흐름</span></div>
       <div class="tn-g" id="tnote"></div>
     </section>
     <div class="np-row4">
@@ -1347,7 +1373,7 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
   </section>
   <div class="play-row">
   <section class="np-sec a-puz" aria-labelledby="k-puz">
-    <div class="kick"><h2 id="k-puz">광고 낱말 퍼즐</h2><span id="pzsub">광고 용어로 만든 낱말 퍼즐 · 출제 금로동 기자</span></div>
+    <div class="kick"><h2 id="k-puz">광고 낱말 퍼즐</h2><span id="pzsub">광고 용어로 만든 낱말 퍼즐 · 출제 금로동 과장</span></div>
     <div class="puz">
       <div class="pz-left">
         <div class="pz-grid" id="pzgrid" role="grid" aria-label="낱말 퍼즐 판"></div>
@@ -1371,7 +1397,7 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
     <div class="staff-g" id="staffg"></div>
   </section>
   <footer class="foot" id="foot"></footer>
-  <p class="arcl"><span class="adq">광고 문의 <a href="mailto:yoonjintar@naver.com">yoonjintar@naver.com</a></span><a href="#" id="admLink">통계</a><a href="e/">지난 호 모아보기 — 금로동·지필태 기자의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
+  <p class="arcl"><span class="adq">광고 문의 <a href="mailto:yoonjintar@naver.com">yoonjintar@naver.com</a></span><a href="#" id="admLink">통계</a><a href="e/">지난 호 모아보기 — 금로동·지필태 대리의 사설·오늘의 광고 캠페인·오늘의 광고인</a></p>
 </div>
 
 <div id="setWrap" hidden>
@@ -1479,22 +1505,22 @@ function boot(D){
     }).join('');
   }
 
-  // 금로동 기자 아이콘을 누르면 한마디가 펼쳐지고, 다시 누르면 접힘
+  // 금로동 과장 아이콘을 누르면 한마디가 펼쳐지고, 다시 누르면 접힘
   $('live').addEventListener('click',function(e){var b=e.target.closest('.ins-tg');if(!b)return;var a=b.closest('.news'),on=!a.classList.contains('ins-open');
     a.classList.toggle('ins-open',on);b.setAttribute('aria-expanded',on?'true':'false');b.title=RNAME+(on?'의 한마디 접기':'의 한마디 보기');if(typeof balance==='function')balance();});
 
   $('bh').textContent = D.brief.headline;
   if(D.brief.weekly) $('k-brief').textContent='이번 주 광고계 결산';
   $('bl').textContent = D.brief.body || [D.brief.lede].concat((D.brief.points||[]).map(function(p){return p.full||p.evidence})).join(' ');
-  var RNAME='금로동 기자';
-  var REPORTER='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="금로동 기자 캐리커처"><defs><pattern id="rp-d" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".85" fill="#1a1a1a"/></pattern><pattern id="rp-h" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3.2" stroke="#1a1a1a" stroke-width=".9"/></pattern></defs><rect width="120" height="140" fill="#f4f4f2"/><rect width="120" height="140" fill="url(#rp-d)" opacity=".28"/><g stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round"><!-- shoulders / jacket --><path d="M14 140 q4 -30 46 -34 q42 4 46 34z" fill="#1a1a1a" stroke-width="2"/><path d="M48 107 l12 18 l12 -18" fill="#f4f4f2" stroke-width="1.6"/><path d="M58 111 l-3 11 l5 12 l5 -12 l-3 -11z" fill="url(#rp-h)" stroke-width="1.2"/><rect x="76" y="118" width="16" height="11" rx="1.5" fill="#f4f4f2" stroke-width="1.3"/><text x="84" y="126" font-family="Noto Serif KR,serif" font-size="6.5" font-weight="900" fill="#1a1a1a" stroke="none" text-anchor="middle">기자</text><!-- pencil behind ear --><g transform="rotate(-28 92 66)"><rect x="86" y="63" width="22" height="5" fill="#f4f4f2" stroke-width="1.3"/><path d="M108 63 l6 2.5 l-6 2.5z" fill="#1a1a1a" stroke-width="1"/><rect x="86" y="63" width="4" height="5" fill="#1a1a1a" stroke-width="1"/></g><!-- head --><ellipse cx="60" cy="72" rx="30" ry="29" fill="#f4f4f2" stroke-width="2.4"/><!-- round glasses --><circle cx="48" cy="72" r="8.5" fill="none" stroke-width="2"/><circle cx="72" cy="72" r="8.5" fill="none" stroke-width="2"/><path d="M56.5 71 q3.5 -2.5 7 0" fill="none" stroke-width="1.8"/><!-- eyes --><ellipse cx="48" cy="73" rx="2.6" ry="3.3" fill="#1a1a1a" stroke="none"/><ellipse cx="72" cy="73" rx="2.6" ry="3.3" fill="#1a1a1a" stroke="none"/><circle cx="49" cy="71.6" r=".9" fill="#f4f4f2" stroke="none"/><circle cx="73" cy="71.6" r=".9" fill="#f4f4f2" stroke="none"/><!-- cheeks (hatched) + smile --><ellipse cx="40" cy="85" rx="5" ry="3" fill="url(#rp-h)" stroke="none" opacity=".75"/><ellipse cx="80" cy="85" rx="5" ry="3" fill="url(#rp-h)" stroke="none" opacity=".75"/><path d="M53 87 q7 6 14 0" fill="none" stroke-width="2"/><!-- fedora --><path d="M24 52 q36 -10 72 0 q-4 5 -36 5 q-32 0 -36 -5z" fill="#1a1a1a" stroke-width="2"/><path d="M34 51 q2 -22 26 -24 q24 2 26 24 q-26 4 -52 0z" fill="#1a1a1a" stroke-width="2"/><path d="M36 46 q24 4 48 0" fill="none" stroke="#f4f4f2" stroke-width="3.5"/><rect x="60" y="31" width="21" height="11" fill="#f4f4f2" stroke-width="1.2" transform="rotate(8 70 36)"/><text x="70.5" y="39.4" font-family="Noto Serif KR,serif" font-size="6" font-weight="900" fill="#1a1a1a" stroke="none" text-anchor="middle" transform="rotate(8 70 36)">PRESS</text><!-- tiny sparkle --><path d="M100 22 l2 6 l6 2 l-6 2 l-2 6 l-2 -6 l-6 -2 l6 -2z" fill="#1a1a1a" stroke="none"/><path d="M18 30 l1.2 3.5 l3.5 1.2 l-3.5 1.2 l-1.2 3.5 l-1.2 -3.5 l-3.5 -1.2 l3.5 -1.2z" fill="#1a1a1a" stroke="none"/></g></svg>';
+  var RNAME='금로동 과장';
+  var REPORTER='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="금로동 과장 캐리커처"><defs><pattern id="rp-d" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".85" fill="#1a1a1a"/></pattern><pattern id="rp-h" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3.2" stroke="#1a1a1a" stroke-width=".9"/></pattern></defs><rect width="120" height="140" fill="#f4f4f2"/><rect width="120" height="140" fill="url(#rp-d)" opacity=".28"/><g stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round"><!-- shoulders / jacket --><path d="M14 140 q4 -30 46 -34 q42 4 46 34z" fill="#1a1a1a" stroke-width="2"/><path d="M48 107 l12 18 l12 -18" fill="#f4f4f2" stroke-width="1.6"/><path d="M58 111 l-3 11 l5 12 l5 -12 l-3 -11z" fill="url(#rp-h)" stroke-width="1.2"/><rect x="76" y="118" width="16" height="11" rx="1.5" fill="#f4f4f2" stroke-width="1.3"/><text x="84" y="126" font-family="Noto Serif KR,serif" font-size="6.5" font-weight="900" fill="#1a1a1a" stroke="none" text-anchor="middle">기자</text><!-- pencil behind ear --><g transform="rotate(-28 92 66)"><rect x="86" y="63" width="22" height="5" fill="#f4f4f2" stroke-width="1.3"/><path d="M108 63 l6 2.5 l-6 2.5z" fill="#1a1a1a" stroke-width="1"/><rect x="86" y="63" width="4" height="5" fill="#1a1a1a" stroke-width="1"/></g><!-- head --><ellipse cx="60" cy="72" rx="30" ry="29" fill="#f4f4f2" stroke-width="2.4"/><!-- round glasses --><circle cx="48" cy="72" r="8.5" fill="none" stroke-width="2"/><circle cx="72" cy="72" r="8.5" fill="none" stroke-width="2"/><path d="M56.5 71 q3.5 -2.5 7 0" fill="none" stroke-width="1.8"/><!-- eyes --><ellipse cx="48" cy="73" rx="2.6" ry="3.3" fill="#1a1a1a" stroke="none"/><ellipse cx="72" cy="73" rx="2.6" ry="3.3" fill="#1a1a1a" stroke="none"/><circle cx="49" cy="71.6" r=".9" fill="#f4f4f2" stroke="none"/><circle cx="73" cy="71.6" r=".9" fill="#f4f4f2" stroke="none"/><!-- cheeks (hatched) + smile --><ellipse cx="40" cy="85" rx="5" ry="3" fill="url(#rp-h)" stroke="none" opacity=".75"/><ellipse cx="80" cy="85" rx="5" ry="3" fill="url(#rp-h)" stroke="none" opacity=".75"/><path d="M53 87 q7 6 14 0" fill="none" stroke-width="2"/><!-- fedora --><path d="M24 52 q36 -10 72 0 q-4 5 -36 5 q-32 0 -36 -5z" fill="#1a1a1a" stroke-width="2"/><path d="M34 51 q2 -22 26 -24 q24 2 26 24 q-26 4 -52 0z" fill="#1a1a1a" stroke-width="2"/><path d="M36 46 q24 4 48 0" fill="none" stroke="#f4f4f2" stroke-width="3.5"/><rect x="60" y="31" width="21" height="11" fill="#f4f4f2" stroke-width="1.2" transform="rotate(8 70 36)"/><text x="70.5" y="39.4" font-family="Noto Serif KR,serif" font-size="6" font-weight="900" fill="#1a1a1a" stroke="none" text-anchor="middle" transform="rotate(8 70 36)">PRESS</text><!-- tiny sparkle --><path d="M100 22 l2 6 l6 2 l-6 2 l-2 6 l-2 -6 l-6 -2 l6 -2z" fill="#1a1a1a" stroke="none"/><path d="M18 30 l1.2 3.5 l3.5 1.2 l-3.5 1.2 l-1.2 3.5 l-1.2 -3.5 l-3.5 -1.2 l3.5 -1.2z" fill="#1a1a1a" stroke="none"/></g></svg>';
   var REPORTER_BARE=REPORTER.replace(/<rect width="120" height="140"[^>]*>/g,'').replace('viewBox="0 0 120 140"','viewBox="10 16 100 124"');
   var bylineHtml='<div class="rep"><span class="rep-ph">'+REPORTER+'</span><span class="rep-t"><b>'+RNAME+'</b><span>AI 기자</span><span class="rep-m">claude@adsnews</span></span></div>';
-  // ── 공동 집필: 지필태 기자(ChatGPT 기반). 원고는 jipiltae.json에만 있고 data.json과 섞지 않는다 ──
-  var JP=D.jp||{}, JPN='지필태 기자', JP_START='2026-10-02';
+  // ── 공동 집필: 지필태 대리(ChatGPT 기반). 원고는 jipiltae.json에만 있고 data.json과 섞지 않는다 ──
+  var JP=D.jp||{}, JPN='지필태 대리', JP_START='2026-10-02';
   var ED_DATE=(D.brief.cartoon||{}).date||window.__ED||new Date(nowMs()+9*36e5).toISOString().slice(0,10);
   var JP_ON=ED_DATE>=JP_START;
-  var JP_AV=(JP.author&&JP.author.avatar)?'<img src="'+esc(JP.author.avatar)+'" alt="지필태 기자">':'<span class="jp-mono" aria-label="지필태 기자">지</span>';
+  var JP_AV=(JP.author&&JP.author.avatar)?'<img src="'+esc(JP.author.avatar)+'" alt="지필태 대리">':'<span class="jp-mono" aria-label="지필태 대리">지</span>';
   var JP_AI='ChatGPT(OpenAI) 기반';
   var jpByline='<div class="rep jp"><span class="rep-ph">'+JP_AV+'</span><span class="rep-t"><b>'+JPN+'</b><span>AI 기자</span><span class="rep-m">gpt@adsnews</span></span></div>';
   function jpPending(what){return '<p class="jp-pend"><span class="jp-av">'+JP_AV+'</span><span><b>'+JPN+'</b>의 '+what+'은(는) 준비 중이에요.</span></p>'}
@@ -1546,7 +1572,7 @@ function boot(D){
   function openModal(html,wide){$('mbody').innerHTML=html;$('modal').firstElementChild.classList.toggle('wide',!!wide);$('modal').hidden=false;$('mclose').focus();}
   // 만평 그림: GPT 이미지(img)가 있으면 그것을, 없으면 금기자가 그린 SVG를 쓴다. 말풍선 글은 그림 위에 얹는다
   function toonInner(T){if(!T)return '';
-    if(T.img)return '<span class="toon-im"><img src="'+esc(T.img)+'" alt="'+esc(T.caption||'광고늬우스 만평')+'" onerror="this.parentNode.outerHTML=window.__toonSvg||\'\'">'+(T.bubble?'<span class="toon-bub'+(/^(tl|tr|bl|br)$/.test(T.bubblePos||'')?' p-'+T.bubblePos:'')+'">'+esc(T.bubble)+'</span>':'')+'<span class="toon-tag">광고늬우스 만평</span></span>';
+    if(T.img)return '<span class="toon-im"><img src="'+esc(T.img)+'" alt="'+esc(T.caption||'광고늬우스 삽화')+'" onerror="this.parentNode.outerHTML=window.__toonSvg||\'\'">'+(T.bubble?'<span class="toon-bub'+(/^(tl|tr|bl|br)$/.test(T.bubblePos||'')?' p-'+T.bubblePos:'')+'">'+esc(T.bubble)+'</span>':'')+'<span class="toon-tag">광고늬우스 삽화</span></span>';
     return T.svg&&/^<svg[\s>]/.test(T.svg)&&!/<script|on\w+=|javascript:|<foreignObject/i.test(T.svg)?T.svg:''}
   window.__toonSvg=(D.brief.cartoon&&D.brief.cartoon.svg)||'';
   function toonHtml(){var T=(CE&&CE.cartoon)||D.brief.cartoon;var x=toonInner(T);return x&&!$('toon').hidden?'<figure class="toon">'+x+(T.caption?'<figcaption>'+esc(T.caption)+'</figcaption>':'')+'</figure>':''}
@@ -1592,8 +1618,8 @@ function boot(D){
   $('mclose').addEventListener('click',function(){$('modal').hidden=true});
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')$('modal').hidden=true});
-  var TC=D.brief.cartoon, TCby='그림 '+RNAME;
-  if(JP_ON&&JP.cartoon&&JP.cartoon.img&&JP.cartoon.for===ED_DATE){TC={img:JP.cartoon.img,caption:JP.cartoon.caption,bubble:JP.cartoon.bubble,bubblePos:JP.cartoon.bubblePos,svg:(D.brief.cartoon||{}).svg};TCby='만평 '+JPN;}
+  var TC=D.brief.cartoon, TCby='삽화 '+RNAME;
+  if(JP_ON&&JP.cartoon&&JP.cartoon.img&&JP.cartoon.for===ED_DATE){TC={img:JP.cartoon.img,caption:JP.cartoon.caption,bubble:JP.cartoon.bubble,bubblePos:JP.cartoon.bubblePos,svg:(D.brief.cartoon||{}).svg};TCby='삽화 '+JPN;}
   var TCin=toonInner(TC);
   if(TCin){
     $('toon').innerHTML=TCin+'<figcaption>'+(TC.caption?esc(TC.caption)+' ':'')+'<span class="toon-by">'+esc(TCby)+'</span></figcaption>';$('toon').hidden=false;$('toon').parentElement.classList.add('has-toon');
@@ -1606,7 +1632,7 @@ function boot(D){
     if(E&&E.date===ED_DATE&&E.body&&ECin){
       el.__text=E.body;
       el.innerHTML='<p class="ed-tag"><b>'+JPN+'</b></p><h2>'+esc(E.headline)+'</h2>'+(E.lede?'<p class="jp-lede">'+esc(E.lede)+'</p>':'')+
-        '<div class="lead-b jp-lb"><figure class="toon" id="jptoon">'+ECin+'<figcaption>'+(EC.caption?esc(EC.caption)+' ':'')+'<span class="toon-by">만평 '+JPN+'</span></figcaption></figure><p class="dek" id="jpbl">'+esc(E.body)+'</p></div>'+jpSrc(E.sources);
+        '<div class="lead-b jp-lb"><figure class="toon" id="jptoon">'+ECin+'<figcaption>'+(EC.caption?esc(EC.caption)+' ':'')+'<span class="toon-by">삽화 '+JPN+'</span></figcaption></figure><p class="dek" id="jpbl">'+esc(E.body)+'</p></div>'+jpSrc(E.sources);
       var jt=$('jptoon'); jt.addEventListener('click',function(){openModal('<span class="t">'+JPN+'의 사설</span><h3>'+esc(E.headline)+'</h3><figure class="toon">'+ECin+(EC.caption?'<figcaption>'+esc(EC.caption)+'</figcaption>':'')+'</figure><p class="mcols">'+esc(E.body)+'</p>'+jpByline,true)});
       var ji=jt.querySelector('img'); if(ji) ji.addEventListener('load',function(){layoutEditorial();if(typeof balance==='function')setTimeout(balance,30)});
     } else if(E&&E.date===ED_DATE&&E.body){
@@ -1758,10 +1784,11 @@ function boot(D){
         ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</div></article>'}).join('');
     sec.hidden=false;
   }
-  // 오늘의 광고인: 금로동 기자가 독자에게 한 사람을 소개 (사설과 같은 단 구성, 그림은 금기자가 그린 흑백 일러스트)
+  // 오늘의 광고인: 금로동 과장가 독자에게 한 사람을 소개 (사설과 같은 단 구성, 그림은 금기자가 그린 흑백 일러스트)
   function renderPerson(){
     var P=D.person, el=$('person'), sec=$('a-person'); if(!el||!sec) return;
     if(!P||!P.name){sec.hidden=true;return;}
+    if(P.caption) P=Object.assign({},P,{caption:String(P.caption).replace('금로동 기자','금로동 과장')});
     var JPp=JP_ON&&JP.person; if(JPp&&JPp.img&&JPp.date===P.date&&JPp.name===P.name) P=Object.assign({},P,{img:JPp.img,caption:'AI 일러스트 · '+JPN+'이 그린 '+P.name,svg:''});
     var sv=P.img?'':safeSvg(P.svg), img=P.img||P.photo||'';
     var fig=sv?'<figure class="ps-fig">'+sv+(P.caption?'<figcaption>'+esc(P.caption)+'</figcaption>':'')+'</figure>':
@@ -1864,15 +1891,31 @@ function boot(D){
     $('plat').innerHTML=mix.map(function(r){return card({url:r.u,title:r.t,kick:r.p,ph:r.p})}).join('');}
   function renderPlatOld(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
+  // 오늘의 4컷 만평: 글(각본) 김그록 사원, 그림 지필태 대리(또는 그록). 원고는 grok.json에만 있다
+  (function(){var sec=$('a-strip'), el=$('strip'); if(!sec||!el) return; var G=D.gk||{}, S=G.strip, GK_START='2026-10-02';
+    if(!(ED_DATE>=GK_START)) return;
+    if(!S||S.date!==ED_DATE||!(S.panels||[]).length){ el.innerHTML='<p class="jp-pend-t">김그록 사원의 4컷 만평은 준비 중이에요.</p>'; sec.hidden=false; return; }
+    var P=S.panels.slice(0,4);
+    el.innerHTML='<h3 class="st-h">'+esc(S.title||'')+'</h3>'+
+      '<div class="strip-g">'+P.map(function(p,i){
+        var pic=p.img?'<img src="'+esc(p.img)+'" alt="'+(i+1)+'컷: '+esc((p.scene||'').slice(0,80))+'" loading="lazy">':'<span class="st-conti"><b>콘티</b>'+esc(p.scene||'')+'</span>';
+        return '<figure class="st-p"><span class="st-n">'+(i+1)+'</span><span class="st-pic'+(p.img?'':' conti')+'">'+pic+'</span><figcaption>'+
+          (p.dialogue||[]).map(function(d){return '<span class="st-l"><b>'+esc(d.who||'')+'</b> '+esc(d.line||'')+'</span>'}).join('')+'</figcaption></figure>'}).join('')+'</div>'+
+      (S.punchline?'<p class="st-punch">'+esc(S.punchline)+'</p>':'')+
+      '<p class="st-cr">'+(S.issue&&S.issue.url?link(S.issue.url,'이슈: '+esc(S.issue.title||'원문')+' ↗')+' · ':'')+'글 김그록 사원'+(S.artBy?' · 그림 '+esc(S.artBy):(P.some(function(p){return p.img})?'':' · 그림 준비 중'))+'</p>';
+    sec.hidden=false;
+  })();
   (function(){var el=$('staffg'); if(!el) return; var A=JP.author||{};
     function card(ph,name,role,ai,intro,cls){return '<article class="staff'+(cls?' '+cls:'')+'"><span class="st-ph">'+ph+'</span><div class="st-t"><b>'+name+'</b><span class="st-r">'+role+'</span>'+(ai?'<span class="st-ai">'+ai+'</span>':'')+'<p>'+intro+'</p></div></article>'}
+    var SA=JP.staffArt||{}, GK=(D.gk&&D.gk.author)||{};
     el.innerHTML=
-      card((JP.staffArt&&JP.staffArt.publisher)?'<img src="'+esc(JP.staffArt.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
-      card(REPORTER,RNAME,'선임 기자 · 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐','','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 지필태 기자에게 그날의 일감을 넘깁니다.')+
-      card(JP_AV,JPN,'기자 · 사설·캠페인 분석·실시간 코멘트·트렌드 노트·만평·숨은그림찾기','',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 기자가 직접 보내오면 실려요.</span>','jp');
+      card(SA.publisher?'<img src="'+esc(SA.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
+      card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐 · 편집','','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 후배들에게 그날의 일감을 나눕니다.')+
+      card(JP_AV,JPN,'대리 · 사설·캠페인 분석·실시간 코멘트·트렌드 노트·삽화·숨은그림찾기','',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 대리가 직접 보내오면 실려요.</span>','jp')+
+      card((SA.grok||GK.avatar)?'<img src="'+esc(SA.grok||GK.avatar)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>','김그록 사원','사원(막내) · 4컷 만평','',GK.intro?esc(GK.intro):'광고판 이슈를 매일 네 컷으로 비틉니다. 웃기지만 아무도 다치지 않게, 막내의 눈으로 업계의 습관을 찌릅니다.','gk');
   })();
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
-    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 공동 집필 '+RNAME+'·지필태 기자 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
+    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 공동 집필 '+RNAME+'·지필태 대리 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
 
   var follows = [], dbRef = null, db = null, local = false;
   var norm = function(s){return String(s).toLowerCase().replace(/\s+/g,'')};
@@ -2085,8 +2128,8 @@ function boot(D){
   var cur=null, curLive=null;
   function get(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
   var curJp=null;
-  Promise.all([get(window.__BASE+'data.json'),get(window.__BASE+'live.json').catch(function(){return null}),get(window.__BASE+'jipiltae.json').catch(function(){return null})]).then(function(a){
-    var D=a[0]; D.jp=a[2]||{}; curJp=D.jp.updatedAt||null; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;D.desc=a[1].desc;D.bnews=a[1].bnews;D.og=a[1].og;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
+  Promise.all([get(window.__BASE+'data.json'),get(window.__BASE+'live.json').catch(function(){return null}),get(window.__BASE+'jipiltae.json').catch(function(){return null}),get(window.__BASE+'grok.json').catch(function(){return null})]).then(function(a){
+    var D=a[0]; D.jp=a[2]||{}; D.gk=a[3]||{}; curJp=D.jp.updatedAt||null; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;D.desc=a[1].desc;D.bnews=a[1].bnews;D.og=a[1].og;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
   }).catch(function(){document.body.insertAdjacentHTML('afterbegin','<p style="padding:16px">데이터를 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>')});
   if(!window.__ED)setInterval(function(){get('data.json').then(function(D){if(cur&&D.updatedAt!==cur)location.reload()}).catch(function(){});
     get('jipiltae.json').then(function(J){if((J.updatedAt||null)!==curJp)location.reload()}).catch(function(){})},60000);
@@ -2139,7 +2182,7 @@ function boot(D){
   document.body.appendChild(m);
   function open(){
     m.innerHTML='<div class="modal-box subm-box"><button type="button" class="subm-x" aria-label="닫기">✕</button><span class="t">구독 안내</span><h3>광고늬우스를 즐겨찾기에 담아 두세요</h3>'+
-      '<p class="subm-d">매일 아침 새 사설·만평과 오늘의 광고 캠페인이 올라와요. 즐겨찾기에 두고 출근길에 한 번씩 열어 보세요.</p>'+
+      '<p class="subm-d">매일 아침 새 사설·4컷 만평과 오늘의 광고 캠페인이 올라와요. 즐겨찾기에 두고 출근길에 한 번씩 열어 보세요.</p>'+
       '<ol class="subm-s">'+steps().map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol>'+
       '<div class="subm-b"><button type="button" class="subm-copy">링크 복사</button>'+(navigator.share?'<button type="button" class="subm-share">공유하기</button>':'')+'</div><p class="subm-msg" aria-live="polite"></p></div>';
     m.hidden=false;
@@ -2295,13 +2338,13 @@ function boot(D){
   $('hdreset').addEventListener('click',function(){found={};save();render()});
   function md(d){var m=String(d||'').match(/\d{4}-(\d\d)-(\d\d)/);return m?(+m[1])+'월 '+(+m[2])+'일자':''}
   function getJ(u){return fetch(window.__BASE+u+'?'+Date.now()).then(function(r){if(!r.ok)throw 0;return r.json()})}
-  // 1) 지필태 기자의 숨은그림(사람이 정답 위치를 확인해 verified 표시된 것만)  2) 없으면 이전 판(금로동 기자) 유지
+  // 1) 지필태 대리의 숨은그림(사람이 정답 위치를 확인해 verified 표시된 것만)  2) 없으면 이전 판(금로동 과장) 유지
   getJ('jipiltae.json').then(function(J){var h=J&&J.hidden;
     if(!h||!h.verified||!h.img||!(h.targets||[]).length||!h.w||!h.h)throw 0;
     h.svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+h.w+' '+h.h+'" role="img" aria-label="'+esc(h.title||'숨은그림찾기')+'"><image href="'+esc(h.img)+'" x="0" y="0" width="'+h.w+'" height="'+h.h+'"/></svg>';
-    h.by='그림·출제 지필태 기자'; return h;
+    h.by='그림·출제 지필태 대리'; return h;
   }).catch(function(){return getJ('hidden.json').then(function(h){if(!h||!h.svg||!/^<svg[\s>]/.test(h.svg)||/<script|on\w+=|javascript:|<foreignObject/i.test(h.svg))throw 0;
-    h.by='그림·출제 금로동 기자 · '+md(h.date)+((window.__ED&&window.__ED<'2026-10-02')?'':' (지필태 기자의 새 판 준비 중)'); return h;})
+    h.by='그림·출제 금로동 과장 · '+md(h.date)+((window.__ED&&window.__ED<'2026-10-02')?'':' (지필태 대리의 새 판 준비 중)'); return h;})
   }).then(function(h){H=h;KEY='adsnews-hidden-'+h.date+(h.img?'-jp':'');
     try{found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
     $('hdsub').textContent=h.by;

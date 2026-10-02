@@ -1,7 +1,7 @@
 """Search-engine pages: every edition as plain HTML that crawlers can read without JavaScript.
 
-  e/YYYY-MM-DD.html  — that day's 미니 사설 (full text + 만평), 오늘의 광고 캠페인 (+ 금로동 기자의 한마디),
-                       오늘의 광고인, 실시간 이슈 headlines with 금로동 기자 comments
+  e/YYYY-MM-DD.html  — that day's 미니 사설 (full text + 만평), 오늘의 광고 캠페인 (+ 금로동 과장의 한마디),
+                       오늘의 광고인, 실시간 이슈 headlines with 금로동 과장 comments
   e/index.html       — list of all editions (지난 호 모아보기)
   sitemap.xml        — for Google Search Console / 네이버 서치어드바이저
 Back issues come from archive/YYYY-MM-DD/data.json; today's page from data.json.
@@ -79,7 +79,7 @@ a{color:#1a1a1a}
 
 
 JP_START = "2026-10-02"
-JPN = "지필태 기자"
+JPN = "지필태 대리"
 
 
 def page_html(d, D, prev_d, next_d, has_card, J=None):
@@ -101,7 +101,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": head[:110], "description": desc,
         "datePublished": f"{d}T06:50:00+09:00", "dateModified": f"{d}T23:59:00+09:00", "inLanguage": "ko",
         "image": [img], "mainEntityOfPage": url,
-        "author": {"@type": "Person", "name": "금로동 기자"},
+        "author": {"@type": "Person", "name": "금로동 과장"},
         "publisher": {"@type": "Organization", "name": "광고늬우스", "logo": {"@type": "ImageObject", "url": SITE + "icon-512.png"}},
     }
     out = [f"""<!doctype html>
@@ -119,13 +119,13 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
 <style>{CSS}</style></head><body><div class="w">
 <header><a class="m" href="../">광고늬우스</a><p>제{no}호 · {esc(md(d))} · 발행인 SM C&amp;C 윤석진</p></header>
 <article>
-<span class="k">{esc(kick)} · 금로동 기자</span>
+<span class="k">{esc(kick)} · 금로동 과장</span>
 <h1>{esc(head)}</h1>"""]
     svg = safe_svg((b.get("cartoon") or {}).get("svg"))
     jc = J.get("cartoon") or {}
     if jc.get("img") and jc.get("for") == d:
         svg = f'<img src="../{esc(jc["img"])}" alt="{esc(jc.get("alt") or jc.get("caption"))}" style="display:block;width:100%">'
-        b = dict(b, cartoon=dict(b.get("cartoon") or {}, caption=(jc.get("caption") or "") + " · 만평 지필태 기자"))
+        b = dict(b, cartoon=dict(b.get("cartoon") or {}, caption=(jc.get("caption") or "") + " · 만평 지필태 대리"))
     elif (b.get("cartoon") or {}).get("img"):
         svg = f'<img src="../{esc(b["cartoon"]["img"])}" alt="{esc((b.get("cartoon") or {}).get("caption"))}" style="display:block;width:100%;filter:grayscale(1)">'
     if svg:
@@ -147,7 +147,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
 <p class="meta">{esc(' · '.join([x for x in [feat.get('date'), ' · '.join(feat.get('media') or []), feat.get('metric')] if x]))}</p>
 <p>{esc(feat.get('story'))}</p>""")
         if feat.get("review") or feat.get("why"):
-            out.append(f"<div class=\"op\"><b>금로동 기자의 분석</b>{esc(feat.get('review') or feat.get('why'))}</div>")
+            out.append(f"<div class=\"op\"><b>금로동 과장의 분석</b>{esc(feat.get('review') or feat.get('why'))}</div>")
         jk = J.get("campaign") or {}
         if jk.get("url") == feat.get("url") and jk.get("review"):
             out.append(f"<div class=\"op\"><b>{JPN}의 분석</b>{esc(jk['review'])}</div>")
@@ -159,7 +159,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
         out.append("</section>")
     TN = (D.get("trendNotes") or {}).get("items") or []
     if d >= JP_START:
-        TN = [dict(t, by="금로동 기자") for t in TN[:1]]
+        TN = [dict(t, by="금로동 과장") for t in TN[:1]]
         jt = J.get("trend") or {}
         if jt.get("date") == ((D.get("trendNotes") or {}).get("date") or d) and jt.get("body"):
             TN.append(dict(jt, by=JPN))
@@ -188,12 +188,12 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
                     ws.append(esc(w))
             out.append("<p><b>대표 작업</b> · " + " · ".join(ws) + "</p>")
         if P.get("lesson"):
-            out.append(f"<div class=\"op\"><b>금로동 기자의 한마디</b>{esc(P['lesson'])}</div>")
+            out.append(f"<div class=\"op\"><b>금로동 과장의 한마디</b>{esc(P['lesson'])}</div>")
         out.append("</section>")
     if live:
         out.append("<section><h2>실시간 이슈</h2><ul>")
         for x in live:
-            ins = f"<br><i>금로동 기자: {esc(x['insight'])}</i>" if x.get("insight") else ""
+            ins = f"<br><i>금로동 과장: {esc(x['insight'])}</i>" if x.get("insight") else ""
             jl = (J.get("live") or {}).get(x.get("url")) or {}
             if jl.get("comment") and (not jl.get("title") or jl.get("title") == x.get("title")):
                 ins += f"<br><i>{JPN}: {esc(jl['comment'])}</i>"
@@ -236,11 +236,11 @@ def main():
     idx = f"""<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>지난 호 모아보기 · 광고늬우스</title>
-<meta name="description" content="광고늬우스 금로동 기자의 미니 사설·오늘의 광고 캠페인·오늘의 광고인을 날짜별로 모았습니다.">
+<meta name="description" content="광고늬우스 금로동 과장의 미니 사설·오늘의 광고 캠페인·오늘의 광고인을 날짜별로 모았습니다.">
 <link rel="canonical" href="{SITE}e/"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>{CSS}</style></head><body><div class="w">
 <header><a class="m" href="../">광고늬우스</a><p>지난 호 모아보기 · 발행인 SM C&amp;C 윤석진</p></header>
-<p>매일 아침 금로동 기자가 쓰는 미니 사설과 만평, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
+<p>매일 아침 금로동 과장가 쓰는 미니 사설과 만평, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
 <ul>{rows}</ul>
 <a class="go" href="../">오늘 신문 보기 →</a>
 </div></body></html>
@@ -268,7 +268,7 @@ def main():
         je = (jps.get(d) or {}).get("editorial") or {}
         if je.get("date") == d and je.get("headline"):
             items.append(f"""  <item>
-   <title>{esc(je['headline'])} — 지필태 기자</title>
+   <title>{esc(je['headline'])} — 지필태 대리</title>
    <link>{SITE}e/{d}.html#jp</link>
    <guid isPermaLink="true">{SITE}e/{d}.html#jp</guid>
    <pubDate>{rfc(d)}</pubDate>
@@ -289,7 +289,7 @@ def main():
   <title>광고늬우스</title>
   <link>{SITE}</link>
   <atom:link href="{SITE}rss.xml" rel="self" type="application/rss+xml"/>
-  <description>광고계 노른자 소식들, 한 입에 떠-먹여 드려요. 금로동 기자의 미니 사설·오늘의 광고 캠페인·오늘의 광고인·트렌드 노트.</description>
+  <description>광고계 노른자 소식들, 한 입에 떠-먹여 드려요. 금로동 과장의 미니 사설·오늘의 광고 캠페인·오늘의 광고인·트렌드 노트.</description>
   <language>ko</language>
 {"".join(items)} </channel>
 </rss>

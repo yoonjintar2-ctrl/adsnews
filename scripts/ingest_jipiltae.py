@@ -65,9 +65,9 @@ def put_image(src_dir, fname, kind, date):
                 im = im.convert("RGBA"); bg = Image.new("RGB", im.size, (255, 255, 255)); bg.paste(im, mask=im.split()[-1]); im = bg
             else:
                 im = im.convert("RGB")
-            if im.width > 1600:
-                im = im.resize((1600, round(im.height * 1600 / im.width)), Image.LANCZOS)
-            im.save(out, "JPEG", quality=86, optimize=True, progressive=True)
+            if im.width > 1400:
+                im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)
+            im.save(out, "JPEG", quality=82, optimize=True, progressive=True)
             return out
         except Exception as e:
             err(f"{kind}: 그림을 열 수 없어요 — {fname} ({e})")
@@ -328,6 +328,11 @@ def main():
         p = put_image(src_dir, M["publisher"]["file"], "publisher", "profile")
         if p:
             new.setdefault("staffArt", {})["publisher"] = p
+    for key in ("geum", "grok"):
+        if (M.get(key) or {}).get("file") and not a.dry_run:
+            p = put_image(src_dir, M[key]["file"], key, "profile")
+            if p:
+                new.setdefault("staffArt", {})[key] = p
 
     if (M.get("profile") or {}).get("intro"):
         intro = " ".join(M["profile"]["intro"].split())
@@ -351,7 +356,7 @@ def main():
     dump(JP_FILE, new)
     os.makedirs("jipiltae/manuscripts", exist_ok=True)
     shutil.copyfile(a.manuscript, f"jipiltae/manuscripts/{date}-{now_kst().strftime('%H%M')}.json")
-    print("jipiltae.json 반영 완료:", ", ".join(k for k in ("editorial", "editorialCartoon", "cartoon", "campaign", "trend", "trendImage", "trendArt", "person", "hidden", "publisher", "avatar") if M.get(k)),
+    print("jipiltae.json 반영 완료:", ", ".join(k for k in ("editorial", "editorialCartoon", "cartoon", "campaign", "trend", "trendImage", "trendArt", "person", "hidden", "publisher", "geum", "grok", "avatar") if M.get(k)),
           f"/ 실시간 {len(L)}건")
 
 
