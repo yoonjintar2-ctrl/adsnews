@@ -65,8 +65,9 @@ def put_image(src_dir, fname, kind, date):
                 im = im.convert("RGBA"); bg = Image.new("RGB", im.size, (255, 255, 255)); bg.paste(im, mask=im.split()[-1]); im = bg
             else:
                 im = im.convert("RGB")
-            if im.width > 1400:
-                im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)
+            mw = 480 if date == "profile" else 1400  # 필진 초상은 작게
+            if im.width > mw:
+                im = im.resize((mw, round(im.height * mw / im.width)), Image.LANCZOS)
             im.save(out, "JPEG", quality=82, optimize=True, progressive=True)
             return out
         except Exception as e:
