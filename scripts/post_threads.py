@@ -1,6 +1,6 @@
 """금로동 기자 Threads 계정에 하루 세 번 자동 게시.
 
-  아침(ed)    : 오늘의 미니 사설 — 공유 카드(제목+만평) 이미지와 링크
+  아침(ed)    : 오늘의 사설 — 공유 카드(제목+만평) 이미지와 링크
   점심(tn)    : 금기자의 트렌드 노트 첫 번째 트렌드 카드
   저녁(person): 오늘의 광고인 카드
 같은 날 같은 코너는 한 번만 올린다(threads.json에 기록). 카드 이미지가 아직
@@ -67,7 +67,7 @@ def build(slot, D, today):
         if d != today or not b.get("headline"):
             return None
         key, page = f"ed-{d}", f"s/ed-{d}"
-        text = (f"[오늘의 미니 사설] {b['headline']}\n\n{clip(b.get('lede') or b.get('body'), 220)}"
+        text = (f"[오늘의 사설] {b['headline']}\n\n{clip(b.get('lede') or b.get('body'), 220)}"
                 f"\n\n→ 금로동 기자의 만평과 전문: {SITE}{page}.html\n\n{TAGS}")
     elif slot == "tn":
         T = D.get("trendNotes") or {}

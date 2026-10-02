@@ -197,7 +197,7 @@ def main():
 
     E = M.get("editorial")
     if E:
-        if chk_len("사설 본문", E.get("body"), 400, 700) and E.get("headline"):
+        if chk_len("미니 사설 본문", E.get("body"), 200, 330) and E.get("headline"):
             gh = (data.get("brief") or {}).get("headline", "")
             if gh and len(set(gh.split()) & set(E["headline"].split())) >= 3:
                 warn("사설: 금로동 사설 제목과 단어가 많이 겹쳐요 — 독립 주제인지 확인")

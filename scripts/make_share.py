@@ -201,7 +201,7 @@ def main():
         if not d or not e.get("headline"):
             continue
         key = f"ed-{d}"
-        kick = "이번 주 광고계 결산" if e.get("weekly") else "오늘의 미니 사설"
+        kick = "이번 주 광고계 결산" if e.get("weekly") else "오늘의 사설"
         svg = safe_svg((e.get("cartoon") or {}).get("svg"))
         cimg = (e.get("cartoon") or {}).get("img")
         if cimg and os.path.exists(cimg):

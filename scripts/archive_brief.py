@@ -1,4 +1,4 @@
-"""Keep every day's 미니 사설 in editorials.json so readers can page back through past editorials.
+"""Keep every day's main 사설 in editorials.json so readers can page back through past editorials.
 
 The 06:50 content task rewrites data.json `brief`; this step (run in the trends Action) copies
 the current brief into editorials.json under its date, updating it if it changed during the day.

@@ -1,6 +1,6 @@
 """Search-engine pages: every edition as plain HTML that crawlers can read without JavaScript.
 
-  e/YYYY-MM-DD.html  — that day's 미니 사설 (full text + 만평), 오늘의 광고 캠페인 (+ 금로동 과장의 한마디),
+  e/YYYY-MM-DD.html  — that day's 사설 + 미니 사설 (full text + 만평), 오늘의 광고 캠페인 (+ 금로동 과장의 한마디),
                        오늘의 광고인, 실시간 이슈 headlines with 금로동 과장 comments
   e/index.html       — list of all editions (지난 호 모아보기)
   sitemap.xml        — for Google Search Console / 네이버 서치어드바이저
@@ -96,7 +96,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
     desc = clip(b.get("lede") or b.get("body"), 150)
     url = SITE + f"e/{d}.html"
     img = SITE + (f"s/ed-{d}.png" if has_card else "og.png")
-    kick = "이번 주 광고계 결산" if b.get("weekly") else "미니 사설"
+    kick = "이번 주 광고계 결산" if b.get("weekly") else "사설"
     ld = {
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": head[:110], "description": desc,
         "datePublished": f"{d}T06:50:00+09:00", "dateModified": f"{d}T23:59:00+09:00", "inLanguage": "ko",
@@ -140,6 +140,12 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
         src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in je.get("sources") or [] if x.get("url"))
         out.append(f"<article id=\"jp\"><span class=\"k\">미니 사설 · {JPN}</span><h1>{esc(je.get('headline'))}</h1>"
                    + "".join(f"<p>{esc(x)}</p>" for x in re.split(r"\n+", je["body"]) if x.strip())
+                   + (f"<p class=\"meta\">출처 · {src}</p>" if src else "") + "</article>")
+    ge = (J.get("_gm") or {}).get("editorial") or {}
+    if ge.get("date") == d and ge.get("body"):
+        src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in ge.get("sources") or [] if x.get("url"))
+        out.append(f"<article id=\"gm\"><span class=\"k\">미니 사설 · 제민아 대리</span><h1>{esc(ge.get('headline'))}</h1>"
+                   + "".join(f"<p>{esc(x)}</p>" for x in re.split(r"\n+", ge["body"]) if x.strip())
                    + (f"<p class=\"meta\">출처 · {src}</p>" if src else "") + "</article>")
     if feat.get("title"):
         out.append(f"""<section><h2>오늘의 광고 캠페인</h2>
@@ -216,12 +222,14 @@ def main():
             p = os.path.join("archive", d, "data.json")
             if re.fullmatch(r"\d{4}-\d\d-\d\d", d) and os.path.exists(p):
                 eds[d] = load(p, {})
-                jps[d] = load(os.path.join("archive", d, "jipiltae.json"), {})
+                jps[d] = load(os.path.join("archive", d, "jipiltae.json"), {}) or {}
+                jps[d]["_gm"] = load(os.path.join("archive", d, "gemini.json"), {})
     cur = load("data.json", {})
     today = ((cur.get("brief") or {}).get("cartoon") or {}).get("date") or datetime.now(KST).strftime("%Y-%m-%d")
     if cur.get("brief"):
         eds[today] = cur
-        jps[today] = load("jipiltae.json", {})
+        jps[today] = load("jipiltae.json", {}) or {}
+        jps[today]["_gm"] = load("gemini.json", {})
     dates = sorted(eds)
     n = 0
     for i, d in enumerate(dates):
@@ -236,11 +244,11 @@ def main():
     idx = f"""<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>지난 호 모아보기 · 광고늬우스</title>
-<meta name="description" content="광고늬우스 금로동 과장의 미니 사설·오늘의 광고 캠페인·오늘의 광고인을 날짜별로 모았습니다.">
+<meta name="description" content="광고늬우스 금로동 과장의 사설·두 대리의 미니 사설·오늘의 광고 캠페인·오늘의 광고인을 날짜별로 모았습니다.">
 <link rel="canonical" href="{SITE}e/"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>{CSS}</style></head><body><div class="w">
 <header><a class="m" href="../">광고늬우스</a><p>지난 호 모아보기 · 발행인 SM C&amp;C 윤석진</p></header>
-<p>매일 아침 금로동 과장가 쓰는 미니 사설과 만평, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
+<p>매일 아침 금로동 과장이 쓰는 사설과 두 대리의 미니 사설, 삽화, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
 <ul>{rows}</ul>
 <a class="go" href="../">오늘 신문 보기 →</a>
 </div></body></html>
@@ -289,7 +297,7 @@ def main():
   <title>광고늬우스</title>
   <link>{SITE}</link>
   <atom:link href="{SITE}rss.xml" rel="self" type="application/rss+xml"/>
-  <description>광고계 노른자 소식들, 한 입에 떠-먹여 드려요. 금로동 과장의 미니 사설·오늘의 광고 캠페인·오늘의 광고인·트렌드 노트.</description>
+  <description>광고계 노른자 소식들, 한 입에 떠-먹여 드려요. 금로동 과장의 사설·두 대리의 미니 사설·오늘의 광고 캠페인·오늘의 광고인·트렌드 노트.</description>
   <language>ko</language>
 {"".join(items)} </channel>
 </rss>
