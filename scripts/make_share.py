@@ -249,6 +249,11 @@ def main():
         og = {}
 
     jobs, pages, keep_pages = [], [], []
+    jp_toon = {}  # 지필태 대리가 그린 그날 메인 사설 삽화
+    for f in ["jipiltae.json"] + ([os.path.join("archive", x, "jipiltae.json") for x in sorted(os.listdir("archive")) if len(x) == 10] if os.path.isdir("archive") else []):
+        C = (load_json(f).get("cartoon") or {})
+        if C.get("for") and C.get("img") and C["for"] not in jp_toon:
+            jp_toon[C["for"]] = (C["img"], C.get("caption") or "")
     for e in eds:
         d = e.get("date")
         if not d or not e.get("headline"):
@@ -256,7 +261,9 @@ def main():
         key = f"ed-{d}"
         kick = "이번 주 광고계 결산" if e.get("weekly") else "오늘의 사설"
         svg = safe_svg((e.get("cartoon") or {}).get("svg"))
-        cimg = (e.get("cartoon") or {}).get("img")
+        jt = jp_toon.get(d) or ("", "")
+        cimg = jt[0] or (e.get("cartoon") or {}).get("img")
+        ccap = jt[1] if jt[0] else (e.get("cartoon") or {}).get("caption")
         if cimg and data_uri(cimg):
             svg = f'<img src="{data_uri(cimg)}" style="display:block;width:540px;height:auto;border:3px solid #1a1a1a;filter:grayscale(1)">'
 
@@ -272,7 +279,7 @@ def main():
         card = (CARD.replace("__DATE__", esc(md(d)) + "자").replace("__BY__", BY_GEUM)
                 .replace("__KICK__", esc(kick)).replace("__HEAD__", esc(e["headline"]))
                 .replace("__LEDE__", esc(lede)).replace("__SVG__", svg)
-                .replace("__CAP__", esc((e.get("cartoon") or {}).get("caption"))))
+                .replace("__CAP__", esc(ccap)))
         jobs.append((card, f"{OUT}/{key}.png"))
         pages.append((hp, body))
 
@@ -379,12 +386,13 @@ def main():
         if MM.get("date") == d:
             for i, m in enumerate((MM.get("items") or [])[:3], 1):
                 v = m.get("video") or {}
-                if v.get("platform") == "youtube":
-                    right = f'<img src="https://i.ytimg.com/vi/{esc(v.get("id"))}/hqdefault.jpg" style="display:block;width:540px;height:304px;object-fit:cover;border:3px solid #1a1a1a">'
-                elif m.get("img"):
+                # 원본 영상 썸네일은 남의 그림이라 카드에 굽지 않는다(지면에서만 공식 플레이어로 보여 줌)
+                if m.get("img"):
                     right = pic(m["img"])
                 elif m.get("phrase"):
                     right = f'<div style="border:3px solid #1a1a1a;background:#fff;padding:34px 30px;font-size:34px;font-weight:900;line-height:1.5;letter-spacing:-1px"><span style="color:#a01e1e">“</span>{esc(m["phrase"])}<span style="color:#a01e1e">”</span></div>'
+                elif v:
+                    right = f'<div style="border:3px solid #1a1a1a;background:#111;color:#fff;padding:40px 30px;font-size:26px;font-weight:700;line-height:1.5"><div style="display:inline-block;background:#a01e1e;border-radius:12px;padding:6px 22px;font-size:30px;margin-bottom:16px">▶</div><br>원본 영상은 지면에서 바로 재생<br><span style="font-size:19px;font-weight:400;color:#ccc">{esc(v.get("channel") or "")} · {esc(clip(v.get("title"), 40))}</span></div>'
                 else:
                     right = ""
                 key = f"meme-{d}-{i}"; extra_keep.add(key)
