@@ -6,6 +6,7 @@
 사용:
   python scripts/ingest_grok.py 각본.json [--art 그림폴더 --art-by "지필태 대리"] [--dry-run]
   그림폴더에는 panel1.png ~ panel4.png (또는 strip.png 한 장을 4등분) 를 둔다.
+  python scripts/ingest_grok.py 밈.json [--art 그림폴더]      # '요즘 밈' 코너 ({"memes": [...]})
 """
 import argparse, json, os, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
@@ -27,6 +28,8 @@ def main():
         return ingest_xpulse(M, a)
     if M.get("live") and not M.get("panels"):
         return ingest_live(M, a)
+    if M.get("memes") and not M.get("panels"):
+        return ingest_memes(M, a)
     errs = []
     P = M.get("panels") or []
     if len(P) != 4:
@@ -129,6 +132,69 @@ def ingest_live(M, a):
     dump(GK_FILE, gk)
     print("김그록 한마디", n, "건 반영")
 
+
+
+
+VIDEO_RE = {"youtube": r"^[\w-]{11}$", "tiktok": r"^\d{8,25}$", "instagram": r"^[\w-]{5,40}$"}
+
+
+def ingest_memes(M, a):
+    """'요즘 밈' 코너: 글은 김그록 사원, 원본 영상 확인은 금로동, 영상이 없으면 그림은 지필태 대리.
+    {"edition": "YYYY-MM-DD", "memes": [{"name", "what", "usage", "origin", "quip",
+      "video": {"platform": "youtube|tiktok|instagram", "id", "title", "channel", "vertical": bool, "start": 초, "note": "원본/화제가 된 방송 등"},
+      "img": "그림 파일명(--art 폴더 안)", "imgAlt", "imgBy": "지필태 대리",
+      "links": [{"t", "url"}], "tip": "금로동 광고인 포인트(선택)"}]}
+    원본 영상은 공식 플레이어(유튜브·틱톡·인스타 임베드)로만 붙인다. 내려받아 다시 올리지 않는다."""
+    import re
+    errs, out = [], []
+    date = M.get("edition") or now_kst().strftime("%Y-%m-%d")
+    for i, m in enumerate(M["memes"][:4], 1):
+        name = (m.get("name") or "").strip()
+        what = " ".join((m.get("what") or "").split())
+        if not name or not what:
+            errs.append(f"{i}번 밈: name·what이 필요해요"); continue
+        if len(what) > 260:
+            errs.append(f"{i}번 밈 설명이 너무 길어요({len(what)}자)")
+        v = m.get("video") or None
+        if v:
+            pf = v.get("platform")
+            if pf not in VIDEO_RE or not re.match(VIDEO_RE[pf], str(v.get("id") or "")):
+                errs.append(f"{i}번 밈 영상 id/platform 확인: {v}")
+            v = {k: v[k] for k in ("platform", "id", "title", "channel", "vertical", "start", "note") if v.get(k) not in (None, "")}
+        img = None
+        if m.get("img"):
+            src = os.path.join(a.art or ".", m["img"])
+            if not os.path.exists(src):
+                errs.append(f"{i}번 밈 그림 파일이 없어요: {src}")
+            elif not a.dry_run:
+                img = put_meme_img(src, date, i)
+        if not v and not img and not m.get("imgKeep"):
+            errs.append(f"{i}번 밈: 원본 영상이나 설명 그림 중 하나는 있어야 해요")
+        links = [{"t": l.get("t", "원본"), "url": l["url"]} for l in m.get("links") or [] if str(l.get("url", "")).startswith("http")][:3]
+        out.append({k: x for k, x in {"name": name, "what": what, "usage": " ".join((m.get("usage") or "").split()),
+                    "origin": " ".join((m.get("origin") or "").split()), "quip": (m.get("quip") or "").strip(),
+                    "video": v, "img": img or m.get("imgKeep"), "imgAlt": (m.get("imgAlt") or "").strip(), "imgBy": m.get("imgBy") or ("지필태 대리" if img else ""),
+                    "links": links, "tip": (m.get("tip") or "").strip()}.items() if x})
+    if errs:
+        sys.exit("\n".join(["✗ " + e for e in errs]))
+    gk = load(GK_FILE, {}) or {}
+    stamp = now_kst().isoformat(timespec="seconds")
+    gk["memes"] = {"date": date, "items": out, "at": stamp}
+    gk["updatedAt"] = stamp
+    if not a.dry_run:
+        dump(GK_FILE, gk)
+    print("요즘 밈 반영:", ", ".join(x["name"] for x in out), "/ 영상", sum(1 for x in out if x.get("video")), "· 그림", sum(1 for x in out if x.get("img")))
+
+
+def put_meme_img(src, date, i):
+    from PIL import Image
+    os.makedirs(GK_IMG, exist_ok=True)
+    im = Image.open(src).convert("RGB")
+    if im.width > 1400:
+        im = im.resize((1400, round(im.height * 1400 / im.width)))
+    rel = f"{GK_IMG}/meme-{date}-{i}.jpg"
+    im.save(rel, quality=86, optimize=True)
+    return rel + "?v=" + now_kst().strftime("%H%M")
 
 if __name__ == "__main__":
     main()

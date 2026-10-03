@@ -1046,6 +1046,35 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .tn-s{font-size:.75rem;color:var(--faint);margin:0}
 .tn-s a{color:inherit}
 @media (max-width:980px){.tn-g{grid-template-columns:1fr!important;row-gap:16px}.tn+.tn{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
+.a-meme{grid-column:1/-1;border-top:3px double var(--ink);margin-top:18px;padding-top:12px}
+.mm-g{display:grid;column-gap:22px;margin-top:8px}
+.mm{min-width:0}
+.mm+.mm{border-left:1px solid var(--rule-soft);padding-left:22px;margin-left:-11px}
+.mm-v{position:relative;display:block;width:100%;aspect-ratio:16/9;background:#111;border:1px solid var(--ink);padding:0;margin:0;overflow:hidden;cursor:pointer;color:#fff;font:inherit}
+.mm-v.tall{aspect-ratio:9/16;width:min(100%,190px);margin-inline:auto}
+.mm-v img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mm-pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:44px;border-radius:12px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:1.25rem;box-shadow:0 2px 10px rgba(0,0,0,.4);transition:transform .15s}
+.mm-v:hover .mm-pl,.mm-v:focus-visible .mm-pl{transform:translate(-50%,-50%) scale(1.08)}
+.mm-src{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.72);font-family:var(--mono);font-size:.68rem;padding:2px 6px;border-radius:3px;max-width:calc(100% - 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mm-v iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mm-pic{margin:0;border:1px solid var(--ink);position:relative;background:#fff}
+.mm-pic img{display:block;width:100%;height:auto}
+.mm-pic::before{content:"광고늬우스 밈 그림";position:absolute;left:8px;top:8px;background:var(--ink);color:var(--paper);font-size:.66rem;font-weight:700;padding:2px 6px}
+.mm-pic figcaption{font-size:.72rem;color:var(--faint);text-align:right;padding:3px 6px;border-top:1px solid var(--rule-soft);background:var(--paper)}
+.mm-vc{font-size:.74rem;color:var(--faint);margin:4px 0 0;line-height:1.5}
+.mm-vc a{color:inherit}.mm-vc b{font-weight:700;color:var(--muted)}
+.mm-h{font-size:1.25rem;font-weight:900;letter-spacing:-.02em;margin:10px 0 6px;line-height:1.3}
+.mm-w{font-size:.98rem;line-height:1.8;margin:0 0 8px;text-align:justify}
+.mm-u{margin:0 0 6px;padding:6px 10px;background:var(--paper2);border-left:3px solid var(--ink);font-size:.92rem;line-height:1.6}
+.mm-u b,.mm-o b,.mm-t b{font-weight:900;margin-right:4px}
+.mm-o{font-size:.86rem;line-height:1.6;margin:0 0 6px;color:var(--muted)}
+.mm-t{font-size:.9rem;line-height:1.6;margin:0 0 6px}.mm-t b{color:var(--red)}
+.mm-q{display:flex;gap:8px;align-items:flex-start;margin:8px 0 6px}
+.mm-ph{flex:0 0 auto;width:30px;height:30px;border-radius:50%;overflow:hidden;display:inline-flex}
+.mm-ph img{width:100%;height:100%;object-fit:cover}
+.mm-q p{margin:0;font-size:.9rem;line-height:1.55}.mm-q p b{display:block;font-size:.74rem}
+.mm-s{font-size:.74rem;color:var(--faint);margin:0}.mm-s a{color:inherit}
+@media (max-width:980px){.mm-g{grid-template-columns:1fr!important;row-gap:18px}.mm+.mm{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--rule);padding-top:14px}}
 /* v37: 광고 지면 = 정해진 소재 크기(px). 좁은 화면에선 비율 그대로 축소. 테두리는 outline이라 소재가 칸을 꽉 채움 */
 .adslot[data-slot]{box-sizing:border-box;border:0!important;outline:1px dashed var(--faint);outline-offset:0;width:var(--aw)!important;max-width:100%!important;aspect-ratio:var(--ar);height:auto!important;min-height:0!important;flex:none!important;margin:0 auto;position:relative;overflow:hidden;gap:2px!important}
 .adslot[data-slot="top"]{--aw:234px;--ar:234/60;flex-direction:row!important;gap:8px!important;margin:0}
@@ -1458,6 +1487,10 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
     <section class="np-sec a-tnote" id="a-tnote" aria-labelledby="k-tnote" hidden>
       <div class="kick"><h2 id="k-tnote">트렌드 노트</h2><span>금로동 과장·지필태 대리가 하나씩 고른 요즘 흐름</span></div>
       <div class="tn-g" id="tnote"></div>
+    </section>
+    <section class="np-sec a-meme" id="a-meme" aria-labelledby="k-meme" hidden>
+      <div class="kick"><h2 id="k-meme">요즘 밈</h2><span id="memesub">김그록 사원이 X·숏폼에서 건진 밈</span></div>
+      <div class="mm-g" id="memes"></div>
     </section>
     <div class="np-row4">
       <section class="np-sec a-fol r4 r4-fol" data-list="fitems" aria-labelledby="k-fol">
@@ -2029,6 +2062,31 @@ function boot(D){
     $('plat').innerHTML=mix.map(function(r){return card({url:r.u,title:r.t,kick:r.p,ph:r.p})}).join('');}
   function renderPlatOld(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
+  // 요즘 밈: 김그록 사원이 고르고 쓴다. 원본 영상은 공식 플레이어로(누르면 재생), 원본을 붙이기 어려우면 지필태 대리 그림
+  (function(){var sec=$('a-meme'), el=$('memes'); if(!sec||!el) return; var MM=(D.gk||{}).memes, L=(MM&&MM.items)||[];
+    var age=MM&&MM.date?(Date.parse(ED_DATE)-Date.parse(MM.date))/864e5:99;
+    if(!JP_ON||!L.length||age<0||age>3){sec.hidden=true;return;}
+    $('memesub').textContent=(age>0?fmtEd(MM.date)+'자 · ':'')+'김그록 사원이 X·숏폼에서 건진 밈 · 영상은 눌러서 바로 재생';
+    var PF={youtube:'YouTube',tiktok:'TikTok',instagram:'Instagram'};
+    function src(pf,id,st){if(pf==='youtube')return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0&playsinline=1'+(st?'&start='+st:'');
+      if(pf==='tiktok')return 'https://www.tiktok.com/player/v1/'+encodeURIComponent(id)+'?autoplay=1';
+      if(pf==='instagram')return 'https://www.instagram.com/reel/'+encodeURIComponent(id)+'/embed';return ''}
+    function vid(v){var th=v.platform==='youtube'?'<img src="https://i.ytimg.com/vi/'+esc(v.id)+'/'+(v.vertical?'oar2':'hqdefault')+'.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=\'https://i.ytimg.com/vi/'+esc(v.id)+'/hqdefault.jpg\'}else{this.remove()}">':'';
+      return '<button type="button" class="mm-v'+(v.vertical?' tall':'')+'" data-pf="'+esc(v.platform)+'" data-id="'+esc(v.id)+'" data-st="'+(+v.start||0)+'" aria-label="원본 영상 재생: '+esc(v.title||'')+'">'+th+'<span class="mm-pl" aria-hidden="true">▶</span><span class="mm-src">'+esc(PF[v.platform]||v.platform)+(v.channel?' · '+esc(v.channel):'')+'</span></button>'}
+    el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
+    el.innerHTML=L.slice(0,3).map(function(m,i){var v=m.video;
+      var media=v?vid(v):m.img?'<figure class="mm-pic"><img src="'+esc(m.img)+'" alt="'+esc(m.imgAlt||m.name)+'" loading="lazy"><figcaption>밈 설명 그림 · '+esc(m.imgBy||JPN)+'</figcaption></figure>':'';
+      var cap=v?'<p class="mm-vc">'+(v.note?'<b>'+esc(v.note)+'</b> ':'')+(v.platform==='youtube'?link('https://youtu.be/'+v.id,esc(v.title||'원본 영상')+' ↗'):esc(v.title||''))+'</p>':'';
+      return '<article class="mm" id="mm-'+(i+1)+'">'+media+cap+'<h3 class="mm-h">'+esc(m.name)+'</h3><p class="mm-w">'+esc(m.what)+'</p>'+
+        (m.usage?'<p class="mm-u"><b>이렇게 써요</b>'+esc(m.usage)+'</p>':'')+
+        (m.origin?'<p class="mm-o"><b>유래</b>'+esc(m.origin)+'</p>':'')+
+        (m.tip?'<p class="mm-t"><b>광고인 포인트</b>'+esc(m.tip)+'</p>':'')+
+        (m.quip?'<div class="mm-q"><span class="mm-ph">'+GK_AV+'</span><p><b>김그록 사원</b>'+esc(m.quip)+'</p></div>':'')+
+        ((m.links||[]).length?'<p class="mm-s">'+m.links.map(function(x){return link(x.url,esc(x.t)+' ↗')}).join(' · ')+'</p>':'')+'</article>'}).join('');
+    el.addEventListener('click',function(e){var b=e.target.closest('.mm-v');if(!b||b.tagName!=='BUTTON')return;var s=src(b.dataset.pf,b.dataset.id,+b.dataset.st);if(!s)return;
+      var d=document.createElement('div');d.className=b.className+' on';d.innerHTML='<iframe src="'+esc(s)+'" title="원본 영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';b.replaceWith(d)});
+    sec.hidden=false;
+  })();
   // 오늘의 4컷 만평: 글(각본) 김그록 사원, 그림 지필태 대리(또는 그록). 원고는 grok.json에만 있다
   (function(){var sec=$('a-strip'), el=$('strip'); if(!sec||!el) return; var G=D.gk||{}, S=G.strip, GK_START='2026-10-02';
     if(!(ED_DATE>=GK_START)) return;
