@@ -11,6 +11,7 @@ Each page carries its own og:title / og:description / og:image for messenger pre
 import hashlib, html, json, os, re
 
 SITE = "https://yoonjintar2-ctrl.github.io/adsnews/"
+BY_GEUM = "금로동 기자 · 발행인 SM C&amp;C 윤석진"
 OUT = "s"
 KEEP_DAYS = 60
 
@@ -82,7 +83,7 @@ h1{font-size:50px;font-weight:900;line-height:1.28;letter-spacing:-1.5px}
 .cap{font-size:19px;margin-top:10px;text-align:right;color:#333}
 </style></head><body><div class="p">
 <div class="top"><span>광고늬우스</span><span>__DATE__</span></div>
-<div class="l"><div class="k">__KICK__</div><h1>__HEAD__</h1><p class="d">__LEDE__</p><div class="by">금로동 기자 · 발행인 SM C&amp;C 윤석진</div></div>
+<div class="l"><div class="k">__KICK__</div><h1>__HEAD__</h1><p class="d">__LEDE__</p><div class="by">__BY__</div></div>
 <div class="r">__SVG__<div class="cap">__CAP__</div></div>
 </div></body></html>"""
 
@@ -161,8 +162,60 @@ def daily_items():
             persons[p["date"]] = p
         t = data.get("trendNotes") or {}
         if t.get("date") and t.get("items") and t["date"] not in trends:
-            trends[t["date"]] = t["items"][:3]
+            trends[t["date"]] = t["items"][:1] if t["date"] >= JP_START else t["items"][:3]
     return persons, trends
+
+
+JP_START = "2026-10-02"
+
+
+def load_json(path):
+    try:
+        return json.load(open(path, encoding="utf-8")) or {}
+    except Exception:
+        return {}
+
+
+def side_hist(name):
+    """{date: content} for a staff file (jipiltae/gemini/grok/debate.json): today's copy plus archived back issues."""
+    out = {}
+    srcs = [name]
+    if os.path.isdir("archive"):
+        srcs += [os.path.join("archive", d, name) for d in sorted((x for x in os.listdir("archive") if len(x) == 10), reverse=True)[:KEEP_DAYS]]
+    for f in srcs:
+        J = load_json(f)
+        if not J:
+            continue
+        for k in ("editorial", "trend", "lineage", "strip", "memes"):
+            d = (J.get(k) or {}).get("date")
+            if d and d not in out:
+                out[d] = J
+        if J.get("date") and J.get("turns") and J["date"] not in out:
+            out[J["date"]] = J
+    return out
+
+
+def local_img(path):
+    f = str(path or "").split("?")[0]
+    return f if f and os.path.exists(f) else ""
+
+
+def data_uri(path, w=600):
+    """로컬 그림을 카드에 넣을 때 data: URI로(about:blank 카드에서 file:// 그림은 막힌다)."""
+    f = local_img(path)
+    if not f:
+        return ""
+    try:
+        import base64, io
+        from PIL import Image
+        im = Image.open(f).convert("RGB")
+        if im.width > w:
+            im = im.resize((w, round(im.height * w / im.width)))
+        b = io.BytesIO()
+        im.save(b, "JPEG", quality=82)
+        return "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()
+    except Exception:
+        return ""
 
 
 def old_body(path):
@@ -204,8 +257,8 @@ def main():
         kick = "이번 주 광고계 결산" if e.get("weekly") else "오늘의 사설"
         svg = safe_svg((e.get("cartoon") or {}).get("svg"))
         cimg = (e.get("cartoon") or {}).get("img")
-        if cimg and os.path.exists(cimg):
-            svg = f'<img src="file://{os.path.abspath(cimg)}" style="display:block;width:540px;height:auto;border:3px solid #1a1a1a;filter:grayscale(1)">'
+        if cimg and data_uri(cimg):
+            svg = f'<img src="{data_uri(cimg)}" style="display:block;width:540px;height:auto;border:3px solid #1a1a1a;filter:grayscale(1)">'
 
         lede = clip(e.get("lede") or e.get("body"), 90)
         sig = hashlib.md5(json.dumps([e.get("headline"), lede, svg, kick, 2], ensure_ascii=False).encode()).hexdigest()[:12]
@@ -216,7 +269,7 @@ def main():
             if old_body(hp) != body:
                 keep_pages.append((hp, body))
             continue
-        card = (CARD.replace("__DATE__", esc(md(d)) + "자")
+        card = (CARD.replace("__DATE__", esc(md(d)) + "자").replace("__BY__", BY_GEUM)
                 .replace("__KICK__", esc(kick)).replace("__HEAD__", esc(e["headline"]))
                 .replace("__LEDE__", esc(lede)).replace("__SVG__", svg)
                 .replace("__CAP__", esc((e.get("cartoon") or {}).get("caption"))))
@@ -246,15 +299,15 @@ def main():
         jobs.append((card, f"{OUT}/{key}.png"))
         pages.append((hp, body))
 
-    def add_card(key, d, hash_, title, desc, kick, head, lede, svg, cap):
-        sig = hashlib.md5(json.dumps([title, desc, kick, head, lede, svg, cap, 1], ensure_ascii=False).encode()).hexdigest()[:12]
+    def add_card(key, d, hash_, title, desc, kick, head, lede, svg, cap, by=None):
+        sig = hashlib.md5(json.dumps([title, desc, kick, head, lede, svg, cap, 1] + ([by] if by else []), ensure_ascii=False).encode()).hexdigest()[:12]
         hp = f"{OUT}/{key}.html"
         body = page(key, title, desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"?d={d}#{hash_}", sig, SITE + f"e/{d}.html")
         if old_sig(hp) == sig and os.path.exists(f"{OUT}/{key}.png"):
             if old_body(hp) != body:
                 keep_pages.append((hp, body))
             return
-        card = (CARD.replace("__DATE__", esc(md(d)) + "자").replace("__KICK__", esc(kick))
+        card = (CARD.replace("__DATE__", esc(md(d)) + "자").replace("__KICK__", esc(kick)).replace("__BY__", esc(by) if by else BY_GEUM)
                 .replace("__HEAD__", esc(head)).replace("__LEDE__", esc(lede))
                 .replace("__SVG__", svg).replace("__CAP__", esc(cap)))
         jobs.append((card, f"{OUT}/{key}.png"))
@@ -277,6 +330,80 @@ def main():
                      f"금기자의 트렌드 노트 · #{t.get('tag', '')}", t["title"], clip(t.get("body"), 90),
                      safe_svg(t.get("svg")), "")
 
+    extra_keep = set()
+
+    # ── 새 코너(미니 사설·4컷 만평·AI 4대장 토론·캠페인 족보·요즘 밈·지필태 트렌드 노트) ──
+    def pic(path, w=540):
+        u = data_uri(path)
+        return f'<img src="{u}" style="display:block;width:{w}px;height:auto;max-height:420px;object-fit:cover;border:3px solid #1a1a1a">' if u else ""
+
+    feat_by_date = {f.get("date"): (f.get("main") or {}) for f in feats}
+    for d, J in side_hist("jipiltae.json").items():
+        E = J.get("editorial") or {}
+        if E.get("date") == d and E.get("headline") and E.get("body"):
+            key = f"mini-{d}-jp"; extra_keep.add(key)
+            add_card(key, d, "mini-jp", E["headline"], f"[미니 사설 · 지필태 대리 · {md(d)}] " + clip(E.get("lede") or E.get("body"), 110),
+                     "미니 사설 · 지필태 대리", E["headline"], clip(E.get("lede") or E.get("body"), 90),
+                     pic((E.get("cartoon") or {}).get("img")), (E.get("cartoon") or {}).get("caption") or "", "지필태 대리 · 광고늬우스")
+        T = J.get("trend") or {}
+        if T.get("date") == d and T.get("title") and T.get("body"):
+            key = f"tn-{d}-2"; extra_keep.add(key)
+            add_card(key, d, "tn2", f"#{T.get('tag', '')} — {T['title']}", f"[지필태 대리의 트렌드 노트 · {md(d)}] " + clip(T.get("body"), 110),
+                     f"트렌드 노트 · #{T.get('tag', '')}", T["title"], clip(T.get("body"), 90), pic(T.get("img")), "", "지필태 대리 · 광고늬우스")
+    for d, G in side_hist("gemini.json").items():
+        E = G.get("editorial") or {}
+        if E.get("date") == d and E.get("headline") and E.get("body"):
+            key = f"mini-{d}-gm"; extra_keep.add(key)
+            add_card(key, d, "mini-gm", E["headline"], f"[미니 사설 · 제민아 대리 · {md(d)}] " + clip(E.get("lede") or E.get("body"), 110),
+                     "미니 사설 · 제민아 대리", E["headline"], clip(E.get("lede") or E.get("body"), 90),
+                     pic((E.get("cartoon") or {}).get("img")), (E.get("cartoon") or {}).get("caption") or "", "제민아 대리 · 광고늬우스")
+        L = G.get("lineage") or {}
+        c = feat_by_date.get(d) or {}
+        if L.get("date") == d and L.get("rows") and c.get("url") == L.get("url"):
+            key = f"lineage-{d}"; extra_keep.add(key)
+            rows = "".join(f'<div style="display:flex;gap:16px;padding:9px 0;border-bottom:1px solid #bbb;font-size:21px;line-height:1.4"><b style="color:#a01e1e;flex:none;width:64px">{esc(r.get("year"))}</b><span><b>{esc(r.get("name"))}</b><br><span style="font-size:17px;color:#444">{esc(clip(r.get("desc"), 34))}</span></span></div>' for r in L["rows"][:5])
+            add_card(key, d, "lineage", f"캠페인 족보 — {c.get('brand', '')} {c.get('title', '')}".strip(),
+                     f"[캠페인 족보 · 제민아 대리 · {md(d)}] " + clip(L.get("flow"), 110), "캠페인 족보 · 제민아 대리",
+                     f"{c.get('brand', '')} 캠페인 족보", clip(L.get("flow"), 90),
+                     f'<div style="border-top:3px solid #1a1a1a;padding-top:4px">{rows}</div>', "", "제민아 대리 · 광고늬우스")
+    for d, G in side_hist("grok.json").items():
+        S = G.get("strip") or {}
+        P = [x for x in (S.get("panels") or []) if x.get("img")]
+        if S.get("date") == d and S.get("title") and len(P) == 4:
+            key = f"strip-{d}"; extra_keep.add(key)
+            grid = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;width:540px">' + "".join(
+                (lambda u: f'<img src="{u}" style="display:block;width:267px;height:200px;object-fit:cover;border:2px solid #1a1a1a">' if u else "")(data_uri(x["img"], 400)) for x in P) + "</div>"
+            add_card(key, d, "strip", f"「{S['title']}」 — 김그록 사원의 4컷 만평", f"[오늘의 4컷 만평 · {md(d)}] " + clip(S.get("punchline") or (S.get("issue") or {}).get("title"), 110),
+                     "오늘의 4컷 만평", S["title"], clip(S.get("punchline"), 90), grid, "", "글 김그록 사원 · 그림 지필태 대리")
+        MM = G.get("memes") or {}
+        if MM.get("date") == d:
+            for i, m in enumerate((MM.get("items") or [])[:3], 1):
+                v = m.get("video") or {}
+                if v.get("platform") == "youtube":
+                    right = f'<img src="https://i.ytimg.com/vi/{esc(v.get("id"))}/hqdefault.jpg" style="display:block;width:540px;height:304px;object-fit:cover;border:3px solid #1a1a1a">'
+                elif m.get("img"):
+                    right = pic(m["img"])
+                elif m.get("phrase"):
+                    right = f'<div style="border:3px solid #1a1a1a;background:#fff;padding:34px 30px;font-size:34px;font-weight:900;line-height:1.5;letter-spacing:-1px"><span style="color:#a01e1e">“</span>{esc(m["phrase"])}<span style="color:#a01e1e">”</span></div>'
+                else:
+                    right = ""
+                key = f"meme-{d}-{i}"; extra_keep.add(key)
+                add_card(key, d, f"meme{i}", f"요즘 밈 · {m.get('name')}", f"[요즘 밈 · {md(d)}] " + clip(m.get("what"), 110),
+                         "요즘 밈 · 김그록 사원", m.get("name") or "", clip(m.get("usage") or m.get("what"), 90), right, "", "김그록 사원 · 광고늬우스")
+    for d, B in side_hist("debate.json").items():
+        T = B.get("turns") or []
+        if B.get("date") == d and T and B.get("topic"):
+            key = f"debate-{d}"; extra_keep.add(key)
+            SA = (load_json("jipiltae.json").get("staffArt") or {})
+            who = [("금로동 과장", SA.get("geum")), ("지필태 대리", (load_json("jipiltae.json").get("author") or {}).get("avatar")),
+                   ("김그록 사원", SA.get("grok")), ("제민아 대리", SA.get("gemini"))]
+            if not any(w for _, w in who[3:]) or not any(t.get("who") == "gm" for t in T):
+                who = who[:3]
+            faces = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:540px">' + "".join(
+                (lambda u, n: f'<div style="text-align:center"><img src="{u}" style="width:170px;height:170px;border-radius:50%;object-fit:cover;border:3px solid #1a1a1a;background:#fff"><div style="font-size:20px;font-weight:900;margin-top:4px">{esc(n)}</div></div>' if u else "")(data_uri(w, 300), n) for n, w in who) + "</div>"
+            add_card(key, d, "debate", f"AI {len(who)}대장의 토론 — {B['topic']}", f"[AI {len(who)}대장의 토론 · {md(d)}] " + clip(T[0].get("text"), 110),
+                     f"AI {len(who)}대장의 토론", B["topic"], clip(T[0].get("text"), 90), faces, "", "금로동 · 지필태 · 김그록 · 제민아")
+
     try:
         render_cards(jobs)
     except Exception as ex:  # 카드 이미지를 못 만들면 사설 페이지는 다음 기회에
@@ -287,6 +414,7 @@ def main():
     # 오래된 공유 페이지 정리
     keep = {f"ed-{e.get('date')}" for e in eds} | {f"camp-{f.get('date')}" for f in feats} | {f"person-{d}" for d in persons}
     keep |= {f"tn-{d}-{i}" for d, items in trends.items() for i in range(1, len(items) + 1)}
+    keep |= extra_keep
     for fn in os.listdir(OUT):
         if os.path.splitext(fn)[0] not in keep:
             os.remove(os.path.join(OUT, fn))

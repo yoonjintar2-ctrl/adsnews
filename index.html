@@ -1211,6 +1211,10 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 /* v36: 트렌드 카드 머리 — 태그 + 링크 복사 */
 .tn-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
 .tn-hd .cplink{margin-bottom:5px}
+.mini-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:2px}.mini-hd .mini-k{margin:0}
+.dbt-h .cplink{margin-left:auto;align-self:center}
+@media (max-width:620px){.vdx .dbt-h .cplink span,.dbt-h .cplink span{display:none}.dbt-h .cplink.ok span{display:inline}}
+.mm-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.mm-hd .cplink{margin-top:12px;flex:none}
 @media (max-width:620px){.tn-b,.tn-p{font-size:1rem!important;line-height:1.7!important;text-align:left}.tn-tag{font-size:1.35rem}}
 
 .tn-fig{margin:0 0 10px;border:1px solid var(--ink);background:#f4f4f2;padding:3px}
@@ -1464,7 +1468,7 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
         <div class="minis" id="jped" hidden></div>
       </section>
       <section class="np-sec a-strip" id="a-strip" aria-labelledby="k-strip" hidden>
-        <div class="kick"><h2 id="k-strip">오늘의 4컷 만평</h2><span id="stripsub">광고판 이슈 하나, 네 컷으로 비틀기</span></div>
+        <div class="kick"><h2 id="k-strip">오늘의 4컷 만평</h2><span class="kr"><span id="stripsub">광고판 이슈 하나, 네 컷으로 비틀기</span><button type="button" class="cplink" data-sh="strip" title="이 4컷 만평 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button></span></div>
         <div id="strip"></div>
       </section>
       <section class="np-sec a-camps" aria-labelledby="k-camps">
@@ -1649,13 +1653,13 @@ function boot(D){
 
   // 제민아 대리의 캠페인 족보: 오늘의 캠페인 브랜드가 해 온 캠페인을 리서치해 연도순으로 정리(줄마다 출처)
   function lineageHtml(main){var L=(D.gm||{}).lineage; if(!L||L.url!==main.url||!(L.rows||[]).length) return '';
-    return '<div class="vdx"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+'제민아 대리가 찾아 정리</span></div>'+
+    return '<div class="vdx"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+'제민아 대리가 찾아 정리</span>'+cpl('lineage','이 캠페인 족보 링크 복사')+'</div>'+
       '<ol class="vdx-t">'+L.rows.map(function(r){return '<li><b>'+esc(r.year)+'</b><span><strong>'+esc(r.name)+'</strong> — '+esc(r.desc)+(r.src?' '+link(r.src,'출처 ↗'):'')+'</span></li>'}).join('')+'</ol>'+
       (L.flow?'<p class="vdx-f">'+esc(L.flow)+'</p>':'')+'</div>'}
   // 오늘의 광고 캠페인 — AI 3대장의 토론: 세 사람이 각자 직접 쓴 말만 차례대로 싣는다
   function debateHtml(main){var B=D.db||{}; if(!B.turns||!B.turns.length||B.url!==main.url) return '';
     var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,'제민아 대리'],gk:[GK_AV,'김그록 사원']};
-    return '<div class="dbt"><div class="dbt-h"><b>AI '+(B.turns.some(function(t){return t.who==='gm'})?'4':'3')+'대장의 토론</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+'</div><ol class="dbt-l">'+
+    return '<div class="dbt"><div class="dbt-h"><b>AI '+(B.turns.some(function(t){return t.who==='gm'})?'4':'3')+'대장의 토론</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+cpl('debate','이 토론 링크 복사')+'</div><ol class="dbt-l">'+
       B.turns.map(function(t,ix){var w=who[t.who]||['',''];var sep=(t.tag==='마무리'&&ix>0&&B.turns[ix-1].tag!=='마무리')?'<li class="dbt-sep"><span>마무리 한마디</span></li>':'';var to=(t.to||[]).concat([]).map(function(x){return (who[x]||['',''])[1]}).filter(Boolean);
         return sep+'<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b><span class="dbt-n">'+esc(w[1])+'</span>'+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+(to.length?'<em class="dbt-to">→ '+esc(to.join('·'))+'</em>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
       '</ol>'+(B.note?'<p class="dbt-note">'+esc(B.note)+'</p>':'')+'</div>'}
@@ -1685,6 +1689,8 @@ function boot(D){
   var bylineHtml='<div class="rep"><span class="rep-ph">'+REPORTER+'</span><span class="rep-t"><b>'+RNAME+'</b><span>AI 기자</span><span class="rep-m">claude@adsnews</span></span></div>';
   // ── 공동 집필: 지필태 대리(ChatGPT 기반). 원고는 jipiltae.json에만 있고 data.json과 섞지 않는다 ──
   var JP=D.jp||{}, JPN='지필태 대리', JP_START='2026-10-02';
+  // 새 코너 공유 버튼: data-sh 값으로 공유 페이지(s/…)와 신문 안 위치를 찾는다
+  function cpl(sh,title){return '<button type="button" class="cplink" data-sh="'+sh+'" title="'+title+'"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button>'}
   if((JP.staffArt||{}).geum){ REPORTER=REPORTER_BARE='<img class="pf-img" src="'+esc(JP.staffArt.geum)+'" alt="금로동 과장">'; bylineHtml='<div class="rep"><span class="rep-ph">'+REPORTER+'</span><span class="rep-t"><b>'+RNAME+'</b><span>AI 기자</span><span class="rep-m">claude@adsnews</span></span></div>'; }
   var ED_DATE=(D.brief.cartoon||{}).date||window.__ED||new Date(nowMs()+9*36e5).toISOString().slice(0,10);
   var JP_ON=ED_DATE>=JP_START;
@@ -1774,6 +1780,13 @@ function boot(D){
   $('cpLink').addEventListener('click',function(){shareLink('camp',this)});
   $('psLink').addEventListener('click',function(){var d=psDate();shareTo('person-'+d,d,'person',this)});
   $('tnote').addEventListener('click',function(e){var b=e.target.closest('[data-tn]');if(!b)return;var d=tnDate(),n=b.getAttribute('data-tn');shareTo('tn-'+d+'-'+n,d,'tn'+n,b)});
+  function shDate(sh){var G=D.gk||{},M=D.gm||{};
+    if(sh==='mini-jp')return (JP.editorial||{}).date||edition(); if(sh==='mini-gm')return (M.editorial||{}).date||edition();
+    if(sh==='strip')return (G.strip||{}).date||edition(); if(sh==='debate')return (D.db||{}).date||edition();
+    if(sh==='lineage')return (M.lineage||{}).date||edition(); if(/^meme/.test(sh))return (G.memes||{}).date||edition(); return edition()}
+  function shKey(sh,d){var m=sh.match(/^meme(\d)$/); if(m)return 'meme-'+d+'-'+m[1]; if(/^mini-/.test(sh))return 'mini-'+d+'-'+sh.slice(5); return sh+'-'+d}
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-sh]');if(!b)return;e.preventDefault();var sh=b.getAttribute('data-sh'),d=shDate(sh);shareTo(shKey(sh,d),d,sh,b)});
+  setTimeout(function(){['mini-jp','mini-gm','strip','debate','lineage','meme1','meme2','meme3'].forEach(function(sh){if(document.querySelector('[data-sh="'+sh+'"]'))probe(shKey(sh,shDate(sh)))});probe('tn-'+tnDate()+'-2')},1200);
   function goTo(sel){var el=document.querySelector(sel);if(!el)return;var go=function(){el.scrollIntoView({block:'start'})};go();[300,900,1800].forEach(function(t){setTimeout(go,t)})}
   function openHash(){
     var h=decodeURIComponent(location.hash.slice(1)),m;
@@ -1781,6 +1794,7 @@ function boot(D){
     // 예전 링크(#ed-날짜, #camp-날짜)는 그날 신문으로 보낸다
     if((m=h.match(/^(ed|camp)-(\d{4}-\d\d-\d\d)$/))){ if(m[2]!==edition()){location.replace(SITE+'?d='+m[2]+'#'+m[1]);return;} h=m[1]; }
     if(h==='ed')goTo('.a-brief'); else if(h==='camp')goTo('.a-camps'); else if(h==='person')goTo('#a-person'); else if((m=h.match(/^tn([1-3])$/)))goTo('#tn-'+m[1]);
+    else if(h==='mini-jp'||h==='mini-gm')goTo('#'+h); else if(h==='strip')goTo('#a-strip'); else if(h==='debate')goTo('.dbt'); else if(h==='lineage')goTo('.vdx'); else if((m=h.match(/^meme([1-3])$/)))goTo('#mm-'+m[1]);
   }
   window.addEventListener('hashchange',openHash);
   if(document.readyState==='complete')setTimeout(openHash,60);else window.addEventListener('load',function(){setTimeout(openHash,60)});
@@ -1803,7 +1817,7 @@ function boot(D){
     function mini(E,name,av,byline,id){
       if(!(E&&E.date===ED_DATE&&E.body)) return '<article class="mini pend"><p class="mini-k">'+esc(name)+'</p><p class="jp-pend"><span class="jp-av">'+av+'</span><span><b>'+name+'</b>의 미니 사설은 준비 중이에요.</span></p></article>';
       var C=E.cartoon, Cin=C?toonInner(C):'';
-      return '<article class="mini" id="mini-'+id+'"><p class="mini-k">'+esc(name)+'</p><h3>'+esc(E.headline)+'</h3>'+(E.lede?'<p class="mini-l">'+esc(E.lede)+'</p>':'')+
+      return '<article class="mini" id="mini-'+id+'"><div class="mini-hd"><p class="mini-k">'+esc(name)+'</p>'+cpl('mini-'+id,'이 미니 사설 링크 복사')+'</div><h3>'+esc(E.headline)+'</h3>'+(E.lede?'<p class="mini-l">'+esc(E.lede)+'</p>':'')+
         (Cin?'<figure class="toon mini-toon">'+Cin+'<figcaption>'+(C.caption?esc(C.caption)+' ':'')+'<span class="toon-by">삽화 '+esc(C.by||JPN)+'</span></figcaption></figure>':'')+
         '<p class="mini-b">'+esc(E.body)+'</p>'+jpSrc(E.sources)+byline+'</article>';
     }
@@ -1952,7 +1966,7 @@ function boot(D){
       var by=t.by==='j'?'<p class="tn-by"><b>'+JPN+'</b></p>':t.by==='g'?'<p class="tn-by"><b>'+RNAME+'</b></p>':'';
       var sv=t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.alt||t.tag)+'" loading="lazy">':safeSvg(t.svg);
       var cr=t.img&&(t.by==='j'||t.art)?'<figcaption class="tn-cr">그림 · '+JPN+'</figcaption>':'';
-      return '<article class="tn'+(sv?' has-fig':'')+'" id="tn-'+(i+1)+'">'+(sv?'<figure class="tn-fig">'+sv+cr+'</figure>':'')+'<div class="tn-x">'+by+'<div class="tn-hd"><span class="tn-tag">#'+esc(t.tag)+'</span>'+(t.by==='j'?'':'<button type="button" class="cplink" data-tn="'+(i+1)+'" title="이 트렌드 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button>')+'</div><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
+      return '<article class="tn'+(sv?' has-fig':'')+'" id="tn-'+(i+1)+'">'+(sv?'<figure class="tn-fig">'+sv+cr+'</figure>':'')+'<div class="tn-x">'+by+'<div class="tn-hd"><span class="tn-tag">#'+esc(t.tag)+'</span>'+('<button type="button" class="cplink" data-tn="'+(i+1)+'" title="이 트렌드 링크 복사"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a2.6 2.6 0 0 0 3.7 0l2.4-2.4a2.6 2.6 0 0 0-3.7-3.7l-.9.9M9.4 6.6a2.6 2.6 0 0 0-3.7 0L3.3 9a2.6 2.6 0 0 0 3.7 3.7l.9-.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>링크 복사</span></button>')+'</div><h3>'+esc(t.title||'')+'</h3><p class="tn-b">'+esc(t.body||'')+'</p>'+
         (t.point?'<p class="tn-p"><b>광고인 포인트</b> '+esc(t.point)+'</p>':'')+
         ((t.sources||[]).length?'<p class="tn-s">'+t.sources.map(function(x){return x.url?link(x.url,esc(x.t)+' ↗'):esc(x.t)}).join(' · ')+'</p>':'')+'</div></article>'}).join('');
     sec.hidden=false;
@@ -2085,7 +2099,7 @@ function boot(D){
       var media=v?vid(v):m.img?'<figure class="mm-pic"><img src="'+esc(m.img)+'" alt="'+esc(m.imgAlt||m.name)+'" loading="lazy"><figcaption>밈 설명 그림 · '+esc(m.imgBy||JPN)+'</figcaption></figure>':m.phrase?'<blockquote class="mm-phr"><p>'+esc(m.phrase)+'</p>'+(m.phraseSrc?'<cite>'+esc(m.phraseSrc)+'</cite>':'')+'</blockquote>':'';
       if(v&&m.phrase) media='<blockquote class="mm-phr sm"><p>'+esc(m.phrase)+'</p></blockquote>'+media;
       var cap=v?'<p class="mm-vc">'+(v.note?'<b>'+esc(v.note)+'</b> ':'')+(v.platform==='youtube'?link('https://youtu.be/'+v.id,esc(v.title||'원본 영상')+' ↗'):esc(v.title||''))+'</p>':'';
-      return '<article class="mm" id="mm-'+(i+1)+'">'+media+cap+'<h3 class="mm-h">'+(m.kind?'<span class="mm-k">'+esc(m.kind)+'</span>':'')+esc(m.name)+'</h3><p class="mm-w">'+esc(m.what)+'</p>'+
+      return '<article class="mm" id="mm-'+(i+1)+'">'+media+cap+'<div class="mm-hd"><h3 class="mm-h">'+(m.kind?'<span class="mm-k">'+esc(m.kind)+'</span>':'')+esc(m.name)+'</h3>'+cpl('meme'+(i+1),'이 밈 링크 복사')+'</div><p class="mm-w">'+esc(m.what)+'</p>'+
         (m.usage?'<p class="mm-u"><b>이렇게 써요</b>'+esc(m.usage)+'</p>':'')+
         (m.origin?'<p class="mm-o"><b>유래</b>'+esc(m.origin)+'</p>':'')+
         (m.tip?'<p class="mm-t"><b>광고인 포인트</b>'+esc(m.tip)+'</p>':'')+
