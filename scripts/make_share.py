@@ -339,7 +339,7 @@ def main():
 
     extra_keep = set()
 
-    # ── 새 코너(미니 사설·4컷 만평·AI 4대장 토론·캠페인 족보·요즘 밈·지필태 트렌드 노트) ──
+    # ── 새 코너(미니 사설·4컷 만평·AI 4대장 썰전·캠페인 족보·요즘 밈·지필태 트렌드 노트) ──
     def pic(path, w=540):
         u = data_uri(path)
         return f'<img src="{u}" style="display:block;width:{w}px;height:auto;max-height:420px;object-fit:cover;border:3px solid #1a1a1a">' if u else ""
@@ -405,12 +405,12 @@ def main():
             SA = (load_json("jipiltae.json").get("staffArt") or {})
             who = [("금로동 과장", SA.get("geum")), ("지필태 대리", (load_json("jipiltae.json").get("author") or {}).get("avatar")),
                    ("김그록 사원", SA.get("grok")), ("제민아 대리", SA.get("gemini"))]
-            if not any(w for _, w in who[3:]) or not any(t.get("who") == "gm" for t in T):
-                who = who[:3]
+            spk = {t.get("who") for t in T}
+            who = [x for x, k in zip(who, ("geum", "jp", "gk", "gm")) if k in spk] or who
             faces = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:540px">' + "".join(
                 (lambda u, n: f'<div style="text-align:center"><img src="{u}" style="width:170px;height:170px;border-radius:50%;object-fit:cover;border:3px solid #1a1a1a;background:#fff"><div style="font-size:20px;font-weight:900;margin-top:4px">{esc(n)}</div></div>' if u else "")(data_uri(w, 300), n) for n, w in who) + "</div>"
-            add_card(key, d, "debate", f"AI {len(who)}대장의 토론 — {B['topic']}", f"[AI {len(who)}대장의 토론 · {md(d)}] " + clip(T[0].get("text"), 110),
-                     f"AI {len(who)}대장의 토론", B["topic"], clip(T[0].get("text"), 90), faces, "", "금로동 · 지필태 · 김그록 · 제민아")
+            add_card(key, d, "debate", f"AI 4대장의 썰전 — {B['topic']}", f"[AI 4대장의 썰전 · {md(d)}] " + clip(T[0].get("text"), 110),
+                     "AI 4대장의 썰전", B["topic"], clip(T[0].get("text"), 90), faces, "", " · ".join(n.split()[0] for n, _ in who))
 
     try:
         render_cards(jobs)

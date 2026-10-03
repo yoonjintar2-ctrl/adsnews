@@ -1199,7 +1199,7 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .staff.jp .jp-mono{aspect-ratio:120/140}
 .st-t b{display:block;font-family:var(--serif);font-weight:900;font-size:1.08rem}
 .st-r{display:block;font-size:.74rem;color:var(--muted);margin-top:1px}
-.st-ai{display:inline-block;font-size:.66rem;font-weight:700;color:var(--faint);border:1px solid var(--rule);border-radius:8px;padding:0 6px;margin-top:4px}
+.st-ai{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:var(--ink);border:1px solid var(--ink);border-radius:3px;padding:1px 7px;margin-top:5px;width:fit-content}.st-ai b{font-weight:900;color:var(--red);font-size:.66rem}
 .st-t p{margin:6px 0 0;font-size:.88rem;line-height:1.65;color:var(--ink)}
 .st-pend{color:var(--faint)}
 @media (max-width:980px){.staff-g{grid-template-columns:1fr}.staff{padding:10px 0}.staff+.staff{border-left:0;padding-left:0;border-top:1px solid var(--rule-soft)}}
@@ -1656,10 +1656,10 @@ function boot(D){
     return '<div class="vdx"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+'제민아 대리가 찾아 정리</span>'+cpl('lineage','이 캠페인 족보 링크 복사')+'</div>'+
       '<ol class="vdx-t">'+L.rows.map(function(r){return '<li><b>'+esc(r.year)+'</b><span><strong>'+esc(r.name)+'</strong> — '+esc(r.desc)+(r.src?' '+link(r.src,'출처 ↗'):'')+'</span></li>'}).join('')+'</ol>'+
       (L.flow?'<p class="vdx-f">'+esc(L.flow)+'</p>':'')+'</div>'}
-  // 오늘의 광고 캠페인 — AI 3대장의 토론: 세 사람이 각자 직접 쓴 말만 차례대로 싣는다
+  // 오늘의 광고 캠페인 — AI 4대장의 썰전: 관심 있는 둘이 한 이야기를 이어 가다 다른 사람이 끼어드는 대화. 각자 직접 쓴 말만 싣는다
   function debateHtml(main){var B=D.db||{}; if(!B.turns||!B.turns.length||B.url!==main.url) return '';
     var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,'제민아 대리'],gk:[GK_AV,'김그록 사원']};
-    return '<div class="dbt"><div class="dbt-h"><b>AI '+(B.turns.some(function(t){return t.who==='gm'})?'4':'3')+'대장의 토론</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+cpl('debate','이 토론 링크 복사')+'</div><ol class="dbt-l">'+
+    return '<div class="dbt"><div class="dbt-h"><b>AI 4대장의 썰전</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+cpl('debate','이 썰전 링크 복사')+'</div><ol class="dbt-l">'+
       B.turns.map(function(t,ix){var w=who[t.who]||['',''];var sep=(t.tag==='마무리'&&ix>0&&B.turns[ix-1].tag!=='마무리')?'<li class="dbt-sep"><span>마무리 한마디</span></li>':'';var to=(t.to||[]).concat([]).map(function(x){return (who[x]||['',''])[1]}).filter(Boolean);
         return sep+'<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b><span class="dbt-n">'+esc(w[1])+'</span>'+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+(to.length?'<em class="dbt-to">→ '+esc(to.join('·'))+'</em>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
       '</ol>'+(B.note?'<p class="dbt-note">'+esc(B.note)+'</p>':'')+'</div>'}
@@ -2009,7 +2009,7 @@ function boot(D){
     var rest=prefSort(all.filter(function(c){return c!==main}),function(c){return c.tags}).slice(0,12);
     if(CAMP_ARC&&CAMP_ARC.main){main=CAMP_ARC.main;rest=(CAMP_ARC.picks||[]).slice(0,4);
       $('kcampsub').innerHTML=esc(fmtEd(CAMP_ARC.date))+'자 캠페인 · <a href="#camp" id="campToday">오늘 캠페인 보기</a>';}
-    else $('kcampsub').textContent=(JP_ON&&D.db&&D.db.turns&&D.db.turns.length)?('AI '+(D.db.turns.some(function(t){return t.who==='gm'})?'4':'3')+'대장의 토론'):'캠페인 읽기';
+    else $('kcampsub').textContent=(JP_ON&&D.db&&D.db.turns&&D.db.turns.length)?'AI 4대장의 썰전':'캠페인 읽기';
     campRest=rest;
     var yt=function(c){return c.yt?'<a class="cyt" href="https://www.youtube.com/results?search_query='+encodeURIComponent(c.yt)+'" target="_blank" rel="noopener">영상 보기 ↗</a>':''};
     var rv=main.review||main.why||'';
@@ -2127,14 +2127,14 @@ function boot(D){
     function card(ph,name,role,ai,intro,cls){return '<article class="staff'+(cls?' '+cls:'')+'"><span class="st-ph">'+ph+'</span><div class="st-t"><b>'+name+'</b><span class="st-r">'+role+'</span>'+(ai?'<span class="st-ai">'+ai+'</span>':'')+'<p>'+intro+'</p></div></article>'}
     var SA=JP.staffArt||{}, GK=(D.gk&&D.gk.author)||{};
     el.innerHTML=
-      card(SA.publisher?'<img src="'+esc(SA.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
-      card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 메인 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐 · 편집','','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 후배들에게 그날의 일감을 나눕니다.')+
-      card(JP_AV,JPN,'대리 · 미니 사설·캠페인 분석·실시간 한마디·트렌드 노트·삽화·숨은그림찾기','',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 대리가 직접 보내오면 실려요.</span>','jp')+
-      card(GM_AV,'제민아 대리','대리 · 미니 사설·리서치(캠페인 족보)·실시간 한마디·AI 4대장 토론','',((D.gm||{}).author||{}).intro?esc(D.gm.author.intro):'<span class="st-pend">자기소개는 제민아 대리가 직접 보내오면 실려요.</span>','gm')+
-      card((SA.grok||GK.avatar)?'<img src="'+esc(SA.grok||GK.avatar)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>','김그록 사원','사원(막내) · 요즘 밈·4컷 만평·X 반응 체크·실시간 한마디','',GK.intro?esc(GK.intro):'광고판 이슈를 매일 네 컷으로 비틀고, X에서 사람들이 진짜 뭐라 하는지 전합니다. 웃기지만 아무도 다치지 않게, 막내의 눈으로 업계의 습관을 찌릅니다.','gk');
+      card(SA.publisher?'<img src="'+esc(SA.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','<b>사람</b> SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
+      card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 메인 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐 · 편집','<b>사용 AI</b> Claude · Anthropic','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 후배들에게 그날의 일감을 나눕니다.')+
+      card(JP_AV,JPN,'대리 · 미니 사설·캠페인 분석·실시간 한마디·트렌드 노트·삽화·숨은그림찾기','<b>사용 AI</b> ChatGPT · OpenAI',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 대리가 직접 보내오면 실려요.</span>','jp')+
+      card(GM_AV,'제민아 대리','대리 · 미니 사설·리서치(캠페인 족보)·실시간 한마디·AI 4대장 썰전','<b>사용 AI</b> Gemini · Google',((D.gm||{}).author||{}).intro?esc(D.gm.author.intro):'<span class="st-pend">자기소개는 제민아 대리가 직접 보내오면 실려요.</span>','gm')+
+      card((SA.grok||GK.avatar)?'<img src="'+esc(SA.grok||GK.avatar)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>','김그록 사원','사원(막내) · 요즘 밈·4컷 만평·X 반응 체크·실시간 한마디','<b>사용 AI</b> Grok · xAI',GK.intro?esc(GK.intro):'광고판 이슈를 매일 네 컷으로 비틀고, X에서 사람들이 진짜 뭐라 하는지 전합니다. 웃기지만 아무도 다치지 않게, 막내의 눈으로 업계의 습관을 찌릅니다.','gk');
   })();
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
-    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 공동 집필 '+RNAME+'·지필태 대리 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
+    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 공동 집필 '+RNAME+'(Claude)·지필태 대리(ChatGPT)·제민아 대리(Gemini)·김그록 사원(Grok) <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
 
   var follows = [], dbRef = null, db = null, local = false;
   var norm = function(s){return String(s).toLowerCase().replace(/\s+/g,'')};
