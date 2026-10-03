@@ -1062,6 +1062,13 @@ body,button,input,select,textarea{font-family:var(--serif)}
 .mm-pic::before{content:"광고늬우스 밈 그림";position:absolute;left:8px;top:8px;background:var(--ink);color:var(--paper);font-size:.66rem;font-weight:700;padding:2px 6px}
 .mm-pic figcaption{font-size:.72rem;color:var(--faint);text-align:right;padding:3px 6px;border-top:1px solid var(--rule-soft);background:var(--paper)}
 .mm-vc{font-size:.74rem;color:var(--faint);margin:4px 0 0;line-height:1.5}
+.mm-phr{margin:0;border:2px solid var(--ink);background:#fff;padding:22px 20px 16px;position:relative;min-height:150px;display:flex;flex-direction:column;justify-content:center}
+.mm-phr::before{content:"광고늬우스 유행어";position:absolute;left:8px;top:8px;background:var(--ink);color:var(--paper);font-size:.66rem;font-weight:700;padding:2px 6px}
+.mm-phr p{margin:10px 0 0;font-size:1.28rem;font-weight:900;line-height:1.5;letter-spacing:-.02em}
+.mm-phr p::before{content:"“";color:var(--red);margin-right:2px}.mm-phr p::after{content:"”";color:var(--red);margin-left:2px}
+.mm-phr cite{display:block;margin-top:8px;font-style:normal;font-size:.72rem;color:var(--faint);text-align:right}
+.mm-phr.sm{min-height:0;padding:12px 14px 10px;margin-bottom:8px;border-width:1px}.mm-phr.sm::before{display:none}.mm-phr.sm p{margin:0;font-size:1.02rem}
+.mm-k{display:inline-block;vertical-align:3px;font-size:.66rem;font-weight:700;border:1px solid var(--ink);padding:1px 6px;margin-right:6px;letter-spacing:0}
 .mm-vc a{color:inherit}.mm-vc b{font-weight:700;color:var(--muted)}
 .mm-h{font-size:1.25rem;font-weight:900;letter-spacing:-.02em;margin:10px 0 6px;line-height:1.3}
 .mm-w{font-size:.98rem;line-height:1.8;margin:0 0 8px;text-align:justify}
@@ -2066,7 +2073,7 @@ function boot(D){
   (function(){var sec=$('a-meme'), el=$('memes'); if(!sec||!el) return; var MM=(D.gk||{}).memes, L=(MM&&MM.items)||[];
     var age=MM&&MM.date?(Date.parse(ED_DATE)-Date.parse(MM.date))/864e5:99;
     if(!JP_ON||!L.length||age<0||age>3){sec.hidden=true;return;}
-    $('memesub').textContent=(age>0?fmtEd(MM.date)+'자 · ':'')+'김그록 사원이 X·숏폼에서 건진 밈 · 영상은 눌러서 바로 재생';
+    $('memesub').textContent=(age>0?fmtEd(MM.date)+'자 · ':'')+'김그록 사원이 X·숏폼에서 건진 밈·짤·유행어'+(L.some(function(m){return m.video})?' · 영상은 눌러서 바로 재생':'');
     var PF={youtube:'YouTube',tiktok:'TikTok',instagram:'Instagram'};
     function src(pf,id,st){if(pf==='youtube')return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0&playsinline=1'+(st?'&start='+st:'');
       if(pf==='tiktok')return 'https://www.tiktok.com/player/v1/'+encodeURIComponent(id)+'?autoplay=1';
@@ -2075,9 +2082,10 @@ function boot(D){
       return '<button type="button" class="mm-v'+(v.vertical?' tall':'')+'" data-pf="'+esc(v.platform)+'" data-id="'+esc(v.id)+'" data-st="'+(+v.start||0)+'" aria-label="원본 영상 재생: '+esc(v.title||'')+'">'+th+'<span class="mm-pl" aria-hidden="true">▶</span><span class="mm-src">'+esc(PF[v.platform]||v.platform)+(v.channel?' · '+esc(v.channel):'')+'</span></button>'}
     el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
     el.innerHTML=L.slice(0,3).map(function(m,i){var v=m.video;
-      var media=v?vid(v):m.img?'<figure class="mm-pic"><img src="'+esc(m.img)+'" alt="'+esc(m.imgAlt||m.name)+'" loading="lazy"><figcaption>밈 설명 그림 · '+esc(m.imgBy||JPN)+'</figcaption></figure>':'';
+      var media=v?vid(v):m.img?'<figure class="mm-pic"><img src="'+esc(m.img)+'" alt="'+esc(m.imgAlt||m.name)+'" loading="lazy"><figcaption>밈 설명 그림 · '+esc(m.imgBy||JPN)+'</figcaption></figure>':m.phrase?'<blockquote class="mm-phr"><p>'+esc(m.phrase)+'</p>'+(m.phraseSrc?'<cite>'+esc(m.phraseSrc)+'</cite>':'')+'</blockquote>':'';
+      if(v&&m.phrase) media='<blockquote class="mm-phr sm"><p>'+esc(m.phrase)+'</p></blockquote>'+media;
       var cap=v?'<p class="mm-vc">'+(v.note?'<b>'+esc(v.note)+'</b> ':'')+(v.platform==='youtube'?link('https://youtu.be/'+v.id,esc(v.title||'원본 영상')+' ↗'):esc(v.title||''))+'</p>':'';
-      return '<article class="mm" id="mm-'+(i+1)+'">'+media+cap+'<h3 class="mm-h">'+esc(m.name)+'</h3><p class="mm-w">'+esc(m.what)+'</p>'+
+      return '<article class="mm" id="mm-'+(i+1)+'">'+media+cap+'<h3 class="mm-h">'+(m.kind?'<span class="mm-k">'+esc(m.kind)+'</span>':'')+esc(m.name)+'</h3><p class="mm-w">'+esc(m.what)+'</p>'+
         (m.usage?'<p class="mm-u"><b>이렇게 써요</b>'+esc(m.usage)+'</p>':'')+
         (m.origin?'<p class="mm-o"><b>유래</b>'+esc(m.origin)+'</p>':'')+
         (m.tip?'<p class="mm-t"><b>광고인 포인트</b>'+esc(m.tip)+'</p>':'')+

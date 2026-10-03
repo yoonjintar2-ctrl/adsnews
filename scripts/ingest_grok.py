@@ -144,7 +144,8 @@ def ingest_memes(M, a):
       "video": {"platform": "youtube|tiktok|instagram", "id", "title", "channel", "vertical": bool, "start": 초, "note": "원본/화제가 된 방송 등"},
       "img": "그림 파일명(--art 폴더 안)", "imgAlt", "imgBy": "지필태 대리",
       "links": [{"t", "url"}], "tip": "금로동 광고인 포인트(선택)"}]}
-    원본 영상은 공식 플레이어(유튜브·틱톡·인스타 임베드)로만 붙인다. 내려받아 다시 올리지 않는다."""
+    원본 영상은 공식 플레이어(유튜브·틱톡·인스타 임베드)로만 붙인다. 내려받아 다시 올리지 않는다.
+    광고·브랜드 캠페인·제품 홍보에서 나온 밈은 다루지 않는다(발행인 지시 10/3). 유행어는 "kind": "유행어", "phrase": 대표 문구."""
     import re
     errs, out = [], []
     date = M.get("edition") or now_kst().strftime("%Y-%m-%d")
@@ -168,10 +169,12 @@ def ingest_memes(M, a):
                 errs.append(f"{i}번 밈 그림 파일이 없어요: {src}")
             elif not a.dry_run:
                 img = put_meme_img(src, date, i)
-        if not v and not img and not m.get("imgKeep"):
-            errs.append(f"{i}번 밈: 원본 영상이나 설명 그림 중 하나는 있어야 해요")
+        if not v and not img and not m.get("imgKeep") and not (m.get("phrase") or "").strip():
+            errs.append(f"{i}번 밈: 원본 영상·설명 그림·유행어 문구(phrase) 중 하나는 있어야 해요")
+        if m.get("kind") and m["kind"] not in ("영상", "짤", "유행어", "챌린지"):
+            errs.append(f"{i}번 밈 kind는 영상/짤/유행어/챌린지 중 하나")
         links = [{"t": l.get("t", "원본"), "url": l["url"]} for l in m.get("links") or [] if str(l.get("url", "")).startswith("http")][:3]
-        out.append({k: x for k, x in {"name": name, "what": what, "usage": " ".join((m.get("usage") or "").split()),
+        out.append({k: x for k, x in {"name": name, "kind": m.get("kind") or "", "phrase": " ".join((m.get("phrase") or "").split()), "phraseSrc": (m.get("phraseSrc") or "").strip(), "what": what, "usage": " ".join((m.get("usage") or "").split()),
                     "origin": " ".join((m.get("origin") or "").split()), "quip": (m.get("quip") or "").strip(),
                     "video": v, "img": img or m.get("imgKeep"), "imgAlt": (m.get("imgAlt") or "").strip(), "imgBy": m.get("imgBy") or ("지필태 대리" if img else ""),
                     "links": links, "tip": (m.get("tip") or "").strip()}.items() if x})
