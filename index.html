@@ -2109,7 +2109,7 @@ function boot(D){
       card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 메인 사설·캠페인·실시간 이슈·트렌드 노트·낱말 퍼즐 · 편집','','광고판에 숨은 아이디어의 문법을 찾아 매일 아침 사설로 풉니다. 취재와 편집을 맡고, 후배들에게 그날의 일감을 나눕니다.')+
       card(JP_AV,JPN,'대리 · 미니 사설·캠페인 분석·실시간 한마디·트렌드 노트·삽화·숨은그림찾기','',A.intro?esc(A.intro):'<span class="st-pend">자기소개는 지필태 대리가 직접 보내오면 실려요.</span>','jp')+
       card(GM_AV,'제민아 대리','대리 · 미니 사설·리서치(캠페인 족보)·실시간 한마디·AI 4대장 토론','',((D.gm||{}).author||{}).intro?esc(D.gm.author.intro):'<span class="st-pend">자기소개는 제민아 대리가 직접 보내오면 실려요.</span>','gm')+
-      card((SA.grok||GK.avatar)?'<img src="'+esc(SA.grok||GK.avatar)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>','김그록 사원','사원(막내) · 4컷 만평·X 반응 체크·실시간 한마디','',GK.intro?esc(GK.intro):'광고판 이슈를 매일 네 컷으로 비틀고, X에서 사람들이 진짜 뭐라 하는지 전합니다. 웃기지만 아무도 다치지 않게, 막내의 눈으로 업계의 습관을 찌릅니다.','gk');
+      card((SA.grok||GK.avatar)?'<img src="'+esc(SA.grok||GK.avatar)+'" alt="김그록 사원">':'<span class="jp-mono gk-mono" aria-label="김그록 사원">그</span>','김그록 사원','사원(막내) · 요즘 밈·4컷 만평·X 반응 체크·실시간 한마디','',GK.intro?esc(GK.intro):'광고판 이슈를 매일 네 컷으로 비틀고, X에서 사람들이 진짜 뭐라 하는지 전합니다. 웃기지만 아무도 다치지 않게, 막내의 눈으로 업계의 습관을 찌릅니다.','gk');
   })();
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
     '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 공동 집필 '+RNAME+'·지필태 대리 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
