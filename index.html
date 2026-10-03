@@ -1942,11 +1942,12 @@ function boot(D){
     return '<a class="ci" href="'+esc(o.url||'#')+'" target="_blank" rel="noopener">'+pic+'<span class="ci-t"><span class="ci-k">'+(o.kick?'<b>'+esc(o.kick)+'</b>':'')+(o.date?'<i>'+esc(o.date)+'</i>':'')+(o.src?'<i>'+esc(o.src)+'</i>':'')+'</span><strong>'+esc(o.title)+'</strong>'+(d&&d.replace(/\s/g,'')!==String(o.title).replace(/\s/g,'')?'<span class="ci-d">'+esc(d)+'</span>':'')+'</span></a>'}
   function renderReps(){$('reps').innerHTML=(D.reports||[]).slice(0,6).map(function(r){var pdf=/\.pdf($|\?)/i.test(r.url||'');return card({url:r.url,title:r.title.replace(/\s*\(PDF\)\s*$/,''),kick:r.org,date:r.date,ph:r.org,dark:true})}).join('');}
 
+  function medArr(c){var m=c&&c.media;return Array.isArray(m)?m:(m?String(m).split(/\s*[·,\/]\s*/).filter(Boolean):[])}
   function campCard(c,f){
     var yt = c.yt ? link('https://www.youtube.com/results?search_query='+encodeURIComponent(c.yt),'영상 보기 ↗') : '';
     return '<article class="camp"><span style="background:'+esc(c.color)+'"></span><div style="display:flex;flex-direction:column;gap:2px;min-width:0">'+
       '<span class="b">'+(f?'<span class="star">★ </span>':'')+esc(c.brand)+' · '+esc(c.date)+'</span><h4>'+link(c.url,esc(c.title))+'</h4>'+
-      '<span class="m">'+esc(c.metric||((c.media||[]).length?(c.media||[]).join(' · ')+' 집행':'')||(c.date?c.date+' 공개':'')||'주목 캠페인')+'</span>'+(c.photo?'<img class="cph" src="'+esc(c.photo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<p>'+esc(c.story)+'</p><span class="lk">'+yt+'</span></div></article>';
+      '<span class="m">'+esc(c.metric||(medArr(c).length?medArr(c).join(' · ')+' 집행':'')||(c.date?c.date+' 공개':'')||'주목 캠페인')+'</span>'+(c.photo?'<img class="cph" src="'+esc(c.photo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<p>'+esc(c.story)+'</p><span class="lk">'+yt+'</span></div></article>';
   }
   var CAMP_ARC=null;
   function renderCamps(){
@@ -1960,7 +1961,7 @@ function boot(D){
     var rv=main.review||main.why||'';
     var mainHtml='<article class="cm">'+
       '<a class="cm-img" href="'+esc(main.url)+'" target="_blank" rel="noopener" style="--c:'+esc(main.color||'#333')+'">'+(main.photo?'<img src="'+esc(main.photo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(main.brand)+'</span></a>'+
-      '<div class="cm-t"><span class="cm-k"><b>'+esc(main.brand)+'</b><i>'+esc(main.date)+'</i>'+((main.media||[]).length?'<i>'+esc((main.media||[]).join(' · '))+'</i>':'')+'</span>'+
+      '<div class="cm-t"><span class="cm-k"><b>'+esc(main.brand)+'</b><i>'+esc(main.date)+'</i>'+(medArr(main).length?'<i>'+esc(medArr(main).join(' · '))+'</i>':'')+'</span>'+
       '<h3>'+link(main.url,esc(main.title))+'</h3>'+(main.metric?'<span class="cm-m">'+esc(main.metric)+'</span>':'')+
       '<p class="cm-s">'+esc(main.story||'')+'</p>'+yt(main)+'</div>'+
       (JP_ON?
@@ -1978,7 +1979,7 @@ function boot(D){
       '<a class="cp-img" href="'+esc(c.url)+'" target="_blank" rel="noopener" style="--c:'+esc(c.color||'#555')+'">'+(c.photo?'<img src="'+esc(c.photo)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(c.brand)+'</span></a>'+
       '<span class="cp-k"><b>'+esc(c.brand)+'</b><i>'+esc(c.date)+'</i></span>'+
       '<h4>'+link(c.url,esc(c.title))+'</h4>'+
-      '<span class="cp-m">'+esc(c.metric||((c.media||[]).length?(c.media||[]).join(' · ')+' 집행':'')||(c.date?c.date+' 공개':''))+'</span>'+
+      '<span class="cp-m">'+esc(c.metric||(medArr(c).length?medArr(c).join(' · ')+' 집행':'')||(c.date?c.date+' 공개':''))+'</span>'+
       '<p>'+esc(c.story||'')+'</p>'+yt(c)+'</article>'}).join('');
     CAMP_RV=rv;
     setTimeout(layoutReview,0); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layoutReview);
