@@ -1660,7 +1660,7 @@ function boot(D){
   function debateHtml(main){var B=D.db||{}; if(!B.turns||!B.turns.length||B.url!==main.url) return '';
     var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,'제민아 대리'],gk:[GK_AV,'김그록 사원']};
     return '<div class="dbt"><div class="dbt-h"><b>AI 4대장의 썰전</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+cpl('debate','이 썰전 링크 복사')+'</div><ol class="dbt-l">'+
-      B.turns.map(function(t,ix){var w=who[t.who]||['',''];var sep=(t.tag==='마무리'&&ix>0&&B.turns[ix-1].tag!=='마무리')?'<li class="dbt-sep"><span>마무리 한마디</span></li>':'';var to=(t.to||[]).concat([]).map(function(x){return (who[x]||['',''])[1]}).filter(Boolean);
+      B.turns.map(function(t,ix){var w=who[t.who]||['',''];var sep=(t.tag==='마무리'&&ix>0&&B.turns[ix-1].tag!=='마무리')?'<li class="dbt-sep"><span>마무리 한마디</span></li>':((t.tag==='등장'||t.tag==='정리')&&ix>0)?'<li class="dbt-sep"><span>'+esc(w[1])+' 등장</span></li>':'';var to=(t.to||[]).concat([]).map(function(x){return (who[x]||['',''])[1]}).filter(Boolean);
         return sep+'<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b><span class="dbt-n">'+esc(w[1])+'</span>'+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+(to.length?'<em class="dbt-to">→ '+esc(to.join('·'))+'</em>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
       '</ol>'+(B.note?'<p class="dbt-note">'+esc(B.note)+'</p>':'')+'</div>'}
   // 김그록 사원의 X 반응 체크: 오늘의 캠페인에 대한 X 반응 온도와 한 줄 촌평
