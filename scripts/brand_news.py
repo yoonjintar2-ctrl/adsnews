@@ -23,6 +23,48 @@ def clean(s):
              .replace("&lt;", "<").replace("&gt;", ">").strip())
 
 
+# 같은 사안을 매체마다 다시 쓴 기사는 한 건만 남긴다(발행인 지적 10/6: '롯백 제니'만 몇 번째냐).
+# 브랜드명·흔한 단어를 뺀 제목 글자 2-gram이 4개 이상, 짧은 쪽의 30% 이상 겹치면 같은 사안으로 본다.
+STORY_STOP = set("광고 출시 신규 공개 캠페인 브랜드 모델 기념 행사 진행 이벤트 고객 할인 선보 선봬 오픈 개최 서비스 시작 "
+                 "강화 확대 나선 나서 이유 위해 위한 대표 업계 시장 국내 글로벌 소비 제품 신제품 판매 매장 기업 그룹 회장 사장".split())
+
+
+def story_grams(title, brand):
+    s = re.sub(r"\s", "", title)
+    for b in (brand, re.sub(r"\s", "", brand)):
+        if b:
+            s = s.replace(b, "")
+    s = re.sub(r"[^0-9A-Za-z가-힣]", "", s).lower()
+    return {s[i:i + 2] for i in range(len(s) - 1)} - STORY_STOP
+
+
+QUOTE = "'\"‘’“”「」『』`"
+
+
+def quoted(title):
+    """제목 속 따옴표로 묶은 고유어(사람·제품·캠페인 이름) — 같으면 같은 사안으로 본다."""
+    return {re.sub(r"\s", "", q) for q in re.findall(r"[%s]([^%s]{1,20})[%s]" % (QUOTE, QUOTE, QUOTE), title)} - {""}
+
+
+def same_story(a, b):
+    (ga, qa), (gb, qb) = a, b
+    if qa & qb:
+        return True
+    n = len(ga & gb)
+    return bool(ga and gb) and n >= 4 and n / min(len(ga), len(gb)) >= 0.3
+
+
+def dedupe_stories(items, brand):
+    kept, grams = [], []
+    for o in items:
+        t = o.get("title", "")
+        g = (story_grams(t, brand), quoted(t))
+        if any(same_story(g, k) for k in grams):
+            continue
+        kept.append(o); grams.append(g)
+    return kept
+
+
 def fetch(brand):
     q = urllib.parse.quote('"%s" when:14d' % brand)
     url = "https://news.google.com/rss/search?q=%s&hl=ko&gl=KR&ceid=KR:ko" % q
@@ -48,7 +90,9 @@ def fetch(brand):
         out.append({"ts": dt.isoformat(), "date": dt.strftime("%m.%d"), "title": t[:120], "url": u.strip(), "src": s[:30],
                     "hit": key in re.sub(r"\s", "", t).lower()})
     # headlines that name the brand first, then newest
-    out.sort(key=lambda o: (not o["hit"], o["ts"]), reverse=False)
+    out.sort(key=lambda o: o["ts"], reverse=True)
+    out.sort(key=lambda o: not o["hit"])
+    out = dedupe_stories(out, brand)
     top = [o for o in out if o["hit"]][:10] or out[:6]
     top.sort(key=lambda o: o["ts"], reverse=True)
     for o in top:
@@ -87,6 +131,8 @@ def main():
             n += 1
         except Exception as e:
             print("bnews", b, "failed:", e)
+    for b, v in B.items():  # 예전에 받아 둔 목록도 같은 사안 중복을 걷어 낸다
+        v["items"] = dedupe_stories(v.get("items") or [], b)
     live["bnews"] = B
     json.dump(live, open("live.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("bnews: refreshed", n, "brands, total", len(B))
