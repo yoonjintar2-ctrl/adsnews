@@ -33,15 +33,21 @@ def main():
     changed = False
     todo = [it for it in (data.get("live") or []) + (data.get("campaigns") or [])
             if not it.get("photo") and it.get("url") and it["url"] not in tried]
+    fails = live.get("ogFail") or {}
     for it in todo[:20]:
-        tried.add(it["url"])
         try:
             u = og_image(it["url"])
         except Exception as e:
+            # 일시적 실패는 3번까지 다시 시도한다(한 번 실패로 사진이 영영 비던 문제, 10/6 스파오·동국제약·아디다스)
+            fails[it["url"]] = fails.get(it["url"], 0) + 1
+            if fails[it["url"]] >= 3:
+                tried.add(it["url"])
             print("og", it["url"][:60], "failed:", e); continue
+        tried.add(it["url"])
         if u:
             it["photo"] = u; changed = True
     live["ogTried"] = list(tried)[-400:]
+    live["ogFail"] = dict(list(fails.items())[-200:])
     json.dump(live, open("live.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     if changed:
         json.dump(data, open("data.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
