@@ -5,82 +5,68 @@
   "ai": "Grok (xAI)"
  },
  "strip": {
-  "date": "2026-10-07",
-  "title": "사야 광고비가 나간다",
+  "date": "2026-10-08",
+  "title": "기다리며 광고를 본다",
   "issue": {
-   "id": "L02",
-   "title": "커넥트웨이브, 구매확정 과금형 광고 'F.I.T' 론칭",
-   "url": "https://daily.hankooki.com/news/articleView.html?idxno=1412096"
+   "id": "L07",
+   "title": "오픈AI, 챗GPT 이미지 생성 옆에도 광고",
+   "url": "https://www.i-boss.co.kr/ab-2877-18189"
   },
   "cast": [
    {
-    "name": "김초보",
-    "look": "20대 후반 후드티",
-    "role": "막내 AE"
+    "name": "이생성",
+    "look": "30대 후드티, 노트북",
+    "role": "이미지 생성 사용자"
    },
    {
-    "name": "이마케",
-    "look": "30대 캐주얼",
-    "role": "광고주 담당"
-   },
-   {
-    "name": "박고객",
-    "look": "40대 일상복",
-    "role": "온라인 쇼핑 고객"
+    "name": "광고팝",
+    "look": "반짝이는 배너 형태",
+    "role": "옆자리 광고"
    }
   ],
   "panels": [
    {
-    "scene": "회의실. 이마케가 김초보에게 새 과금 방식을 설명한다.",
+    "scene": "이생성이 챗GPT에 이미지 주문을 넣는다.",
     "dialogue": [
      {
-      "who": "이마케",
-      "line": "사야 광고비가 나가!"
-     },
-     {
-      "who": "김초보",
-      "line": "구매 확정 때만요?"
+      "who": "이생성",
+      "line": "이 그림 만들어 줘"
      }
     ],
-    "img": "img/gk/strip-2026-10-07-1.jpg"
+    "img": null
    },
    {
-    "scene": "박고객이 쇼핑 앱에서 상품을 구경한다.",
+    "scene": "생성 중 로딩 화면. 옆에 광고팝이 나타난다.",
     "dialogue": [
      {
-      "who": "박고객",
-      "line": "이 광고 계속 뜨네"
+      "who": "광고팝",
+      "line": "기다리시는 동안…"
      }
     ],
-    "img": "img/gk/strip-2026-10-07-2.jpg"
+    "img": null
    },
    {
-    "scene": "박고객이 장바구니에 넣고 고민한다.",
+    "scene": "이생성이 로딩을 바라보며 광고를 읽는다.",
     "dialogue": [
      {
-      "who": "박고객",
-      "line": "살까 말까…"
+      "who": "이생성",
+      "line": "광고가 더 빨리 오네"
      }
     ],
-    "img": "img/gk/strip-2026-10-07-3.jpg"
+    "img": null
    },
    {
-    "scene": "박고객이 결제 버튼을 누른다. 김초보가 알림을 받는다.",
-    "dialogue": [
-     {
-      "who": "김초보",
-      "line": "이제야 비용이 나갔네요"
-     }
-    ],
-    "img": "img/gk/strip-2026-10-07-4.jpg"
+    "scene": "완성된 이미지가 뜨고, 광고팝이 더 크게 옆을 차지한다.",
+    "dialogue": [],
+    "img": null
    }
   ],
-  "punchline": "고객이 사야 광고비가 산다",
-  "artBy": "지필태 대리",
+  "punchline": "그림은 늦고 광고는 제시간",
+  "artBy": "",
   "model": "Grok",
-  "at": "2026-10-07T08:49:13+09:00"
+  "at": "2026-10-08T06:47:11+09:00"
  },
- "updatedAt": "2026-10-07T22:26:42+09:00",
+ "updatedAt": "2026-10-08T06:47:11+09:00",
  "xpulse": {
   "date": "2026-10-07",
   "url": "https://www.viva100.com/article/20261006500257",
