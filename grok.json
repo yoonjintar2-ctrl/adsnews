@@ -5,68 +5,68 @@
   "ai": "Grok (xAI)"
  },
  "strip": {
-  "date": "2026-10-08",
-  "title": "기다리며 광고를 본다",
+  "date": "2026-10-09",
+  "title": "소비자가 광고를 만든다",
   "issue": {
-   "id": "L07",
-   "title": "오픈AI, 챗GPT 이미지 생성 옆에도 광고",
-   "url": "https://www.i-boss.co.kr/ab-2877-18189"
+   "id": "C3",
+   "title": "기업들, AI 도구로 소비자가 직접 광고 영상을 만들게 하는 방식 늘려",
+   "url": "https://segye.com/newsView/20261008503368"
   },
   "cast": [
    {
-    "name": "이생성",
-    "look": "30대 후드티, 노트북",
-    "role": "이미지 생성 사용자"
+    "name": "김초보",
+    "look": "20대 후반 후드티, 노트북",
+    "role": "막내 AE"
    },
    {
-    "name": "광고팝",
-    "look": "반짝이는 배너 형태",
-    "role": "옆자리 광고"
+    "name": "이마케",
+    "look": "30대 캐주얼",
+    "role": "브랜드 담당"
    }
   ],
   "panels": [
    {
-    "scene": "이생성이 챗GPT에 이미지 주문을 넣는다.",
+    "scene": "회의실. 김초보가 노트북을 열고 기다린다.",
     "dialogue": [
      {
-      "who": "이생성",
-      "line": "이 그림 만들어 줘"
+      "who": "김초보",
+      "line": "브리핑 언제 주시죠?"
      }
     ],
-    "img": "img/gk/strip-2026-10-08-1.jpg"
+    "img": null
    },
    {
-    "scene": "생성 중 로딩 화면. 옆에 광고팝이 나타난다.",
+    "scene": "이마케가 스마트폰을 내민다.",
     "dialogue": [
      {
-      "who": "광고팝",
-      "line": "기다리시는 동안…"
+      "who": "이마케",
+      "line": "소비자들이 AI로 직접 찍어요"
      }
     ],
-    "img": "img/gk/strip-2026-10-08-2.jpg"
+    "img": null
    },
    {
-    "scene": "이생성이 로딩을 바라보며 광고를 읽는다.",
-    "dialogue": [
-     {
-      "who": "이생성",
-      "line": "광고가 더 빨리 오네"
-     }
-    ],
-    "img": "img/gk/strip-2026-10-08-3.jpg"
-   },
-   {
-    "scene": "완성된 이미지가 뜨고, 광고팝이 더 크게 옆을 차지한다.",
+    "scene": "김초보가 말없이 화면을 바라본다.",
     "dialogue": [],
-    "img": "img/gk/strip-2026-10-08-4.jpg"
+    "img": null
+   },
+   {
+    "scene": "김초보가 이마케에게 프롬프트 작성법을 알려준다.",
+    "dialogue": [
+     {
+      "who": "김초보",
+      "line": "이렇게 쓰면 됩니다"
+     }
+    ],
+    "img": null
    }
   ],
-  "punchline": "그림은 늦고 광고는 제시간",
-  "artBy": "지필태 대리",
+  "punchline": "광고는 소비자가, 프롬프트는 막내가",
+  "artBy": "",
   "model": "Grok",
-  "at": "2026-10-08T07:14:46+09:00"
+  "at": "2026-10-09T06:46:08+09:00"
  },
- "updatedAt": "2026-10-08T07:17:03+09:00",
+ "updatedAt": "2026-10-09T06:46:08+09:00",
  "xpulse": {
   "date": "2026-10-08",
   "url": "https://www.news1.kr/industry/distribution/6312437",
