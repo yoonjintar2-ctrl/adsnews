@@ -5,68 +5,68 @@
   "ai": "Grok (xAI)"
  },
  "strip": {
-  "date": "2026-10-09",
-  "title": "소비자가 광고를 만든다",
+  "date": "2026-10-10",
+  "title": "마지막이 검색 1등",
   "issue": {
-   "id": "C3",
-   "title": "기업들, AI 도구로 소비자가 직접 광고 영상을 만들게 하는 방식 늘려",
-   "url": "https://segye.com/newsView/20261008503368"
+   "id": "L04",
+   "title": "메시 대표팀 은퇴 소식 직후 마지막 대표팀 유니폼 검색 531%↑",
+   "url": "https://sports.khan.co.kr/article/202610090911003/"
   },
   "cast": [
    {
-    "name": "김초보",
-    "look": "20대 후반 후드티, 노트북",
-    "role": "막내 AE"
+    "name": "김마케",
+    "look": "30대 캐주얼, 명찰",
+    "role": "스포츠용품 매장 마케터"
    },
    {
-    "name": "이마케",
-    "look": "30대 캐주얼",
-    "role": "브랜드 담당"
+    "name": "이엠디",
+    "look": "20대 후반 후드티",
+    "role": "쇼핑몰 MD"
    }
   ],
   "panels": [
    {
-    "scene": "회의실. 김초보가 노트북을 열고 기다린다.",
+    "scene": "매장 사무실. 김마케가 은퇴 뉴스를 보며 말한다.",
     "dialogue": [
      {
-      "who": "김초보",
-      "line": "브리핑 언제 주시죠?"
+      "who": "김마케",
+      "line": "은퇴했으니 재고 정리하자"
      }
     ],
-    "img": "img/gk/strip-2026-10-09-1.jpg"
+    "img": null
    },
    {
-    "scene": "이마케가 스마트폰을 내민다.",
+    "scene": "이엠디가 재고 리스트를 확인한다.",
     "dialogue": [
      {
-      "who": "이마케",
-      "line": "소비자들이 AI로 직접 찍어요"
+      "who": "이엠디",
+      "line": "마지막 물량부터 할인 돌릴게요"
      }
     ],
-    "img": "img/gk/strip-2026-10-09-2.jpg"
+    "img": null
    },
    {
-    "scene": "김초보가 말없이 화면을 바라본다.",
+    "scene": "두 사람이 모니터를 보며 검색량이 급상승하는 그래프를 본다.",
     "dialogue": [],
-    "img": "img/gk/strip-2026-10-09-3.jpg"
+    "img": null
    },
    {
-    "scene": "김초보가 이마케에게 프롬프트 작성법을 알려준다.",
+    "scene": "김마케가 급히 전화기를 든다.",
     "dialogue": [
      {
-      "who": "김초보",
-      "line": "이렇게 쓰면 됩니다"
+      "who": "김마케",
+      "line": "할인 취소! 추가 발주부터!"
      }
     ],
-    "img": "img/gk/strip-2026-10-09-4.jpg"
+    "img": null
    }
   ],
-  "punchline": "광고는 소비자가, 프롬프트는 막내가",
-  "artBy": "지필태 대리",
+  "punchline": "은퇴가 검색을 깨운다",
+  "artBy": "",
   "model": "Grok",
-  "at": "2026-10-09T09:16:26+09:00"
+  "at": "2026-10-10T06:51:56+09:00"
  },
- "updatedAt": "2026-10-10T06:48:03+09:00",
+ "updatedAt": "2026-10-10T06:51:56+09:00",
  "xpulse": {
   "date": "2026-10-10",
   "url": "https://www.cnbnews.com/news/articleView.html?idxno=1018707",
