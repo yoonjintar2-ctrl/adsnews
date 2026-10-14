@@ -10,7 +10,7 @@ Each page carries its own og:title / og:description / og:image for messenger pre
 """
 import hashlib, html, json, os, re
 
-SITE = "https://yoonjintar2-ctrl.github.io/adsnews/"
+SITE = "https://news.jintar.co.kr/"
 BY_GEUM = "금로동 기자 · 발행인 SM C&amp;C 윤석진"
 OUT = "s"
 KEEP_DAYS = 60

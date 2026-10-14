@@ -10,7 +10,7 @@ Files are rewritten only when their content changes.
 import html, json, os, re
 from datetime import datetime, timedelta, timezone
 
-SITE = "https://yoonjintar2-ctrl.github.io/adsnews/"
+SITE = "https://news.jintar.co.kr/"
 KST = timezone(timedelta(hours=9))
 FIRST = datetime(2026, 9, 29, tzinfo=KST)
 

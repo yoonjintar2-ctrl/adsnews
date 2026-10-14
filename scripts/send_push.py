@@ -11,7 +11,7 @@ import json, os, subprocess, sys, urllib.request
 from datetime import datetime, timezone, timedelta
 
 KST = timezone(timedelta(hours=9))
-SITE = "https://yoonjintar2-ctrl.github.io/adsnews/"
+SITE = "https://news.jintar.co.kr/"
 
 
 def today():

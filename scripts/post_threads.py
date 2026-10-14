@@ -14,7 +14,7 @@ from datetime import datetime, timedelta, timezone
 
 KST = timezone(timedelta(hours=9))
 API = "https://graph.threads.net/v1.0"
-SITE = "https://yoonjintar2-ctrl.github.io/adsnews/"
+SITE = "https://news.jintar.co.kr/"
 STATE = "threads.json"
 TAGS = "#광고 #마케팅 #광고인 #광고늬우스"
 
