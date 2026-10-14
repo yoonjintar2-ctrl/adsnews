@@ -3,12 +3,16 @@
   e/YYYY-MM-DD.html  — that day's 사설 + 미니 사설 (full text + 만평), 오늘의 광고 캠페인 (+ 금로동 과장의 한마디),
                        오늘의 광고인, 실시간 이슈 headlines with 금로동 과장 comments
   e/index.html       — list of all editions (지난 호 모아보기)
+  e/campaign/ e/trend/ e/people/ e/calendar/ e/glossary.html — keyword hub pages (scripts/seo_hubs.py)
   sitemap.xml        — for Google Search Console / 네이버 서치어드바이저
 Back issues come from archive/YYYY-MM-DD/data.json; today's page from data.json.
 Files are rewritten only when their content changes.
 """
-import html, json, os, re
+import html, json, os, re, sys
 from datetime import datetime, timedelta, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seo_hubs  # noqa: E402
 
 SITE = "https://news.jintar.co.kr/"
 KST = timezone(timedelta(hours=9))
@@ -82,7 +86,7 @@ JP_START = "2026-10-02"
 JPN = "지필태 대리"
 
 
-def page_html(d, D, prev_d, next_d, has_card, J=None):
+def page_html(d, D, prev_d, next_d, has_card, J=None, hubs=frozenset()):
     J = J or {}
     b = D.get("brief") or {}
     camps = D.get("campaigns") or []
@@ -92,7 +96,8 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
     live = (D.get("live") or [])[:12]
     no = issue_no(d)
     head = b.get("headline") or "광고늬우스"
-    title = f"{head} · 광고늬우스 제{no}호 {md(d)}"
+    fb = feat.get("brand") if feat.get("feature") else ""
+    title = f"{head} | {md(d)} 광고·마케팅 뉴스" + (f" · {fb} 광고" if fb else "") + " — 광고늬우스"
     desc = clip(b.get("lede") or b.get("body"), 150)
     url = SITE + f"e/{d}.html"
     img = SITE + (f"s/ed-{d}.png" if has_card else "og.png")
@@ -157,8 +162,11 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
         jk = J.get("campaign") or {}
         if jk.get("url") == feat.get("url") and jk.get("review"):
             out.append(f"<div class=\"op\"><b>{JPN}의 분석</b>{esc(jk['review'])}</div>")
-        if feat.get("url"):
-            out.append(f"<p class=\"meta\"><a href=\"{esc(feat['url'])}\" rel=\"nofollow noopener\">관련 기사 ↗</a></p>")
+        hp = f"e/campaign/{d}-{seo_hubs.slug(feat.get('brand'))}.html"
+        if feat.get("url") or hp in hubs:
+            out.append("<p class=\"meta\">" + " · ".join(x for x in [
+                f"<a href=\"{hp[2:]}\">{esc(feat.get('brand'))} 광고 분석·족보·반응 더 보기</a>" if hp in hubs else "",
+                f"<a href=\"{esc(feat['url'])}\" rel=\"nofollow noopener\">관련 기사 ↗</a>" if feat.get("url") else ""] if x) + "</p>")
         if picks:
             out.append("<h3>함께 볼 캠페인</h3><ul>" + "".join(
                 f"<li><b>{esc(c.get('brand'))}</b> — {esc(c.get('title'))}. {esc(clip(c.get('story'), 120))}</li>" for c in picks) + "</ul>")
@@ -174,13 +182,16 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
         for t in TN[:3]:
             src = " · ".join(f"<a href=\"{esc(x.get('url'))}\" rel=\"nofollow noopener\">{esc(x.get('t'))}</a>" for x in t.get("sources") or [] if x.get("url"))
             tsv = f'<img src="../{esc(t["img"])}" alt="{esc(t.get("tag"))}" style="display:block;width:100%;filter:grayscale(1)">' if t.get("img") else safe_svg(t.get("svg"))
-            out.append((f"<figure>{tsv}</figure>" if tsv else "") + f"<h3>#{esc(t.get('tag'))} — {esc(t.get('title'))}</h3>" + (f"<p class=\"meta\">글 {esc(t['by'])}</p>" if t.get("by") else "") + f"<p>{esc(t.get('body'))}</p>"
+            tp = f"e/trend/{seo_hubs.slug(t.get('tag'))}.html"
+            tg = f"<a href=\"{tp[2:]}\">#{esc(t.get('tag'))}</a>" if tp in hubs else f"#{esc(t.get('tag'))}"
+            out.append((f"<figure>{tsv}</figure>" if tsv else "") + f"<h3>{tg} — {esc(t.get('title'))}</h3>" + (f"<p class=\"meta\">글 {esc(t['by'])}</p>" if t.get("by") else "") + f"<p>{esc(t.get('body'))}</p>"
                        + (f"<p><b>광고인 포인트</b> {esc(t.get('point'))}</p>" if t.get("point") else "")
                        + (f"<p class=\"meta\">{src}</p>" if src else ""))
         out.append("</section>")
     if P.get("name"):
+        pp = f"e/people/{seo_hubs.slug(P.get('name'))}.html"
         out.append(f"""<section><h2>오늘의 광고인</h2>
-<h3>{esc(P.get('name'))} <span class="meta">{esc(' · '.join([x for x in [P.get('nameEn'), P.get('years'), P.get('country')] if x]))}</span></h3>
+<h3>{(f'<a href="{pp[2:]}">' + esc(P.get('name')) + '</a>') if pp in hubs else esc(P.get('name'))} <span class="meta">{esc(' · '.join([x for x in [P.get('nameEn'), P.get('years'), P.get('country')] if x]))}</span></h3>
 <p class="meta">{esc(P.get('role'))}</p><p><b>{esc(P.get('line'))}</b></p><p>{esc(P.get('intro'))}</p>""")
         sv = f'<img src="../{esc(P["img"])}" alt="{esc(P.get("name"))}" style="display:block;width:100%;filter:grayscale(1)">' if P.get("img") else safe_svg(P.get("svg"))
         if sv:
@@ -210,6 +221,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None):
     out.append("<nav>" + (f"<a href=\"{prev_d}.html\">‹ 지난 호 {esc(md(prev_d))}</a>" if prev_d else "<span></span>")
                + "<a href=\"./\">모아보기</a>"
                + (f"<a href=\"{next_d}.html\">다음 호 {esc(md(next_d))} ›</a>" if next_d else "<span></span>") + "</nav>")
+    out.append(seo_hubs.nav(1))
     out.append("</div></body></html>\n")
     return "\n".join(out)
 
@@ -231,11 +243,12 @@ def main():
         jps[today] = load("jipiltae.json", {}) or {}
         jps[today]["_gm"] = load("gemini.json", {})
     dates = sorted(eds)
-    n = 0
+    hub_urls, n = seo_hubs.build(SITE, CSS, eds, jps, put)
+    hubs = {p for p, _ in hub_urls}
     for i, d in enumerate(dates):
         prev_d = dates[i - 1] if i > 0 else None
         next_d = dates[i + 1] if i + 1 < len(dates) else None
-        n += put(f"e/{d}.html", page_html(d, eds[d], prev_d, next_d, os.path.exists(f"s/ed-{d}.png"), jps.get(d)))
+        n += put(f"e/{d}.html", page_html(d, eds[d], prev_d, next_d, os.path.exists(f"s/ed-{d}.png"), jps.get(d), hubs))
     rows = "".join(
         f"<li><a href=\"{d}.html\"><b>제{issue_no(d)}호 · {esc(md(d))}</b> {esc((eds[d].get('brief') or {}).get('headline'))}</a>"
         + (f"<br><span class=\"meta\">캠페인 · {esc(next((c.get('brand', '') + ' ' + c.get('title', '') for c in eds[d].get('campaigns') or [] if c.get('feature')), ''))}"
@@ -243,20 +256,22 @@ def main():
         + "</li>" for d in reversed(dates))
     idx = f"""<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>지난 호 모아보기 · 광고늬우스</title>
-<meta name="description" content="광고늬우스 금로동 과장의 사설·두 대리의 미니 사설·오늘의 광고 캠페인·오늘의 광고인을 날짜별로 모았습니다.">
+<title>광고 뉴스 지난 호 모아보기 — 날짜별 광고·마케팅 소식 | 광고늬우스</title>
+<meta name="description" content="광고늬우스 지난 호를 날짜별로 모았습니다. 매일 아침 광고·마케팅 업계 뉴스 사설, 오늘의 광고 캠페인, 오늘의 광고인, 트렌드 노트.">
 <link rel="canonical" href="{SITE}e/"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>{CSS}</style></head><body><div class="w">
 <header><a class="m" href="../">광고늬우스</a><p>지난 호 모아보기 · 발행인 SM C&amp;C 윤석진</p></header>
+{seo_hubs.nav(1)}
+<h1>광고 뉴스 지난 호 모아보기</h1>
 <p>매일 아침 금로동 과장이 쓰는 사설과 두 대리의 미니 사설, 삽화, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
 <ul>{rows}</ul>
 <a class="go" href="../">오늘 신문 보기 →</a>
 </div></body></html>
 """
     n += put("e/index.html", idx)
-    urls = [(SITE, dates[-1] if dates else None), (SITE + "e/", dates[-1] if dates else None)] + [(SITE + f"e/{d}.html", d) for d in dates]
+    urls = [(SITE, dates[-1] if dates else None), (SITE + "e/", dates[-1] if dates else None)] + [(SITE + f"e/{d}.html", d) for d in dates] + [(SITE + p, d) for p, d in hub_urls]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-        f"  <url><loc>{u}</loc>{f'<lastmod>{d}</lastmod>' if d else ''}</url>\n" for u, d in urls) + "</urlset>\n"
+        f"  <url><loc>{esc(seo_hubs.enc(u))}</loc>{f'<lastmod>{d}</lastmod>' if d else ''}</url>\n" for u, d in urls) + "</urlset>\n"
     n += put("sitemap.xml", sm)
     # RSS — 네이버 서치어드바이저 RSS 제출, 피드 리더·슬랙 RSS 구독용 (최근 30호)
     def rfc(d, hh=7):
