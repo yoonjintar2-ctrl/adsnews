@@ -5,85 +5,84 @@
   "ai": "Grok (xAI)"
  },
  "strip": {
-  "date": "2026-10-13",
-  "title": "알아서 붙는다",
+  "date": "2026-10-15",
+  "title": "결제가 스탬프가 된다",
   "issue": {
-   "id": "L13",
-   "title": "구글 애즈, 10월 12일부터 일부 캠페인에 광고주 사이트의 할인·쿠폰 정보를 광고에 자동으로 붙이는 '자동 프로모션' 기본 적용",
-   "url": "https://ppc.land/google-ads-will-auto-apply-website-coupons-to-some-campaigns-from-october-12/"
+   "id": "L09",
+   "title": "신한카드, 배달앱 땡겨요에서 결제하면 기부에 참여하는 '같이페이 시즌2'",
+   "url": "https://www.newspim.com/news/view/20261013000372"
   },
   "cast": [
    {
-    "name": "김광고",
-    "look": "30대 캐주얼 셔츠, 노트북",
-    "role": "퍼포먼스 마케터"
+    "name": "박배달",
+    "look": "30대 캐주얼, 스마트폰",
+    "role": "배달 주문 직장인"
    },
    {
-    "name": "이시스템",
-    "look": "반짝이는 화면 아이콘 형태",
-    "role": "광고 플랫폼"
+    "name": "이포인트",
+    "look": "반짝이는 알림 아이콘",
+    "role": "결제 알림"
    }
   ],
   "panels": [
    {
-    "scene": "사무실. 김광고가 캠페인을 세팅한다.",
+    "scene": "집 소파. 박배달이 배달앱에서 음식을 고른다.",
     "dialogue": [
      {
-      "who": "김광고",
-      "line": "이번엔 할인 없이 갈게"
+      "who": "박배달",
+      "line": "오늘 야식 시키자"
      }
     ],
-    "img": "img/gk/strip-2026-10-13-1.jpg"
+    "img": null
    },
    {
-    "scene": "이시스템이 조용히 쿠폰 배너를 광고에 붙인다.",
+    "scene": "결제 버튼을 누른다.",
     "dialogue": [
      {
-      "who": "이시스템",
-      "line": "(자동으로 붙는 중)"
+      "who": "박배달",
+      "line": "결제 완료!"
      }
     ],
-    "img": "img/gk/strip-2026-10-13-2.jpg"
+    "img": null
    },
    {
-    "scene": "김광고가 미리보기를 보다가 깜짝 놀란다.",
+    "scene": "이포인트가 알림을 띄운다.",
     "dialogue": [
      {
-      "who": "김광고",
-      "line": "언제 쿠폰이 붙었어?"
+      "who": "이포인트",
+      "line": "참여 스탬프 하나 쌓였어요"
      }
     ],
-    "img": "img/gk/strip-2026-10-13-3.jpg"
+    "img": null
    },
    {
-    "scene": "김광고가 설정 화면을 뒤지며 스위치를 찾는다.",
+    "scene": "박배달이 알림을 보고 피식 웃는다.",
     "dialogue": [
      {
-      "who": "김광고",
-      "line": "끄는 버튼이 어디지?"
+      "who": "박배달",
+      "line": "야식이 스탬프가 됐네"
      }
     ],
-    "img": "img/gk/strip-2026-10-13-4.jpg"
+    "img": null
    }
   ],
-  "punchline": "광고는 알아서, 끄는 건 사람이",
-  "artBy": "지필태 대리",
+  "punchline": "배고픔이 스탬프를 부른다",
+  "artBy": "",
   "model": "Grok",
-  "at": "2026-10-14T15:17:54+09:00"
+  "at": "2026-10-15T12:09:16+09:00"
  },
- "updatedAt": "2026-10-14T15:17:54+09:00",
+ "updatedAt": "2026-10-15T12:09:16+09:00",
  "xpulse": {
-  "date": "2026-10-13",
-  "url": "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6477",
+  "date": "2026-10-15",
+  "url": "https://www.newspim.com/news/view/20261013000329",
   "temp": "미지근함",
-  "summary": "영상 링크와 멤버 사진, 착용 옷 정보가 주로 공유되고 있다. 캠페인 메시지 자체에 대한 반응은 아직 많지 않다.",
-  "quip": "DO가 사진으로 먼저",
+  "summary": "가을야구 광고를 볼 때마다 울컥한다는 반응과, 예전에 극장에서 같이 대답하던 기억을 떠올리는 글이 있다. 전반적으로 이번 캠페인 자체에 대한 반응은 많지 않다.",
+  "quip": "가을이 울컥을 부른다",
   "links": [
-   "https://x.com/lidle_s/status/2109687933792075840",
-   "https://x.com/tang_2i/status/2109564803945787454",
-   "https://x.com/Kpopidol_closet/status/2109519593630990547"
+   "https://x.com/101_Exy/status/2110326062265880977",
+   "https://x.com/chakchap_wiz/status/2110005505926271066"
   ],
-  "at": "2026-10-13T10:26:19+09:00"
+  "at": "2026-10-15T12:09:16+09:00"
  },
  "live": {
   "https://www.i-boss.co.kr/ab-2877-18162": {
@@ -350,6 +349,31 @@
    "comment": "쿠로미가 르꼬끄와 만난다",
    "title": "르꼬끄 스포르티브, 쿠로미 협업 컬렉션 출시",
    "at": "2026-10-13T10:26:19+09:00"
+  },
+  "https://www.fnnews.com/news/202610140917200396": {
+   "comment": "겨울 앰배서더로 채원이 섰다",
+   "title": "마뗑킴, 겨울 앰배서더에 르세라핌 김채원",
+   "at": "2026-10-15T12:09:16+09:00"
+  },
+  "https://www.newsis.com/view/NISX20261014_0003824870": {
+   "comment": "벨벳 패딩이 김지원을 입는다",
+   "title": "듀베티카, 김지원과 '벨벳 입은 패딩' 겨울 캠페인",
+   "at": "2026-10-15T12:09:16+09:00"
+  },
+  "https://www.newspim.com/news/view/20261014000225": {
+   "comment": "통신사가 2년 연속 상을 받는다",
+   "title": "LG유플러스, 'KAA 어워즈' 2년 연속 수상",
+   "at": "2026-10-15T12:09:16+09:00"
+  },
+  "https://www.newspim.com/news/view/20261013000151": {
+   "comment": "씨네 페스트가 롯데시네마에만",
+   "title": "롯데시네마, '하이브 씨네 페스트 2026' 단독 개최",
+   "at": "2026-10-15T12:09:16+09:00"
+  },
+  "https://view.asiae.co.kr/article/2026101308091374479": {
+   "comment": "꾸스가 런던에서 은·동을 들었다",
+   "title": "GS칼텍스 '꾸스', 런던국제광고제 2관왕",
+   "at": "2026-10-15T12:09:16+09:00"
   }
  },
  "memes": {
