@@ -9,7 +9,10 @@ Keyword targets — what ad people actually type into 네이버/구글:
 All text is what the paper already published (data.json / archive / staff json); nothing is invented here.
 Files are rewritten only when their content changes.
 """
-import html, json, os, re
+import html, json, os, re, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from staff_names import rename as staff_rename  # noqa: E402
 from urllib.parse import quote
 from datetime import datetime, timedelta, timezone
 
@@ -165,7 +168,7 @@ def build(SITE, CSS, eds, jps, put):
                "about": [{"@type": "Organization", "name": brand}], "author": {"@type": "Person", "name": "금로동 과장"},
                "publisher": {"@type": "Organization", "name": "광고늬우스", "logo": {"@type": "ImageObject", "url": SITE + "icon-512.png"}}},
               crumbs(SITE, [("광고늬우스", ""), ("광고 캠페인 모음", "e/campaign/"), (f"{brand} {title}", path)])]
-        n += put(path, shell(SITE, CSS, path, f"{brand} 광고 「{title}」 분석·반응 | 광고늬우스", desc, "\n".join(b), 2, ld, "article"))
+        n += put(path, staff_rename(shell(SITE, CSS, path, f"{brand} 광고 「{title}」 분석·반응 | 광고늬우스", desc, "\n".join(b), 2, ld, "article"), d))
         urls.append((path, d))
         camp_rows.append((d, brand, title, path, f))
     idx = ["<h1>광고 캠페인 모음 — 요즘 화제의 광고</h1><p>광고늬우스가 매일 하나씩 고른 '오늘의 광고 캠페인'을 모았습니다. 브랜드별 광고 아이디어, 모델, 반응, 지난 광고 족보까지 한 번에 볼 수 있어요.</p><ul>"]
@@ -205,7 +208,7 @@ def build(SITE, CSS, eds, jps, put):
         ld = [{"@context": "https://schema.org", "@type": "DefinedTerm", "name": tag, "description": clip(t.get("body"), 300),
                "inDefinedTermSet": SITE + "e/trend/", "url": enc(SITE + path)},
               crumbs(SITE, [("광고늬우스", ""), ("트렌드 사전", "e/trend/"), (tag, path)])]
-        n += put(path, shell(SITE, CSS, path, f"{tag} 뜻·사례 — 요즘 트렌드 | 광고늬우스 트렌드 사전", desc, "\n".join(b), 2, ld, "article"))
+        n += put(path, staff_rename(shell(SITE, CSS, path, f"{tag} 뜻·사례 — 요즘 트렌드 | 광고늬우스 트렌드 사전", desc, "\n".join(b), 2, ld, "article"), d))
         urls.append((path, d))
         trow.append((d, tag, t, path))
     idx = ["<h1>트렌드 사전 — 요즘 뜨는 소비·마케팅 트렌드 뜻</h1><p>광고늬우스 트렌드 노트에 실린 신조어·소비 트렌드를 모았습니다. 뜻, 사례, 광고·마케팅에 쓰는 법까지.</p><ul>"]
@@ -247,7 +250,7 @@ def build(SITE, CSS, eds, jps, put):
         ld = [{"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": {"@type": "Person", "name": P["name"],
                "alternateName": P.get("nameEn") or None, "jobTitle": role, "description": clip(P.get("intro"), 300)}},
               crumbs(SITE, [("광고늬우스", ""), ("광고인 열전", "e/people/"), (P["name"], path)])]
-        n += put(path, shell(SITE, CSS, path, f"{P['name']} — {role} | 광고인 열전 · 광고늬우스", desc, "\n".join(b), 2, ld, "profile"))
+        n += put(path, staff_rename(shell(SITE, CSS, path, f"{P['name']} — {role} | 광고인 열전 · 광고늬우스", desc, "\n".join(b), 2, ld, "profile"), d))
         urls.append((path, d))
         prow.append((d, P, path))
     idx = ["<h1>광고인 열전 — 광고를 바꾼 사람들</h1><p>카피라이터, 아트디렉터, 광고 감독, 크리에이티브 디렉터부터 광고에 큰 영향을 준 사람들까지. 광고늬우스 '오늘의 광고인'을 모았습니다.</p><ul>"]

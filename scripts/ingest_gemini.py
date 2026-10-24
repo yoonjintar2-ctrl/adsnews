@@ -20,14 +20,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("manuscript", nargs="?")
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--cartoon"); ap.add_argument("--caption", default=""); ap.add_argument("--by", default="지필태 대리")
+    ap.add_argument("--cartoon"); ap.add_argument("--caption", default=""); ap.add_argument("--by", default="도안나 대리")
     a = ap.parse_args()
     if a.cartoon:
         return put_cartoon(a)
     M = json.load(open(a.manuscript, encoding="utf-8"))
     gm = load(GM_FILE, {}) or {}
-    gm.setdefault("author", {})
-    gm["author"].update({"name": "제민아", "role": "대리", "ai": "Gemini (Google)"})
+    GM_AUTHOR = {"name": "안광주", "title": "대리", "role": "AE 출신 대리", "ai": "Claude (Anthropic)", "email": "ae@adsnews"}
+    if (gm.get("author") or {}).get("name") != GM_AUTHOR["name"]:
+        gm["author"] = {}
+    gm["author"].update(GM_AUTHOR)
     stamp = now_kst().isoformat(timespec="seconds")
     date = M.get("edition") or now_kst().strftime("%Y-%m-%d")
     L = M.get("lineage")

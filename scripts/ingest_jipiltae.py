@@ -188,12 +188,14 @@ def main():
     date = M.get("edition") or now_kst().strftime("%Y-%m-%d")
     if not re.fullmatch(r"\d{4}-\d\d-\d\d", date):
         sys.exit("edition 날짜 형식은 YYYY-MM-DD")
-    if (M.get("author") or "지필태") != "지필태":
-        err("author는 '지필태'여야 해요")
-    model = M.get("model") or "ChatGPT"
+    if (M.get("author") or AUTHOR["name"]) != AUTHOR["name"]:
+        err("author는 '%s'여야 해요" % AUTHOR["name"])
+    model = M.get("model") or "Claude"
     stamp = now_kst().isoformat(timespec="seconds")
     new = json.loads(json.dumps(jp))
-    new["author"] = dict(AUTHOR, **{k: v for k, v in (jp.get("author") or {}).items() if k in ("intro", "avatar")}, model=model)
+    old = jp.get("author") or {}
+    keep = {k: v for k, v in old.items() if k in ("intro", "avatar")} if old.get("name") == AUTHOR["name"] else {}
+    new["author"] = dict(AUTHOR, **keep, model=model)
 
     E = M.get("editorial")
     if E:

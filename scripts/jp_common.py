@@ -9,7 +9,8 @@ from datetime import datetime, timedelta, timezone
 KST = timezone(timedelta(hours=9))
 JP_FILE = "jipiltae.json"
 JP_IMG = "img/jp"
-AUTHOR = {"name": "지필태", "role": "GPT 기반 기자", "ai": "ChatGPT (OpenAI)"}
+# 10/25부터 이 칸(jipiltae.json)은 도안나 대리(디자이너 출신, Claude 1인 다역)가 쓴다. 지난 호(archive)는 지필태 이름 그대로.
+AUTHOR = {"name": "도안나", "title": "대리", "role": "디자이너 출신 대리", "ai": "Claude (Anthropic)", "email": "anna@adsnews"}
 
 
 def now_kst():

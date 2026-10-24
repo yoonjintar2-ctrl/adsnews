@@ -11,6 +11,7 @@
 import argparse, json, os, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from jp_common import now_kst, load, dump
+GK_AUTHOR = {"name": "최신상", "title": "사원", "role": "잘파세대 신입", "ai": "Claude (Anthropic)", "email": "new@adsnews"}  # 10/25부터 grok.json 칸은 최신상 사원(Claude 1인 다역)
 
 GK_FILE = "grok.json"
 GK_IMG = "img/gk"
@@ -71,7 +72,7 @@ def main():
     if a.dry_run:
         print("검사 통과(dry-run)"); return
     gk = load(GK_FILE, {}) or {}
-    gk.setdefault("author", {"name": "김그록", "role": "사원", "ai": "Grok (xAI)"})
+    gk["author"] = GK_AUTHOR if (gk.get("author") or {}).get("name") != GK_AUTHOR["name"] else dict(gk["author"], **GK_AUTHOR)
     stamp = now_kst().isoformat(timespec="seconds")
     prev = gk.get("strip") or {}
     panels = []
@@ -112,7 +113,7 @@ def ingest_live(M, a):
     data = load("data.json", {})
     cur = {x.get("url"): x for x in data.get("live") or []}
     gk = load(GK_FILE, {}) or {}
-    gk.setdefault("author", {"name": "김그록", "role": "사원", "ai": "Grok (xAI)"})
+    gk["author"] = GK_AUTHOR if (gk.get("author") or {}).get("name") != GK_AUTHOR["name"] else dict(gk["author"], **GK_AUTHOR)
     live = gk.setdefault("live", {})
     stamp = now_kst().isoformat(timespec="seconds")
     n = 0
@@ -176,7 +177,7 @@ def ingest_memes(M, a):
         links = [{"t": l.get("t", "원본"), "url": l["url"]} for l in m.get("links") or [] if str(l.get("url", "")).startswith("http")][:3]
         out.append({k: x for k, x in {"name": name, "kind": m.get("kind") or "", "phrase": " ".join((m.get("phrase") or "").split()), "phraseSrc": (m.get("phraseSrc") or "").strip(), "what": what, "usage": " ".join((m.get("usage") or "").split()),
                     "origin": " ".join((m.get("origin") or "").split()), "quip": (m.get("quip") or "").strip(),
-                    "video": v, "img": img or m.get("imgKeep"), "imgAlt": (m.get("imgAlt") or "").strip(), "imgBy": m.get("imgBy") or ("지필태 대리" if img else ""),
+                    "video": v, "img": img or m.get("imgKeep"), "imgAlt": (m.get("imgAlt") or "").strip(), "imgBy": m.get("imgBy") or ("도안나 대리" if img else ""),
                     "links": links, "tip": (m.get("tip") or "").strip()}.items() if x})
     if errs:
         sys.exit("\n".join(["✗ " + e for e in errs]))

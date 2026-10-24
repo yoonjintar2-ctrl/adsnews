@@ -13,6 +13,7 @@ from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import seo_hubs  # noqa: E402
+from staff_names import rename as staff_rename  # noqa: E402
 
 SITE = "https://news.jintar.co.kr/"
 KST = timezone(timedelta(hours=9))
@@ -223,7 +224,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None, hubs=frozenset()):
                + (f"<a href=\"{next_d}.html\">다음 호 {esc(md(next_d))} ›</a>" if next_d else "<span></span>") + "</nav>")
     out.append(seo_hubs.nav(1))
     out.append("</div></body></html>\n")
-    return "\n".join(out)
+    return staff_rename("\n".join(out), d)
 
 
 def main():
@@ -291,7 +292,7 @@ def main():
         je = (jps.get(d) or {}).get("editorial") or {}
         if je.get("date") == d and je.get("headline"):
             items.append(f"""  <item>
-   <title>{esc(je['headline'])} — 지필태 대리</title>
+   <title>{esc(je['headline'])} — {staff_rename('지필태 대리', d)}</title>
    <link>{SITE}e/{d}.html#jp</link>
    <guid isPermaLink="true">{SITE}e/{d}.html#jp</guid>
    <pubDate>{rfc(d)}</pubDate>

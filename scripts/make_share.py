@@ -8,7 +8,10 @@ Each page carries its own og:title / og:description / og:image for messenger pre
 (KakaoTalk, Slack, etc.) and sends a human visitor on to the right spot of the paper
 (index.html#ed-… / #camp-…). A page is rebuilt only when its content changes.
 """
-import hashlib, html, json, os, re
+import hashlib, html, json, os, re, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from staff_names import rename as staff_rename  # noqa: E402
 
 SITE = "https://news.jintar.co.kr/"
 BY_GEUM = "금로동 기자 · 발행인 SM C&amp;C 윤석진"
@@ -307,6 +310,7 @@ def main():
         pages.append((hp, body))
 
     def add_card(key, d, hash_, title, desc, kick, head, lede, svg, cap, by=None):
+        title, desc, kick, head, lede, cap, by = (staff_rename(x, d) for x in (title, desc, kick, head, lede, cap, by))
         sig = hashlib.md5(json.dumps([title, desc, kick, head, lede, svg, cap, 1] + ([by] if by else []), ensure_ascii=False).encode()).hexdigest()[:12]
         hp = f"{OUT}/{key}.html"
         body = page(key, title, desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"?d={d}#{hash_}", sig, SITE + f"e/{d}.html")
@@ -405,6 +409,9 @@ def main():
             SA = (load_json("jipiltae.json").get("staffArt") or {})
             who = [("금로동 과장", SA.get("geum")), ("지필태 대리", (load_json("jipiltae.json").get("author") or {}).get("avatar")),
                    ("김그록 사원", SA.get("grok")), ("제민아 대리", SA.get("gemini"))]
+            if staff_rename("김그록 사원", d) != "김그록 사원":  # 10/25부터 새 필진: 새 얼굴(있으면)만 쓴다
+                who = [("금로동 과장", SA.get("geum"))] + [(staff_rename(n, d), (load_json(f).get("author") or {}).get("avatar"))
+                       for n, f in (("지필태 대리", "jipiltae.json"), ("김그록 사원", "grok.json"), ("제민아 대리", "gemini.json"))]
             spk = {t.get("who") for t in T}
             who = [x for x, k in zip(who, ("geum", "jp", "gk", "gm")) if k in spk] or who
             faces = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:540px">' + "".join(
