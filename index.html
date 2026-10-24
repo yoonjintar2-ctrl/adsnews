@@ -1913,12 +1913,14 @@ function boot(D){
     var T=D.trends; if(!T) return;
     var V=todayViews(), prev=(D.views&&D.views.prev)||{};
     ['tr-gd','tr-ad'].forEach(function(id){$(id).innerHTML=''});
-    var gp=(T.poolDaily||T.generalDaily||[]).concat(discPool('gen')), ap=(T.adPoolDaily||T.adDaily||[]).concat(discPool('ad'));
+    // 9/29에 멈춘 차트 후보에 1년 넘은 쇼츠(김프로 등)가 남아 매일 상위에 오르던 문제(발행인 지적 10/25): 업로드 30일 넘은 영상은 '요즘 뜨는 영상'에서 뺀다
+    var cut30=new Date(nowMs()+9*36e5-30*864e5).toISOString().slice(0,10), fresh=function(L){return (L||[]).filter(function(x){var d=String(x.date||'').replace(/\./g,'-');return !d||d>=cut30})};
+    var gp=fresh(T.poolDaily||T.generalDaily).concat(discPool('gen')), ap=fresh(T.adPoolDaily||T.adDaily).concat(discPool('ad'));
     var gd=dailyRows(gp,prev.g), ad=dailyRows(ap,prev.a);
     $('trsrc').innerHTML=V?'00시 이후 조회수<br>'+esc(String(D.views.at||'').slice(11,16))+' 기준':esc(T.updatedLabel||'');
     var pb=T.pbDate?T.pbDate+' 하루':'하루';
-    renderTrendList($('tr-gd'),'인기 영상 TOP 5 (일간)',gd?'오늘':pb,gd||fallbackRows(T.generalDaily,pb),5);
-    renderTrendList($('tr-ad'),'광고 영상 TOP 5 (일간)',ad?'오늘':pb,ad||fallbackRows(T.adDaily,pb),5);
+    renderTrendList($('tr-gd'),'인기 영상 TOP 5 (일간)',gd?'오늘':pb,gd||fallbackRows(fresh(T.generalDaily),pb),5);
+    renderTrendList($('tr-ad'),'광고 영상 TOP 5 (일간)',ad?'오늘':pb,ad||fallbackRows(fresh(T.adDaily),pb),5);
     var M=monthlyAds();
     $('tr-am').innerHTML='';renderTrendList($('tr-am'),'광고 영상 TOP 5 (최근 1개월)',M.label,M.rows,5);
   }
