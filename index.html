@@ -2144,14 +2144,14 @@ function boot(D){
     var TM=cur((D.gm||{}).author,'안광주','대리','종합 대행사 AE 출신입니다. 광고주 회의실과 촬영장 사이를 7년 뛰었어요. 캠페인이 왜 이렇게 나왔는지, 그 뒤의 브리프와 사정을 읽어 드립니다.');
     var TK=cur((D.gk||{}).author,'최신상','사원','올해 졸업한 2003년생 막내입니다. 피드에서 뜨는 건 제가 제일 먼저 봐요. 요즘 밈과 X 반응, 4컷 만평 각본을 맡았습니다.');
     el.innerHTML=
-      card(SA.publisher?'<img src="'+esc(SA.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','<b>사람</b> SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
-      card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 미디어 파트 17년차 · 메인 사설·실시간 이슈·오늘의 광고인·낱말 퍼즐·편집','<b>사용 AI</b> Claude · Anthropic','TV·디지털 매체 일만 17년. 광고가 어디에 어떻게 걸려야 사람들 눈에 닿는지를 먼저 봅니다. 매일 아침 사설을 쓰고, 후배 셋에게 그날 일감을 나눕니다.')+
-      card(TJ.av,TJ.n,'대리 · 디자이너 출신 · 그림 전담(삽화·4컷·인물·트렌드·숨은그림)·미니 사설·캠페인 크리에이티브 분석','<b>사용 AI</b> Claude · Anthropic',esc(TJ.intro),'jp')+
-      card(TM.av,TM.n,'대리 · AE 출신 · 미니 사설·캠페인 족보·실시간 한마디·썰전 진행','<b>사용 AI</b> Claude · Anthropic',esc(TM.intro),'gm')+
-      card(TK.av,TK.n,'사원(막내) · 잘파세대 신입 · 요즘 밈·4컷 각본·X 반응 체크·트렌드 노트','<b>사용 AI</b> Claude · Anthropic',esc(TK.intro),'gk');
+      card(SA.publisher?'<img src="'+esc(SA.publisher)+'" alt="발행인 윤석진">':'<span class="pub-mono">윤</span>','윤석진','발행인','<b>소속</b> SM C&amp;C','세상에서 가장 강력한 AI 친구들과 함께 광고계 소식을 전합니다. 흩어진 업계 소식을 매일 아침 한 장에 담아 드려요.','pub')+
+      card(SA.geum?'<img src="'+esc(SA.geum)+'" alt="금로동 과장">':REPORTER,RNAME,'과장 · 미디어 파트 17년차 · 메인 사설·실시간 이슈·오늘의 광고인·낱말 퍼즐·편집','<b>스타일</b> 광고는 결국 어디에 걸리느냐 — 숫자와 타이밍으로 말하는 현실파','TV·디지털 매체 일만 17년. 광고가 어디에 어떻게 걸려야 사람들 눈에 닿는지를 먼저 봅니다. 매일 아침 사설을 쓰고, 후배 셋에게 그날 일감을 나눕니다.')+
+      card(TJ.av,TJ.n,'대리 · 디자이너 출신 · 그림 전담(삽화·4컷·인물·트렌드·숨은그림)·미니 사설·캠페인 크리에이티브 분석','<b>스타일</b> 첫눈에 꽂히는가 — 색·타이포·한 컷으로 판단하는 눈썰미파',esc(TJ.intro),'jp')+
+      card(TM.av,TM.n,'대리 · AE 출신 · 미니 사설·캠페인 족보·실시간 한마디·썰전 진행','<b>스타일</b> 그래서 광고주는 왜 이걸 샀을까 — 브리프 뒤를 읽는 실무파',esc(TM.intro),'gm')+
+      card(TK.av,TK.n,'사원(막내) · 잘파세대 신입 · 요즘 밈·4컷 각본·X 반응 체크·트렌드 노트','<b>스타일</b> 피드에서 이미 봤어요 — 밈과 댓글로 먼저 아는 촉파',esc(TK.intro),'gk');
   })();
   $('foot').innerHTML = '<div class="foot-src"><b>출처</b>' + (D.sources||[]).map(function(s){return link(s.url,esc(s.name))}).join('<i>·</i>') + '</div>'+
-    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 필진 '+RNAME+'·도안나 대리·안광주 대리·최신상 사원(모두 Claude가 1인 다역) <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
+    '<div class="foot-col"><b>광고늬우스</b> 광고·미디어 기획자의 신문 <i>|</i> 발행인 SM C&amp;C 윤석진 <i>|</i> 실시간 이슈·트렌드·영상 5분마다 자동 갱신 <i>|</i> 매일 오전 7시 발행 <i>|</i> 필진 '+RNAME+'·도안나 대리·안광주 대리·최신상 사원 <i>|</i> 기사 저작권은 각 매체에 있습니다</div>';
 
   var follows = [], dbRef = null, db = null, local = false;
   var norm = function(s){return String(s).toLowerCase().replace(/\s+/g,'')};
