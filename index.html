@@ -2587,9 +2587,9 @@ function boot(D){
   getJ('jipiltae.json').then(function(J){var h=J&&J.hidden;
     if(!h||!h.verified||!h.img||!(h.targets||[]).length||!h.w||!h.h)throw 0;
     h.svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+h.w+' '+h.h+'" role="img" aria-label="'+esc(h.title||'숨은그림찾기')+'"><image href="'+esc(h.img)+'" x="0" y="0" width="'+h.w+'" height="'+h.h+'"/></svg>';
-    h.by='그림·출제 '+JPN; return h;
+    var A=J.author||{};h.by='그림·출제 '+(A.name||'지필태')+' '+(A.title||'대리'); return h;
   }).catch(function(){return getJ('hidden.json').then(function(h){if(!h||!h.svg||!/^<svg[\s>]/.test(h.svg)||/<script|on\w+=|javascript:|<foreignObject/i.test(h.svg))throw 0;
-    h.by='그림·출제 금로동 과장 · '+md(h.date)+((window.__ED&&window.__ED<'2026-10-02')?'':' ('+JPN+'의 새 판 준비 중)'); return h;})
+    h.by='그림·출제 금로동 과장 · '+md(h.date)+((window.__ED&&window.__ED<'2026-10-02')?'':' (새 판 준비 중)'); return h;})
   }).then(function(h){H=h;KEY='adsnews-hidden-'+h.date+(h.img?'-jp':'');
     try{found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
     $('hdsub').textContent=h.by;
