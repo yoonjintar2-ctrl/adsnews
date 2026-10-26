@@ -2371,14 +2371,17 @@ function boot(D){
   function get(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
   var curJp=null;
   Promise.all([get(window.__BASE+'data.json'),get(window.__BASE+'live.json').catch(function(){return null}),get(window.__BASE+'jipiltae.json').catch(function(){return null}),get(window.__BASE+'grok.json').catch(function(){return null}),get(window.__BASE+'debate.json').catch(function(){return null}),get(window.__BASE+'gemini.json').catch(function(){return null})]).then(function(a){
-    var D=a[0]; D.jp=a[2]||{}; D.gk=a[3]||{}; D.db=a[4]||{}; window.__curDb=D.db.updatedAt||null; D.gm=a[5]||{}; window.__curGm=D.gm.updatedAt||null; curJp=D.jp.updatedAt||null; window.__curGk=D.gk.updatedAt||null; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;D.desc=a[1].desc;D.bnews=a[1].bnews;D.og=a[1].og;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D);
+    var D=a[0]; D.jp=a[2]||{}; D.gk=a[3]||{}; D.db=a[4]||{}; window.__curDb=D.db.updatedAt||null; D.gm=a[5]||{}; window.__curGm=D.gm.updatedAt||null; curJp=D.jp.updatedAt||null; window.__curGk=D.gk.updatedAt||null; if(a[1]){D.rtrends=a[1];D.views=a[1].views;D.disc=a[1].disc;D.adHist=a[1].adHist;D.adMonth=a[1].adMonth;D.desc=a[1].desc;D.bnews=a[1].bnews;D.og=a[1].og;} cur=D.updatedAt; curLive=a[1]&&a[1].updatedAt; boot(D); (function(){var y=null;try{y=sessionStorage.getItem('ads-y');sessionStorage.removeItem('ads-y')}catch(e){} if(y!=null){y=+y;try{history.scrollRestoration='manual'}catch(e){}[0,400,1200,2500].forEach(function(t){setTimeout(function(){window.scrollTo(0,y)},t)})}})();
   }).catch(function(){document.body.insertAdjacentHTML('afterbegin','<p style="padding:16px">데이터를 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>')});
-  if(!window.__ED)setInterval(function(){get('data.json').then(function(D){if(cur&&D.updatedAt!==cur)location.reload()}).catch(function(){});
-    get('jipiltae.json').then(function(J){if((J.updatedAt||null)!==curJp)location.reload()}).catch(function(){});
-    get('grok.json').then(function(G){if((G.updatedAt||null)!==window.__curGk)location.reload()}).catch(function(){});
-    get('debate.json').then(function(B){if((B.updatedAt||null)!==window.__curDb)location.reload()}).catch(function(){});
-    get('gemini.json').then(function(G){if((G.updatedAt||null)!==window.__curGm)location.reload()}).catch(function(){})},60000);
-  if(!window.__ED)setInterval(function(){get('live.json').then(function(L){if(L.updatedAt!==curLive&&window.__renderX){curLive=L.updatedAt;window.__renderX(L)}}).catch(function(){})},30000);
+  // 새 판이 올라오면 다시 불러온다. 단 '더 새것'일 때만(배포 중 CDN 노드마다 옛 파일·새 파일이 번갈아 와서 계속 새로 고침되던 문제, 10/26) · 다시 불러와도 보던 위치 유지
+  function newer(a,b){return !!a&&(!b||String(a)>String(b))}
+  function reloadKeep(){try{sessionStorage.setItem('ads-y',String(window.pageYOffset||0))}catch(e){}location.reload()}
+  if(!window.__ED)setInterval(function(){get('data.json').then(function(D){if(cur&&newer(D.updatedAt,cur))reloadKeep()}).catch(function(){});
+    get('jipiltae.json').then(function(J){if(newer(J.updatedAt,curJp))reloadKeep()}).catch(function(){});
+    get('grok.json').then(function(G){if(newer(G.updatedAt,window.__curGk))reloadKeep()}).catch(function(){});
+    get('debate.json').then(function(B){if(newer(B.updatedAt,window.__curDb))reloadKeep()}).catch(function(){});
+    get('gemini.json').then(function(G){if(newer(G.updatedAt,window.__curGm))reloadKeep()}).catch(function(){})},60000);
+  if(!window.__ED)setInterval(function(){get('live.json').then(function(L){if(newer(L.updatedAt,curLive)&&window.__renderX){curLive=L.updatedAt;window.__renderX(L)}}).catch(function(){})},30000);
 })();
 /* 지난 호 보기: 날짜줄의 ‹ 제N호 › 와 지난 호 목록 */
 (function(){
