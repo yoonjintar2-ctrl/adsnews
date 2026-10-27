@@ -1417,6 +1417,22 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#1a1a1a">
 <script>
+/* 모바일에서 스크롤하면 주소창이 숨었다 나타나며 resize가 계속 일어난다. 가로폭이 바뀔 때만 다시 배치(페이지 말미에서 화면이 밀리던 문제, 10/27) */
+(function(){var W={};window.__wChanged=function(k){var n=window.innerWidth;if(!(k in W))W[k]=window.__w0;if(n===W[k])return false;W[k]=n;return true};window.__w0=window.innerWidth;})();
+/* 사파리(아이폰)는 스크롤 고정(scroll anchoring)이 없어서, 위쪽 칸이 다시 그려지며 높이가 바뀌면 보던 화면이 밀린다(페이지 말미에서 심함, 10/27).
+   스크롤 고정이 없는 브라우저에서만: 화면 위쪽 1/3에 걸린 칸을 기억해 두고, 페이지 높이가 바뀔 때마다 그 칸이 제자리에 오도록 스크롤을 맞춘다 */
+window.__noAnchor=!(window.CSS&&CSS.supports&&CSS.supports('overflow-anchor','auto'));
+window.__keep=function(fn){return fn()};
+(function(){var A=null,T=0,fix=false;
+  function pick(){if(fix)return;var y=window.pageYOffset||0;if(y<80){A=null;return}
+    try{var el=document.elementFromPoint(window.innerWidth/2,Math.min(window.innerHeight/3,240));A=el&&(el.closest('section,footer,.np-sec,article,aside')||el);T=A?A.getBoundingClientRect().top:0}catch(e){A=null}}
+  function adjust(){if(!window.__noAnchor||!A||!A.isConnected)return;var d=A.getBoundingClientRect().top-T;if(Math.abs(d)>1){fix=true;window.scrollBy(0,d);requestAnimationFrame(function(){fix=false})}}
+  window.__anchorOn=function(){if(window.__anchorStarted)return;window.__anchorStarted=1;
+    window.addEventListener('scroll',function(){if(!fix)pick()},{passive:true});
+    if(window.ResizeObserver){var ro=new ResizeObserver(adjust);ro.observe(document.body)}};
+  document.addEventListener('DOMContentLoaded',function(){if(window.__noAnchor)window.__anchorOn()});
+})();
+
 /* 지난 호: ?d=YYYY-MM-DD 이면 archive/그날/ 자료를 그날 23:59 기준으로 보여 준다 */
 (function(){var q=new URLSearchParams(location.search).get('d'),t=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
   window.__BASE='';
@@ -1749,7 +1765,7 @@ function boot(D){
   }
   function layoutEditorial(){layoutEd(document.querySelector('#toon').parentElement,$('toon'),$('bl'),edText,bylineHtml);
     var jl=document.querySelector('.jp-lb'); if(jl) layoutEd(jl,$('jptoon'),$('jpbl'),$('jped').__text||'',jpByline);}
-  window.addEventListener('resize',function(){clearTimeout(window.__edT);window.__edT=setTimeout(layoutEditorial,150)});
+  window.addEventListener('resize',function(){if(!window.__wChanged('ed'))return;clearTimeout(window.__edT);window.__edT=setTimeout(layoutEditorial,150)});
   $('pts').innerHTML = D.brief.points.map(function(p,i){
     return '<div class="pt" role="button" tabindex="0" data-i="'+i+'"><span class="t">'+esc(p.tag)+'</span><h4>'+esc(p.title)+'</h4><p>'+esc(p.evidence)+'</p><span class="more">전문 보기</span></div>';
   }).join('');
@@ -2077,7 +2093,7 @@ function boot(D){
     var last=cols.reduce(function(a,c,i){return c?i:a},0);
     rv.innerHTML=cols.map(function(t,i){return '<div class="rc'+(i===0?' first':'')+'">'+(t?'<p>'+esc(t)+'</p>':'')+(i===last?bylineHtml:'')+'</div>'}).join('');
   }
-  window.addEventListener('resize',function(){clearTimeout(window.__rvT);window.__rvT=setTimeout(layoutReview,160)});
+  window.addEventListener('resize',function(){if(!window.__wChanged('rv'))return;clearTimeout(window.__rvT);window.__rvT=setTimeout(layoutReview,160)});
   function drawSide(anim){
     var el=$('featside'); if(!el) return; var n=campRest.length; if(!n){el.innerHTML='';return}
     var show=campRest.slice(0,4);
@@ -2208,7 +2224,7 @@ function boot(D){
   }
   function renderFlow(){ renderTNote(); renderPerson(); renderLive(); renderVids(); renderTV(); renderCamps(); renderANews(); renderPlat(); renderX(); renderReps(); }
   function fitAll(){
-    renderFlow();
+    window.__keep(renderFlow);
     [0,300,1200,3000].forEach(function(t){setTimeout(balance,t)});
     return;
     // 넘치는 항목은 잘라내지 않고 칸 안에서 스크롤
@@ -2258,7 +2274,8 @@ function boot(D){
   // 실시간 이슈 표시 개수: PC에서 왼쪽 단(약 3600px) 안에 들어갈 만큼을 '한마디 수'로 어림해 정하고, 모바일도 같은 개수를 보여 준다
   function liveCount(items){var q=+(new URLSearchParams(location.search).get('ln'));if(q)return q;
     var B=3600,acc=0,n=0;for(var k=0;k<items.length;k++){var r=items[k].querySelectorAll('.ins3 .ins').length,e=105+(r?4+38*r:0);if(n>=4&&acc+e>B)break;acc+=e;n++}return n;}
-  function balance(){
+  function balance(){return window.__keep(_balance)}
+  function _balance(){
     var two=window.innerWidth>980;
     // 캠페인 카드: 대표 캠페인 높이만큼만
     var side=document.getElementById('featside'); if(side){side.classList.remove('fill');side.style.height='';}
@@ -2290,7 +2307,7 @@ function boot(D){
   }
   renderPrefLine(); renderFol();
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
-  var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(fitAll,150)});
+  var rt; window.addEventListener('resize',function(){if(!window.__wChanged('fit'))return;clearTimeout(rt);rt=setTimeout(fitAll,150)});
 
   var draft = {media:[],industries:[]};
   function drawOpts(){
@@ -2364,7 +2381,7 @@ function boot(D){
   $('zin').addEventListener('click',function(){setZoom(zoom+.1)});
   $('zout').addEventListener('click',function(){setZoom(zoom-.1)});
   fitAll();
-  window.__renderX=function(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;D.desc=r.desc;D.bnews=r.bnews;D.og=r.og;renderFol();renderANews();renderPerson();renderPlat();renderReps();fitAll();};
+  window.__renderX=function(r){return window.__keep(function(){__renderX0(r)})};function __renderX0(r){D.rtrends=r;D.views=r.views;D.disc=r.disc;D.adHist=r.adHist;D.adMonth=r.adMonth;D.desc=r.desc;D.bnews=r.bnews;D.og=r.og;renderFol();renderANews();renderPerson();renderPlat();renderReps();fitAll();};
 }
 (function(){
   var cur=null, curLive=null;
@@ -2559,7 +2576,7 @@ function boot(D){
     items=(D.roadmap||[]).filter(function(x){return x.cat!=='term'&&(x.e||x.s)>=now}).map(function(x){if(/^(shop|content|industry)$/.test(x.cat))x.cat='event';return x});
     KW=(D.searchKeywords||[]).filter(function(k){return k.m>=now.slice(0,7)});
     if(!items.length){document.querySelector('.a-road').hidden=true;return} draw();});
-  window.addEventListener('resize',function(){clearTimeout(window.__rmT);window.__rmT=setTimeout(draw,150)});
+  window.addEventListener('resize',function(){if(!window.__wChanged('rm'))return;clearTimeout(window.__rmT);window.__rmT=setTimeout(draw,150)});
 })();
 </script>
 <script>
