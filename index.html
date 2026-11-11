@@ -1620,12 +1620,11 @@ function boot(D){
     var cur=idx(0), start=0; while(idx(start-1)===cur&&start>-20)start--;
     var nx=1; while(idx(nx)===cur&&nx<20)nx++;
     function md(off){var d=new Date(kstDay(off).getTime());return (d.getUTCMonth()+1)+'.'+d.getUTCDate()}
-    var term=start===0?'오늘 '+NAMES[cur]:'절기 '+NAMES[cur]+'('+md(start)+')';
-    var next=NAMES[(cur+1)%24]+' '+(nx===1?'내일':'D-'+nx);
+    var isTerm=start===0;   // 절기는 당일에만 표시(발행인 11/11: 디데이 표시 X)
     var issue=Math.floor((kstDay(0).getTime()-Date.UTC(2026,8,29,14,59))/864e5)+1;
     var sd=new Intl.DateTimeFormat('ko-KR',Object.assign({month:'long',day:'numeric',weekday:'short'},tz)).format(now);
-    $('dl-left').innerHTML='<span class="dl-l">'+esc(ymd)+'<i>·</i>'+esc(lunar)+'<i>·</i>단기 '+(kstY+2333)+'년</span><span class="dl-s">'+esc(sd)+'<i>·</i>'+esc(lunar.replace('음력 ','음 '))+'<i>·</i><b>'+esc(NAMES[cur])+'</b><i>·</i>'+esc(NAMES[(cur+1)%24])+' '+(nx===1?'내일':'D-'+nx)+'</span>';
-    $('dl-mid').innerHTML='<b>'+esc(term)+'</b><i>·</i>다음 '+esc(next);
+    $('dl-left').innerHTML='<span class="dl-l">'+esc(ymd)+'<i>·</i>'+esc(lunar)+'<i>·</i>단기 '+(kstY+2333)+'년</span><span class="dl-s">'+esc(sd)+'<i>·</i>'+esc(lunar.replace('음력 ','음 '))+(isTerm?'<i>·</i><b>오늘 '+esc(NAMES[cur])+'</b>':'')+'</span>';
+    $('dl-mid').innerHTML=isTerm?'<b>오늘은 '+esc(NAMES[cur])+'</b>':'';$('dl-mid').hidden=!isTerm;
     $('dl-right').innerHTML='발행인 SM C&amp;C 윤석진';window.__ISSUE=issue;
   })();
   tick(); setInterval(tick, 20000);
