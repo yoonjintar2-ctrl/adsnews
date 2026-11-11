@@ -1,20 +1,20 @@
-// ChatGPT 탭에서 실행: 마지막으로 생성된 그림을 화면 전체 오버레이에 원본 크기로 띄우고 타일 단위로 보여 준다.
-// 사용: 이 파일 내용을 javascript_tool로 한 번 실행 → __gptShow() → __gptTile(k) 마다 zoom 캡처 → __gptHide()
-window.__gptShow=async function(nth){
-  // 왼쪽 메뉴·오른쪽 패널(클라우드 브라우저 미리보기 등)을 빼고 대화 본문의 그림만 고른다
-  const side=document.querySelector('nav'); const sw=side?side.getBoundingClientRect().right:0;
-  const ims=[...document.querySelectorAll('img')].filter(i=>{if(i.naturalWidth<700||i.naturalHeight<500)return false;const r=i.getBoundingClientRect();return r.width>0&&r.left>=sw-5&&r.left<innerWidth*0.55});
-  const i=ims[ims.length-1-(nth||0)]; if(!i) return 'NOIMG';
-  // fetch는 CORS로 막힐 수 있어 그림 주소를 그대로 쓴다
-  let o=document.getElementById('__ov'); if(o) o.remove();
-  o=document.createElement('div'); o.id='__ov';
+// ChatGPT 대화 탭에서 javascript_tool로 한 번 실행해 도우미를 등록한다(2026-11-12 실사용 확인판).
+// __last()  : 대화 본문의 마지막 그림 "개수 가로x세로 파일ID" — 새 그림이 왔는지(파일ID가 바뀌었는지) 확인하고 나서 캡처한다
+// __gptShow(W): 마지막 그림을 흰 오버레이에 css 너비 W로 띄움 → "W H VW VH" 반환
+// __gptAt(x,y): 그림을 (x,y)만큼 밀어 다음 타일을 보여 줌 → 실제 밀린 "x,y" 반환(stitch_grid.py에 그대로 넣는다)
+// __gptHide() : 오버레이 제거
+window.__cands=function(){const side=document.querySelector('nav');const sw=side?side.getBoundingClientRect().right:0;
+  return [...document.querySelectorAll('img')].filter(i=>{if(i.naturalWidth<700||i.naturalHeight<500)return false;const r=i.getBoundingClientRect();return r.width>0&&r.left>=sw-5&&r.left<innerWidth*0.55})};
+window.__last=function(){const sc=[...document.querySelectorAll('main *')].filter(e=>e.scrollHeight>e.clientHeight+50&&getComputedStyle(e).overflowY!='visible').sort((a,b)=>b.clientHeight-a.clientHeight)[0];if(sc)sc.scrollTop=sc.scrollHeight;
+  const c=__cands();const l=c[c.length-1];return c.length+' '+(l?l.naturalWidth+'x'+l.naturalHeight+' '+(l.currentSrc||l.src).split('/').pop().slice(0,60).replace(/[?&=]/g,'_'):'-')};
+window.__gptShow=async function(W,nth){const ims=__cands();const i=ims[ims.length-1-(nth||0)];if(!i)return 'NOIMG';
+  let o=document.getElementById('__ov');if(o)o.remove();o=document.createElement('div');o.id='__ov';
   o.style.cssText='position:fixed;inset:0;z-index:2147483647;background:#fff;cursor:none;overflow:hidden';
-  const im=new Image(); im.src=i.currentSrc||i.src; await im.decode();
-  const D=Math.min(im.naturalWidth, innerWidth-60), DH=Math.round(im.naturalHeight*D/im.naturalWidth), T=innerHeight-20;
+  const im=new Image();im.src=i.currentSrc||i.src;await im.decode();   // fetch는 CORS로 막힘 — 주소를 그대로 쓴다
+  const D=W||Math.min(im.naturalWidth,innerWidth-60),DH=Math.round(im.naturalHeight*D/im.naturalWidth);
   im.style.cssText='position:absolute;left:0;top:0;max-width:none;width:'+D+'px;height:'+DH+'px';
-  o.appendChild(im); document.body.appendChild(o); window.__ov={im,T};
-  return 'W '+D+' H '+DH+' T '+T+' VW '+innerWidth+' tiles '+Math.ceil(DH/T)+' natural '+im.naturalWidth+'x'+im.naturalHeight;
-};
-window.__gptTile=function(k){__ov.im.style.top=(-k*__ov.T)+'px';return 'tile '+k};
-window.__gptHide=function(){const o=document.getElementById('__ov'); if(o) o.remove(); return 'hidden'};
-'capture helpers ready';
+  o.appendChild(im);document.body.appendChild(o);window.__ov={im,D,DH};
+  return 'W '+D+' H '+DH+' VW '+innerWidth+' VH '+innerHeight+' natural '+im.naturalWidth+'x'+im.naturalHeight};
+window.__gptAt=function(x,y){x=Math.max(0,Math.min(x,__ov.D-innerWidth+10));y=Math.max(0,Math.min(y,__ov.DH-innerHeight+30));__ov.im.style.left=(-x)+'px';__ov.im.style.top=(-y)+'px';return x+','+y};
+window.__gptHide=function(){const o=document.getElementById('__ov');if(o)o.remove();return 'hidden'};
+'ready';
