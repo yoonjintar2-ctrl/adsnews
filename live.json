@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-11-12T10:19+09:00",
- "updatedLabel": "11월 12일 10:19",
+ "updatedAt": "2026-11-12T10:24+09:00",
+ "updatedLabel": "11월 12일 10:24",
  "sources": {
   "x": {
    "label": "X",
    "url": "https://getdaytrends.com/korea/",
-   "at": "2026-11-12T10:19+09:00",
+   "at": "2026-11-12T10:24+09:00",
    "items": [
     "빼빼로데이",
     "엔비디아",
@@ -31,24 +31,24 @@
   },
   "google": {
    "label": "구글",
-   "at": "2026-11-12T10:19+09:00",
+   "at": "2026-11-12T10:24+09:00",
    "url": "https://trends.google.co.kr/trending?geo=KR&hours=4",
    "items": [
+    "엔화",
     "장도연",
     "폭발",
     "이재 아",
-    "서울지하철",
     "메랍",
+    "서울지하철",
     "전현무계획",
     "산",
     "파운드리",
-    "하지원",
-    "kimberly powell"
+    "하지원"
    ]
   },
   "signal": {
    "label": "시그널",
-   "at": "2026-11-12T10:19+09:00",
+   "at": "2026-11-12T10:24+09:00",
    "url": "https://www.signal.bz/",
    "items": [
     "네이버 3분기 매출 최대 3.4조원",
@@ -65,13 +65,13 @@
   },
   "nate": {
    "label": "네이트",
-   "at": "2026-11-12T10:19+09:00",
+   "at": "2026-11-12T10:24+09:00",
    "url": "https://www.nate.com/",
    "items": [
     "젠슨 황 해임",
+    "네이버 3분기 매출",
     "금융회사 지배구조 개선방안",
     "출근하는 이용철 후보자",
-    "네이버 AI",
     "강동원 김고은 혼"
    ]
   },
@@ -2087,12 +2087,6 @@
    "u": "",
    "at": "2026-11-12T10:03+09:00"
   },
-  "kimberly powell": {
-   "t": "Jensen Huang Said to Have Had Relationship With Nvidia Executive Who Reports to Him",
-   "s": "The New York Times",
-   "u": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html",
-   "at": "2026-11-12T10:14+09:00"
-  },
   "젠슨 황 해임": {
    "t": "",
    "s": "",
@@ -2105,225 +2099,28 @@
    "u": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBoWmlqU1RYNHM1OUIzZnQ3d3VMYl9DU0lkRXZLWTJIdE9OQkpzbnJfZHlYNmQ4ZXJMckhjdVkyUGREWnFWOWhNMWxpVVBlM3M0UEJEcjlPcmdyLUtCdU9Ob0ZvOEVFYzhRZWc?oc=5",
    "at": "2026-11-12T10:14+09:00"
   },
-  "네이버 AI": {
-   "t": "",
-   "s": "",
-   "u": "",
-   "at": "2026-11-12T10:14+09:00"
-  },
   "강동원 김고은 혼": {
    "t": "[공식] 강동원·김고은, 조선판 로미오와 줄리엣…‘혼: 삼각의 시간’ 제작 확정",
    "s": "스포츠경향",
    "u": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBJUGhoanlUM2hWTFFITmtDZEVYRlRYbExTUy1HQ2RIU0FsM0dYd2pLcVduRG93dVBWcU9mdzZITERuRUpVY3oyMUtxeUNncE4yTnE1RjFrdld3c2g1bWfSAWNBVV95cUxPNHZtMndlT2pMdjVFVWxSWHd6Z2p0RFg2azRuQlVuSTVFRDZEVkhuUmcwdVlvODZUYWo3enBZdThJc2pkZzAtWUVMcE02azRmWjNDRXBiWkdpX0NzMndJbDdHbGs?oc=5",
    "at": "2026-11-12T10:14+09:00"
+  },
+  "엔화": {
+   "t": "예금보다 낫네…日개인 투자자, 2% 금리에 국채 매수 열풍",
+   "s": "마켓인",
+   "u": "https://marketin.edaily.co.kr/News/ReadE?newsId=05438246645644736",
+   "at": "2026-11-12T10:24+09:00"
+  },
+  "네이버 3분기 매출": {
+   "t": "네이버 3분기 영업익 4513억원으로 20% 감소…매출은 10% 증가",
+   "s": "연합뉴스TV",
+   "u": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB0dkNwZXptalRqQkpHTC1RRlhVYjN4SFA2bkstNzd6Z3RoVVFXSTJxT3dIVE01b0NVNmNfMDZKdDlLYWhDVWVFY3NwYTNEMzdiTUtLR2R1YU9fUHN0ZC00dFdJMEdfbUk?oc=5",
+   "at": "2026-11-12T10:24+09:00"
   }
  },
  "disc": {
   "date": "2026-11-12",
   "items": {
-   "4T7rymxB3so": {
-    "t": "2014 140926 인천 아시안 게임 한국 VS 카자흐스탄",
-    "ch": "seung hoon lee",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "VkzrIWbCZbg": {
-    "t": "돌아오지 못할 각오로 매년 죽음의 땅에 발을 들이는 게임",
-    "ch": "겜담화",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "ysbr4Iu_UsQ": {
-    "t": "요즘 AI 게임 근황 (2026.11 ver.)",
-    "ch": "테드TV",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "IzdYsL2dlqs": {
-    "t": "디바인알",
-    "ch": "싸모스",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "IWWp1rZA2s4": {
-    "t": "모잉의 폐지 게임 동아리...?",
-    "ch": "왈도쿤",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "Pr9y2tL8DaM": {
-    "t": "게임나라 참참참공주",
-    "ch": "뉴프로덕션",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "OFZ5q_3eOts": {
-    "t": "신창섭 나우 - 게임이 계속 비싸지는 이유",
-    "ch": "거울세계신창섭",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "vG15EMnWDnk": {
-    "t": "절임배추로 김장하는 분들, 양념부터 만들지 마세요",
-    "ch": "요리왕비룡 셰프TV ",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "WtUoADSfS44": {
-    "t": "타이어보다 질기다는 대왕사이즈 조개를 직접잡아서 부드럽게 요리해서 먹어보자 ",
-    "ch": "삐꾸TV pikku_tv",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "OsM342YbC6g": {
-    "t": "하치와레의 콩소메 케첩 파스타",
-    "ch": "이계피 요리채널",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "gTYx0uIukgo": {
-    "t": "신형 투싼, 처음 구매한다면 꼭 보세요!",
-    "ch": "현대자동차",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "p_5GM2HyE6w": {
-    "t": "The Man Who Delivers 3 BMWs a Day: 320i Touring, 520i, M340i",
-    "ch": "BMW",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "T3k1KvxVp1Y": {
-    "t": "AI 모두쓰기 프로젝트 l AI, “내 정보는 내 허락 받고\" 쓰기",
-    "ch": "SK텔레콤",
-    "fmt": "영상",
-    "kind": "ad",
-    "since0": false
-   },
-   "rOydU8F_lio": {
-    "t": "\"침실에서 당장 버려야\"...3가지 지목한 의사의 경고 [지금이뉴스] / YTN",
-    "ch": " YTN",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "IJMHxlf-mPE": {
-    "t": "[속보] 하품하고 여군동원…최전방 북한군 군기빠졌다 [뉴스플레이리스트] / 채널A",
-    "ch": "채널A News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "8H1zh2VYOQ8": {
-    "t": "차타고 가다보면 꼭 보이는 옥수수 판매점. 도대체 어디서 오는건지 알아봤더니｜극한직업｜#골라듄다큐",
-    "ch": "EBSDocumentary (EBS 다큐)",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "jJmb8Yrf46M": {
-    "t": "[자막뉴스] 입사 3개월 만에 끔찍한 비극…평소처럼 차 올라탔다 숨진 20대 / KBS 2026.11.11.",
-    "ch": "KBS News",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "iN00wAo_5KE": {
-    "t": "[라디오스타] 장한나가 예능 토크쇼 피하게 된 이유? 첫 예능으로 무릎팍 도사 나간 장한나, MBC 261111 방송",
-    "ch": "MBCentertainment",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "xABdSzAsB7k": {
-    "t": "[LG vs SK] 11/11 경기 I 2026-27 KCC 프로농구 I 하이라이트 I TVING",
-    "ch": "TVING SPORTS",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": true
-   },
-   "i5f0dFul6Io": {
-    "t": "주간 브이로그 | 엄마의 일주일은 이런 모습일까?",
-    "ch": "Peyton Maree Charles",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "lFjTb-T3CNQ": {
-    "t": "Vlog | 이제 진짜 겨울 옷 입어야지 🥶⛄️ • 자격증 공부하고 공부하고 .. ♾️",
-    "ch": "혜옹 Hyewon",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "zEr9FtyNmGk": {
-    "t": "맛있는먹방♡ 드디어 과메기의 철이 왔다!!!😙 크.. 취한다 취해~🤭 포항 구룡포 꽁치, 청어 과메기, 꿀맘스푸드, 과메기 먹방. mukbang",
-    "ch": "나나먹방 Nana mukbang",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "RfnUSbX7lTA": {
-    "t": "일상 먹방 브이로그:) 냉털, 집밥, 순두부 찌개, 🔥실비김치찌개, 고향사랑 기부제 위기브로 받은 삼겹살🥓, 치킨너겟, 맵지만 무뼈닭발 등 야무",
-    "ch": "용용먹방 YongYong",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "KnqUYfv1VyQ": {
-    "t": "데블스플랜3 1화 리뷰 및 분석 | 장동민을 의심하지마",
-    "ch": "섭스튜디오",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "mtjoaQpD5lw": {
-    "t": "포체티노? 하우? 그래서 언제 결정 하는 건데",
-    "ch": "박종윤(축구)",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "iiZLHqSBnYE": {
-    "t": "아시아챔피언십 리뷰 : 새로운 세대, 대한민국 대표팀 | 주간 아이스하키 리뷰 | 2026년 11월 둘째주",
-    "ch": "ON THE SPORTS 온더스포츠",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "HJl2IaVMbmU": {
-    "t": "\"한국을 라이벌이라 하지 맙시다\" 그런데 불안해진 일본 팬들… APBC 한일전 앞둔 일본 반응 [일본반응]",
-    "ch": "그들의 한국",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "lDJFdTcPlkI": {
-    "t": "2014 140924 인천 아시안게임 남자농구 예선 대한민국 vs 몽골",
-    "ch": "seung hoon lee",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
-   "yDO9lrSU2cU": {
-    "t": "24시간 동안 로블록스에서 죽은 게임 20개를 해보기..",
-    "ch": "조나스",
-    "fmt": "영상",
-    "kind": "gen",
-    "since0": false
-   },
    "d7OE4ALLsfM": {
     "t": "\"0.001% 독 괴물\"로 진화해서  초보 무시하는 여친 몰카하기ㅋㅋㅋㅋ(로블록스)",
     "ch": "쉐어TV",
@@ -3657,6 +3454,209 @@
    "OhmpVLedPfw": {
     "t": "670만원에 올수리 끝난 시골집? 도시가스 들어오고 몸만 들어오세요",
     "ch": "여기어때",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "8hF45FViacY": {
+    "t": "아이티 갱단 두목 사살 이어 '400 마워조' 본부까지 파괴 / 연합뉴스 (Yonhapnews)",
+    "ch": "연합뉴스 Yonhapnews",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "r4SQE3RUbso": {
+    "t": "30대 장기연애의 끝 [절망편], 첫사랑 이별 브이로그",
+    "ch": "마롱 marong",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "fRBSAD2KqFQ": {
+    "t": "살 빼려고 별 거 다 하는 여자의 몸매관리 브이로그 (복근 운동, 허얇엉큰 루틴, 다이어트 식단, 운동복 추천)",
+    "ch": "지예 JIYE",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "gfYZ5tmy-JI": {
+    "t": "미국 일상 🇺🇸 미국 돌아와서 첫 장보기 🔥 다 뿌셨는데, 50만원 실화...? 미국 브이로그",
+    "ch": "미국새댁 우하루 Wooharu",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "NnnB1X7nq_s": {
+    "t": "ASMR MUKBANG | 대왕 초코쫀득츄러스, 통초코바 아이스크림 신상 초코 디저트 먹방 Chocolate churros chocolate-c",
+    "ch": "Haeeon Eats해언",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "PZICn7MzeyI": {
+    "t": "데블스 플랜: 데드 어게인 1~5화 리뷰 l 궤도, 오현민, 신동, 이도 l 왜 장동민은 항상 한 수 빨랐을까? 데블스플랜3 데플3",
+    "ch": "안될과학 Unrealscience",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": true
+   },
+   "ygktN-Vk9RE": {
+    "t": "＂아이 셋만 타고 있었는데...＂ 언덕에서 기어 R에 두고 내린 대리기사😱 결국 전도된 차량 결말💥｜한블리 (한문철의 블랙박스 리뷰)｜JTBC ",
+    "ch": "JTBC Life",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "8WEQuTB7f0Y": {
+    "t": "🇰🇷국내최초 리뷰)🚨긴급소집!!! 시네소·슬레이어 초비상! 대한민국 커피머신의 반란… 엘로치오 제타 출격!🔆더보기 클릭🔆",
+    "ch": "노유민코페",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "eYUwgu676Gc": {
+    "t": "UMPC는 얼마나 더 좋아질 수 있을까? ROG Xbox Ally X20 리뷰",
+    "ch": "GameDO",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "FzphqK289FU": {
+    "t": "드디어 완전체가 되어 돌아온 ASUS ROG XBOX ALLY X20 리뷰",
+    "ch": "DIY Dr.K 닥터케이",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "YmYqXKTJOpo": {
+    "t": "요리 챌린지 | 멋진 음식 요령 Multi DO Challenge",
+    "ch": "Multi DO Challenge",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "Qc5fhGH4yxE": {
+    "t": "모레노 2기, 완전체 훈련기 (새로 합류한 반가운 선수들) | 11월 친선경기 EP.2",
+    "ch": "KFATV 대한민국 축구 국가대표팀",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "9UG3BiIDjwY": {
+    "t": "\"황희찬은 무슨 낯으로 돌아왔나\"… 대표팀 합류 소식에 팬들 여전히 분노 / KNN",
+    "ch": "KNN NEWS",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "IsvJgpe2Pd0": {
+    "t": "야구선수 넷이 한집에 살면 벌어지는 일.. 박준영·황준서·정우주·강건우의 일본 지바 생존기",
+    "ch": "Eagles TV",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "IPk1eAh9rcs": {
+    "t": "중국까지 꺾었는데… 하필 결승이 안세영",
+    "ch": "오늘도 안세영",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "KQ1aJnKwg3U": {
+    "t": "68년 아시안컵 무관따리  한국축구 아시아아프리카 피날리시마 1988 우승  AFRO ASIA CHAMPIONSHIP 1987 1988",
+    "ch": "jinnie",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "WKJjweOsPqI": {
+    "t": "여러분의 응원이 모여 하나의 함성이 되었습니다! 📣",
+    "ch": "KPC 대한장애인체육회",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "SOuZsU3qVys": {
+    "t": "\"2분 만에 실점했는데 뒤집었다\" 항저우 결승 한일전, 조영욱 역전골로 금메달 3연패",
+    "ch": "휘슬타임",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "qIJgUR24ko4": {
+    "t": "2014 141003 인천 아시안 게임 결승 농구  한국 VS 이란",
+    "ch": "seung hoon lee",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "7uqrLlCP0xQ": {
+    "t": "쇼츠 자동화 결과 공개 - 프로그램으로만 두 달 돌린 채널, 수익 창출까지 됐을까? (AI 쇼츠 수익, 유튜브 수익화)",
+    "ch": "릴박스 - 빠른 유튜브 수익화 서비스&교육",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "dmBfiGigRfY": {
+    "t": "쇼츠 자동화 유료 강의에 헛돈 쓰지 마세요. 1시간 동안 시스템 구축법 싹 다 털어드립니다",
+    "ch": "프리 쇼츠 연구소 ",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "9JyRcktTQZA": {
+    "t": "채아의 쇼츠 몰아보기🎬 | 로블록스 상황극",
+    "ch": "채아",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "_4k2sk6Kl-k": {
+    "t": "요리 못해도 이거 한 숟갈이면 티 안 납니다!",
+    "ch": "1분요리 뚝딱이형",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "77CMWoelZaE": {
+    "t": "[VLOG] 겨울이 오기 전 떠난 경주여행 ~ 🍂🍁",
+    "ch": "말랑콩떡 유이진",
+    "fmt": "영상",
+    "kind": "gen",
+    "since0": false
+   },
+   "fRJmiCCxkFc": {
+    "t": "[휴렉 음식물 처리기] 2026 브랜딩 캠페인 광고 영상- 어남선 음쓰",
+    "ch": "광고로 보는 브랜드와 브랜딩",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": true
+   },
+   "jVsJNDut7vQ": {
+    "t": "교회 홈페이지 홍보영상 템플릿 Vol.1 | 브랜드 필름·함께 자라는 공동체 | 천사디자인",
+    "ch": "천사디자인",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": true
+   },
+   "kb34SreOGrY": {
+    "t": "[브랜드 필름] 지역과 함께 성장하는 헤이웨이(Hey'Way)",
+    "ch": "헤이웨이 뉴스",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": true
+   },
+   "W-woZMi3zCs": {
+    "t": "11월 2주차  취재 완료! 서울경마! 노려봐야될 4마리",
+    "ch": "야놀자",
+    "fmt": "영상",
+    "kind": "ad",
+    "since0": false
+   },
+   "H9HKVZJsllo": {
+    "t": "중국산이 파고든 안방, 현대차 기아 점유율 70%선 위태롭다 (나은수 기업경제센터 기자) / 이슈체크",
+    "ch": "야놀자",
     "fmt": "영상",
     "kind": "ad",
     "since0": false
@@ -5204,7 +5204,7 @@
     "since0": false
    }
   },
-  "at": "2026-11-12T09:57+09:00"
+  "at": "2026-11-12T10:24+09:00"
  },
  "adMonth": {
   "zkOBLQUSEr0": {
@@ -5935,7 +5935,7 @@
   "fb0QlsvVDKQ": {
    "t": "하츠투하츠 PICK! 과즙은 투머치, 맛은 리치! 칠성사이다 RICH 포도💚 with. Hearts2Hearts 지우, 유하, 주은, 에이나",
    "ch": "롯데칠성",
-   "ud": "2026-10-22"
+   "ud": "2026-10-15"
   },
   "gnhjyyfUnjI": {
    "t": "하츠투하츠 PICK! 차원이 다른 역대급 고과즙, 칠성사이다 RICH 복숭아🍑 with. Hearts2Hearts 카르멘, 스텔라, 이안, 예온",
@@ -6115,7 +6115,7 @@
   "j0wIDSoUJYE": {
    "t": "[오뚜기 UNO] 쵸비의 새로운 한 판, 온전히 나를 위한 1인분🍕",
    "ch": "오뚜기",
-   "ud": "2026-10-17"
+   "ud": "2026-10-22"
   },
   "dz1fqUUAf4E": {
    "t": "[오뚜기 UNO] 쵸비처럼 확실하게 1인분! 쵸맛난 UNO 피자🍕",
@@ -8395,7 +8395,7 @@
   "ZdoyU5eq-0k": {
    "t": "AX 기술로, 미래를 선명하게 | LG U+ Enterprise 브랜드필름 Full ver",
    "ch": "LG유플러스",
-   "ud": "2026-10-31"
+   "ud": "2026-10-30"
   },
   "028R5_G0qno": {
    "t": "AX 기술로, 미래를 선명하게 | LG U+ Enterprise 브랜드필름 30s ver",
@@ -9215,12 +9215,12 @@
   "K-9zA9bMIVw": {
    "t": "Ep.6 언제, 어디서나, 누군가 위험하다면 “전설의 경호요원은 돌아온다★”",
    "ch": "KB국민은행",
-   "ud": "2026-11-05"
+   "ud": "2026-11-04"
   },
   "sAPfVWubEB0": {
    "t": "Ep.2 20대.. 넌 하고 싶은 것만 지켜.. “난 너만 지킬게”",
    "ch": "KB국민은행",
-   "ud": "2026-11-05"
+   "ud": "2026-11-04"
   },
   "smElqwarWAA": {
    "t": "오늘도 당신의 금융생활을 지키는 나는, KB스타뱅킹 《경호요원》",
@@ -9800,12 +9800,12 @@
   "QpWShUUiYRI": {
    "t": "[오뚜기 X.O.만두] 이제 바꾸시죠, X.O.만두로! 🥟 (30초)",
    "ch": "오뚜기",
-   "ud": "2026-11-08"
+   "ud": "2026-11-07"
   },
   "OQPBFsXp48w": {
    "t": "[오뚜기 X.O.만두] 이제 바꾸시죠, X.O.만두로! 🥟 (15초)",
    "ch": "오뚜기",
-   "ud": "2026-11-08"
+   "ud": "2026-11-07"
   },
   "OlMm5Bdb7pk": {
    "t": "벤츠 E200 27년형 가격 인상 결국 잠정 연기! 26년형 산 사람들 진짜 충격 받은 이유",
@@ -10593,7 +10593,7 @@
    "ud": "2026-11-12"
   },
   "EfEKf6uzALE": {
-   "t": "토스 디자이너가 답해봤습니다 | 토스플레이스 | Simplicity Mini",
+   "t": "좋아하는 것이 일하는 방식이 될 때 | 토스플레이스 | Simplicity Mini",
    "ch": "토스",
    "ud": "2026-11-11"
   },
@@ -10695,6 +10695,16 @@
   "odvgbuq5HMk": {
    "t": "넷플릭스 | 가능한 사랑 | 15초 TVCF | 2026",
    "ch": "광고홍보는광주엠비씨와함께",
+   "ud": "2026-11-12"
+  },
+  "fRJmiCCxkFc": {
+   "t": "[휴렉 음식물 처리기] 2026 브랜딩 캠페인 광고 영상- 어남선 음쓰",
+   "ch": "광고로 보는 브랜드와 브랜딩",
+   "ud": "2026-11-12"
+  },
+  "kb34SreOGrY": {
+   "t": "[브랜드 필름] 지역과 함께 성장하는 헤이웨이(Hey'Way)",
+   "ch": "헤이웨이 뉴스",
    "ud": "2026-11-12"
   }
  },
@@ -18061,406 +18071,406 @@
   }
  },
  "ogTried": [
-  "https://sports.khan.co.kr/article/202610290836003/",
-  "https://www.newspim.com/news/view/20261021000156",
-  "https://www.specialtimes.co.kr/news/articleView.html?idxno=470493",
-  "https://m.news.nate.com/view/20261026n21259",
-  "https://biz.heraldcorp.com/article/10919908",
-  "https://m.news.nate.com/view/20261110n25003",
-  "https://www.thepowernews.co.kr/view.php?ud=202610291120108929aeda69934_7",
-  "https://www.newspim.com/news/view/20261013000151",
-  "https://www.newspim.com/news/view/20261104000671",
-  "https://m.sedaily.com/article/20111414",
-  "https://www.fnnews.com/news/202611101530446737",
-  "https://startuprecipe.co.kr/archives/5840604",
-  "https://www.newspim.com/news/view/20261029000131",
-  "https://www.g-enews.com/article/Industry/2026/10/20261002100514672824debea800_1",
-  "https://view.asiae.co.kr/article/2026102118121639211",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29583",
+  "https://news.jkn.co.kr/post/1045753",
   "https://m.news.nate.com/view/20261104n26490",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
-  "https://www.segye.com/newsView/20261109503760",
-  "https://sports.khan.co.kr/article/202610081051003/",
-  "https://www.g-enews.com/article/Distribution/2026/10/202610071427142160740eacf404_1",
-  "https://www.newspim.com/news/view/20261020000673",
-  "https://www.newspim.com/news/view/20261030000201",
-  "https://www.banronbodo.com/news/articleView.html?idxno=33224",
-  "https://www.segye.com/newsView/20261027504496",
-  "https://www.etoday.co.kr/news/view/2644448",
-  "https://www.newspim.com/news/view/20261109000222",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29584",
-  "https://www.job-post.co.kr/news/articleView.html?idxno=236863",
-  "https://www.fnnews.com/news/202609300931282436",
-  "https://www.pap-magazine.com/article/karina-mlb-winter-city-popup-november-2026",
-  "https://v.daum.net/v/20261005011057391",
-  "https://www.news1.kr/partners/globalmarket/6310161",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29538",
-  "https://www.ytn.co.kr/_ln/0106_202610290328421426",
-  "https://www.thebigdata.co.kr/view.php?ud=202611120946184327bbceadc3c9_23",
-  "https://www.lawissue.co.kr/view.php?ud=20261104094916273204ead0791_12",
-  "https://www.newstap.co.kr/news/articleView.html?idxno=337236",
-  "https://sports.khan.co.kr/article/202610021546003",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29537",
-  "https://www.newspim.com/news/view/20261007000517",
-  "https://view.asiae.co.kr/article/2026110313203418754",
-  "https://www.seoul.co.kr/news/economy/2026/11/11/20261111500345",
-  "https://www.seoul.co.kr/news/peoples/2026/10/22/20261022023004",
-  "https://view.asiae.co.kr/article/2026111108573786795",
-  "https://view.asiae.co.kr/article/2026110308120121919",
-  "https://weekly.khan.co.kr/article/202610291732001",
-  "https://www.gukjenews.com/news/articleView.html?idxno=3741359",
-  "https://www.newsis.com/view/NISX20261008_0003819792",
-  "https://www.hankyung.com/article/202610018614i",
-  "https://www.lawissue.co.kr/view.php?ud=202611091515334411204ead0791_12",
-  "https://www.newspim.com/news/view/20261031000023",
-  "https://www.segye.com/newsView/20261103504389",
-  "https://www.g-enews.com/article/Industry/2026/10/20261026084221680139bf6e4b2_1",
-  "https://tvreport.co.kr/movie/article/1080616/",
-  "https://www.lawissue.co.kr/view.php?ud=202610021049133844204ead0791_12",
-  "https://www.fnnews.com/news/202610271246279144",
-  "https://zdnet.co.kr/view/?no=20261111154004",
-  "https://zdnet.co.kr/view/?no=20261111135016",
-  "https://www.g-enews.com/article/Finance/2026/10/202610300914262161bb91c46fcd_1",
-  "https://view.asiae.co.kr/article/2026110309495812111",
-  "https://biz.newdaily.co.kr/site/data/html/2026/10/07/2026100700046.html",
-  "https://www.fnnews.com/news/202610201712340106",
-  "https://madtimes.co.kr/news/articleView.html?idxno=29510",
-  "https://www.tfmedia.co.kr/news/article.html?no=208212",
-  "https://madtimes.co.kr/news/articleView.html?idxno=29575",
-  "https://www.newsis.com/view/NISX20261023_0003838795",
-  "https://www.kwnews.co.kr/article/20261106500228",
-  "https://campaigninsight.co.kr/news/articleView.html?idxno=7126",
-  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04897046645615872",
-  "https://www.starnewskorea.com/star/2026/11/07/2026110707380887084",
-  "https://www.g-enews.com/article/Distribution/2026/11/202611021447253408a96f092d0c_1",
-  "https://www.newsa.co.kr/news/articleView.html?idxno=403571",
-  "https://view.asiae.co.kr/article/2026110509033391104",
-  "https://www.sisunnews.co.kr/news/articleView.html?idxno=248178",
-  "https://www.insight.co.kr/news/580936",
-  "https://mt.co.kr/finance/2026/10/01/2026100109042525170",
-  "https://madtimes.co.kr/news/articleView.html?idxno=29576",
-  "https://www.ajunews.com/view/20261020085058362",
-  "https://www.newspim.com/news/view/20261021000176",
-  "https://www.vogue.co.kr/2026/11/09/%EA%B5%AC%EC%B0%8C%EC%99%80-%EB%A8%B8%EB%9D%BC%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AC%EA%B0%80-%EC%99%84%EC%84%B1%ED%95%9C-%EB%88%88%EB%B6%80%EC%8B%A0-2026-%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4-%ED%92%8D",
-  "https://www.kyeonggi.com/article/20261004580134",
-  "https://kr.investing.com/news/stock-market-news/article-2150539",
-  "https://www.news1.kr/industry/distribution/6343759",
-  "https://www.mt.co.kr/living/2026/10/07/2026100619505994826",
-  "https://zdnet.co.kr/view/?no=20261011095118",
-  "https://zdnet.co.kr/view/?no=20261028093617",
-  "https://isplus.com/article/view/isp202609290030",
-  "https://www.mt.co.kr/living/2026/10/11/2026101110590864911",
-  "https://newspim.com/news/view/20261110000402",
-  "https://www.wikitree.co.kr/articles/1173316",
-  "https://www.fnnews.com/news/202611040938071669",
-  "https://www.issuetoday.co.kr/news/article.html?no=60323",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253858",
-  "https://view.asiae.co.kr/article/2026110415071320778",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29539",
-  "https://www.gpkorea.com/news/articleView.html?idxno=148272",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
-  "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202611090075",
-  "https://www.newstap.co.kr/news/articleView.html?idxno=335074",
-  "https://www.news1.kr/industry/hotel-tourism/6328019",
-  "https://today-marketing.com/news/view.php?no=1102",
-  "https://www.segye.com/newsView/20261006501042",
-  "https://www.asiatime.co.kr/article/20261110500298",
-  "https://m.news.nate.com/view/20261109n35728",
-  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01807286645616200",
-  "https://sports.khan.co.kr/article/202611031611013/amp",
-  "https://ditoday.com/?p=136331",
-  "https://view.asiae.co.kr/article/2026100708135231774",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29583",
   "https://www.starnewskorea.com/star/2026/11/01/2026103116082747381",
-  "https://newspim.com/news/view/20261007000551",
-  "https://www.mt.co.kr/entertainment/2026/11/06/2026110615517221183",
-  "https://www.seoul.co.kr/news/peoples/2026/10/28/20261028024003",
-  "https://www.ebn.co.kr/news/articleView.html?idxno=1731108",
-  "https://www.fnnews.com/news/202611051812460811",
-  "https://www.fnnews.com/news/202610011051433977",
-  "https://www.fnnews.com/news/202610270930288634",
-  "https://www.news1.kr/industry/distribution/6328055",
-  "https://www.topstarnews.net/news/articleView.html?idxno=16270426",
-  "https://www.insight.co.kr/news/581391",
-  "https://www.newspim.com/news/view/20261012001305",
-  "https://www.newspim.com/news/view/20261023000160",
-  "https://www.thebigdata.co.kr/view.php?ud=202610281106428680bbceadc3c9_23",
-  "https://www.dtoday.co.kr/news/articleView.html?idxno=801674",
-  "https://www.newspim.com/news/view/20261007000583",
-  "https://www.dailian.co.kr/news/view/1705914/%EB%AC%B4%EC%8B%A0%EC%82%AC-%EC%97%A0%ED%94%84%ED%8B%B0-%E4%B8%AD-%EB%94%94%EC%9E%90%EC%9D%B4%EB%84%88-%EB%B8%8C%EB%9E%9C%EB%93%9C-%E2%80%98-2026",
-  "https://zdnet.co.kr/view/?no=20261105091749",
-  "https://www.news1.kr/world/international-economy/6326557",
-  "https://www.fnnews.com/news/202610191844306667",
-  "https://www.newspim.com/news/view/20261023001213",
-  "https://www.apnews.kr/news/articleView.html?idxno=94100",
-  "https://m.news.nate.com/view/20261008n22774",
-  "https://www.fnnews.com/news/202611100906165991",
-  "https://www.venturesquare.net/1113438/",
-  "https://zdnet.co.kr/view/?no=20261028085125",
-  "https://www.sportsworldi.com/newsView/20261108503547?OutUrl=google",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29540",
-  "https://www.news1.kr/industry/distribution/6331390",
-  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02879846645615544",
-  "https://www.starnewskorea.com/star/2026/10/13/2026101300380040163",
-  "https://megaeconomy.co.kr/news/newsview.php?ncode=1065583441473634",
-  "https://www.itbiznews.com/news/articleView.html?idxno=228841",
-  "https://ditoday.com/?p=152998",
-  "https://www.news1.kr/industry/distribution/6329594",
-  "https://www.topstarnews.net/news/articleView.html?idxno=16267907",
-  "https://www.medifonews.com/mobile/article.html?no=196659",
-  "https://www.starnewskorea.com/sports/2026/10/03/2026100309554013530",
-  "https://www.hankyung.com/article/2026103068161",
-  "https://www.newspim.com/news/view/20261007000060",
-  "https://www.newsis.com/view/NISX20261023_0003838038",
-  "https://www.wikitree.co.kr/articles/1173380",
-  "https://zdnet.co.kr/view/?no=20261027101217",
-  "https://www.mt.co.kr/living/2026/10/24/2026102404234712840",
-  "https://www.mt.co.kr/future/2026/10/20/2026102009322638149",
-  "https://www.starnewskorea.com/music/2026/11/09/2026110908204380276",
+  "https://www.ytn.co.kr/_ln/0106_202610290328421426",
+  "https://www.fnnews.com/news/202610020915222226",
   "https://www.madtimes.co.kr/news/articleView.html?idxno=29581",
-  "https://www.news1.kr/industry/distribution/6346113",
-  "https://www.newspim.com/news/view/20261026000410",
-  "https://www.news1.kr/society/education/6348475",
-  "https://www.starnewskorea.com/star/2026/10/05/2026100508592173471",
-  "https://www.newspim.com/news/view/20261028000999",
-  "https://zdnet.co.kr/view/?no=20261105103934",
-  "https://www.hankyung.com/article/202611119273g",
-  "https://www.apparelnews.co.kr/news/news_view/?cat=CAT115&idx=227815",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29622",
-  "https://www.fnnews.com/news/202610080949450750",
-  "https://www.lawissue.co.kr/view.php?ud=20261104091640880204ead0791_12",
-  "https://hankyung.com/article/202611111239i",
-  "https://www.newspim.com/news/view/20261003000124",
-  "https://madtimes.co.kr/news/articleView.html?idxno=29578",
-  "https://www.newspim.com/news/view/20261026000689",
-  "https://www.gpkorea.com/news/articleView.html?idxno=148225",
-  "https://hankyung.com/article/202610306372g",
-  "https://www.fnnews.com/news/202610220935563623",
-  "https://www.i-boss.co.kr/ab-2877-18276",
-  "https://www.news1.kr/life-culture/book/6348772",
-  "https://www.venturesquare.net/1117901/",
-  "https://www.newspim.com/news/view/20261110000742",
-  "https://www.sentv.co.kr/article/view/sentv202610220135",
-  "https://www.topstarnews.net/news/articleView.html?idxno=16269537",
-  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
-  "https://www.lawissue.co.kr/view.php?ud=20261027161413540204ead0791_12",
+  "https://www.segye.com/newsView/20261102502737",
+  "https://isplus.com/article/view/isp202609290030",
   "https://www.newspim.com/news/view/20261007000058",
-  "https://www.newsis.com/view/NISX20261014_0003824870",
-  "https://www.fnnews.com/news/202611011925129930",
-  "https://zdnet.co.kr/view/?no=20261022100536",
-  "https://www.newspim.com/news/view/20261006000865",
-  "https://www.g-enews.com/article/Distribution/2026/10/2026100611085753391d2373fc0f_1",
-  "https://www.insight.co.kr/news/580813",
-  "https://www.segye.com/newsView/20261022516137",
-  "https://hankyung.com/article/202610306145i",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29518",
-  "https://www.newspim.com/news/view/20261026001007",
-  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
-  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253639",
-  "https://view.asiae.co.kr/article/2026100808121235714",
-  "https://v.daum.net/v/20261003153211428",
-  "https://www.hankyung.com/article/202610081898i",
-  "https://www.eyesmag.com/posts/165586/ami-paris-holiday-campaign-deneuve",
-  "https://www.mt.co.kr/industry/2026/10/09/2026100714392131148",
-  "https://www.hankyung.com/article/202610293282H",
-  "https://newsway.co.kr/news/view?ud=2026101915590191389",
-  "https://www.newspim.com/news/view/20261001001193",
-  "https://www.fnnews.com/news/202610020927450599",
-  "https://www.insight.co.kr/news/580096",
-  "https://www.newspim.com/news/view/20261023000053",
-  "https://zdnet.co.kr/view/?no=20261111140130",
+  "https://www.starnewskorea.com/sports/2026/10/08/2026100718502962331",
+  "https://weekly.khan.co.kr/article/202610291732001",
+  "https://www.inews24.com/view/1958956",
+  "https://www.news1.kr/industry/distribution/6331399",
+  "https://www.segye.com/newsView/20261109502217",
+  "https://www.foodtoday.or.kr/news/article.html?no=209433",
+  "https://www.ajunews.com/view/20261020085058362",
+  "https://www.foodtoday.or.kr/news/article.html?no=208569",
   "https://www.newspim.com/news/view/20261109000843",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29620",
-  "https://www.newspim.com/news/view/20261105001043",
-  "https://www.thepowernews.co.kr/view.php?ud=2026101214384921699aeda69934_7",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7070",
-  "https://www.news1.kr/industry/distribution/6337333",
-  "https://www.starnewskorea.com/business-life/2026/10/02/2026100210414513762",
-  "https://madtimes.co.kr/news/articleView.html?idxno=29571",
-  "https://www.newspim.com/news/view/20261008001318",
-  "https://www.sentv.co.kr/article/view/sentv202611060076",
+  "https://www.dtoday.co.kr/news/articleView.html?idxno=801674",
+  "https://www.fnnews.com/news/202611011510556490",
+  "https://www.newspim.com/news/view/20261109000222",
+  "https://www.newspim.com/news/view/20261022000170",
+  "https://www.mt.co.kr/future/2026/10/20/2026102009322638149",
+  "https://www.newspim.com/news/view/20261027000335",
+  "https://view.asiae.co.kr/article/2026110409325586903",
+  "https://www.topstarnews.net/news/articleView.html?idxno=16259146",
+  "https://ditoday.com/?p=152998",
+  "https://www.seoul.co.kr/news/peoples/2026/10/28/20261028024003",
+  "https://www.asiatoday.co.kr/kn/view.php?key=20261023001000478",
+  "https://view.asiae.co.kr/article/2026110208202666321",
+  "https://www.newspim.com/news/view/20261026000410",
+  "https://www.newspim.com/news/view/20261020000673",
+  "https://www.fnnews.com/news/202610260936177795",
+  "https://www.medifonews.com/mobile/article.html?no=196659",
+  "https://www.sentv.co.kr/article/view/sentv202610220135",
+  "https://www.fnnews.com/news/202610271006198590",
+  "https://www.newspim.com/news/view/20261023001213",
+  "https://www.insight.co.kr/news/581003",
+  "https://www.newspim.com/news/view/20261030000236",
+  "https://www.banronbodo.com/news/articleView.html?idxno=33224",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253858",
+  "https://zdnet.co.kr/view/?no=20261105091749",
+  "https://www.newsis.com/view/NISX20261014_0003824870",
+  "https://www.lawissue.co.kr/view.php?ud=20261027161413540204ead0791_12",
+  "https://www.starnewskorea.com/star/2026/10/13/2026101300380040163",
+  "https://www.news1.kr/bio/pharmaceutical-bio/6347802",
+  "https://www.newspim.com/news/view/20261104000671",
+  "https://www.starnewskorea.com/music/2026/11/09/2026110908204380276",
+  "https://zdnet.co.kr/view/?no=20261028085125",
+  "https://www.newspim.com/news/view/20261110000229",
+  "https://www.fnnews.com/news/202610261454218802",
+  "https://www.ebn.co.kr/news/articleView.html?idxno=1731108",
+  "https://view.asiae.co.kr/article/2026102609293603188",
+  "https://www.pinpointnews.co.kr/news/articleView.html?idxno=491706",
+  "https://v.daum.net/v/20261005011057391",
+  "https://www.newsis.com/view/NISX20261101_0003849578",
+  "https://www.newsa.co.kr/news/articleView.html?idxno=403571",
+  "https://zdnet.co.kr/view/?no=20261027101217",
+  "https://www.newspim.com/news/view/20261007000534",
+  "https://www.cnbnews.com/news/articleView.html?idxno=1018707",
   "https://www.fnnews.com/news/202611050915373843",
-  "https://m.news.nate.com/view/20261101n11591",
-  "https://www.news1.kr/partners/globalmarket/6327370",
-  "https://sports.khan.co.kr/article/202610201029003/",
+  "https://www.vogue.co.kr/2026/11/09/%EA%B5%AC%EC%B0%8C%EC%99%80-%EB%A8%B8%EB%9D%BC%EC%9D%B4%EC%96%B4-%EC%BA%90%EB%A6%AC%EA%B0%80-%EC%99%84%EC%84%B1%ED%95%9C-%EB%88%88%EB%B6%80%EC%8B%A0-2026-%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4-%ED%92%8D",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29115",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7075",
+  "https://www.topstarnews.net/news/articleView.html?idxno=16243583",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29620",
+  "https://madtimes.co.kr/news/articleView.html?idxno=29510",
+  "https://www.newspim.com/news/view/20261007000517",
+  "https://www.newspim.com/news/view/20261030000201",
+  "https://www.ddaily.co.kr/page/view/2026100609431117392",
+  "https://www.aitimes.com/news/articleView.html?idxno=216657",
+  "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202610020078",
+  "https://www.tfmedia.co.kr/news/article.html?no=208212",
+  "https://www.insight.co.kr/news/580936",
+  "https://www.lawissue.co.kr/view.php?ud=202611091515334411204ead0791_12",
+  "https://www.thepowernews.co.kr/view.php?ud=202610291120108929aeda69934_7",
+  "https://newspim.com/news/view/20261110000402",
+  "https://www.seoul.co.kr/news/economy/2026/10/19/20261019500155",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29518",
+  "https://www.news1.kr/industry/hotel-tourism/6328019",
+  "https://www.newspim.com/news/view/20261003000124",
+  "https://www.hankyung.com/article/202610293282H",
+  "https://www.fnnews.com/news/202610270848152651",
+  "https://www.hankyung.com/article/202610089781g",
+  "https://www.venturesquare.net/1113438/",
+  "https://startuprecipe.co.kr/archives/5840604",
+  "https://www.newspim.com/news/view/20261012001305",
+  "https://www.news1.kr/industry/distribution/6346113",
+  "https://economist.co.kr/article/view/ecn202610300005",
+  "https://www.seoul.co.kr/news/economy/industry/2026/09/30/20260930500159",
+  "https://view.asiae.co.kr/article/2026100708333422666",
+  "https://www.fnnews.com/news/202611101351392208",
+  "https://www.fnnews.com/news/202611101530446737",
+  "https://newspim.com/news/view/20261007000551",
+  "https://www.asiatime.co.kr/article/20261110500298",
+  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02879846645615544",
+  "https://view.asiae.co.kr/article/2026100909485848590",
+  "https://www.kyeonggi.com/article/20261004580134",
+  "https://www.news-wa.com/article/entertainment/celebrity-issue/2026/11/11/20261111500039",
+  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01807286645616200",
+  "https://www.news1.kr/industry/distribution/6337333",
+  "https://www.wikitree.co.kr/articles/1173380",
+  "https://today-marketing.com/news/view.php?no=1102",
+  "https://www.seoul.co.kr/news/economy/industry/2026/10/08/20261008500238",
+  "https://m.news.nate.com/view/20261002n21961",
+  "https://www.hankyung.com/article/2026103068161",
+  "https://www.lawissue.co.kr/view.php?ud=20261104091640880204ead0791_12",
+  "https://www.fnnews.com/news/202611100906165991",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7097",
+  "https://www.g-enews.com/article/Distribution/2026/10/2026100611085753391d2373fc0f_1",
+  "https://www.topstarnews.net/news/articleView.html?idxno=16269537",
+  "https://www.segye.com/newsView/20261103504389",
+  "https://www.newstap.co.kr/news/articleView.html?idxno=335074",
+  "https://www.fnnews.com/news/202610220935563623",
+  "https://www.newspim.com/news/view/20261001001193",
+  "https://ajunews.com/view/20261029114845198",
+  "https://www.mt.co.kr/living/2026/10/11/2026101110590864911",
+  "https://www.starnewskorea.com/sports/2026/10/03/2026100309554013530",
+  "https://www.thepowernews.co.kr/view.php?ud=202610291111414284de3f0aa1be_7",
+  "https://www.newspim.com/news/view/20261031000023",
+  "https://newspim.com/news/view/20261109000254",
+  "https://sports.khan.co.kr/article/202611110051003/",
+  "https://www.fnnews.com/news/202610011002099226",
+  "https://www.newspim.com/news/view/20261023000136",
+  "https://www.mt.co.kr/tech/2026/10/21/2026102108532613603",
+  "https://www.wikitree.co.kr/articles/1173316",
+  "https://www.fnnews.com/news/202610191844306667",
+  "https://m.sedaily.com/article/20111414",
+  "https://sports.khan.co.kr/article/202611031611013/amp",
+  "https://www.newspim.com/news/view/20261007000583",
+  "https://www.fnnews.com/news/202611011925129930",
+  "https://kr.investing.com/news/stock-market-news/article-2150539",
+  "https://www.etoday.co.kr/news/view/2644448",
+  "https://weekly.hankooki.com/news/articleView.html?idxno=7191546",
+  "https://www.apparelnews.co.kr/news/news_view/?cat=CAT115&idx=227815",
+  "https://madtimes.co.kr/news/articleView.html?idxno=29541",
+  "https://www.hankyung.com/article/2026110590711",
+  "https://www.sportsworldi.com/newsView/20261104506769?OutUrl=google",
+  "https://www.segye.com/newsView/20261027504496",
+  "https://newspim.com/news/view/20261016000248",
+  "https://www.newspim.com/news/view/20261006000865",
+  "https://m.news.nate.com/view/20261110n25003",
+  "https://www.lawissue.co.kr/view.php?ud=20261104094916273204ead0791_12",
+  "https://www.fnnews.com/news/202610270930288634",
+  "https://www.smarttoday.co.kr/ko-kr/articles/95473",
+  "https://www.techm.kr/news/articleView.html?idxno=157189",
+  "https://www.sportsworldi.com/newsView/20261104516713?OutUrl=google",
+  "https://www.gukjenews.com/news/articleView.html?idxno=3741359",
+  "https://www.twig24.com/news/world/global-topic/2026/10/29/20261029500019",
+  "https://www.seoul.co.kr/news/peoples/2026/10/22/20261022023004",
+  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04897046645615872",
   "https://newspim.com/news/view/20261030000612",
+  "https://www.gpkorea.com/news/articleView.html?idxno=148225",
+  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10324",
+  "https://zdnet.co.kr/view/?no=20261022100536",
+  "https://zdnet.co.kr/view/?no=20261011095118",
+  "https://www.newspim.com/news/view/20261023000160",
+  "https://www.news1.kr/industry/distribution/6331390",
+  "https://www.segye.com/newsView/20261022516137",
+  "https://www.fnnews.com/news/202610271246279144",
+  "https://www.newspim.com/news/view/20261007000100",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7070",
+  "https://www.fnnews.com/news/202610261844452051",
+  "https://biz.newdaily.co.kr/site/data/html/2026/10/07/2026100700046.html",
+  "https://zdnet.co.kr/view/?no=20261028093617",
+  "https://zdnet.co.kr/view/?no=20261109163956",
+  "https://view.asiae.co.kr/article/2026110509033391104",
+  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
+  "https://view.asiae.co.kr/article/2026110909231267445",
+  "https://view.asiae.co.kr/article/2026110308120121919",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29512",
+  "https://www.newspim.com/news/view/20261022000866",
+  "https://www.etoday.co.kr/news/view/2645587",
+  "https://www.hankyung.com/article/202610081898i",
+  "https://www.fnnews.com/news/202611040938071669",
+  "https://segye.com/newsView/20261008503368",
+  "https://www.news1.kr/partners/globalmarket/6310161",
+  "https://zdnet.co.kr/view/?no=20261111140130",
+  "https://www.newspim.com/news/view/20261022000467",
+  "https://www.fnnews.com/news/202610200603017833",
+  "https://www.sisunnews.co.kr/news/articleView.html?idxno=248178",
+  "https://zdnet.co.kr/view/?no=20261111135016",
+  "https://www.specialtimes.co.kr/news/articleView.html?idxno=470493",
+  "https://biz.heraldcorp.com/article/10923934",
+  "https://www.segye.com/newsView/20261004507324",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7012",
+  "https://www.segye.com/newsView/20261020518906",
+  "https://www.bosa.co.kr/news/articleView.html?idxno=3015294",
+  "https://www.wikitree.co.kr/articles/1161400",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29582",
+  "https://www.g-enews.com/article/Finance/2026/10/202610300914262161bb91c46fcd_1",
+  "https://www.topstarnews.net/news/articleView.html?idxno=16267907",
+  "https://www.starnewskorea.com/star/2026/11/07/2026110707380887084",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29533",
+  "https://isplus.com/article/view/isp202610060135",
+  "https://www.mt.co.kr/living/2026/10/24/2026102404234712840",
+  "https://m.news.nate.com/view/20261008n22774",
+  "https://www.newspim.com/news/view/20261026000689",
+  "https://www.dailian.co.kr/news/view/1705914/%EB%AC%B4%EC%8B%A0%EC%82%AC-%EC%97%A0%ED%94%84%ED%8B%B0-%E4%B8%AD-%EB%94%94%EC%9E%90%EC%9D%B4%EB%84%88-%EB%B8%8C%EB%9E%9C%EB%93%9C-%E2%80%98-2026",
+  "https://www.news1.kr/world/international-economy/6326557",
+  "https://hankyung.com/article/202611111239i",
+  "https://view.asiae.co.kr/article/2026110415071320778",
+  "https://www.thebigdata.co.kr/view.php?ud=20261026134822163737600e7ec7_23",
+  "https://www.kwnews.co.kr/article/20261106500228",
+  "https://www.starnewskorea.com/business-life/2026/10/06/2026100613502757485",
+  "https://www.fnnews.com/news/202611090421426934",
+  "https://madtimes.co.kr/news/articleView.html?idxno=29578",
+  "https://www.insight.co.kr/news/580813",
+  "https://www.news1.kr/society/education/6348475",
+  "https://www.thebigdata.co.kr/view.php?ud=20261102154939958437600e7ec7_23",
+  "https://view.asiae.co.kr/article/2026102118121639211",
+  "https://hankyung.com/article/202610306372g",
+  "https://www.thepowernews.co.kr/view.php?ud=202611101042327204de3f0aa1be_7",
+  "https://www.mt.co.kr/industry/2026/10/09/2026100714392131148",
+  "https://sports.khan.co.kr/article/202610111548003",
+  "https://m.news.nate.com/view/20261109n35728",
+  "https://www.mt.co.kr/industry/2026/10/06/2026100609444492675",
+  "https://www.thebigdata.co.kr/view.php?ud=202611120946184327bbceadc3c9_23",
+  "https://www.sentv.co.kr/article/view/sentv202610010207",
+  "https://www.fntimes.com/html/view.php?ud=202610151131293504923defd0cc_18",
+  "https://www.youthdaily.co.kr/news/article.html?no=229537",
+  "https://www.g-enews.com/article/Distribution/2026/10/202610071427142160740eacf404_1",
+  "https://www.pap-magazine.com/article/karina-mlb-winter-city-popup-november-2026",
+  "https://www.newspim.com/news/view/20261109000098",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29538",
+  "https://www.news1.kr/industry/distribution/6343759",
+  "https://www.sentv.co.kr/article/view/sentv202611060076",
+  "https://www.newspim.com/news/view/20261105001043",
+  "https://biz.heraldcorp.com/article/10888970",
+  "https://www.thepublic.kr/news/articleView.html?idxno=324844",
+  "https://zdnet.co.kr/view/?no=20261111154004",
+  "https://www.i-boss.co.kr/ab-2877-18321",
+  "https://www.newspim.com/news/view/20261027000524",
+  "https://www.newspim.com/news/view/20261110000742",
+  "https://www.itbiznews.com/news/articleView.html?idxno=228841",
+  "https://www.fnnews.com/news/202609300931282436",
+  "https://www.news1.kr/life-culture/book/6348772",
+  "https://www.fntimes.com/html/view.php?ud=2026100214270288312a735e27af_18",
+  "https://www.fnnews.com/news/202610210847393346",
+  "https://www.segye.com/newsView/20261003501996",
+  "https://www.i-boss.co.kr/ab-2877-18328",
+  "https://www.thebigdata.co.kr/view.php?ud=202610281106428680bbceadc3c9_23",
+  "https://madtimes.co.kr/news/articleView.html?idxno=29571",
+  "https://www.hankyung.com/article/2026110445191",
+  "https://www.topstarnews.net/news/articleView.html?idxno=16270135",
+  "https://www.newspim.com/news/view/20261104000452",
+  "https://www.newsis.com/view/NISX20261023_0003838038",
+  "https://www.mt.co.kr/sports/2026/10/26/2026102609362357756",
+  "https://view.asiae.co.kr/article/2026100808121235714",
+  "https://sports.khan.co.kr/article/202610021546003",
+  "https://www.news1.kr/industry/auto-industry/6329590",
+  "https://www.news1.kr/industry/distribution/6328055",
+  "https://www.g-enews.com/article/Distribution/2026/11/202611021447253408a96f092d0c_1",
+  "https://etoday.co.kr/news/view/2642605",
+  "https://www.hankyung.com/article/202611119273g",
+  "https://sports.khan.co.kr/article/202610290836003/",
+  "https://www.newspim.com/news/view/20261030001097",
+  "https://newspim.com/news/view/20261110001417",
+  "https://www.news1.kr/industry/distribution/6350106",
+  "https://www.fnnews.com/news/202610140917200396",
+  "https://www.newspim.com/news/view/20261028000150",
+  "https://www.lawissue.co.kr/view.php?ud=202610021049133844204ead0791_12",
+  "https://www.thebigdata.co.kr/view.php?ud=20261029171331810a47484cf8_23",
+  "https://www.news1.kr/industry/general-industry/6327989",
+  "https://www.fnnews.com/news/202611091515257645",
+  "https://view.asiae.co.kr/article/2026110209240566470",
+  "https://zdnet.co.kr/view/?no=20261105103934",
+  "https://isplus.com/article/view/isp202610080094",
+  "https://www.ajunews.com/view/20261027092758973",
+  "https://www.starnewskorea.com/star/2026/10/05/2026100508592173471",
+  "https://www.mydaily.co.kr/page/view/2026110917442814858",
+  "https://www.newsis.com/view/NISX20261008_0003819792",
+  "https://www.fnnews.com/news/202610020927450599",
+  "https://www.apparelnews.co.kr/news/news_view/?cat=CAT112&idx=228071",
+  "https://www.seoul.co.kr/news/economy/distribution/2026/10/09/20261009032003",
+  "https://www.sentv.co.kr/article/view/sentv202611120013",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6475",
+  "https://www.segye.com/newsView/20261007506531",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29504",
+  "https://www.gpkorea.com/news/articleView.html?idxno=148272",
+  "https://www.joongangenews.com/news/articleView.html?idxno=558543",
+  "https://www.fnnews.com/news/202611051812460811",
+  "https://www.eyesmag.com/posts/165586/ami-paris-holiday-campaign-deneuve",
+  "https://hankyung.com/article/202610306145i",
+  "https://www.slist.kr/news/articleView.html?idxno=778837",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29540",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29132",
+  "https://www.mydaily.co.kr/page/view/2026110917405410928",
+  "https://www.newspim.com/news/view/20261008000244",
+  "https://www.seoul.co.kr/news/economy/2026/10/07/20261007500018",
+  "https://www.thepowernews.co.kr/view.php?ud=2026101214384921699aeda69934_7",
+  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10363",
+  "https://ditoday.com/?p=136331",
+  "https://m.news.nate.com/view/20261022n24926",
+  "https://www.fnnews.com/news/202610201712340106",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29539",
+  "https://m.news.nate.com/view/20261001n25831",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29537",
+  "https://www.fnnews.com/news/202610200919341148",
+  "https://www.mt.co.kr/entertainment/2026/11/06/2026110615517221183",
+  "https://www.insight.co.kr/news/580096",
+  "https://www.specialtimes.co.kr/news/articleView.html?idxno=484275",
+  "https://www.segye.com/newsView/20261109503760",
+  "https://tvreport.co.kr/movie/article/1080616/",
+  "https://segye.com/newsView/20261107502260",
+  "https://www.fnnews.com/news/202611081827405042",
+  "https://www.fnnews.com/news/202611110905486119",
+  "https://www.fnnews.com/news/202610080949450750",
+  "https://www.digitaltoday.co.kr/disclosure/articleView.html?idxno=712610",
+  "https://zdnet.co.kr/view/?no=20261110160949",
+  "https://www.hankyung.com/article/202610018614i",
+  "https://www.newspim.com/news/view/20261008001318",
+  "https://m.news.nate.com/view/20261026n21259",
+  "https://www.newspim.com/news/view/20261029000131",
+  "https://www.insight.co.kr/news/581391",
+  "https://view.asiae.co.kr/article/2026100708135231774",
+  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04342726645617512",
+  "https://www.starnewskorea.com/business-life/2026/10/02/2026100210414513762",
+  "https://www.mt.co.kr/industry/2026/10/26/2026102609222241787",
+  "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202611090075",
+  "https://www.slist.kr/news/articleView.html?idxno=779168",
+  "https://sports.khan.co.kr/article/202611100747003/",
+  "https://www.joongangenews.com/news/articleView.html?idxno=562340",
+  "https://www.venturesquare.net/1117901/",
+  "https://www.i-boss.co.kr/ab-2877-18276",
+  "https://newsway.co.kr/news/view?ud=2026101915590191389",
+  "https://campaigninsight.co.kr/news/articleView.html?idxno=7126",
+  "https://www.seoul.co.kr/news/economy/2026/10/01/20261001500072",
+  "https://www.newspim.com/news/view/20261023000053",
+  "https://thetracker.co.kr/View.aspx?No=4254478",
+  "https://v.daum.net/v/20261003153211428",
+  "https://www.news1.kr/partners/globalmarket/6327370",
+  "https://zdnet.co.kr/view/?no=20261102143012",
+  "https://www.newspim.com/news/view/20261006000946",
+  "https://m.news.nate.com/view/20261101n12096",
+  "https://www.newsway.co.kr/news/view?ud=2026110919072363025",
+  "https://sedaily.com/article/20111416",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29622",
+  "https://www.news1.kr/industry/distribution/6316232",
+  "https://www.mt.co.kr/living/2026/10/07/2026100619505994826",
+  "https://www.sportsworldi.com/newsView/20261108503547?OutUrl=google",
+  "https://www.newspim.com/news/view/20261013000151",
+  "https://www.asiatoday.co.kr/kn/view.php?key=20261006010001335",
+  "https://m.news.nate.com/view/20261031n06868",
+  "https://www.asiatoday.co.kr/kn/view.php?key=20261105010001847",
+  "https://www.news1.kr/industry/distribution/6329594",
+  "https://www.apnews.kr/news/articleView.html?idxno=94100",
+  "https://www.newspim.com/news/view/20261026001007",
+  "https://www.fnnews.com/news/202610200903577615",
+  "https://news.nate.com/view/20261020n21836",
+  "https://www.insight.co.kr/news/581630",
+  "https://www.newspim.com/news/view/20261021000176",
   "https://www.asiatoday.co.kr/kn/view.php?key=20261030001024408",
   "https://www.dailian.co.kr/news/view/1708842/%E2%80%9C%EC%96%BC%EA%B5%B4-%EB%8C%80%EB%A9%B4-1020-%EC%A0%81%EB%A6%BD%E2%80%9D%EB%84%A4%EC%9D%B4%EB%B2%84%ED%8E%98%EC%9D%B4-2026",
-  "https://www.newspim.com/news/view/20261022000866",
-  "https://sedaily.com/article/20111416",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29533",
-  "https://view.asiae.co.kr/article/2026100909485848590",
-  "https://www.newsis.com/view/NISX20261101_0003849578",
-  "https://www.fnnews.com/news/202611110905486119",
-  "https://www.sentv.co.kr/article/view/sentv202611120013",
-  "https://www.seoul.co.kr/news/economy/industry/2026/10/08/20261008500238",
+  "https://www.newstap.co.kr/news/articleView.html?idxno=337236",
   "https://newspim.com/news/view/20261109000137",
-  "https://sports.khan.co.kr/article/202611110051003/",
-  "https://www.news1.kr/industry/general-industry/6327989",
-  "https://www.mt.co.kr/sports/2026/10/26/2026102609362357756",
-  "https://www.fnnews.com/news/202610260936177795",
-  "https://www.fnnews.com/news/202610200903577615",
-  "https://www.fnnews.com/news/202610261454218802",
-  "https://www.smarttoday.co.kr/ko-kr/articles/95473",
-  "https://www.fnnews.com/news/202611101351392208",
-  "https://www.i-boss.co.kr/ab-2877-18321",
-  "https://ajunews.com/view/20261029114845198",
-  "https://www.newsen.com/news_view.php?uid=202611061011042410",
-  "https://view.asiae.co.kr/article/2026100708333422666",
-  "https://www.newspim.com/news/view/20261027000335",
-  "https://www.thepowernews.co.kr/view.php?ud=202610291111414284de3f0aa1be_7",
-  "https://newspim.com/news/view/20261109000254",
-  "https://www.fnnews.com/news/202611011510556490",
-  "https://view.asiae.co.kr/article/2026110909231267445",
-  "https://etoday.co.kr/news/view/2642605",
-  "https://www.techm.kr/news/articleView.html?idxno=157189",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7075",
-  "https://www.digitaltoday.co.kr/disclosure/articleView.html?idxno=712610",
-  "https://www.mydaily.co.kr/page/view/2026110917442814858",
-  "https://www.asiatoday.co.kr/kn/view.php?key=20261023001000478",
-  "https://www.starnewskorea.com/business-life/2026/10/06/2026100613502757485",
-  "https://www.ajunews.com/view/20261027092758973",
-  "https://www.segye.com/newsView/20261109502217",
-  "https://www.specialtimes.co.kr/news/articleView.html?idxno=484275",
-  "https://view.asiae.co.kr/article/2026110208202666321",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29504",
-  "https://www.fnnews.com/news/202611081827405042",
-  "https://www.news1.kr/bio/pharmaceutical-bio/6347802",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29132",
-  "https://www.segye.com/newsView/20261004507324",
-  "https://www.newsway.co.kr/news/view?ud=2026110919072363025",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7067",
-  "https://www.fnnews.com/news/202610011002099226",
-  "https://www.thepublic.kr/news/articleView.html?idxno=323962",
-  "https://zdnet.co.kr/view/?no=20261110160949",
-  "https://www.thepublic.kr/news/articleView.html?idxno=324844",
-  "https://www.newspim.com/news/view/20261109000098",
-  "https://www.sportsworldi.com/newsView/20261104506769?OutUrl=google",
-  "https://m.news.nate.com/view/20261002n21961",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29630",
-  "https://thetracker.co.kr/View.aspx?No=4254478",
-  "https://m.news.nate.com/view/20261101n12096",
-  "https://m.news.nate.com/view/20261022n24926",
-  "https://www.cnbnews.com/news/articleView.html?idxno=1018707",
-  "https://www.news1.kr/industry/auto-industry/6329590",
-  "https://isplus.com/article/view/isp202610060135",
-  "https://www.asiatoday.co.kr/kn/view.php?key=20261016010005166",
-  "https://sports.khan.co.kr/article/202611100747003/",
-  "https://www.fnnews.com/news/202610140917200396",
-  "https://www.newspim.com/news/view/20261007000056",
-  "https://www.foodtoday.or.kr/news/article.html?no=208569",
-  "https://www.newspim.com/news/view/20261022000467",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7097",
-  "https://www.fnnews.com/news/202610020915222226",
-  "https://view.asiae.co.kr/article/2026110917553753421",
-  "https://weekly.hankooki.com/news/articleView.html?idxno=7191546",
-  "https://www.starnewskorea.com/sports/2026/10/08/2026100718502962331",
-  "https://www.ddaily.co.kr/page/view/2026100609431117392",
-  "https://www.news1.kr/industry/distribution/6331399",
-  "https://news.nate.com/view/20261020n21836",
-  "https://biz.heraldcorp.com/article/10892423",
-  "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04342726645617512",
-  "https://www.brandbrief.co.kr/news/articleView.html?idxno=10324",
-  "https://www.asiatoday.co.kr/kn/view.php?key=20261105010001847",
-  "https://www.hankyung.com/article/2026110445191",
-  "https://www.etoday.co.kr/news/view/2645587",
-  "https://www.newspim.com/news/view/20261108000113",
-  "https://zdnet.co.kr/view/?no=20261109163956",
-  "https://www.hankyung.com/article/202610089781g",
-  "https://www.asiatoday.co.kr/kn/view.php?key=20261006010001335",
-  "https://www.ajunews.com/view/20261005105311362",
-  "https://www.newspim.com/news/view/20261028000150",
-  "https://segye.com/newsView/20261008503368",
-  "https://www.hankyung.com/article/2026110590711",
-  "https://view.asiae.co.kr/article/2026102609293603188",
-  "https://www.joongangenews.com/news/articleView.html?idxno=558543",
-  "https://www.i-boss.co.kr/ab-2877-18328",
-  "https://www.fntimes.com/html/view.php?ud=2026100214270288312a735e27af_18",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7012",
-  "https://www.fnnews.com/news/202610200603017833",
-  "https://www.aitimes.com/news/articleView.html?idxno=216657",
-  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=6475",
-  "https://www.mydaily.co.kr/page/view/2026110917405410928",
-  "https://www.thebigdata.co.kr/view.php?ud=20261026134822163737600e7ec7_23",
-  "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202610020078",
-  "https://www.newspim.com/news/view/20261008000244",
-  "https://www.newspim.com/news/view/20261007000100",
-  "https://www.segye.com/newsView/20261003501996",
-  "https://www.slist.kr/news/articleView.html?idxno=779168",
-  "https://newspim.com/news/view/20261110001417",
-  "https://www.joongangenews.com/news/articleView.html?idxno=562340",
-  "https://isplus.com/article/view/isp202610080094",
-  "https://www.sentv.co.kr/article/view/sentv202610010207",
-  "https://www.insight.co.kr/news/581003",
-  "https://www.newspim.com/news/view/20261027000524",
-  "https://zdnet.co.kr/view/?no=20261102143012",
-  "https://www.topstarnews.net/news/articleView.html?idxno=16270135",
-  "https://view.asiae.co.kr/article/2026110409325586903",
-  "https://biz.heraldcorp.com/article/10923934",
-  "https://www.segye.com/newsView/20261020518906",
-  "https://www.newspim.com/news/view/20261104000452",
-  "https://www.bosa.co.kr/news/articleView.html?idxno=3015294",
-  "https://www.fnnews.com/news/202610261844452051",
-  "https://www.news1.kr/industry/distribution/6316232",
-  "https://www.newspim.com/news/view/20261006000946",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29512",
-  "https://www.thepowernews.co.kr/view.php?ud=202611101042327204de3f0aa1be_7",
-  "https://www.twig24.com/news/world/global-topic/2026/10/29/20261029500019",
-  "https://www.apparelnews.co.kr/news/news_view/?cat=CAT112&idx=228071",
-  "https://www.seoul.co.kr/news/economy/2026/10/01/20261001500072",
-  "https://sports.khan.co.kr/article/202610111548003",
-  "https://www.newspim.com/news/view/20261030001097",
-  "https://www.foodtoday.or.kr/news/article.html?no=209433",
-  "https://madtimes.co.kr/news/articleView.html?idxno=29541",
-  "https://www.newspim.com/news/view/20261007000534",
-  "https://www.fntimes.com/html/view.php?ud=202610151131293504923defd0cc_18",
-  "https://www.newspim.com/news/view/20261007000384",
-  "https://newspim.com/news/view/20261016000248",
-  "https://www.topstarnews.net/news/articleView.html?idxno=16243583",
-  "https://www.madtimes.co.kr/news/articleView.html?idxno=29582",
-  "https://www.news1.kr/industry/distribution/6350106",
-  "https://m.news.nate.com/view/20261102n26621",
-  "https://www.slist.kr/news/articleView.html?idxno=778837",
-  "https://segye.com/newsView/20261107502260",
-  "https://www.insight.co.kr/news/581630",
-  "https://view.asiae.co.kr/article/2026100610454070823",
-  "https://www.sportsworldi.com/newsView/20261104516713?OutUrl=google",
-  "https://www.hankookilbo.com/news/article/A2026110210440000820",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29584",
+  "https://www.newsis.com/view/NISX20261023_0003838795",
   "https://kbench.com/?q=node%2F282273",
-  "https://www.news-wa.com/article/entertainment/celebrity-issue/2026/11/11/20261111500039",
-  "https://www.fnnews.com/news/202611091515257645",
-  "https://www.thebigdata.co.kr/view.php?ud=20261102154939958437600e7ec7_23",
-  "https://biz.heraldcorp.com/article/10888970",
-  "https://www.topstarnews.net/news/articleView.html?idxno=16259146",
-  "https://www.the-pr.co.kr/news/articleView.html?idxno=62735",
-  "https://www.fnnews.com/news/202610210847393346",
-  "https://www.newspim.com/news/view/20261110000229",
-  "https://www.newspim.com/news/view/20261030000236",
-  "https://www.newspim.com/news/view/20261022000170",
-  "https://www.youthdaily.co.kr/news/article.html?no=229537",
-  "https://www.starnewskorea.com/star/2026/09/27/2026092707393592759",
-  "https://view.asiae.co.kr/article/2026110209240566470",
-  "https://www.mt.co.kr/industry/2026/10/26/2026102609222241787",
-  "https://www.fnnews.com/news/202610271006198590",
-  "https://www.segye.com/newsView/20261102502737",
-  "https://economist.co.kr/article/view/ecn202610300005",
-  "https://newspim.com/news/view/20261021000155",
-  "https://www.seoul.co.kr/news/economy/2026/10/07/20261007500018",
-  "https://www.fnnews.com/news/202610200919341148",
-  "https://www.fnnews.com/news/202610270848152651",
-  "https://www.newspim.com/news/view/20261023000136",
-  "https://www.mt.co.kr/industry/2026/10/06/2026100609444492675",
-  "https://www.thebigdata.co.kr/view.php?ud=20261029171331810a47484cf8_23",
-  "https://www.seoul.co.kr/news/economy/distribution/2026/10/09/20261009032003",
-  "https://www.fnnews.com/news/202611090421426934",
-  "https://www.inews24.com/view/1958956",
-  "https://news.jkn.co.kr/post/1045753",
-  "https://www.seoul.co.kr/news/economy/2026/10/19/20261019500155",
+  "https://www.ajunews.com/view/20261005105311362",
   "https://www.etoday.co.kr/news/view/2644397",
-  "https://m.news.nate.com/view/20261031n06868",
-  "https://www.mt.co.kr/tech/2026/10/21/2026102108532613603",
-  "https://www.segye.com/newsView/20261007506531",
-  "https://m.news.nate.com/view/20261001n25831",
-  "https://www.wikitree.co.kr/articles/1161400"
+  "https://biz.heraldcorp.com/article/10892423",
+  "https://www.newspim.com/news/view/20261108000113",
+  "https://newspim.com/news/view/20261021000155",
+  "https://www.issuetoday.co.kr/news/article.html?no=60323",
+  "https://www.topstarnews.net/news/articleView.html?idxno=16270426",
+  "https://www.g-enews.com/article/Industry/2026/10/20261002100514672824debea800_1",
+  "https://view.asiae.co.kr/article/2026111108573786795",
+  "https://sports.khan.co.kr/article/202610201029003/",
+  "https://www.fnnews.com/news/202610011051433977",
+  "https://www.seoul.co.kr/news/economy/2026/11/11/20261111500345",
+  "https://sports.khan.co.kr/article/202610081051003/",
+  "https://www.newspim.com/news/view/20261028000999",
+  "https://www.g-enews.com/article/Industry/2026/10/20261026084221680139bf6e4b2_1",
+  "https://www.thepublic.kr/news/articleView.html?idxno=323962",
+  "https://www.job-post.co.kr/news/articleView.html?idxno=236863",
+  "https://www.segye.com/newsView/20261006501042",
+  "https://megaeconomy.co.kr/news/newsview.php?ncode=1065583441473634",
+  "https://view.asiae.co.kr/article/2026100610454070823",
+  "https://www.campaigninsight.co.kr/news/articleView.html?idxno=7067",
+  "https://biz.heraldcorp.com/article/10919908",
+  "https://m.news.nate.com/view/20261101n11591",
+  "https://madtimes.co.kr/news/articleView.html?idxno=29575",
+  "https://www.newspim.com/news/view/20261021000156",
+  "https://www.hankookilbo.com/news/article/A2026110210440000820",
+  "https://view.asiae.co.kr/article/2026110917553753421",
+  "https://www.nextdaily.co.kr/news/articleView.html?idxno=253639",
+  "https://www.newsen.com/news_view.php?uid=202611061011042410",
+  "https://www.newspim.com/news/view/20261007000060",
+  "https://view.asiae.co.kr/article/2026110309495812111",
+  "https://m.news.nate.com/view/20261102n26621",
+  "https://mt.co.kr/finance/2026/10/01/2026100109042525170",
+  "https://www.madtimes.co.kr/news/articleView.html?idxno=29630",
+  "https://www.asiatoday.co.kr/kn/view.php?key=20261016010005166",
+  "https://www.newspim.com/news/view/20261007000056",
+  "https://www.newspim.com/news/view/20261007000384",
+  "https://view.asiae.co.kr/article/2026110313203418754",
+  "https://madtimes.co.kr/news/articleView.html?idxno=29576"
  ],
  "desc": {
   "IW-HcDlYMRo": "What's taking up space in your mind?",
@@ -19613,16 +19623,6 @@
   "jVsJNDut7vQ": "교회 업종을 위한 홈페이지 홍보영상 템플릿 Vol.1입니다.",
   "p_5GM2HyE6w": "✔구독 & 좋아요 & 알림설정 필수✔",
   "gTYx0uIukgo": "자동차를 쉽고 재미있게 알려드리는",
-  "OsM342YbC6g": "오늘은 치이카와에서 하치와레가 만든 케찹 파스타를 만들어봤습니다.",
-  "WtUoADSfS44": "오늘은 대왕사이즈 민물조개인 펄조개를 직접잡아서",
-  "vG15EMnWDnk": "10kg 김장김치",
-  "OFZ5q_3eOts": "",
-  "Pr9y2tL8DaM": "대학로 TOM(티오엠) 1관",
-  "IWWp1rZA2s4": "편집 : 밤하늘님",
-  "IzdYsL2dlqs": "위기탈출 성공!",
-  "ysbr4Iu_UsQ": "",
-  "VkzrIWbCZbg": "",
-  "4T7rymxB3so": "",
   "ukfMJczXJkc": "10월 상설 \"AI로 만드는 나만의 숏폼 단편영화\" 교육 수강생 결과물입니다.",
   "nlUowtZgnAw": "0:00 즉흥 순회공연 PV 「아하가 문을 두드릴 때」",
   "x8U8aU3pMos": "대한민국의 해외반응과 다양한 한류의 트렌드와 찾기힘든 외국의 동영상등을 찾지않아도 직접 찾아 전해드리고 다양한 한국관련 해외 뉴스들을 알려드립니다",
@@ -19644,22 +19644,6 @@
   "ajtoCpYzgn8": "“돈은 프랑스보다 한국에서 써야지?”",
   "VRy60UYbDvM": "",
   "d7OE4ALLsfM": "언제나 깨발랄하게 게임하는 쉐어입니다!",
-  "yDO9lrSU2cU": "",
-  "lDJFdTcPlkI": "",
-  "HJl2IaVMbmU": "11월 13일 금요일 저녁 7시, 도쿄돔에서 APBC 한일전이 열립니다.",
-  "iiZLHqSBnYE": "이 콘텐츠는 온더스포츠 유튜브 채널 멤버십 후원으로 제작되었습니다.",
-  "mtjoaQpD5lw": "광고문의 : choojongyoon@gmail.com",
-  "KnqUYfv1VyQ": "데블스플랜3 1화, 여러분은 어떻게 보셨나요?",
-  "RfnUSbX7lTA": "일상 먹방 브이로그:) 냉털, 집밥, 순두부 찌개, 🔥실비김치찌개, 고향사랑 기부제 위기브로 받은 삼겹살🥓, 치킨너겟, 맵지만 무뼈닭발 등 야무지게 먹방 mukb",
-  "zEr9FtyNmGk": "♡꿀맘스푸드 구룡포 꽁치, 청어 과메기 구매하러 가기♡",
-  "lFjTb-T3CNQ": "🪽instagram @chrys0beryl_🪽",
-  "i5f0dFul6Io": "SURI와 파트너십을 맺어주셔서 감사합니다! 여기 에서 구매하시고 오늘 바로 업그레이드해보세요. 제가 왜 이렇게 좋아하는지 알게 되실 거예요.",
-  "xABdSzAsB7k": "KBL 하이라이트는 TVING 앱에서 가장 빠르게 만나볼 수 있습니다.",
-  "iN00wAo_5KE": "★★★More clips are available★★★",
-  "jJmb8Yrf46M": "청소차가 환경미화원 두 명을 뒤편 발판에 태운 채 새벽 빗길을 달립니다.",
-  "8H1zh2VYOQ8": "하루에 18,000개나 판매되는 대표 국민 간식! 옥수수",
-  "IJMHxlf-mPE": "북한이 연일 도발하며 군사적 긴장감을 높이는 가운데, 최전방에서 하품을 하고 여군을 동원하는 등 군기빠진 모습들이 포착됐습니다. 이 모습 속보 뉴스플레이리스트로 ",
-  "rOydU8F_lio": "미국의 한 내과 전문의가 호흡기 질환 등을 유발할 수 있다며 침실에서 버려야 한다고 지목한 물건 세 가지가 SNS 상에서 화제입니다.",
   "gjj3qZyhPog": "상대방도 칭찬한 흥국생명전 MVP 이예은 게임끝나고 칭찬 몰아보기",
   "rdlGVCErrOs": "",
   "B_BNThGyxJM": "🖥️ 치지직 방송",
@@ -19780,17 +19764,49 @@
   "DQgVq8LN5Ms": "",
   "ZnUbDudm8ko": "안녕하세요오 당나귀님들🫡",
   "wqv3Tcji4-w": "당신의 심장을 뛰게 할 즐거운 음악 여행🎧",
-  "4efudJdgDJk": "애플의 첫 폴더블폰 '아이폰 듀오'가 이른바 '크랙 게이트'로 총체적인 난국에 빠졌습니다."
+  "4efudJdgDJk": "애플의 첫 폴더블폰 '아이폰 듀오'가 이른바 '크랙 게이트'로 총체적인 난국에 빠졌습니다.",
+  "kb34SreOGrY": "택시 잡기 어려웠던 밀꾸의 하루가 달라졌어요!",
+  "fRJmiCCxkFc": "배우인데 요리사로 더 명한 어남선 씨를 모델로 2026년에 진행한 [휴렉 음식물 처리기]의 20206 브랜딩 캠페인 광고 영상입니다.",
+  "77CMWoelZaE": "요즘 가는 곳마다 비와 함께 하네요 ... ☔️",
+  "_4k2sk6Kl-k": "다짐육으로 만든 고기바삭이 레시피입니다.",
+  "9JyRcktTQZA": "",
+  "dmBfiGigRfY": "🔥 촬영·녹음·편집 0분! '누적 4억 6,400만 원' 쇼츠 자동화 시스템 전 과정 공개!",
+  "7uqrLlCP0xQ": "ㅁ영상에 나온 유튜브 서비스, 릴박스",
+  "qIJgUR24ko4": "",
+  "SOuZsU3qVys": "2023년 10월 7일 항저우 아시안게임 남자축구 결승, 한국은 킥오프 2분도 안 돼 일본에 먼저 실점했습니다.",
+  "WKJjweOsPqI": "2026 아이치·나고야 아시안 패러게임",
+  "KQ1aJnKwg3U": "유럽 남미 피날리시마",
+  "IPk1eAh9rcs": "중국 왕즈이를 꺾고 아시안게임 여자 단식 결승에 오른 야마구치 아카네. 일본 안방의 마지막 상대는 안세영이었습니다.",
+  "IsvJgpe2Pd0": "00:00 홀쭉해진 정우주",
+  "9UG3BiIDjwY": "11월 A매치를 위해 카타르에 모인 대한민국 축구대표팀.",
+  "Qc5fhGH4yxE": "카타르에서 첫 완전체 훈련!",
+  "YmYqXKTJOpo": "새로운 음식 챌린지를 만나보세요! 오늘은 매우 흥미로울 것입니다. 우리와 함께 하세요!",
+  "FzphqK289FU": "🔗ROG XBOX Ally X20 런칭 | ASUS 공식 스토어 링크",
+  "eYUwgu676Gc": "UMPC는 과연 얼마나 더 좋아질 수 있을까요?",
+  "8WEQuTB7f0Y": "[엘로치오 ZETA]",
+  "ygktN-Vk9RE": "[한문철의 블랙박스 리뷰 194회]",
+  "PZICn7MzeyI": "데블스플랜 시즌1의 준우승자 궤도와 함께하는 데블스플랜3, 데플3 1~5화 리뷰!",
+  "NnnB1X7nq_s": "The copyright of HaeeonEats' videos belongs to the HaeeonEats channel.",
+  "gfYZ5tmy-JI": "새로 오신 구독자님들은 💛구독🧡 꾸욱 눌러주시고, 또 만나요 ^^",
+  "fRBSAD2KqFQ": "그동안 많이 물어봐주셨던 몸매관리 루틴 드디어 말아왔습니다..❤️‍🔥",
+  "r4SQE3RUbso": "내가 헤어지면 이별브이로그 올릴거라 했지?",
+  "8hF45FViacY": "아이티 갱단 두목 사살 이어 '400 마워조' 본부까지 파괴"
  },
  "bnews": {
   "하나은행": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
-     "title": "하나은행, 퇴직연금 ETF 당일매매 서비스 시행",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBCTVJfdThXM1dLTGRhSnI1VVlyWWVwZ2pZNTRXUUdQX3BETUZVazNCQXdlWFdqZndqNURyN3VkOWh0VzdyMENFSkcyeGp6NzU4WlA3NWZlQ1dQOS1NNloyVlRNS2J1QQ?oc=5",
-     "src": "이로운넷"
+     "title": "하나은행도 퇴직연금 ETF 당일매매 시작…4대은행 도입 - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB3SWh3Q2xCVTkyNGhKbW9oM3QxV2dNb1lhcG5zMEZVSXFNZjI3NUt4V2pmSXRXdFIzajJkZXRNemJLb3FFUDd5bHNmQXBTTVpRNzRZdVdRdDFORUlNN1BEYlJoS0RkbzBxd1g0MXNKNUZLN2xxbGRsM9IBfkFVX3lxTE9MZUVBbHFielpWNm16N1VaSnQ4M2x1RFVjZWVPTExNMGE2M1hoUElTVEhpWlpqZ2dWZ1V5ZG1sMVZud2ljWGVwY1p0WWRNekdzSk56OFpkbzZqZlRLVHJJaXl1cXh0dVJCNTc5S3hKY2xNN2NWNnJjRFNGeTZ4Zw?oc=5",
+     "src": "머니투데이"
+    },
+    {
+     "date": "11.12",
+     "title": "하나은행, 충남 공공의료 서비스 개선 위해 무인정보단말기 기부",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9NTTVMTW5uRlZrWlBSVkRMU3dtZm9BS3JPNE5OZE9tNy1fY1VYNllwRnVybmtvWDdCeFk0NHNmeFd6eHpMUm4yaHQxaWJqQm1oYnZJWWl4UGdROUwzZFVGbWN4aVhVdi04RTMxNWZ3?oc=5",
+     "src": "국제뉴스"
     },
     {
      "date": "11.11",
@@ -19812,9 +19828,9 @@
     },
     {
      "date": "11.11",
-     "title": "하나은행 충청하나그룹, 충남공공의료원에 키오스크 12대 기부",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5laXhTS1NDODJaSDFSSTJMS3pFdWRFOVp4VE5mb1VoajlhM2R6NzN5cW9Ec0FYa09ObXpxSHZmMmZ3N194ZnNILWtYQzRTclR3MzhfRmVmWG5QUXNOWTVSNQ?oc=5",
-     "src": "뉴스1"
+     "title": "하나은행, 충남 4개 의료원에 키오스크 12대 기부",
+     "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTFB4Ti1QcW4xcXdKdnZINERoeVpzc211UDB6VmxMWHVHODVlaEgwU1RXcGN4azQyQ1pVQjZHZmhnVGxhQ0NK?oc=5",
+     "src": "뉴스파고"
     },
     {
      "date": "11.11",
@@ -19830,27 +19846,27 @@
     },
     {
      "date": "11.10",
-     "title": "하나은행, 글로벌 금융매체 선정 ‘대한민국 최우수 PB은행’ 수상",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBfUWQ5aC1hMjJQclFTNGZ2N0J0TjMtWGhBYkhuWV91RW4tZ1JBMWFSaE1FaEpURDdWTVE5WExMd1c2bXpDZk8yMW9mWDdNVW1WMlU3eVYtdWRhekVUaVMwUHVjS1FvNlpQYzJN?oc=5",
-     "src": "BBS불교방송"
-    },
-    {
-     "date": "11.10",
      "title": "하나금융, KPGA '하나은행 인비테이셔널' 상금 매칭 기부금 전달",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9ZT2Rnbk90cjktYk5qUW00MDBrYXVqYVVBTHhiZXlWTVpvOWpLZG9CQ1ZCdjgzZENXZzc3WGZqWjdTNmpURFhMNXd2dWQtWjVkOVFlOXZxSmRzb3otbTNkU0FDMExpYmdy?oc=5",
      "src": "FETV"
     },
     {
      "date": "11.10",
-     "title": "하나은행, 글로벌 PB어워드서 14번째 수상…가업승계 이어 혁신 부문도 선정",
-     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA3RWdCSmFRV1J4dzNGdVFZLXI2ZlBLbVVqQWtmQ0t3cm1SUS16ZDdVcXlrUlRHckVBdy14WlVESjJMcWFRUkNZZVFTMXd4ZTZ0TVBCUzNDa0o?oc=5",
-     "src": "더트래커"
+     "title": "[은행권 풍향계] 하나은행, 글로벌 최우수 PB은행 선정 外",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE16clVscUNHZ28xVDBLTXl6dTVLbUtUQko0SFlZVTQycm1pS01FUTNBVTFqMGVKbF9tN2lYVmZoZXpJM0RRdWQ4UWxEMDhac00xNmwwUkRpZ0dKMEUtOFJTU2ZqSQ?oc=5",
+     "src": "에너지경제신문"
     }
    ]
   },
   "뚜레쥬르": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "CJ푸드빌, 뚜레쥬르·빕스 폐가전 무상 수거…가맹점 폐기비용 줄인다",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBMRUpMbnd4WFh5djZaMEc4M0VqM2RaWThYb1I4VDdleFE1Wi1TbU1IbkdxSlc3SGphNzlJcFhna2lsZDl5akdCaHd3dFpuRkdqcVBoOXBSSlJlbmNiZ2I1cFJkV3M0cm5QVHRnNU5R?oc=5",
+     "src": "이투데이"
+    },
     {
      "date": "11.11",
      "title": "뚜레쥬르, 이도현과 함께한 홀리데이 캠페인 영상 공개…케이크 사전예약도 – CJ 뉴스룸",
@@ -19901,12 +19917,6 @@
     },
     {
      "date": "11.02",
-     "title": "韓 농가 돕고 美 입맛 잡고…뚜레쥬르 미국 매장에 샤인머스캣 메뉴 선봬",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPeU5tT0VsUk5NNnlQWEJyTHhXdEtQTkdkUC1IVXgycmtiOFVCeTY0YTIwOHJTSFJ2WGc2YTRCbHgwSDlZSnExS0F1bzBkRFhLYWdOanRjN2F4aEtyWndnb1V5YXZVZldNeHd5ZnFBeS1YQWhteGtncXNPWll1NndjNWtIOXREQdIBmgFBVV95cUxQRE1uRFBBSU0wWUFnZlp3Y0o2b2haUEJIaC1WZWZyeGd4RmdhamRnOW5nZklNMERLZUVJbDUxOW1FLUp6Y21BN3hwOXdIcHMxTnRmOTVtSUxjTVJmd0o0QlJhcVlMM1dUSXh3bllSSTFkMnA4Q25vV1dJeEpPaW5maEgxeFdUT1gtd0xsOVBlODlpdVZINjZCSWp3?oc=5",
-     "src": "Chosunbiz"
-    },
-    {
-     "date": "11.02",
      "title": "뚜레쥬르, 미국에 'K포도' 알린다...\"샤인머스캣 수출 판로 지원\" - 머니투데이",
      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9FeElpOXFNc3ZqaXNXQXlScm9ReGRadlFGLU1DVGJsY05Va1VWYXVqMzhObWdMc1QxUWhKeWlVeG9rd1JKQmV6QnAwcDZxYk8yb3VQY3U0NThjQlBwQ24tbGpFYl9mOFFJdHfSAW9BVV95cUxNZGwzeTZrZ3hJd3E4TFhHbldBWTRjOVRjU3VvcXRsd0pUMlhkanl6eXdWWUtOQUxicXg3dXJqTW4wUV9CajJqa3oxOWFIQjhZVUsxMTBMTEdOdUNkeEpHOWVXMDlrdlZHQkJXTGRkd0U?oc=5",
      "src": "머니투데이"
@@ -19914,7 +19924,7 @@
    ]
   },
   "BMW": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
@@ -19948,15 +19958,15 @@
     },
     {
      "date": "11.11",
-     "title": "BMW코리아, 신차 재구매 고객 대상 ‘마이 넥스트 BMW’ 캠페인 실시",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1NUVlDdXZzRnA0SEJtSGV4cmY5LUJwQ1NLQ0p2aU1rc2V0STlyWW9FcEtnTm5VMm1ULW5iU1lkSUJiSmlBeENrbW1iMHU0bGh0cmtmYjk0MjFIV0MtVVJQLVpzUnU?oc=5",
-     "src": "탑라이더"
-    },
-    {
-     "date": "11.11",
      "title": "BMW, 차세대 전기차에 삼성·LG 배터리 쓰기로",
      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5Xckpjd1EtQUxVM0pMZXJZSTduQ2tpTFFMV3FtdzBCV0diUE5pQm5YdXJHeFYtNzhnZ20tYkxVcEgwek5xU0RScXdpZHF4QXZIS2NhX0hwWXlhM3UtTU9yN3E0OS1jSDRDY2NJY2JyTFFpcExYSlE0UjZoZnZjT3M?oc=5",
      "src": "조선일보"
+    },
+    {
+     "date": "11.10",
+     "title": "BMW 코리아, 신차 재구매 고객 대상 '마이 넥스트 BMW' 프로모션 실시",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4xemhFcDQ5RVlpazBtZFZ0VEgyQXdybm5YVkxJdlZYUm5SdG1RTkFRQVlHOEVwQWFENTBaT2tkcVdsRnFQWkJReUJsTVFkanRBalRacUxVd1R2RkdXQldlUWlGVlozRGk3SkVYRw?oc=5",
+     "src": "다나와 자동차"
     },
     {
      "date": "11.10",
@@ -19979,13 +19989,19 @@
    ]
   },
   "코웨이": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
+     "date": "11.12",
+     "title": "코웨이, ‘동반성장지수 평가’ 2년 연속 우수 등급",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQVmpvOXF1ZzlLOUpKWF9FN3VIbnhfR0R0WFpYN0hlRU1wNERiRDZySDFySWtqN1RCSHF2R1ZlT1lETFdseGZBNm9QM2pEWmVoT3V6TnVIVFc4eWVIMkh0TjBtc2FyNkEyV050cGgwdDZhanFpZEZ6UG1CamFxNDVZcHVlcUFsZFRDcEU0?oc=5",
+     "src": "글로벌이코노믹"
+    },
+    {
      "date": "11.11",
-     "title": "코웨이, ESG 통합평가 한 단계 오른 'A+' 획득",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA2ejY2UVl3Uk5kVklJRDJxUU1OaFd2dVJzclZteTY2aFFDVmdtMXFUS1BKV0FLbjZrYXItOEtmcjJ6T3l3UkZLNkx1Qm1ES085dnhwWWZiRk96QQ?oc=5",
-     "src": "파이낸셜뉴스"
+     "title": "코웨이, 넷제로·상생·투명경영 실천 성과…ESG ‘통합 A+ 등급’ 획득",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE96OUpYVzFnVFNhTjVSWnVhYng1RU5rMU1uNm9ub1I2QmVhcWlWaFZFODNpLU9BS01wN0x3OXZJSlA4WTA5M3FpcVZuemFQNXJLR05PNDhFQzN6VEY5SHZJcEUxRFQxQ1NGNkdv?oc=5",
+     "src": "백세시대"
     },
     {
      "date": "11.11",
@@ -19995,15 +20011,27 @@
     },
     {
      "date": "11.11",
+     "title": "코웨이, ESG 평가서 통합 A+ 획득…\"환경·지배구조 개선 반영\"",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5vS2ZtSV9ta0ZIbDRQRnBmMjF0MkFUZkVJYWlqZTdZME44NERaWlQ5aExRU2JkQVRpbkZNMDl1Yi1aMWpRZC1uOHczZ3h5VzhDRy1UdXA5Y3JhMVVhWFFlNm1OSEU?oc=5",
+     "src": "서울경제TV"
+    },
+    {
+     "date": "11.11",
      "title": "[유통街] 상미당홀딩스·CJ올리브영·하이트진로·코웨이",
      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5MzJFVmJHekNJRHBmME5MTVpyV19uMHlZNmFaZ0dNYi01OU5maDRVLWxFc2RqaDZ1bFZVTzNUYlIxM1FjRkRxalRjeFYwcThqTExlbUhlOVRVNnlyTkRCQ1N0cEXSAWhBVV95cUxOMlZUZFRuODJqZ3c3c0hVaV9oQm9qb0R5WTBTZHFUUmV1VUJ4SjJmakhMeDFWSEJZaVIyR2s5cHZoMDFGam00UG5pRGJRT3BfV29QXzB6bl8zaEtmaW1WeVdxMU1ONXdFdg?oc=5",
      "src": "경인방송 뉴스"
     },
     {
      "date": "11.11",
-     "title": "코웨이, KCGS ESG 평가서 '통합 A+ 등급' 받아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE45U05ZN0c1UExxRzRySWFBNTVRSmZ2QVp4eWFDb2RRQVpZQXJpRmpCWnhqSXJONlU4WXAxNjJueG1XYzk4S3FfTkcxNTlBTVpIcHFLMTlB?oc=5",
-     "src": "지디넷코리아"
+     "title": "\"동반성장 노력 결실\" 코웨이, ESG 통합 평가 한 단계 상승",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5ON2FudGtKQlQ3VC04ZF82R1laNi1kcEpIak0xek16YVhWdkFaSWRWSFRUVlBLSFBkSWZJSHZaUzJBLVRRNXItXy1uRzFEVnlLOTYtOTdjZnJJUQ?oc=5",
+     "src": "파이낸셜뉴스"
+    },
+    {
+     "date": "11.11",
+     "title": "[Wellness Appliances] 코웨이ㆍ교원 웰스",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1tMEstckM4UmxIckkzT3V2Nm9XZ092bVlFbUxVanZ5c2o4b01qdFlQX29rUkRHTlVET1N0UDdKRmFvaGthYkhOajJqd29NeU9XZU9RR1JFUXBxUnJ6Nlk4czh2REFvUlpTdEM1emtUOThqRUsw?oc=5",
+     "src": "대한경제"
     },
     {
      "date": "11.11",
@@ -20019,37 +20047,25 @@
     },
     {
      "date": "11.10",
-     "title": "코웨이, 공식 자사몰서 '블랙프라이데이' 특별전 펼쳐",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBRVnBvMXJQZmR0ZktaQi1EZDVrN3N1U3MyaWt1VXM5TUZkOUZDZ0wtRVBrMHJqS2plcnFfNmphMkVCSXhZNEh4NG9qZG1fMWpWVmJKOVp2c05aZEJpZ1B4WA?oc=5",
-     "src": "메트로신문"
-    },
-    {
-     "date": "11.09",
-     "title": "코웨이, 연말 정수기·공기청정기 렌탈 할인 행사 진행",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE55RDFzQk11dGpVNVZVTjlZeXk3Nld4dVF3WmxCLS1iLVBsVUhlV2JzdnROcHNUeUlzeGF2aEZ0aXV5bEVnY1phQmRVWUdsNzdVRWNRMDF1MjdPcy1STU1VMU5XeTlhVndLT21n?oc=5",
-     "src": "라이센스뉴스"
-    },
-    {
-     "date": "11.09",
-     "title": "코웨이, 태국 제습기 시장 첫 진출…정수기 넘어 '생활가전 구독' 확장",
-     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFA4TjBidTEycVhWSHV0aVdBSXBaWEdIeEs4UWdtRmZtVlczZzhwaWxjU0hjZWE2Ujd3eWk3VVR0NUMxVGJWVzV6Nl9UbGdXQQ?oc=5",
-     "src": "전자신문"
-    },
-    {
-     "date": "11.09",
-     "title": "\"렌탈료 할인에 사은품까지\"…'코웨이 블프' 개막",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ZSkdYUDJHSFhGbElzZVBiV1d6WndwSUZRcnNQaE9zUlBlVDBJdG9RclFLT1ZfOEJ5N3FQeGM5bDBNQ1oya3gwNnQ2NXc4MzJXd2ZlZE50WktITWFWdzFWQnJBUzBLS1pvNjlfNHRfSmFPbmlVX21wStIBeEFVX3lxTE9ZSkdYUDJHSFhGbElzZVBiV1d6WndwSUZRcnNQaE9zUlBlVDBJdG9RclFLT1ZfOEJ5N3FQeGM5bDBNQ1oya3gwNnQ2NXc4MzJXd2ZlZE50WktITWFWdzFWQnJBUzBLS1pvNjlfNHRfSmFPbmlVX21wSg?oc=5",
-     "src": "뉴시스"
+     "title": "코웨이 고공비행, 해외법인 매출 2조 보인다 [뉴스Q]",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9MUmxzVGdnN1hqbXc2Q0NRMWhYVV85a09XeV9sbGdFZXRGaG9GUjVNWldoOFBFQ3hCWExZY2VOc3NmNlRRTXVuMWVmeG1td1NKY016OXB2TUI4Z3R2c3hGcGRacjNYcUxVbGc?oc=5",
+     "src": "스포츠Q"
     }
    ]
   },
   "삼성생명": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
+     "title": "삼성생명 주가 하락 중",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBId01oby1aNlpfb0ZDSmFFeXdWN0pDVEVsX2JXVTl2clFCRFFscUhXNGNJX1FQX1hfMy1XUzlLS1BSMG5yQ3F5dG96T1RYamdhYmtob010THV2YU5X?oc=5",
+     "src": "아시아뉴스통신"
+    },
+    {
+     "date": "11.12",
      "title": "'역전승 견인' 2003년생 이해란 \"도망가지 말라는 말 이제 와닿는다\"...삼성생명 에이스이자 리더로 성장, \"사실상 내가 이끌어가야 할 팀\" [MD인천]",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5BMVZUYUVhTERZcWkyUzA5SDhJR0hSS1A3UVVoQmpTLThTRVJnQ21tOFFlRVJ2WE1wTWR6RDZNMm5LMW9mdHZGWHBDc2YxMHI5Y1RTeElfOGhBWUVZSDgxV2pmS1h5UQ?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE82bkJvUlJIdmJGWVM3UXQ2TnJoVXRrNGUwTzBxQkpJVDh1dVcySzJ3RXR6SE5Vc2kwMnlwU0pPV01WM3hHUWZwMVJaYkpheGpwMFVoR005UE85SGh0ekttdQ?oc=5",
      "src": "마이데일리"
     },
     {
@@ -20099,18 +20115,24 @@
      "title": "[BK 리뷰] ‘이해란 MVP 모드 ON’ 삼성생명, 신한은행에 시즌 첫 패 안겨",
      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFAxSFNOU2dzaFdPMC1tcTB1dmtMdmU4R2RweGpUdjJ4UTZYN1ZRVTlxdmR0NGJUMXJTUzJaZzJoNml1bnU1QXg5N2NQeGJYOTFoazlILWQ5QkdfdFJCeUhsUGZ3aWJiS2lVU2ktb3FaR0FuMTNRd3I0?oc=5",
      "src": "바스켓코리아"
-    },
-    {
-     "date": "11.11",
-     "title": "[웜업터뷰] 이주연 부상 변수 지워야 하는 삼성생명, 하상윤 감독의 선택은?",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1kMXp4U2NCcHhjc1RUakNHNWo2RlRLY1d6LS0wT3FsS2NvNVZPN1BoRTlVdjhVTjdZeU5DVmJNOXRtdnBYVmh4WWZwSDRDdjFsaWk5M2h3a2s3YmVmcURsalBwTHpBS1g5VkYxUHFyeWNvT2hQ?oc=5",
-     "src": "점프볼"
     }
    ]
   },
   "한화생명": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "[개장 전 주요 공시] 한화생명·삼양식품·동부건설·한솔제지·LF 등",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOSGszVnlDLVN4NXVmam9kRnBoOVZUc2p1cXhIRHVUdnJjVEtwemZmX0RUNDBOVl9lNHNtdUhWWW94eVIzVjhMZnQ2YXU2RzAzUVJ6cDFOb2ZUS2tQUFhlYlVnY2owekNqQk54X0RjcEdQTVdPSTFQb2h2MXctSkJzcGpWTmpadzAw?oc=5",
+     "src": "글로벌이코노믹"
+    },
+    {
+     "date": "11.12",
+     "title": "한화생명 주가 하락 중",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxcVJfNFdJb3U0aGFLZmNKekFvMHJCRXoxNVJZT0w5OWRtay1GY1FsdV9NREZqVEZPWndOQUlILUUyVWJCaUxYdVdCeDVDWU02cjMxaGduVXowano0?oc=5",
+     "src": "아시아뉴스통신"
+    },
     {
      "date": "11.12",
      "title": "한화생명, 7800억원 후순위채 발행 실적 공시",
@@ -20158,24 +20180,18 @@
      "title": "한화생명 주가 상승 중",
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9telZtelVYMGZMRGVoZ2l2U0NDV2RjbUQ1ekpaWl8wZi1GeFZ4SU5lN0JWZjRZSVoydmxPVWlseXNRTzYwaVIxWTg2anZ4bU1lYmc3dHBzUld1dVU0QzVPaUh2NTc0V2hSWWx3NFQ0RWFoUWFV?oc=5",
      "src": "아시아뉴스통신"
-    },
-    {
-     "date": "11.09",
-     "title": "한화생명 '비상'⋯BLG, '나이트' 오리",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5QeHFxeXhhb3lSUVR1Yjk3ZUFyS3lLZDhxZi13Vi12UjBBcEtrNjRDSElPUXpYM0RMSThjNWh4ZGo3ZktlelZmVVBqa1dmclVEU2FVRW9hclZHcFdMWlFMRDlDaDBKc3R0?oc=5",
-     "src": "이투데이"
-    },
-    {
-     "date": "11.08",
-     "title": "한화생명, 12일 오후 4시 실적 설명회",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5rZ3dWR0xTeXVpUVZLM0tKLU9nSmNzVHlXejV0VHRCcU14X182V3hXVFRuUGVpNXpjaDRUSzB1OHhBOWFOTXhITFVGcDU2UU9JaUMzNjlmU2tFTnVSVjhOTDl5Z29Odw?oc=5",
-     "src": "비건뉴스"
     }
    ]
   },
   "교보생명": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "교보생명, 퇴직연금 DC·IRP 수익률 1위",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBxclVsZDNKMlJnY3NQOUNzN3hIZnQzbkZ3Y3g1VU1lcnFZS1dNbWt2NWdJb04zdmdWV3BYbGpCNGF2UlhOdEtTRDM1cGxzOTZwVnVMRlE0M25QT0Zya1RFUFNNWlZUbE92LWc?oc=5",
+     "src": "컨슈머타임스"
+    },
     {
      "date": "11.11",
      "title": "교보생명, GA 채널서 종신보험 불완전판매 '급증'...판매품질 관리 '시험대'",
@@ -20185,14 +20201,14 @@
     {
      "date": "11.11",
      "title": "생명보험 11월 브랜드평판 1위 교보생명...2·3위 미래에셋·삼성생명",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HQzJVZTA0TDJWY1FEOVVHTnlJOFloeVVxRFVobmw1Yl80cURISTg1Tm96QUpyYjBQdzFHVUxrS3NrS2VsZ2pJYktRMTA3VXdwOV9hTFdBSmNTak51cHdzMHZDREh5Q0F1S0xyaEtCT3NiT3Jo?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1fNHFTOURMSzVxR0RsN3ozUUVDTm0tWTl2bjZCVXNyRHpNQVVCcVZXX1k1NDZGUHBsdTJiWk1zaTI1ZWVhZHhkNHVENXd1VmRmcE5yaFlFRXoxMGVlV0hhbDgwUk93V2dKUGdxX0s1MA?oc=5",
      "src": "조세일보"
     },
     {
      "date": "11.11",
-     "title": "교보생명, 자립 준비 보호아동과 베트남 빈롱성에 '사랑의 집' 4채 짓는다",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBTQUV2N0pjV2dCcHZhNy1DY3kwTzJvN2F1QlZqNWZReFJielkwcUZORHdkYkI2T0lpU1o0cVNNWnp4WVlabzNSQTBtTEM2M2tnc29VQ0JibFBJQmdORlZVcVhla0ZuNUpr?oc=5",
-     "src": "데일리팝"
+     "title": "“국경을 넘어 전하는 따뜻한 온기”… 교보생명, 베트남 낙후 지역에 ‘사랑의 집’ 짓고 글로벌 나눔 실천",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBPaC1pVmdrdzNTQS13TUVFUWd1dEVUOXl2Ymx1U2ZxTVFXcjhUS2FzaUhLSU4tWXlraExGczU1NDEwbmUyMW55b3c0dG1ZckxVaUZYUGRNQ0Q2X1B3aHBrbDdocml0SHRlb3lTRU02YUU?oc=5",
+     "src": "스마트경제"
     },
     {
      "date": "11.10",
@@ -20213,6 +20229,12 @@
      "src": "파이낸셜리뷰"
     },
     {
+     "date": "11.10",
+     "title": "\"베트남 저소득가정 '사랑의집' 짓는다\" 교보생명 꿈도깨비' 보호아동과 봉사활동",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0xc2w4dWpwVEVZczlvZ0swMGNKV19jVGY1NmRBeHIwY0Q2WGRUWFZKTkwzVEplOTBvX2MzR05jdjREVDVabkZ2bGNwczIyS1BmcG91aUhPUzJNU0t6QXJXMUV6UzVESWxSaW5R?oc=5",
+     "src": "https://www.catchnews.kr/"
+    },
+    {
      "date": "11.09",
      "title": "교보생명까지 퍼진 배당 먹구름",
      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kSEUyckpoNVAzVDc5aE5EZ2E4b281dlZRU1drTjg0MTFRVTRIQ1Y0N1NTRWFyNjdHeUJGVVQwUW5SR2lFbUpKMWo4cTBUX0FfN0h5RXg0Y3ZwY0piYkh4TXIxYTZIT2tMeEJnd9IBcEFVX3lxTE5FTnVwVW1Eak1tTXc0cVNqQUJpYU1jUUFoeWpGdDFkREstUFVyNXV4bHBOeGJVenNzaVRhX2VSdFFOSzUwQ21HQVlULTM2aHktNTB5blNkWUR6Uk04dkZ3a1V5aXR0enMtM2FZaWZVcVo?oc=5",
@@ -20220,32 +20242,20 @@
     },
     {
      "date": "11.05",
-     "title": "교보생명, 고객센터 응대율 90%↑…민원처리·상담 서비스 대폭 개선",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1TVHRKU3hVcHpJREFFckNIcVpjRmdGTlpCbWU1aE9jMDBubHVjb182cEhONTVWY3hCdTZpQzk4OHJKR29RQ05kQkttUHp5ZldnYnRpcWQ5bWdyTkUwT2xEd19jU00wY3ZHbnVSaUxR?oc=5",
-     "src": "국제뉴스"
-    },
-    {
-     "date": "11.05",
-     "title": "교보생명, 상담은 빠르게·안내는 쉽게…소비자보호 체계 개선",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9IaHhpSjdmWnRDZ2t2MVFMQVYtTHBIajJ6VTlIMEZBWEZkSjdVQUwxaTU0WjB3c0VJOGIwalBSUjRPcURhbEJzRVdkdmlaMHpPd0U0YmlSLUlsSFZvekg0Qg?oc=5",
-     "src": "뉴스1"
-    },
-    {
-     "date": "11.05",
-     "title": "[보험브리핑]푸본현대생명·신한라이프·교보생명",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB3ODY3a3J1Tld0U0pEUlhOVFJkamZvN19aU2syLTU5d3ZQTkdHbV9ta0Q3NTBLVjBOY3FxZ3JmUWJuMjg5SV93alRYbWs1X3JFVXY4TXFGXzM1SGRsTFljNA?oc=5",
-     "src": "메트로신문"
+     "title": "[보험 NOW] 교보생명·신한라이프·푸본현대생명",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1Vc3FwXzFNcVk4T1RSaktjT0ZsVzhUaHN1dnVOQWhpeUhSOU5NX2h2SGUwVDVhUlBMNjR1UGJnMk54eV9NUWNEOGNLUk1BVjk2U0lRNU05TGZmblpoNlg5cEd2al9kSUN0MkR0NzBGNjU?oc=5",
+     "src": "위키리크스한국"
     }
    ]
   },
   "삼성화재": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
-     "title": "삼성화재 3분기 순이익 4천932억·8.3%↓…예상치 소폭 상회",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1kSERBS1JVSWI1ck05bXJiX0NCSTM2NXFWbGxaQzV6VldIOVUxa0hBZS1FT1k0dTgwcXZ3cTU2UnItZzZaV2tHR2xKclEwQVoxOHNpdmlBaFVmcE1FUk03eDRadXFUeWNFRXRJNDZwMVc?oc=5",
-     "src": "연합인포맥스"
+     "title": "삼성화재, 3분기 순이익 4937억… 전년 比 8.3% 감소",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPdlRBVG96Zkttc0E1VEJGOUZTT3I3ZmlIaTd6U0JRR3BoLXVfOEdJVk50T3N2MG1aNlIwSnZsMDFEM1A4QlhRRW91Z1BFN3puLThYOXcwSS1kOWZoMVJZU2lOLXlzYTBtVWhuTXBZRmZ4MmlQbjNvRkVmekxMSzEyWtIBlAFBVV95cUxQWWlQQ2pyS3JEbjVjdE5rWjc1ejBkd3k2OTNRQV8tZ3JRLVJfREUtT19PaHdHT3pjcDR0WGw4Mnl5THNfUjk3NzR3cWFrTlBnMlZQcVJYNG1RUjNyajlSTWlKQkNTQ3BGNHF5eWctcmU3TFdMUEFuVElBNjRiR3F1RlpUSkRBQUlTdnZ0a3JaODdNZHZq?oc=5",
+     "src": "Chosunbiz"
     },
     {
      "date": "11.12",
@@ -20285,9 +20295,9 @@
     },
     {
      "date": "11.11",
-     "title": "삼성화재 \"횡단보도 보행자 6명 중 1명 스마트폰 사용\" - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0xb3p1dDhuR1lHRjRaZ0Vma0EzYWdGRjVTWERtYktwUkxXVlg1eU9KR1RUTW9RLWdnN2l0QThNSW9NZXJvR3p4eVpzZG9CYkczTjlGQ19OdThzT3YzaXVld0s3YUxXYkpEQkFuQVdXQ2bSAXBBVV95cUxNMW96dXQ4bkdZR0Y0WmdFZmtBM2FnRkY1U1hEbWJLcFJMV1ZYNXlPSkdUVE1vUS1nZzdpdEE4TUlvTWVyb0d6eHlac2RvQmJHM045RkNfTnU4c092M2l1ZXdLN2FMV2JKREJBbkFXV0Nm?oc=5",
-     "src": "머니투데이"
+     "title": "삼성화재 교통안전문화연구소, 횡단보도 보행자 6명중 1명 스마트폰 사용",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE85cHFrdWVMZ18xWU9XMHB5dHBDbVQzSEVaUGNzMVp1SEpzbm91X0cyeXBBNUVaQncxT0dla3NEYTFCMG1rNE9YbGh1dEZQRDhESVdGVEh1NFhsbEdJU3VHcjBkOGViVGVDVXlF?oc=5",
+     "src": "보험신보"
     },
     {
      "date": "11.10",
@@ -20304,7 +20314,7 @@
    ]
   },
   "DB손해보험": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.11",
@@ -20369,8 +20379,32 @@
    ]
   },
   "현대해상": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "“병원비 폭탄 걱정 끝, 클릭 한 번에 맞춤 보장”… 현대해상, 다이렉트 건강·어린이 보험 2종 전격 개편",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5lalFpTkhERUktT2FReGJ1NktocEk0S0ZHX3BHSDRKOUxjRXo4bFlLNUhWYkt2OVJIaGRZc1U1MTBDUkUyX2NtU2F1TGdUSmRfa0dBQmp4QzkwMVB2SUV3bjlMR3poNkRTaWo3ZFFCYmg?oc=5",
+     "src": "스마트경제"
+    },
+    {
+     "date": "11.12",
+     "title": "현대해상, 최신 '암 치료'·'배타적사용권 신담보' 탑재 다이렉트 보험 2종 선보여",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5hcTlraXVOY3FXeGFFbS1iYTJkSGpIUzNUVmUtRXBrVUwtdzJDSVNBSFBzdTRIeVZCbDlHa3ZUSFBNQ1FmeHhVVEh6QW9RcGR2OUFKMTZ3UmdvcHhuaVF5THA2TXdpMThOd1dQRERacw?oc=5",
+     "src": "보험저널"
+    },
+    {
+     "date": "11.12",
+     "title": "현대해상, 최신 암 치료부터 우리 아이 건강까지",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4tYWJMUjhtTzUtNF9xTGt2M0Q4OEtxYlI3aW44RlBwMlgtZTJOTDRaVm9ZRmEyandUZXBQYkEyZFBWZ2hONk5USWRLYm9ZV2RJVGhNMklpNm1QUQ?oc=5",
+     "src": "한국경제"
+    },
+    {
+     "date": "11.12",
+     "title": "[디깅노트] 현대해상 정경선의 승계 시계…보험 '오너 3세' 셈법",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBTbUdzVURiaG1EOElTRUlEVVo0S1VVZzhGU2M5RDd2RGdMYXdiT0ZQbDdHdTJKNE1EbDlwZTdLT2VsU1ByanhjWm9qa0QxUG1UOTlZQ01QRnNmQWdQMzc2aU83SE5SNkNG0gFsQVVfeXFMTVRaem9XRVVXZWhwTi1acDdReHkyQ1FkR3UwTkNqM3NaQjJkMGYtaVdZNExBLWhlOVJlQjBuYzFWVnBtVVFFOF8wNGFZODZwTzRJd1RYUGc4NnZzMUhHMENmUDdCSVZRS2RmdjZo?oc=5",
+     "src": "블로터"
+    },
     {
      "date": "11.12",
      "title": "[데스크 칼럼] 사회적 기업 앞세운 현대해상 정경선의 1.5조 ‘아빠 찬스’...주주는 웁니다",
@@ -20403,43 +20437,19 @@
     },
     {
      "date": "11.10",
-     "title": "'오너 3세' 정경선 현대해상 부사장, 증여로 5% 이상 주주 명단에",
-     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9xVGFFMFNOSTlkOXFSbnJEMGV2VUd1R1E1bjFxaHR2TFdMN0tkOXpYWlp2c0JBQk5HMzMzQXYwYnQwcUl4RlE?oc=5",
-     "src": "Daum"
-    },
-    {
-     "date": "11.10",
      "title": "현대해상 정경선 부사장, 지분 6.48% 확보…사측 \"증여 따른 ‘직책·역할’ 변동 없어\"",
      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBmdjhLbVFfMjZRMTVMNTUxSnpKbWZMRnhMWmVBRGk1eXBmMTVwUFJ0cTF2UXRpTkpWeWpUTXJsbVdVa3hOS3hSbkRXdTM4cWxXUV9SMjh0a3N2ZmxVUnNZdU44LTlRcGFaWDRfa01BMHA3ZGs?oc=5",
      "src": "핀포인트뉴스"
-    },
-    {
-     "date": "11.10",
-     "title": "[10일 보험주 마감시황] 생보 3사 일제히 반등…인카 1만원선 회복·현대해상 3.62%↓",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5fUDR4ZVUwaWFtS213WUZGMXBZOFA4cnBJWENpZXRxS1c0ZkdFTGNBRTN1aWk2cWktRzZDazM1a0lzbmViQ3IyNkM5WHVmSFNLRmxuMzBvRVExMkJoVFdRTy1iVjhKMVdEeVJqWFctNA?oc=5",
-     "src": "보험저널"
-    },
-    {
-     "date": "11.10",
-     "title": "[보험브리핑]현대해상·농협손보·ABL생명·DB생명",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE93M0lJS3A5VmVITzJxbnlIRk9YdWhBU3hPYm1XV1gyb1V3TzBvMnVtNkRqaWM1XzV4bDBjMDNvLWdja3NtMDVfdTZNb19tOUNoLWJQQ2JQX2RRSDY2VEFEYw?oc=5",
-     "src": "메트로신문"
-    },
-    {
-     "date": "11.10",
-     "title": "[오늘의 금융ESG] 하나금융·우리은행·교보생명·DB생명·현대해상",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE40MEtGZkVLU3hjWk9WNW5LVzcyNW9zQTEtNVZvcTBDRW9TMjZGeXdmemxnR01CWFRpNHF5RGV0VVZ2ZTl1VEVJeVp6VUY0RDU4d2dlU2NtcUNicm1ncVk2bkdNU2M4QmNQdHY5dXZaQzR6WTJZ?oc=5",
-     "src": "파이낸셜리뷰"
     }
    ]
   },
   "KB손해보험": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
      "title": "초미니 치어리더 정설아 `KB손해보험의 베이글녀` [치얼UP영상]",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9IempwbVdWRU5fdmw0RzRvWV82VTN4UE9CZnJSb3BXcjBvSTZZdUJUQ1JWNEpwX0FLUzFJTE5EZHpZcG4tYlpneG9GclFQM2NtVm1KMmtkNkh1eXlVanhtdmsxbTlfdw?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE82dGc0S3pPcUp5aWh1dk5tTVhRQ2xUTzFycUw0M3FWcV85YVdJam1qR2hpNHo1b3RFRVBBbnVfTWZKODRLeHhjVEpuTHUxODYxWkk1UjVDbElxWDJDT2Q4RA?oc=5",
      "src": "마이데일리"
     },
     {
@@ -20474,32 +20484,32 @@
     },
     {
      "date": "11.08",
-     "title": "[SD 천안 인터뷰] ‘개막 3연패’ KB손해보험 라미레스 감독 “타루샤 이탈과 주축 선수들의 늦은 합류로 어려움…시스템 변화에 적응할 시간 필요”",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9OX3RZTG9hNjlKVmo2Rk5BeWphY01DRHV1SG1yTlhOODIwNEQtdVFma3FMTmhZTm9NUnBFbzQtU2FXUC1kZG83TTNpX244emFNcEpXSkd6U1M3WmRIcjQwR3BaOXA3cUdfUV9fczNaM0x0UQ?oc=5",
-     "src": "스포츠동아"
-    },
-    {
-     "date": "11.08",
      "title": "[SD 천안 인터뷰] ‘첫 승’ 노리는 KB손해보험 라미레스 감독 “선수들에게 책임감 강조, 현대캐피탈의 강한 공격 막고 반격 기회 살려야”",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9lTmhMN1NoUENhMTh4Q1NlUXJwekp2bk9HVGtEZko3Q1hSWktmZnJwQ0EtcWs2NGxHZzItb09VSWJoM2FUMDlhQlB4ZkdWYU9HbkRhMlRBeHVLVjZ6SHh0SHJzTHhieDN6cDNENHBDVXlZUQ?oc=5",
      "src": "스포츠동아"
     },
     {
      "date": "11.05",
-     "title": "재판독 잘했지만 통보 안한 건 '옥의 티' 1일 KB손해보험-삼성화재전 비디오 판독 상황 어수선했던 이유 [MD평택]",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1sd1VueXI1U3lVNzFOOTdPX0s0czZydnRuc0MyNkxBcnY1Ti01Zm9xWTRUUGpHVGY2X0duVm40OHdmWDJWR05tWFBCeVZITGllY0F4Ul96OHhfVHIyMFBhaw?oc=5",
-     "src": "마이데일리"
-    },
-    {
-     "date": "11.05",
      "title": "평택서 프로배구 홈 개막전 개최한 'KB손해보험 스타즈'",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB3RVM0dE96ZzRFLWZPZS13dkZYZ2pVT0lybkVQSWF2ZUNob29pcXBKbGRNUEVRdjg5d05wX0RMT0dWa2t2NkpkTEJUOTh1V3pBb3VhMWtLQk5ZR3lUOC1renJFT1hPdw?oc=5",
      "src": "검경일보"
+    },
+    {
+     "date": "11.04",
+     "title": "KB손해보험, 평택 첫 홈경기서 삼성화재에 1-3 패…세 세트 듀스 접전",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE11RERJeXIzNkVQWTVramxPM3JoNlBKRkhkZ1k0X3dSSWVseVMycVI0LWpUV2pSMVllb0JrSmdYRWloUXE3RVQ3SU1OU2RmZ2VjNVVRdzlFVmJuM0NRbWFFSm43Nk40dElrZ3IxdEUzMA?oc=5",
+     "src": "STN SPORTS"
+    },
+    {
+     "date": "11.03",
+     "title": "[기자수첩] KB손해보험 구본욱 대표님! \"직원이 고객 해약금 14억원을 '꿀꺽'했다네요~\"",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB4enAtLUN3ekE5ek51WGpEazlrTGNSb3NNa3dHMEExbU5NOHAyYWlCbG9TSlg4QU9XMURMWE1jUEktZ1dfTHY3Q2dvUnV4b1RCWXMtNHVVTWtQVjVEOVgtalhR?oc=5",
+     "src": "livesnews.com"
     }
    ]
   },
   "메리츠화재": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
@@ -20564,8 +20574,14 @@
    ]
   },
   "라이나생명": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "라이나생명, 신경계질환 통합 보장 특약 배타적사용권 획득",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA4aDRUQVg1OFFFZlpFSlBQMlJTelN4SGxqd3A0d1lsYkVETHp5YTloUkRILVV1NFk0ekY4NnFGeEJQSXdvT0lJS0hvT1l1WVRzVURDczFhTkJndHQzTmQwMjhiUFJWbHczQi1QVUJQOUTSAXRBVV95cUxONnBOdUdoaDZmY0J4aUxyXzhnQnVDQkI4WWdsdGtPWndadWgxNlVraFFWVW80REdTRU9WV2hnMU9LSmZnZnRlZXRwUGxHVER4QW9raG5uVWdnRlJ1OXlMeUF4MVpuRkkxOTQwaXpDMnFHczhzeQ?oc=5",
+     "src": "포인트데일리"
+    },
     {
      "date": "11.11",
      "title": "라이나생명, 전통호텔 바랑재 ‘5성급’ 획득",
@@ -20589,12 +20605,6 @@
      "title": "결혼정보회사 노블리에·라이나생명, 임직원 복지 위한 업무협약 체결",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9rUUhKT2NncHVuc0ZCbEhPUFQyNU5Oek1nTjcxblRnVXZVVkNfNDBOeUcwQzh2RzRFRUhnck5VZTgyb2ZQdFJBV0lMdXRPbGRFUC1DUHFCOEFnOURvaHlLUkFEcHJHeFRBZDAxNDFR0gFyQVVfeXFMUHJjWnZCV2RmXy11MUYtcmVoVmFZbzV5T2l1bTNTTEMtcXBib1RDbjhGVHMyM1lublRFU0pjUF9SMHRQbG8xVUl1LUpzWU1VVXJ2ajUwT2NSR01DQkpRQkFSTWYwQWkyZ2llandvLThFZ2d3?oc=5",
      "src": "시선뉴스"
-    },
-    {
-     "date": "11.03",
-     "title": "[26년 10월 생보 GA채널] “700종신 빠지자 실적 희비 교차”… 동양생명 82.8% 급감, 라이나생명 72% 급증",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE02S2hzcjFCaXp3U0JQVGFwQUxnWlpsUlM5eWNMWVVTdVZ2bk8zZzg5TWpWRjZXTVFnZXdtN0tIQ0c2SjFicXhwMEM4c1lVM1RUNVFfNXBNcjNKVU9vQWx0VUpjTDNwUTJQVzlXLWtiYw?oc=5",
-     "src": "보험저널"
     },
     {
      "date": "11.02",
@@ -20629,19 +20639,25 @@
    ]
   },
   "파리바게뜨": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "Npay로 최대 1만원 혜택...파리바게뜨, ‘네이버플러스 멤버십’ 혜택 제공",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB1c1hOZmtaZlM5WWxUYTU4UDFMUFA2aFRxRkFTbGRnaW0xSnVCWUtaMDEzNzBGWUN6eTUydjgtbXY5WXFUVVhlLWZYNThWbDB0RTF4WVBOMnJydUhNTTRySlBPQTItUQ?oc=5",
+     "src": "푸드투데이"
+    },
+    {
+     "date": "11.12",
+     "title": "'네이버와 동맹' 파리바게뜨, 1000만 멤버십 빵값 부담 줄인다",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5uaVpVcmdpSlp0SHJaR2o0LWZXcktpdnZ2OVJKT05KNDlFYThHR2FiZXZIR004TFRha3NlU2pfMTFrOHhjVDloRzA5akNhVl8zR1dCS19QVXNUSXBNMDVRMnpfUHY0MTJIalNsag?oc=5",
+     "src": "ER 이코노믹리뷰"
+    },
     {
      "date": "11.11",
      "title": "'하루 10만개씩 팔렸다'…파리바게뜨 '초코쫀득츄러스' 인기몰이",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBPNHZxRXhDbXgwY2diRUM1LUNCQlo4bTFYUFF0TXIyZlpyV2hxVk0yWXZSUjI2bWVRMW9IckJEWHlvVURBZTk3OUFUUWZJSkxjZWRJLXItVDVHelRlc2JCd1otUXU3Y3c3?oc=5",
      "src": "www.ebn.co.kr"
-    },
-    {
-     "date": "11.11",
-     "title": "네이버플러스 멤버십, 파리바게뜨서 최대 10% 할인 혜택",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5Lc0hpR29ZNlpsQmN0VzBZeGYxVnJrc1FlWGFFSDZHRjNGcjVVOWdLR0c5N25rWHU1aHhJa2tVbm5DYmdfcmZaekx1Q1poY2FVLVktekloY29PeUZrMm53Sg?oc=5",
-     "src": "아시아경제"
     },
     {
      "date": "11.11",
@@ -20684,18 +20700,30 @@
      "title": "파리바게뜨, 크리스마스·연말 케이크 신제품 공개…‘베리밤’ 6종 확대",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA1anBEVWVhMEtSTnFxU1UxMHlaelJlV3dRNXRETEgtTU9JMlNUVk44UjdoemhwXzg2ZTUtRkZ5Y2NIb29OZ1h2UlFXc2I5OVZ2S3I1VW1ZQUgwdDVuR1YyX3N0R21tZ9IBZkFVX3lxTFA1anBEVWVhMEtSTnFxU1UxMHlaelJlV3dRNXRETEgtTU9JMlNUVk44UjdoemhwXzg2ZTUtRkZ5Y2NIb29OZ1h2UlFXc2I5OVZ2S3I1VW1ZQUgwdDVuR1YyX3N0R21tZw?oc=5",
      "src": "동아일보"
-    },
-    {
-     "date": "11.10",
-     "title": "파리바게뜨 음료값 2.7% 올리는데 아메리카노는 그대로",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBENmEzdHJZNzF6Mk5USl9BaHRnaDgtLVBTZFdWZk4xdDlocjdsTk1ETXZCRy04MC1RcmZQMldHQWxiNUcwcXF0TjVTS0tLT3N0NFJZT212Q3JxWkx2b2l6TlB0TTVlRk0?oc=5",
-     "src": "자본시장뉴스"
     }
    ]
   },
   "CJ푸드빌": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "CJ푸드빌, 뚜레쥬르·빕스 폐가전 무상 수거…가맹점 폐기비용 줄인다",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBMRUpMbnd4WFh5djZaMEc4M0VqM2RaWThYb1I4VDdleFE1Wi1TbU1IbkdxSlc3SGphNzlJcFhna2lsZDl5akdCaHd3dFpuRkdqcVBoOXBSSlJlbmNiZ2I1cFJkV3M0cm5QVHRnNU5R?oc=5",
+     "src": "이투데이"
+    },
+    {
+     "date": "11.12",
+     "title": "[ESG 한발 더] 삼립·유한킴벌리·CJ푸드빌, 농가 상생부터 자원순환까지 ESG 실천 확대",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9LbHFGYXF2TjQyZ1BfRElWczdhcDVveW1aN3o2bWxXclFBUEUxaGpEWkVPUXFRMjBFaVYzWDJ6bF9YSmtEcUpWY2dqdWZxOGVhWi1IRzgzdzVmTzlRLUE?oc=5",
+     "src": "뉴스투데이"
+    },
+    {
+     "date": "11.12",
+     "title": "CJ푸드빌, 베이커리·외식매장 폐전자제품 자원순환 실천",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0xNDJHSXdWRTRFMDBFdndqSXVvdlF4dmg4cDlqNGQwNlZMVVNJb1Z5aXdQM1pFMWlRT21YU3dDZC13c0JpTGxfVVZUd1NSTWNCalpDWkFDZGZiUEE3Q3RJUnpFY0xmdw?oc=5",
+     "src": "싱글리스트"
+    },
     {
      "date": "11.12",
      "title": "이순환거버넌스·CJ푸드빌 등 3곳, 폐전자제품 '회수·재활용' 협약",
@@ -20737,30 +20765,24 @@
      "title": "\"바쁜 현대인 점심 풍경 바꾸겠다\"…CJ푸드빌의 새로운 승부수",
      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBhU21zWU9uZWlOcE1HU2V1aldNMWpGTEpnM3E1ampxeGFzMDdnU3Z3OGRuQ2RmbWJ0Mld3aTAzUHJqWVlQbmtKUVFCai1sOGJrWWJ6ck01NUJiV3ZIY3dUejBUZkdoLWtQMkhITQ?oc=5",
      "src": "ER 이코노믹리뷰"
-    },
-    {
-     "date": "11.10",
-     "title": "[신상브리핑] 크라운해태, 농심, 빙그레, CJ푸드빌, 롯데웰푸드, 한국후지필름, 이브자리 外",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5MeDVnOG1ZaW9wWG91TFhfMHU1d2FoRzN6V1Zfd2FwSm1abGd2aDJlbWpTMmpJaW56QVR1YU9RVjA3WnZBY1lDaUZ2YUFsRzA4WktrS19jWGJKTFYzUzFJS29IbkdHODgxLVhSZ1FIc9IBc0FVX3lxTE5JWjI2dGVlc0FTdGV3dGxnS3lHNmxBUlppLWNzeXNqalA0aGN0bDE5VjNqRFgwLUxNWWZiYjBnMjlmYTltUHRDd1FBTzcycG1jSTk2VVhfdkVDRVlkUWYyWTI5Y2t5LWV0SHRYZ1AyMTJnYnc?oc=5",
-     "src": "데일리한국"
-    },
-    {
-     "date": "11.10",
-     "title": "[똑똑한외식] 설빙, KFC, 매드포갈릭, 써브웨이, 교촌치킨, 파리바게뜨, 아웃백, 요거트월드, CJ푸드빌 커먼이츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9yeWFBVDBBVGh6ZkRzZHNwejVNWnd1UUF6eW5Dc3Vxalp1MWtXaFFOOXlnc3VnWkFMZTVyU0lPT2U0emxsVDJUZlpMMHk4VkJqQ2tNQnlCV2FUX2s?oc=5",
-     "src": "에너지경제신문"
-    },
-    {
-     "date": "11.10",
-     "title": "[Weekly 식품·식음료] 교촌·CJ푸드빌·롯데웰푸드·이디야·롯데칠성 등",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1pdmJjRUloeFk0WW44dDJ3VFVCUXpsYlU4b01CVURQVWozRlpqbmhTY1FmVTdKM01rR0xneXM4V0pzQ1ZFR2lnX1RGaUZDRnhkTHVwX05UNENUdkRPT3VHWm5zOWlXR1NrM3Vzc3RzclF0SW8?oc=5",
-     "src": "오늘경제"
     }
    ]
   },
   "신세계": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "[유통딜리버리] 신세계百ㆍ롯데百ㆍ이마트ㆍGS리테일ㆍCUㆍ롯데마트ㆍG마켓ㆍ이마트24ㆍ무신사ㆍ세븐일레븐ㆍSSG닷컴ㆍ롯데홈쇼핑ㆍ롯데온ㆍW컨셉ㆍ11번가ㆍNS홈쇼핑ㆍCJ온스타일",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE81LVItOWxFMjFsTVJkTDhvNFRSOTd3NXN4NlVYLTZPSmQzYjZIZkIyTEtGV3hhR3BURzlwSk92a1FaWHk0dWlYZ0RYOWZWMTVRQmpvYmxWTjJPX2RUU0UyX1dDaEs4MThzbU9pVVFpMjliVFk?oc=5",
+     "src": "대한경제"
+    },
+    {
+     "date": "11.12",
+     "title": "패션에서 뷰티로…신세계인터, '체질 변신' 나선 속내는",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9LU2VmYlRMVXpnRE5fcnZwOG1VSDJya2JMWm1zaDB6Q0lOWlZNMEt2TGFzd2ZCSDRYeFhPWGFmTmdsNnhfM25oam1TY0xMTl9pbW5Jbk5JYzFOMVVJR2lzdWttSlNNOWdDYWc1Qw?oc=5",
+     "src": "비즈워치"
+    },
     {
      "date": "11.12",
      "title": "신세계百, 2년 연속 ESG평가 A+ 획득 \"지속가능경영 실천\"",
@@ -20808,28 +20830,58 @@
      "title": "'실적 파티 끝?' 증권사 12곳 모두 목표가 하향…신세계에 무슨 일이",
      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52ZDdiS3pnbjl2cllta2xqaDBGLXAxcEZhQjRFbHJNZzU0YU9MVXk1VUFSMGMyNEZQOUNMa1VEb05PbC1EVTVOYVUzeFhDZDFCYXg2VmV1QUY2Zw?oc=5",
      "src": "한국경제"
-    },
-    {
-     "date": "11.11",
-     "title": "광주신세계, 트리 연출로 성탄절 분위기 '성큼'",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5ydVBqYzZXYmpUQUM1Tm9fYlVuc2tBR0wtNVJWcDlJdXllSjJlS0ZCeW1oYUppM2Z6cnl0V0tXbTlLaXZYSVIzU25ORGlPTDBvLXR5bWlqOW13ZTNHb3Y5V2I1OGtEMTdlWDlWSEZkQQ?oc=5",
-     "src": "진일보 | 전남일보"
-    },
-    {
-     "date": "11.11",
-     "title": "한투證, 신세계 목표가 22.6%↓…\"백화점 모멘텀 회복 필요\"",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5HUjliY0JobUM4WE5EbFZWb0FLaVBZXzNvTVlrbkppMl9SbnFVODJrQ0QwM0ZUa3pWOURVd21NVEVKQ3FHOGZkUGVoX0tpQ09iQUVPVUlKZVRBZlZZYXNF?oc=5",
-     "src": "뉴스1"
     }
    ]
   },
   "이마트": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
+     "title": "한국투자증권 \"이마트, 스타벅스·신세계건설 등 자회사 실적 부진\"",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQNmdsRTFDdC1NRUJxLVlxS0JPT0FDNk5CZWVuR0kxWjlPNVE2SE5KemdrYWVwNTkxLWFaVi1lS0Eyb0h0dUVIc3NWRS04Z3Fzd1dqajFCYmpzWWJwemhZUGE3N0VhenY5YkVOTHVhaTZOTmxGR25lWTdnc2tNUnZ5NXFvTzdELUc1?oc=5",
+     "src": "글로벌이코노믹"
+    },
+    {
+     "date": "11.12",
+     "title": "[똑똑한쇼핑] 롯데마트, 이마트, G마켓, 11번가, SSG닷컴, CJ온스타일, 롯데홈쇼핑, KGC 정관장, 이랜드킴스클럽",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9maWJMdjBpLVY4YkxZM3pmQy1TWGJjYklncEVqTGctc24yWFRfeHkxYVU2M3RQb3FVUUdpb1J5bFB2NDhmcDQ1STdaMVJIQjZ4cDV5SGNlLXVQNk93dWw5bHF5TQ?oc=5",
+     "src": "에너지경제신문"
+    },
+    {
+     "date": "11.12",
+     "title": "이마트24, '텍스트힙' 열풍에 문학 간식 출격…초판본 책갈피까지",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1IczU0VHVocWlTSkhXQmJpTkpBdkZGUWx0QjBLdndUWXFJOVdtRzZjZmtUWV9PVkUzRXhEN21JMGFRQXRkSHFPTWUwemZtMFlkR2hmT24xdi1OLXRKVTVJNThGa2NjMDk3bjU5d3c2VQ?oc=5",
+     "src": "조세일보"
+    },
+    {
+     "date": "11.12",
+     "title": "[모닝 리포트] \"이마트, 본업 회복에도 자회사 부진 부담\"",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE54UFFBclIyZFVmSmNJTHhfSDk1eEtqc0JmMmlJMGFvVTFIbW5kRmhTcVJVR1BoYWNRN0JsV1hydHV5LXRvS2JfRFhzY1hmYVFCTHpMd3hkWHlkeC1H?oc=5",
+     "src": "뉴스핌"
+    },
+    {
+     "date": "11.12",
+     "title": "이마트24, 명작문학 초판본 활용한 식품 7종 선봬",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5XQXRfQXlVSUphZzdEV1Q3VVpMVGVGZWxfYks1MTdyZkJ2OHJXczF4M254Y1VPSUd6ZzA2eHNKenkxU2h5NEZyMTQwcnNHUEJMZUljb0ZycDltX3gxU1hheVhCYlY?oc=5",
+     "src": "매일일보"
+    },
+    {
+     "date": "11.12",
+     "title": "\"본업 선방했는데\"…스타벅스 적자에 이마트 '털썩' [종목+]",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9DRy1ZcTQ2bTZkTEw5SU9GQnhmSjg5QzRrMHZ4MWNzLWhLZkFJUmJBV2gtaDBuUXo5R0lVdkJ3NEVsckZzQ3RNa0JMQmlZbXhpSEVKZkUwMHV1QQ?oc=5",
+     "src": "한국경제"
+    },
+    {
+     "date": "11.12",
+     "title": "이마트, 자회사 정상화·재무구조 개선 필요…목표가↓-신한 - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE4xeUFGUllfSjBXRDFiNk5QQkFYa2FTRzdYdHlPTnlGRE1Hb0M1VHYxT2ZnT3Vaek5GU1k2VU1nYjJMZEpYZTgtZ0twMGdVR05oRmtjN0ZKa1VGUHFMMGpxM3FkdDVfcl9C0gFuQVVfeXFMTmRDWkhyel92RHpKMEpNblpKeWlEUDQzQ1U4QWNxa3BCM0JBdERUSVJWZ0NKZG1mUXhCcUszdUVGTFhfVFNPeGstTndvNDBDLXAyZERDSlNGR0JaVFZfZ21GWXVDaWg3SWszQnIyR2c?oc=5",
+     "src": "머니투데이"
+    },
+    {
+     "date": "11.12",
      "title": "한투증권, 이마트 목표가↓…\"3분기 자회사 부진 매우 아쉬워\"",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0yV2NWY3VwWWd0YW12MkVrSWFRZHZYX0JEb0RzdDZULXVXVWVaT3RMV05zc2RaVlZzTUJjQmtQQmZQN2RTb2JKSHFJRmdpSWdLQzQxbGhEZ0Y0MVXSAWBBVV95cUxPWDhxbDVhR1AtTElndE5wRmwwbXVmXzVyMzNpUE9XWlFEbzFUVWdPVk5HWHRqeEszdHlKOVF6VUtqMEhFWnJkNjgzbDZLWDY4X2lMRXNsc2xES0ZDdTRLeWI?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9YOHFsNWFHUC1MSWd0TnBGbDBtdWZfNXIzM2lQT1daUURvMVRVZ09WTkdYdGp4SzN0eUo5UXpVS2owSEVacmQ2ODNsNktYNjhfaUxFc2xzbERLRkN1NEt5YtIBYEFVX3lxTE9YOHFsNWFHUC1MSWd0TnBGbDBtdWZfNXIzM2lQT1daUURvMVRVZ09WTkdYdGp4SzN0eUo5UXpVS2owSEVacmQ2ODNsNktYNjhfaUxFc2xzbERLRkN1NEt5Yg?oc=5",
      "src": "연합뉴스"
     },
     {
@@ -20843,65 +20895,29 @@
      "title": "이마트, 김장철 배추·무·양념 최대 50% 할인 판매",
      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9uQ0xvUlNWYlBSVkJHcThJQ3VXYnp6clB2VlJXd2lRTGZUc3JqMWtKTWNxZE1YX1NjUE82Vi1xWWt0Y3FtQ3pVLWxNN1pqOWZuN2VPaGRKdy1vR2pj?oc=5",
      "src": "뉴스핌"
-    },
-    {
-     "date": "11.12",
-     "title": "정용진 공들인 트레이더스 질주…이마트, '분기 매출 역대 최대'로",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBYX1dRUEZ3OG1ib3M3Qm5PYU5yYjctMG41b0RrdURTVmhJR1cybDQtVTlydm5IdmpnSDJBeUJ6YWdSMWNRbW9iam1XZjRLcW5PNnlUQ01XQ0lpcUZr?oc=5",
-     "src": "뉴스핌"
-    },
-    {
-     "date": "11.11",
-     "title": "‘탱크데이’ 스벅 2분기째 적자 행진…모회사 이마트도 영업익 70% ‘뚝’",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBvRHpIazdFdEdSc3Rqd0ZyeGpfY1JkeVo5Q2l1MGc1UUJjalZ1S29sZjhycGE5SkFiZUFpdURIcGxNTGNtQ3JzbG9nZDJpRWl3bkozTzhhZUFhV2dOVjVrdXpJNFZGY2lTaVE?oc=5",
-     "src": "한겨레"
-    },
-    {
-     "date": "11.11",
-     "title": "이마트, 분기 매출 첫 5조 돌파…본업 회복에 실적 개선",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE11VnJSUWNkVWY0QmFoWFFOTU1wUjFaVjBmeWRmNDFGSnJhZFYwOXBqckd3b0FLdzNaX2JIUXJfSW5GUDJmVktYeThhT3l4SzlYaWd0Ni15RlIxSktGTXUtU25JVlJiX1pCQ0U5dA?oc=5",
-     "src": "메디컬투데이"
-    },
-    {
-     "date": "11.11",
-     "title": "벌교농협, 이마트 감정평가 상회 인수 의혹",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9fN0s1Z1pEWFRFUGVad0JtUGtETG9paVZoYnU1c05tNTEtV0pMemR5M2VxX3FyQmY5YUY4cmRHRGd1QkEzclBlUjFtR3lVbWRPTnZmWloxaVU5WENPSFpBVWdvbDQ1RVhhUFE?oc=5",
-     "src": "광주타임즈"
-    },
-    {
-     "date": "11.11",
-     "title": "이마트, 분기 매출 5조 첫 돌파… 정용진 복귀 힘 실린다",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1ycldBZHZZdGkweThWb0JhUEZETXVtYlpPYTIzRGV3UWFWeDZva191NUpmbHljQjZDX2R1dGpObDRVYUh1TkYzYzBXdTViTWlxYnN4VFpXRlo5cU9kMlVDTk0zNDY0dnp6Z0hxLVZ3?oc=5",
-     "src": "아시아투데이"
-    },
-    {
-     "date": "11.11",
-     "title": "이마트 분기 총매출 첫 5조원대…스타벅스 적자는 ‘그늘’",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1fR0VFME1LWnJVeW9UQXJwckV2S0E5bmc0eTd0VjU0cXNxX1M4TnpoOEgwSXRWV1ppUlRXcmtCNmUwa0RhUkctc1ZYNDZzREROTDBKTmJoLXptSV9WN0xhZHU2cV9maXdhSDlMRXE1NTNJTFHSAXNBVV95cUxNX0dFRTBNS1pyVXlvVEFycHJFdktBOW5nNHk3dFY1NHFzcV9TOE56aDhIMEl0VldaaVJUV3JrQjZlMGtEYVJHLXNWWDQ2c0RETkwwSk5iaC16bUlfVjdMYWR1NnFfZml3YUg5TEVxNTUzSUxR?oc=5",
-     "src": "시사저널"
-    },
-    {
-     "date": "11.11",
-     "title": "이마트, 올 3분기 영업이익 전년比 70% 감소…'스타벅스 부진 여파'",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBtRmhtM0d6dlFLVmlTYlFiUTdMc09aWVNDMVp6cm9MNUN2dThnTHE0WHVHdWEtN1VWNU9WaFNSUW9iamNBazlWY0tUX01WZWZnX1ZQVENiMldSSUhiSUZ5czlEWQ?oc=5",
-     "src": "조세금융신문"
     }
    ]
   },
   "롯데백화점": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.12",
-     "title": "롯데백화점, 15년 만에 쇼핑백 디자인 개편",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBtZ0dxanBEWmVzZ0RDeV9PaUFucTRrWFBSNm9RaHo4NEYyN1NaRG5RQWhaa1hab3dvY0ZDUUxtVHVmbW1VNlp0X1NhZV9HRG1Jd3kwS2FqdnJ1Q2tF?oc=5",
-     "src": "뉴스핌"
+     "title": "롯데백화점, 15년 만에 쇼핑백 전면 교체",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5EZVhyZ005YlhwTFZES1VpY1VnMnREbzdJZjhUUkhxZm1BRmk1OWVFWEJvT2ZibGJGS1ZXSVh6Z1A3RTZ5dERRLURjQkMwRWRPUlk3Wm1zNFdEc1FkTFh6cDNRazU?oc=5",
+     "src": "서울경제TV"
     },
     {
-     "date": "11.11",
-     "title": "롯데백화점, 동반성장지수 2년 연속 최우수 등급 받아",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9QWTltZldRanRMaEM1MFJPd3JNTWIwdWt6TXFnRlU1WW1oNGFPTXUwbWV5RXJBWWVRLUwzU01RcE9mRER5ZHI1MUg1U1FEaXAxY21OQ3FoVFJ6aUJERjJ2enA4X0ZqYkZjRWEwWFpDam0?oc=5",
-     "src": "코리아리포트"
+     "date": "11.12",
+     "title": "롯데백화점, 쇼핑백·포장 패키지 바뀐다…브랜드 디자인 전면 개편",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE83cTBCX0dFV1hHTlF5Slc4c0JIbHB4N0ljWldzdmtsRUxvc1NXX2RVZkZsSm1uS2E3RXFiQUtzSnlVWENnSlp4N3pVaFBPdw?oc=5",
+     "src": "전자신문"
+    },
+    {
+     "date": "11.12",
+     "title": "롯데백화점, 정장값 확 낮췄다…12만9000원 ‘오늘은 수트’ 출시",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9RYjZOaWhrNVFjWmZQaDdhdElSRG5OT1p3a2U1UlRqX0hkR19SRXFCM2RsNFVZUHFqSVJVV1hfV0tXRlZKdHNYdDNVQjdJcUR3akhQbXlkamZ4cEhCeThBWDJ1dzR1cEFPNXhUS3V1X1N0dw?oc=5",
+     "src": "인더스트리뉴스"
     },
     {
      "date": "11.11",
@@ -20914,6 +20930,12 @@
      "title": "유니클로, ‘롯데백화점 강남점·스타필드 마켓 월계점’ 13일 오픈",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHenZUQXFnS3plWEROeW02TFJkQ0xQMTNacXNEbFlfeUR1TGYtc0VjdXdTNFUtc3lqMUZ2bTZrX0FrN0xsY0RJNUtIWlp2SmhYWElDTl9YcFZYcnotWmFvcHZpTHVEMHlMdFRKUU5ocGU?oc=5",
      "src": "신아일보"
+    },
+    {
+     "date": "11.11",
+     "title": "롯데백화점, 2년 연속 동반성장지수 ‘최우수 등급’ 획득",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9DTEdwckdJc0lRMEFncTl0VVVPYm91ZElBSEZyVjQ3WTZkZGFOLXVyYkg4ZDFZOGRvQy0xaUlUZkItX2d0TndNdVNLaXhNdS1LZ1VWUXd3?oc=5",
+     "src": "매일경제"
     },
     {
      "date": "11.11",
@@ -20938,24 +20960,24 @@
      "title": "롯데백화점 대구·상인점, 13일부터 겨울 정기세일…최대 50% 할인",
      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB4aUdzVlRfcWFkamtWeGJ5MUtMOGZpUHNReWVvdWNYd0kwN3lVRE1rVVZJaThBVFBPaV9SeHBrZF9ERHc0MWoyRmpOUlQwSjUxa0VKT0xtQUQ5N2JReGNOS3pVVkdKaEwzY25DN2RjN3F3c1HSAXNBVV95cUxQeGlHc1ZUX3FhZGprVnhieTFLTDhmaVBzUXllb3VjWHdJMDd5VURNa1VWSWk4QVRQT2lfUnhwa2RfRER3NDFqMkZqTlJUMEo1MWtFSk9MbUFEOTdiUXhjTkt6VVZHSmhMM2NuQzdkYzdxd3NR?oc=5",
      "src": "한국일보"
-    },
-    {
-     "date": "11.11",
-     "title": "롯데백화점, 헬리녹스 경량 다운 1000장 한정 판매…단독 색상 선보인다",
-     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE55aGRjbnJnY0RBOE1fbEtUVUdmaEgyMmdxMVl2eHhGQ2lQanl4OUtIZ1FBbS02Y2hJZlBDc1liQnVBV0tKR0toSWVDWTB0aTlaNVhuWENieTg?oc=5",
-     "src": "더트래커"
-    },
-    {
-     "date": "11.11",
-     "title": "성신여대, 오프라인·온라인 MD 진로 특강…롯데백화점 박은영 동문 강연",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1SejlqTC1aa2ZtU3pRWTZGMW9yZVlPSlQ4WE1tcURLbjkyNHNVdkZ2QkZFdTNJbXVGQUQ1azlFQWRWSWQtSXB3RzVsYVlyUndTNnVrY1NPMWpQVm1sWndoWHJ3QThxZ2s?oc=5",
-     "src": "교수신문"
     }
    ]
   },
   "현대백화점": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "4개월만에 22만원에서 8만원대로…현대백화점 반등 가능할까",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9KSmZxNnk4NEJWdzRqMlNqWWUzcjluUGs1WXVMR0dxR0RIUFZBLTR3ekFVUWo1WVkxdmloMEs1NjkzQ2J4S2R5YXNhd1owOGoxODl1bG1CMy01dw?oc=5",
+     "src": "한국경제"
+    },
+    {
+     "date": "11.12",
+     "title": "현대백화점그룹, 11개 상장사 ESG 평가 '우수'…전원 A등급 이상",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9OckdJdEJaRUZFeXVrNDNEWXRqRGZzZ3NlQ1hEc0F1c2xfai1CQ1ZzQ1pYZHdiUFFtaVJDdmVDcElPQXRNY0k2Q0Uzd3BSTHBtYU9veUZpMklTQQ?oc=5",
+     "src": "파이낸셜뉴스"
+    },
     {
      "date": "11.11",
      "title": "[Weekly 백화점·면세점] 롯데·신세계·현대백화점·신세계·신라면세점",
@@ -21003,23 +21025,11 @@
      "title": "'K브랜드 해외 진출 교두보'…현대백화점, 글로벌 유통 플랫폼 역할 확대",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBTS21uT2FuQk5RdkVnMGFtSEQ1UV9WRm5OVUo1UmcwbUxUUGFvcDlnR1o5cFF0UlBFa19NRTJTeTE1ZWp1a0VhbmM2LXBPTjVkUnhhSFBGZXAydHJnalVtZTZjUEJ2cGNHbUstSWNtSzk?oc=5",
      "src": "위키리크스한국"
-    },
-    {
-     "date": "11.09",
-     "title": "현대백화점, 유망 K브랜드와 ‘멜버른 한류 박람회’ 참가",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE16VmduS3BuY1c5ZzJ5OHBFVEQ5eGNjSnFlMzJiOUhiVWxvdmU2TW1jMXF2azVrUHFSaEx6aDFoVzBJZk9KM01CNGJWVnhnU3lqTkFYQWtSbFl1VDdLaVJBVWhrQldEYWExTG1r?oc=5",
-     "src": "CNB뉴스"
-    },
-    {
-     "date": "11.09",
-     "title": "고양이들이 선물 나르는 '8090 뉴욕'…현대백화점 물 들인 크리스마스",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1jTlZmdUc2RlpiVGd3clU1QzlidVlEZG40c2RUd0RYRklXbGhGckVTdXIzYTI4VndZRktWcGZWWElkOVBBY2Rydld3OGdvc3ll?oc=5",
-     "src": "톱데일리"
     }
    ]
   },
   "배스킨라빈스": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.11",
@@ -23938,8 +23948,14 @@
    ]
   },
   "당근": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "당근, '동네가게 개업패키지' 진행…홍보·구인·운영 지원",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5TeHdtUTBCdkRTNmNaUThYejkxQnVmbFBaNnFTUzk0RjdsU2JfVHVPSEZTcTlJX0JmRzNwYmI4N1R2NjdBWVRYWDIwa3pkVURTejdMV3NLOFNtTk1Hc3RoZDVQOW1BUQ?oc=5",
+     "src": "싱글리스트"
+    },
     {
      "date": "11.12",
      "title": "고우림 \"김연아 몰래 명품 당근하기?…쫓겨날까 봐 상상만\"",
@@ -23990,12 +24006,6 @@
     },
     {
      "date": "11.10",
-     "title": "하얀 당근 ‘파스닙’, 장 건강 소재로 주목",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE92Skw3VzUyNFVST3VxWkdNcEswcEh6TDlhSjlEb29weDZBUDJvc1pSanNDWUFFUTFZTnppNkt2c3laU0Mxd2ZfRWprMUM2NXpBUDBzR0pqOFh2TFVEdHotbHBlYmlFQWs?oc=5",
-     "src": "한국식품의약신문"
-    },
-    {
-     "date": "11.10",
      "title": "편의점 67곳 돌아 신문 7부…당근엔 ‘삼성 우승 신문’ 3만 원?",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1fSE1PNDlRV3UydzN0M3hSYV80czhJLTVnSF84cldkZ3FPdkZqOHFubmNPZHZ6VExMZ1pmLXdlcXZva3A4eU1ySTFqcUpvOFl4bm1FZQ?oc=5",
      "src": "JTBC"
@@ -24003,7 +24013,7 @@
    ]
   },
   "야놀자": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.11",
@@ -24068,7 +24078,7 @@
    ]
   },
   "여기어때": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.11",
@@ -24133,8 +24143,14 @@
    ]
   },
   "한국타이어": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
+    {
+     "date": "11.12",
+     "title": "한국타이어, AI 검색광고로 키워드 2만개 발굴…구글 어워즈 수상 - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA3bFctVHpaUmZ6TEkzUUM1Y1pudjU5VjhSVldmMXNOS3Z3UFBvNENHOGtIdktnb040bnZMaTd5d0hoR1J1LXNQakxRdjBfc2pYelVmSkZvc0gzbUhKNE5BRkZXZXFLME1vUVltc9IBckFVX3lxTE1lSzRJOUVJaTJNdXljZ2FzZGp6c2J6T2pZUlREb3VBM1ZBLTk0M29XWGFHbi0zWWVsbkx1VUZJN2tycWhFakI5a2NSREV4bzFYVGt2QWhhNzZHQnFuSXd6Y1dEQ21lWGk3dVBBal9Fb0wzQQ?oc=5",
+     "src": "머니투데이"
+    },
     {
      "date": "11.11",
      "title": "한국타이어, 고부가 타이어로 수익성 방어…원가 부담 돌파구 찾는다",
@@ -24188,17 +24204,11 @@
      "title": "美 반덤핑 관세 5년 재심 본격화…한국 타이어 3사 수출 셈법 복잡 [K타이어 美 생존전략]",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1EaDVUbUprMEVhSGJrN0MyQThRMlhLR29MUE5RemN2SmNnRU9Ic3JYRHpyQVRSbUJVYjgzbXF2ZnJmRFdCamtkeFg1QTR1RXlqQ05Jeg?oc=5",
      "src": "이투데이"
-    },
-    {
-     "date": "11.11",
-     "title": "[단독] 한국타이어, 美 테네시 세제 해석 논란 종결…“추가 세금 부담 없다” [K타이어 美 생존전략]",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5SenNYZkVGa2UzdGtlNmItaUp5Q05xNE1JU0ZZaUtlR1Fxc2ktcWh2Si1qclNtSE9WekFvQkhEOHZ2dldMcEZQWXdnQzdxbkFmc05peg?oc=5",
-     "src": "이투데이"
     }
    ]
   },
   "넥슨": {
-   "at": "2026-11-12T08:51+09:00",
+   "at": "2026-11-12T10:25+09:00",
    "items": [
     {
      "date": "11.11",
@@ -24217,12 +24227,6 @@
      "title": "넥슨, '블루 아카이브' 출시 5주년 기념 업데이트",
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAtcTV2SUJDX3dVVnRMd2dCZC1abVJKc25UYVllUFd6RHB0VEtzY1h0aWUyenc4VDlCN3liUFRMdEladGdsMGxMYTZDdnJ3ZFBXOEJaU3dlRk03XzhiYkl2Q1Z2M19MeVdTWDdPdG9NXzhUTXhW0gF0QVVfeXFMUC1xNXZJQkNfd1VWdEx3Z0JkLVptUkpzblRhWWVQV3pEcHRUS3NjWHRpZTJ6dzhUOUI3eWJQVEx0SVp0Z2wwbExhNkN2cndkUFc4QlpTd2VGTTdfOGJiSXZDVnYzX0x5V1NYN090b01fOFRNeFY?oc=5",
      "src": "주간한국"
-    },
-    {
-     "date": "11.11",
-     "title": "넥슨, 메이플스토리 72% 급증에 던전앤파이터 가렸다",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBwZ09NT0lQQm1NLWRwZ3V1eE41M0JOQ2tCa040LV94SzZWV1VJeGhFU1lsM0JzM0tvem1mY3FMa1VfRnpQUUhkU203WURkNVR2UWs3Yk1Tdjd4WW5PVnhLVnF1SlMwb2M?oc=5",
-     "src": "자본시장뉴스"
     },
     {
      "date": "11.11",
@@ -24256,9 +24260,15 @@
     },
     {
      "date": "11.10",
-     "title": "검찰, 진경준·김정주 자택 압수수색…넥슨으로 번지나",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBSLVJTMHFFbzNfTlBNOTlVcUVxdUlXdFlxYl9KSmdORko4Tm1ZV1dVaEJPZlFCRW55aUc4VHRxZzlsZi1vQkkydzZHZGRIN0NLaUJPNg?oc=5",
-     "src": "JTBC"
+     "title": "넥슨게임즈, 3분기 매출 386억원…‘던파 키우기’ 등 신작 개발 집중",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBGbE5hNzlVSjBkZER6dTg5ZkF0U19IUXdMbVhvZTJHNHhxWXJxN1ctclo1ckNCZ1dGaV9MRTdtbVU5VElIdENqbC04cWI0cUVtZmIyUlRR?oc=5",
+     "src": "지디넷코리아"
+    },
+    {
+     "date": "11.10",
+     "title": "넥슨, 역대 최대 실적에도 영업현금흐름 반토막…법인세 부담 영향",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE85b25TVjRaTDVWYmk1Q3ZHbzRaV1hPYTFDak9BOXkydWwzVUsxYkdaRjRrMHVnU3hWcm5uLU9MVXdzeGpoM0gybFB4WWtCYzQ?oc=5",
+     "src": "딜사이트"
     }
    ]
   },
@@ -25159,10 +25169,6 @@
    "i": "https://ditoday.com/wp-content/uploads/2026/11/ditoday-156750.webp",
    "d": "AI 기반 에이전트 기능으로 광고 운영 지원"
   },
-  "https://news.google.com/rss/articles/CBMibkFVX3lxTE9rUUhKT2NncHVuc0ZCbEhPUFQyNU5Oek1nTjcxblRnVXZVVkNfNDBOeUcwQzh2RzRFRUhnck5VZTgyb2ZQdFJBV0lMdXRPbGRFUC1DUHFCOEFnOURvaHlLUkFEcHJHeFRBZDAxNDFR0gFyQVVfeXFMUHJjWnZCV2RmXy11MUYtcmVoVmFZbzV5T2l1bTNTTEMtcXBib1RDbjhGVHMyM1lublRFU0pjUF9SMHRQbG8xVUl1LUpzWU1VVXJ2ajUwT2NSR01DQkpRQkFSTWYwQWkyZ2llandvLThFZ2d3?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://www.sidae.com/article/2026110611060136593": {
    "i": "https://menu.sidae.com/moneyweek/thumb/2026/11/06/00/2026110611060136593_1.jpg",
    "d": "광고 자리를 팔던 플랫폼이 이제는 광고를 어떻게 할지 판단하는 일도 거들고 나섰다. 네이버는 이미 내보낸 광고를 인공지능(AI)이 먼저 점검해 고칠 점을 알려 주는 비서를, 카카오는 광고주가 물으면 상품과 전략을 제안하는 비서를 나란히 공개했다. 이번에 내놓은 기능만 보면 기존 광고주의"
@@ -25283,10 +25289,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1hc1N0NWRxeDBtcE9sNHREM0VoczRnV1N1TVF4V2Q4aTEzbE1FY1p0aXhGNUs5UTBhUHpvLXYza2tXWXZpYThtbE1ZOHFoZTdSWFdWUUZpS2lqV25PNTZEMA?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMidEFVX3lxTFA2YlpQMDZrNUpwS01SbzdQRmZMel9MWGpOUWFVbFBueE5YTG9hVjlYLVZBQUctZTlIRWdYbWFWTzZ6OFlBcDh1cjI2ckxmWFVRT0I5dXhPVmlNN1FCc2kyb0RZaFpzbXZjTzl1S2pRWUl3SGo00gF0QVVfeXFMUDZiWlAwNms1SnBLTVJvN1BGZkx6X0xYak5RYVVsUG54TlhMb2FWOVgtVkFBRy1lOUhFZ1htYVZPNno4WUFwOHVyMjZyTGZYVVFPQjl1eE9WaU03UUJzaTJvRFloWnNtdmNPOXVLalFZSXdIajQ?oc=5": {
    "i": "",
    "d": ""
@@ -25300,10 +25302,6 @@
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMibEFVX3lxTE84RDdETjl0SzItWmRsRE03bURnMFNyRVVkdXVyMGNlVkk4cHFGdlJLem9HWW15UUlob0dEOVY0SWlzRHRpSk9CdjgwcEVxMGJPTzJjTjRGRENsSk5yOEwyMTNQeFNoNV9VSkhyUdIBcEFVX3lxTE9aZ1l3Ri1Cak9nd1VfSHY5YUpWRDVrVFRVTTRnYUsyNzZiLVUxNGYxLVcxTzhJVFVqeExoODMxc3FnTmdwLUFPbkZwUHljQndvYm9ENHVZcUdNSUNidXI3VmMtZFY4S3lGV05mUHJaSGg?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMia0FVX3lxTE96bWpHOGZhRXlJdnNnNWw1RUJqcC1QNHhHd2RnaEJxMldCUWtSNU9sT2Vkd2dMNEY0UlprbHlyTmJ1cER3dmlPeTkySUFaSS1XRGtSUVpkblZxNkFwRVktOGtkY2tmdmh3VDdN?oc=5": {
    "i": "",
    "d": ""
   },
@@ -25339,19 +25337,11 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4yNXE1VDV3c3M5VUhLaFlwZVduWFcwVjlwcDFYWE03a0pIMlhJcUVVb3l1MWRRUjloOHp2UDFSQmtkeDYyNVdUeVdvbTF2SmxIMEFSOXJtNULSAVRBVV95cUxOb0NvTXNCTUJKejVROGV0V2pGdFk1U1JSNWQ5X2podFBJekRkbG1lMkoyYXczN21NckNzT1p4Q3B0X0NYR0lNWlYtTldzWkRraWw4ZDY?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiekFVX3lxTE9mUlg0ZW1Ra3M2Y2ZOWU1KUzE3ZFV4R3diRWZNQmdTOGZBa0RUdEJlNEhhMEtPcUJYSXBKSllFVmx2ODVnOWtUVlgtR0g5MXhNMm9CMGRsN1B1QnVHd1hZVkxaRjNuT3BESm9WNzhYUUZwclpoWDBFVFZB?oc=5": {
    "i": "",
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMicEFVX3lxTFA5TnRLc1lLQVI0Rmdma1FVcUZ3bDc3NHhzQkRRWTVjTEl2UlhDclF3alFkRTVRbjE4UXZRSlVVVTdYOEtVMVZuZDBEaU90SzVIcmxXWk1acnpFY2c1NVJ4dzltWlJRRnd4clhMSFJIbkE?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5FYTViRDZ3VU5zT2hscHU3bG9HQlFzcDUyUUFGcGo1VXRkN0ktVGJia3VPcDEzelNNRGVnaVdEYXpJdUZfaHdyMVM2b3BmYktGSzZuV0NJVGp4VE1xdG9feUUwZw?oc=5": {
    "i": "",
    "d": ""
   },
@@ -25379,19 +25369,7 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBoX2NLaUNRWEVIektjS2JuMGVDTWlGTnY5WXBtN0dTZ2RmRDByeXVPbWdrRVRMZWdRLXB0ME9ubXBDQTNZSFN6dmY2N2gyVm5PaVVyUnpRSnlKOElrM3JYOURHc1V4Zw?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBTQUV2N0pjV2dCcHZhNy1DY3kwTzJvN2F1QlZqNWZReFJielkwcUZORHdkYkI2T0lpU1o0cVNNWnp4WVlabzNSQTBtTEM2M2tnc29VQ0JibFBJQmdORlZVcVhla0ZuNUpr?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9tS1A4b2tCazFnOHhobnliZVdYLWZUTUNzSUsyQzlhdE0tZmpPdFhnUm9DX0hCMlRnM1BaTmVrSXVHa1Zqcjh6UnR0MUhoX0g1bEI4Tk1SUlRDWU1xRXVjTTNjYVV4cDMy?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMibkFVX3lxTE40UndFdVpHT0lRNzFYeHppNHo1UzRja0huN1M4QXNFWEJuMG4xaWQwSzdldVRvOG04UTJVc0tzQ3hnUThCSDdZQi12MlFCcmVHMV9VUEw5dnBjU0F1bmpsNG0xREtqcHFLektKbmp3?oc=5": {
    "i": "",
    "d": ""
   },
@@ -25483,19 +25461,7 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9tNmdKTXIxQjRyaWg5anNpNkpkaWEzZlJXMnBlZUd4NjJmNWljcmJUc2NIMXlmQno5MDJNdWRCaHRkbHR3SnlNeGVVcVRtdS1kNVVSaUYwVTM?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMia0FVX3lxTE00SE0tMlphVUNFZEZPUHd4MlJLaVVrOUI5Q1pxcUktdC1tcmJjWWdiNXpMcDhwSk43emZsZnlKdjBydVpOTHFXMjZXa2lnZ1VLRC1pT0U5U0Z4ZHdrWUo4b1RLODFzeVpmX0gw?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMickFVX3lxTE9HNDBBS2EwVURNNUhkbnVuQ2RaajhfLThTS2NtNVFhWmMyQ0dyVTh5RG1fdDdKVGhVNVl6YkxsUzZmSkVRbGFOaWFVS3UxekVGMjJCWllQUTFMMmxEZmJHRzRPN1NZcnFaYnhtb2NNZWwxUQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBkNnNvNzlDZTR2b3VHQWc4U0hycjk0Q1FTOHNQT2N4Rlk1MDJJd2pQNmNqakprdlF2OS02UkV4N1llNHZSWXpQX3h4c0tnTzM1ajl4RldyWlBHWmdYWE1FME80SC0?oc=5": {
    "i": "",
    "d": ""
   },
@@ -25547,10 +25513,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5Lc0hpR29ZNlpsQmN0VzBZeGYxVnJrc1FlWGFFSDZHRjNGcjVVOWdLR0c5N25rWHU1aHhJa2tVbm5DYmdfcmZaekx1Q1poY2FVLVktekloY29PeUZrMm53Sg?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5MzJFVmJHekNJRHBmME5MTVpyV19uMHlZNmFaZ0dNYi01OU5maDRVLWxFc2RqaDZ1bFZVTzNUYlIxM1FjRkRxalRjeFYwcThqTExlbUhlOVRVNnlyTkRCQ1N0cEXSAWhBVV95cUxOMlZUZFRuODJqZ3c3c0hVaV9oQm9qb0R5WTBTZHFUUmV1VUJ4SjJmakhMeDFWSEJZaVIyR2s5cHZoMDFGam00UG5pRGJRT3BfV29QXzB6bl8zaEtmaW1WeVdxMU1ONXdFdg?oc=5": {
    "i": "",
    "d": ""
@@ -25576,22 +25538,6 @@
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMiakFVX3lxTE9kT0RUOUZXLXZfdkI4cDllUzNXY2pZQjVlcXNEbHkzVDg2a3JTVU9DaGpURkRjWnhNM0ZpOVNHbmcwaTdTZDYydU1vejhvb0VJLXBXcFhOczdYd1RXTGRsRG5iX1JYT2tGMmc?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBPSnpHbjZ0U0IydURxVl8yaTkxcm13bHJpUDJ2R2NXWWRJbUlYS0NQSUZzNy1yTWdUNVVta2RhUnpXX0dQcGxscW1kZw?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5SR0RsSEUtVlpUd19SMGY3RmFyT0hlVEdiTVhJTW9ZTm0yOVpzS0tlRS1aa0ZHZHA5S3R4d1BrSkxrNkVGWkVXN211aDlUeUE?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMibEFVX3lxTE9OaTJldDZhMEF1Wml4WXNNdll2RHJ6bGJVOVByYmR6alRUUWpZbmk0cVJuNUlMMU9GTFVFQmdVSjNFbXhSVU5ZNnZwSG9RWEloSlBma2x2VnN6NVlHWmt5MmIxVDBZaHg1NW1lVQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHenZUQXFnS3plWEROeW02TFJkQ0xQMTNacXNEbFlfeUR1TGYtc0VjdXdTNFUtc3lqMUZ2bTZrX0FrN0xsY0RJNUtIWlp2SmhYWElDTl9YcFZYcnotWmFvcHZpTHVEMHlMdFRKUU5ocGU?oc=5": {
    "i": "",
    "d": ""
   },
@@ -25703,14 +25649,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMie0FVX3lxTE9IZkdNRVlBU0hyYlJwOE01aURPWWNrSHBaSDZBSzcwOUVkXzFPS0ZPa3JUb2poVUp2MHRCREtLWGdmSXprUEFnbTVXVXJuS1d4VGZsTVJxLUstVU1PSkhVNXJVdXVjUXlBX1ZyTkowd05nSk00VDU3VDYzVQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4wMFJ6YVplR29rLU1EMDRCU0pFTFFxbXB1OXRXcVZPS0dpN0NGelNMTmxHcG4yWmtja0pIcXppQWJfWTRIWkRaRHlBd0syTFdlcTVBd0c5dk9VbXJiZjdQSGl6ZFQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1nQVVJRTg4N0F3UjZDdWl1TXZuY01sMW80OXV5UU56cVh0d21fSlNpWjlCMlYxUDduOHFSZWpWOEpqS3VOTmF1cFNuUUk4eDh6X0NlUThB?oc=5": {
    "i": "",
    "d": ""
@@ -25771,10 +25709,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMicEFVX3lxTE00d29qLWhGS1RmbWtJS2lLTE9GWU9tMVQwZjdURHNqbGJ6ZHp4T2lQNkVjbDRfckJvZFNOQ3ViWFp4Wjk0ZmI4cXl1Q0FQeDFKcFBqWmtlWVpJYVNGVzBwVmloNE9GdnliM2ozRXJOd2w?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBUMGd6dlpOclJQM0JUWHBWM1ZUd2pGS1cwaWtxRklDRUc4bHRBUlpSNkl6dk5SVnI3VWxIbzRXc2EwRFM5RXBhZ3lMTXdOck8taHR3U3dZR3h2ZTVKQ3pjcnlNVXVRdw?oc=5": {
    "i": "",
    "d": ""
@@ -25824,14 +25758,6 @@
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBzWUdDNU95M29sLWFLMVNySC10bWFrX2Z5NEVBaEpLQVFxZFFidUpnNlg5Smc3Y0lJYXZnTDYzX2tHZ3p6WFJhcHAxWHZHTjExRno1SV9mS2lJVGRoakJNLWc1eEI2Zw?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMidEFVX3lxTE0tcWo2VVJ6N0ZMbUZWS3ZDc3kyNE5FOVhoNW9KalVJWHhxMWFwdlJXNmYzOWM5cUpxZERZM0o1NmtsVnBFRlZWQzNDUHFvM002YVJJaWdvb0h0U2I0MmVTTk9qMWR5WHVqQklhY2dGOFFJc09m?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMicEFVX3lxTE9QWTltZldRanRMaEM1MFJPd3JNTWIwdWt6TXFnRlU1WW1oNGFPTXUwbWV5RXJBWWVRLUwzU01RcE9mRER5ZHI1MUg1U1FEaXAxY21OQ3FoVFJ6aUJERjJ2enA4X0ZqYkZjRWEwWFpDam0?oc=5": {
    "i": "",
    "d": ""
   },
@@ -25935,10 +25861,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMihgFBVV95cUxOS1k0TXQyOWRBYUhmd3lpdGlkaUxpMDB6NGdGQ21waEpmNmk1dHJmcjVBQTVUaVlhZmZIbW5mQW1qbGNQMXFwTFo1MFp1dE1nYmR0Nm5XQW9NMDYzeWZNSnplaEZZSWJ0cDZiMUdDYUhNYTloTGNLX1RkbHNJa0hPZWZsV3pqUQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5ZYUFqMkJaUVFwd2dIZzk4M1B0QUJHZUdUa3RrN0JSTUtjSEhQWmZxVlI5WmFyclc5ZEROTUFBNERad3dHRUVLM3FyZEhDNUIxMy1OS01WWUdqTzNj?oc=5": {
    "i": "",
    "d": ""
@@ -25971,10 +25893,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBwZ09NT0lQQm1NLWRwZ3V1eE41M0JOQ2tCa040LV94SzZWV1VJeGhFU1lsM0JzM0tvem1mY3FMa1VfRnpQUUhkU203WURkNVR2UWs3Yk1Tdjd4WW5PVnhLVnF1SlMwb2M?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiWkFVX3lxTE95NDg4eWtmVWxObjE2UlJFUHcyRmlKTkktYUZGRk9BX21YcHprUk4zVTYyN3Bnc2pueEpKR1ZrN0RWeWkybHpPY3hMenhjUkxXbHc4NmdHcDVNZw?oc=5": {
    "i": "",
    "d": ""
@@ -25984,10 +25902,6 @@
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9tOFJueXExRV9mbTlXb2dyOXlZR01Ob3V1WThMMjdHSFVYODlVdlB4YWF0UnhOQ3NpTzdGUVdZTktpT3dfZzB2Q3hEMTZoYUJa?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBHS1FLdmpBZWdKX3V2U2ZpMFVtdVVUbk9SQ2tWQ3owOTVoX3AxRTIxV1JlWllqblhNWHpDZW9DY24xakxSSHc1b29RS0xSaW1qQ0tLZG5ENzYxVGhPeDI3ekVuWXk?oc=5": {
    "i": "",
    "d": ""
   },
@@ -26083,14 +25997,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA2ejY2UVl3Uk5kVklJRDJxUU1OaFd2dVJzclZteTY2aFFDVmdtMXFUS1BKV0FLbjZrYXItOEtmcjJ6T3l3UkZLNkx1Qm1ES085dnhwWWZiRk96QQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiVkFVX3lxTE45U05ZN0c1UExxRzRySWFBNTVRSmZ2QVp4eWFDb2RRQVpZQXJpRmpCWnhqSXJONlU4WXAxNjJueG1XYzk4S3FfTkcxNTlBTVpIcHFLMTlB?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5vTU5oT3VaN1hKc2ttcU5HWUZ1NlJuZmVRamFLbmhUcjJqVEp1RFpnbGlwRG9jYkRzbVRaMXJ3UWxLZkpzenJVeVZ4TUtQdThHTi1SOWRsMjlRd0hjVmtCdg?oc=5": {
    "i": "",
    "d": ""
@@ -26179,10 +26085,6 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBCTVJfdThXM1dLTGRhSnI1VVlyWWVwZ2pZNTRXUUdQX3BETUZVazNCQXdlWFdqZndqNURyN3VkOWh0VzdyMENFSkcyeGp6NzU4WlA3NWZlQ1dQOS1NNloyVlRNS2J1QQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1IWV84eXUxbGdaTzNObUZXZHIyYmwxcnVmWTA2dXZBVjNuQXVBeGpnNTM3Q0NmdURPZkdOblBGSDJPTUtsVERIdEpIbXVSWHM3MEhVeg?oc=5": {
    "i": "",
    "d": ""
@@ -26191,31 +26093,11 @@
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5BMVZUYUVhTERZcWkyUzA5SDhJR0hSS1A3UVVoQmpTLThTRVJnQ21tOFFlRVJ2WE1wTWR6RDZNMm5LMW9mdHZGWHBDc2YxMHI5Y1RTeElfOGhBWUVZSDgxV2pmS1h5UQ?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1INzNydFhtbG5jSXlVZVUxdkxXRW5aYngzRGYtb2VWdzVNSVl4U1RvejNqbk5raHhIRDEzZFF5R0dHcC1NLThDcENNNmo3eThVY1VhSnQwU2hzS3ZNRkNLdGNTTmdPZw?oc=5": {
    "i": "",
    "d": ""
   },
-  "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HQzJVZTA0TDJWY1FEOVVHTnlJOFloeVVxRFVobmw1Yl80cURISTg1Tm96QUpyYjBQdzFHVUxrS3NrS2VsZ2pJYktRMTA3VXdwOV9hTFdBSmNTak51cHdzMHZDREh5Q0F1S0xyaEtCT3NiT3Jo?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMicEFVX3lxTE1kSERBS1JVSWI1ck05bXJiX0NCSTM2NXFWbGxaQzV6VldIOVUxa0hBZS1FT1k0dTgwcXZ3cTU2UnItZzZaV2tHR2xKclEwQVoxOHNpdmlBaFVmcE1FUk03eDRadXFUeWNFRXRJNDZwMVc?oc=5": {
-   "i": "",
-   "d": ""
-  },
   "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1zSGdvOUc1NzFaOWpudE8zallUV1BXQS12OXVyY1g0R2RFdG9KaGNLLTROaDM1WHVSOVBvQmFEQVFQb2E4VDNjdlp1d2pjOGdxZW9HalE1MEJXZk0?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMia0FVX3lxTE1QQXBQNTBDNmo5dFM4REk0RE9uN0xIclNIRzhtcVZ0ZkxpYktkNXYyWjlqVjJ2MXpyZUtpTFlSb0N0UGc4Y1FMYnVWdE8xMDdmMkVMRGlnVHRTN0haczNwUWpIelp5SG05SkdV0gFvQVVfeXFMTVVvcDB1SnRqWkdBZC0yLVFYbWNRZTB5V1lWekl1R1RScEhMOHJGQWNRNlFoRlFfeWlLSVFDdHlzOWF5VDNobXlzZHNuVzFEMkRhcE9TUS1TcW12bXJjTnhDWjlmVV9qYkE0SDRuNUs0?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9IempwbVdWRU5fdmw0RzRvWV82VTN4UE9CZnJSb3BXcjBvSTZZdUJUQ1JWNEpwX0FLUzFJTE5EZHpZcG4tYlpneG9GclFQM2NtVm1KMmtkNkh1eXlVanhtdmsxbTlfdw?oc=5": {
    "i": "",
    "d": ""
   },
@@ -26224,26 +26106,6 @@
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1FcEcxcFprbndXR3ZPaGl6WGFVaHljTEU2UjNURF83ZVRSY3hoUGtiSHQ4MTlFaDl6bUdFUGlHVkhlYVFIT2VPUWd1eWE2UElCWlIycEdGUURDc1k?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0yV2NWY3VwWWd0YW12MkVrSWFRZHZYX0JEb0RzdDZULXVXVWVaT3RMV05zc2RaVlZzTUJjQmtQQmZQN2RTb2JKSHFJRmdpSWdLQzQxbGhEZ0Y0MVXSAWBBVV95cUxPWDhxbDVhR1AtTElndE5wRmwwbXVmXzVyMzNpUE9XWlFEbzFUVWdPVk5HWHRqeEszdHlKOVF6VUtqMEhFWnJkNjgzbDZLWDY4X2lMRXNsc2xES0ZDdTRLeWI?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBGdnF0QVJlM2k2MTlGZ1FCU1BVN0dtc21ST0VYMDVRSHpUMzhFZkZRVC03RDJqMjFjZzZqakNnSVUxd0VFUmZkM3k0MklsZw?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9uQ0xvUlNWYlBSVkJHcThJQ3VXYnp6clB2VlJXd2lRTGZUc3JqMWtKTWNxZE1YX1NjUE82Vi1xWWt0Y3FtQ3pVLWxNN1pqOWZuN2VPaGRKdy1vR2pj?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBYX1dRUEZ3OG1ib3M3Qm5PYU5yYjctMG41b0RrdURTVmhJR1cybDQtVTlydm5IdmpnSDJBeUJ6YWdSMWNRbW9iam1XZjRLcW5PNnlUQ01XQ0lpcUZr?oc=5": {
-   "i": "",
-   "d": ""
-  },
-  "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBtZ0dxanBEWmVzZ0RDeV9PaUFucTRrWFBSNm9RaHo4NEYyN1NaRG5RQWhaa1hab3dvY0ZDUUxtVHVmbW1VNlp0X1NhZV9HRG1Jd3kwS2FqdnJ1Q2tF?oc=5": {
    "i": "",
    "d": ""
   },
@@ -26492,6 +26354,154 @@
    "d": ""
   },
   "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9BVVUxcER5TDFWVzljeGJCaXJHdGhkTWtrU2JHeU5jdXRDMlZmYy1jRGo4LWQ0M3NBeWx1UTljMWVMVS1TUkhuS042N2NSMS1mbW51RnNWTTQyRFFVYTFuZ1QxZ2VXUzJH0gFrQVVfeXFMTUJpblBYemtlSWNoMXozZnhqSjA2eXM2ZFM1T09aUll1OW5uU1VEalB1c090UXhnRnFmMXUtUHp0QUxMekI2V0NuMHRQem1JSkYydEZ6MEZtN2Z1eWdNX0o0QVVrVklMNTl1NEE?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMieEFVX3lxTFB3SWh3Q2xCVTkyNGhKbW9oM3QxV2dNb1lhcG5zMEZVSXFNZjI3NUt4V2pmSXRXdFIzajJkZXRNemJLb3FFUDd5bHNmQXBTTVpRNzRZdVdRdDFORUlNN1BEYlJoS0RkbzBxd1g0MXNKNUZLN2xxbGRsM9IBfkFVX3lxTE9MZUVBbHFielpWNm16N1VaSnQ4M2x1RFVjZWVPTExNMGE2M1hoUElTVEhpWlpqZ2dWZ1V5ZG1sMVZud2ljWGVwY1p0WWRNekdzSk56OFpkbzZqZlRLVHJJaXl1cXh0dVJCNTc5S3hKY2xNN2NWNnJjRFNGeTZ4Zw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMibkFVX3lxTE9NTTVMTW5uRlZrWlBSVkRMU3dtZm9BS3JPNE5OZE9tNy1fY1VYNllwRnVybmtvWDdCeFk0NHNmeFd6eHpMUm4yaHQxaWJqQm1oYnZJWWl4UGdROUwzZFVGbWN4aVhVdi04RTMxNWZ3?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMibkFVX3lxTFBMRUpMbnd4WFh5djZaMEc4M0VqM2RaWThYb1I4VDdleFE1Wi1TbU1IbkdxSlc3SGphNzlJcFhna2lsZDl5akdCaHd3dFpuRkdqcVBoOXBSSlJlbmNiZ2I1cFJkV3M0cm5QVHRnNU5R?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQVmpvOXF1ZzlLOUpKWF9FN3VIbnhfR0R0WFpYN0hlRU1wNERiRDZySDFySWtqN1RCSHF2R1ZlT1lETFdseGZBNm9QM2pEWmVoT3V6TnVIVFc4eWVIMkh0TjBtc2FyNkEyV050cGgwdDZhanFpZEZ6UG1CamFxNDVZcHVlcUFsZFRDcEU0?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMia0FVX3lxTE96OUpYVzFnVFNhTjVSWnVhYng1RU5rMU1uNm9ub1I2QmVhcWlWaFZFODNpLU9BS01wN0x3OXZJSlA4WTA5M3FpcVZuemFQNXJLR05PNDhFQzN6VEY5SHZJcEUxRFQxQ1NGNkdv?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5vS2ZtSV9ta0ZIbDRQRnBmMjF0MkFUZkVJYWlqZTdZME44NERaWlQ5aExRU2JkQVRpbkZNMDl1Yi1aMWpRZC1uOHczZ3h5VzhDRy1UdXA5Y3JhMVVhWFFlNm1OSEU?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBId01oby1aNlpfb0ZDSmFFeXdWN0pDVEVsX2JXVTl2clFCRFFscUhXNGNJX1FQX1hfMy1XUzlLS1BSMG5yQ3F5dG96T1RYamdhYmtob010THV2YU5X?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiYEFVX3lxTE82bkJvUlJIdmJGWVM3UXQ2TnJoVXRrNGUwTzBxQkpJVDh1dVcySzJ3RXR6SE5Vc2kwMnlwU0pPV01WM3hHUWZwMVJaYkpheGpwMFVoR005UE85SGh0ekttdQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOSGszVnlDLVN4NXVmam9kRnBoOVZUc2p1cXhIRHVUdnJjVEtwemZmX0RUNDBOVl9lNHNtdUhWWW94eVIzVjhMZnQ2YXU2RzAzUVJ6cDFOb2ZUS2tQUFhlYlVnY2owekNqQk54X0RjcEdQTVdPSTFQb2h2MXctSkJzcGpWTmpadzAw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxcVJfNFdJb3U0aGFLZmNKekFvMHJCRXoxNVJZT0w5OWRtay1GY1FsdV9NREZqVEZPWndOQUlILUUyVWJCaUxYdVdCeDVDWU02cjMxaGduVXowano0?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiakFVX3lxTFBxclVsZDNKMlJnY3NQOUNzN3hIZnQzbkZ3Y3g1VU1lcnFZS1dNbWt2NWdJb04zdmdWV3BYbGpCNGF2UlhOdEtTRDM1cGxzOTZwVnVMRlE0M25QT0Zya1RFUFNNWlZUbE92LWc?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMib0FVX3lxTE1fNHFTOURMSzVxR0RsN3ozUUVDTm0tWTl2bjZCVXNyRHpNQVVCcVZXX1k1NDZGUHBsdTJiWk1zaTI1ZWVhZHhkNHVENXd1VmRmcE5yaFlFRXoxMGVlV0hhbDgwUk93V2dKUGdxX0s1MA?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMicEFVX3lxTFBPaC1pVmdrdzNTQS13TUVFUWd1dEVUOXl2Ymx1U2ZxTVFXcjhUS2FzaUhLSU4tWXlraExGczU1NDEwbmUyMW55b3c0dG1ZckxVaUZYUGRNQ0Q2X1B3aHBrbDdocml0SHRlb3lTRU02YUU?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMigAFBVV95cUxPdlRBVG96Zkttc0E1VEJGOUZTT3I3ZmlIaTd6U0JRR3BoLXVfOEdJVk50T3N2MG1aNlIwSnZsMDFEM1A4QlhRRW91Z1BFN3puLThYOXcwSS1kOWZoMVJZU2lOLXlzYTBtVWhuTXBZRmZ4MmlQbjNvRkVmekxMSzEyWtIBlAFBVV95cUxQWWlQQ2pyS3JEbjVjdE5rWjc1ejBkd3k2OTNRQV8tZ3JRLVJfREUtT19PaHdHT3pjcDR0WGw4Mnl5THNfUjk3NzR3cWFrTlBnMlZQcVJYNG1RUjNyajlSTWlKQkNTQ3BGNHF5eWctcmU3TFdMUEFuVElBNjRiR3F1RlpUSkRBQUlTdnZ0a3JaODdNZHZq?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMicEFVX3lxTE5lalFpTkhERUktT2FReGJ1NktocEk0S0ZHX3BHSDRKOUxjRXo4bFlLNUhWYkt2OVJIaGRZc1U1MTBDUkUyX2NtU2F1TGdUSmRfa0dBQmp4QzkwMVB2SUV3bjlMR3poNkRTaWo3ZFFCYmg?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMib0FVX3lxTE5hcTlraXVOY3FXeGFFbS1iYTJkSGpIUzNUVmUtRXBrVUwtdzJDSVNBSFBzdTRIeVZCbDlHa3ZUSFBNQ1FmeHhVVEh6QW9RcGR2OUFKMTZ3UmdvcHhuaVF5THA2TXdpMThOd1dQRERacw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4tYWJMUjhtTzUtNF9xTGt2M0Q4OEtxYlI3aW44RlBwMlgtZTJOTDRaVm9ZRmEyandUZXBQYkEyZFBWZ2hONk5USWRLYm9ZV2RJVGhNMklpNm1QUQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBTbUdzVURiaG1EOElTRUlEVVo0S1VVZzhGU2M5RDd2RGdMYXdiT0ZQbDdHdTJKNE1EbDlwZTdLT2VsU1ByanhjWm9qa0QxUG1UOTlZQ01QRnNmQWdQMzc2aU83SE5SNkNG0gFsQVVfeXFMTVRaem9XRVVXZWhwTi1acDdReHkyQ1FkR3UwTkNqM3NaQjJkMGYtaVdZNExBLWhlOVJlQjBuYzFWVnBtVVFFOF8wNGFZODZwTzRJd1RYUGc4NnZzMUhHMENmUDdCSVZRS2RmdjZo?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiYEFVX3lxTE82dGc0S3pPcUp5aWh1dk5tTVhRQ2xUTzFycUw0M3FWcV85YVdJam1qR2hpNHo1b3RFRVBBbnVfTWZKODRLeHhjVEpuTHUxODYxWkk1UjVDbElxWDJDT2Q4RA?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMicEFVX3lxTFA4aDRUQVg1OFFFZlpFSlBQMlJTelN4SGxqd3A0d1lsYkVETHp5YTloUkRILVV1NFk0ekY4NnFGeEJQSXdvT0lJS0hvT1l1WVRzVURDczFhTkJndHQzTmQwMjhiUFJWbHczQi1QVUJQOUTSAXRBVV95cUxONnBOdUdoaDZmY0J4aUxyXzhnQnVDQkI4WWdsdGtPWndadWgxNlVraFFWVW80REdTRU9WV2hnMU9LSmZnZnRlZXRwUGxHVER4QW9raG5uVWdnRlJ1OXlMeUF4MVpuRkkxOTQwaXpDMnFHczhzeQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB1c1hOZmtaZlM5WWxUYTU4UDFMUFA2aFRxRkFTbGRnaW0xSnVCWUtaMDEzNzBGWUN6eTUydjgtbXY5WXFUVVhlLWZYNThWbDB0RTF4WVBOMnJydUhNTTRySlBPQTItUQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMibEFVX3lxTE5uaVpVcmdpSlp0SHJaR2o0LWZXcktpdnZ2OVJKT05KNDlFYThHR2FiZXZIR004TFRha3NlU2pfMTFrOHhjVDloRzA5akNhVl8zR1dCS19QVXNUSXBNMDVRMnpfUHY0MTJIalNsag?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9LbHFGYXF2TjQyZ1BfRElWczdhcDVveW1aN3o2bWxXclFBUEUxaGpEWkVPUXFRMjBFaVYzWDJ6bF9YSmtEcUpWY2dqdWZxOGVhWi1IRzgzdzVmTzlRLUE?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0xNDJHSXdWRTRFMDBFdndqSXVvdlF4dmg4cDlqNGQwNlZMVVNJb1Z5aXdQM1pFMWlRT21YU3dDZC13c0JpTGxfVVZUd1NSTWNCalpDWkFDZGZiUEE3Q3RJUnpFY0xmdw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMic0FVX3lxTE81LVItOWxFMjFsTVJkTDhvNFRSOTd3NXN4NlVYLTZPSmQzYjZIZkIyTEtGV3hhR3BURzlwSk92a1FaWHk0dWlYZ0RYOWZWMTVRQmpvYmxWTjJPX2RUU0UyX1dDaEs4MThzbU9pVVFpMjliVFk?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMibEFVX3lxTE9LU2VmYlRMVXpnRE5fcnZwOG1VSDJya2JMWm1zaDB6Q0lOWlZNMEt2TGFzd2ZCSDRYeFhPWGFmTmdsNnhfM25oam1TY0xMTl9pbW5Jbk5JYzFOMVVJR2lzdWttSlNNOWdDYWc1Qw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9maWJMdjBpLVY4YkxZM3pmQy1TWGJjYklncEVqTGctc24yWFRfeHkxYVU2M3RQb3FVUUdpb1J5bFB2NDhmcDQ1STdaMVJIQjZ4cDV5SGNlLXVQNk93dWw5bHF5TQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMib0FVX3lxTE1IczU0VHVocWlTSkhXQmJpTkpBdkZGUWx0QjBLdndUWXFJOVdtRzZjZmtUWV9PVkUzRXhEN21JMGFRQXRkSHFPTWUwemZtMFlkR2hmT24xdi1OLXRKVTVJNThGa2NjMDk3bjU5d3c2VQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiXEFVX3lxTE54UFFBclIyZFVmSmNJTHhfSDk1eEtqc0JmMmlJMGFvVTFIbW5kRmhTcVJVR1BoYWNRN0JsV1hydHV5LXRvS2JfRFhzY1hmYVFCTHpMd3hkWHlkeC1H?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5EZVhyZ005YlhwTFZES1VpY1VnMnREbzdJZjhUUkhxZm1BRmk1OWVFWEJvT2ZibGJGS1ZXSVh6Z1A3RTZ5dERRLURjQkMwRWRPUlk3Wm1zNFdEc1FkTFh6cDNRazU?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiTkFVX3lxTE83cTBCX0dFV1hHTlF5Slc4c0JIbHB4N0ljWldzdmtsRUxvc1NXX2RVZkZsSm1uS2E3RXFiQUtzSnlVWENnSlp4N3pVaFBPdw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMickFVX3lxTE9RYjZOaWhrNVFjWmZQaDdhdElSRG5OT1p3a2U1UlRqX0hkR19SRXFCM2RsNFVZUHFqSVJVV1hfV0tXRlZKdHNYdDNVQjdJcUR3akhQbXlkamZ4cEhCeThBWDJ1dzR1cEFPNXhUS3V1X1N0dw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9KSmZxNnk4NEJWdzRqMlNqWWUzcjluUGs1WXVMR0dxR0RIUFZBLTR3ekFVUWo1WVkxdmloMEs1NjkzQ2J4S2R5YXNhd1owOGoxODl1bG1CMy01dw?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9OckdJdEJaRUZFeXVrNDNEWXRqRGZzZ3NlQ1hEc0F1c2xfai1CQ1ZzQ1pYZHdiUFFtaVJDdmVDcElPQXRNY0k2Q0Uzd3BSTHBtYU9veUZpMklTQQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5TeHdtUTBCdkRTNmNaUThYejkxQnVmbFBaNnFTUzk0RjdsU2JfVHVPSEZTcTlJX0JmRzNwYmI4N1R2NjdBWVRYWDIwa3pkVURTejdMV3NLOFNtTk1Hc3RoZDVQOW1BUQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMibEFVX3lxTFA3bFctVHpaUmZ6TEkzUUM1Y1pudjU5VjhSVldmMXNOS3Z3UFBvNENHOGtIdktnb040bnZMaTd5d0hoR1J1LXNQakxRdjBfc2pYelVmSkZvc0gzbUhKNE5BRkZXZXFLME1vUVltc9IBckFVX3lxTE1lSzRJOUVJaTJNdXljZ2FzZGp6c2J6T2pZUlREb3VBM1ZBLTk0M29XWGFHbi0zWWVsbkx1VUZJN2tycWhFakI5a2NSREV4bzFYVGt2QWhhNzZHQnFuSXd6Y1dEQ21lWGk3dVBBal9Fb0wzQQ?oc=5": {
+   "i": "",
+   "d": ""
+  },
+  "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5qSzA0N1BBdzVKWVdoYWd5SGUxaFA3RGx0cEg4cDlaVGQxbXZBREF2c3IwY181UWZfZ3JwYUdqenNTRDBTWVJIbU03MUQtZ3Faa29jSzN6Vjd4aEU3WUNpWg?oc=5": {
    "i": "",
    "d": ""
   }
