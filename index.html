@@ -2050,7 +2050,7 @@ function boot(D){
     var rest=prefSort(all.filter(function(c){return c!==main}),function(c){return c.tags}).slice(0,12);
     if(CAMP_ARC&&CAMP_ARC.main){main=CAMP_ARC.main;rest=(CAMP_ARC.picks||[]).slice(0,4);
       $('kcampsub').innerHTML=esc(fmtEd(CAMP_ARC.date))+'자 캠페인 · <a href="#camp" id="campToday">오늘 캠페인 보기</a>';}
-    else $('kcampsub').textContent=(JP_ON&&D.db&&D.db.turns&&D.db.turns.length)?'AI 4대장의 썰전':'캠페인 읽기';
+    else $('kcampsub').textContent=(JP_ON&&D.db&&D.db.turns&&D.db.turns.length)?(/지필태|제민아|김그록/.test(JPN+GMN+GKN)?'AI 4대장의 썰전':'필진 4인의 썰전'):'캠페인 읽기';
     campRest=rest;
     var yt=function(c){return c.yt?'<a class="cyt" href="https://www.youtube.com/results?search_query='+encodeURIComponent(c.yt)+'" target="_blank" rel="noopener">영상 보기 ↗</a>':''};
     var rv=main.review||main.why||'';
