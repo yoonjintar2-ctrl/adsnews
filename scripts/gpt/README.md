@@ -19,3 +19,12 @@
 6. 같은 파일명으로 img 교체, JSON의 img에 `?v=gpt`, model을 "ChatGPT 이미지 생성 — 그림 도안나 대리"로 (apply_example.py 참고: 날짜와 alt만 바꿔 쓴다). 두세 장마다 커밋·푸시.
 7. 탭 닫기. 숨은그림찾기는 SVG 그대로. 한도·오류면 남은 그림은 SVG로 두고 보고.
 넓은 창(뷰포트 1400 이상)이면 stitch.py(세로 타일)도 쓸 수 있다.
+
+## 사진 빈칸 채우기 (11/12 추가 — 같은 07:20 작업에서 GPT 그림 다음에 한다)
+data.json의 campaigns·live 가운데 photo가 비었거나 `img/jp/thumb-…`(SVG 대체 그림)인 항목을 진짜 기사 사진으로 바꾼다.
+GitHub Action(fill_photos.py)이 못 받는 매체(news1·아시아경제·스포츠경향 등은 러너를 막는다)도 맥 크롬으로는 열린다.
+1. 맥 크롬 새 탭에서 항목의 url을 열고 javascript_tool로 og:image를 읽는다(? & = 는 ' QQ ' ' AA ' ' EE '로 바꿔 받아 되돌린다):
+   `const g=n=>(document.querySelector('meta[property="'+n+'"],meta[name="'+n+'"]')||{}).content||''; (g('og:image')||g('twitter:image')||'NONE').replace(/\?/g,' QQ ').replace(/&/g,' AA ').replace(/=/g,' EE ')`
+2. og:image가 매체 로고(파일명에 logo·sns·default)거나 없으면: WebSearch로 같은 캠페인의 올해 기사를 찾아 그 기사의 og:image를 쓴다(제목으로 같은 캠페인인지, 연도가 맞는지 확인. 지난해 기사 사진은 쓰지 않는다).
+3. data.json에서는 그 항목의 photo만 바꾼다(url이 같은 항목만). 탭은 닫는다. 끝내 못 찾은 것만 SVG 그대로 두고 보고한다.
+'오늘의 캠페인'(feature:true) 사진은 지면에서 가장 크게 보이므로 반드시 확인한다.
