@@ -1129,10 +1129,18 @@ body,button,input,select,textarea{font-family:var(--serif)}
   .np-left{display:contents}
   .np>*{order:10}
   .np-left>.a-brief{order:1}
+  .np-left>.a-strip{order:1;margin-top:18px}
   .np-left>.a-camps{order:2;margin-top:18px}
   .np>.a-live{order:3}
   .np-left>.a-person{order:4;margin-top:18px}
-  .np-left>*:not(.a-brief):not(.a-camps):not(.a-person){order:5;margin-top:18px}
+  .np-left>*:not(.a-brief):not(.a-strip):not(.a-camps):not(.a-person){order:5;margin-top:18px}
+}
+/* 11/12: 모바일이 32화면으로 너무 길어 — 썰전은 첫 두 마디, 족보는 한 줄 요약만 보이고 나머지는 펼쳐 보기 */
+.fold-btn{display:none}
+@media (max-width:620px){
+  .dbt.fold:not(.open) .dbt-x,.dbt.fold:not(.open) .dbt-note{display:none}
+  .vdx.fold:not(.open) .vdx-t{display:none}
+  .fold-btn{display:block;width:100%;margin-top:10px;font:inherit;font-family:var(--serif);font-weight:700;font-size:.9rem;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:9px 6px;cursor:pointer}
 }
 
 /* v41: 공동 집필 — 금로동(Claude) · 지필태(ChatGPT). 두 기자의 글은 같은 크기·같은 비중 */
@@ -1368,6 +1376,9 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 .minis-h span{font-size:.78rem;color:var(--faint)}
 .minis-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:22px}
 .minis-g .mini+.mini{border-left:1px solid var(--rule-soft);padding-left:22px}
+.minis-g.one,.rv2.one{grid-template-columns:minmax(0,1fr)}
+/* hidden 속성이 .np-sec{display:flex}에 밀려 지난 호에서 빈 코너의 제목만 남던 문제 */
+[hidden]{display:none!important}
 .mini{display:flex;flex-direction:column;min-width:0}
 .mini-k{margin:0 0 2px;font-size:.7rem;font-weight:900;letter-spacing:.08em;color:var(--red)}
 .mini h3{font-family:var(--serif);font-weight:900;font-size:1.32rem;line-height:1.32;letter-spacing:-.01em;margin:0 0 4px}
@@ -1675,16 +1686,17 @@ function boot(D){
 
   // 제민아 대리의 캠페인 족보: 오늘의 캠페인 브랜드가 해 온 캠페인을 리서치해 연도순으로 정리(줄마다 출처)
   function lineageHtml(main){var L=(D.gm||{}).lineage; if(!L||L.url!==main.url||!(L.rows||[]).length) return '';
-    return '<div class="vdx"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+esc(GMN)+'가 찾아 정리</span>'+cpl('lineage','이 캠페인 족보 링크 복사')+'</div>'+
+    return '<div class="vdx fold"><div class="dbt-h"><b>캠페인 족보</b><span>'+GM_AV+esc(GMN)+'가 찾아 정리</span>'+cpl('lineage','이 캠페인 족보 링크 복사')+'</div>'+
       '<ol class="vdx-t">'+L.rows.map(function(r){return '<li><b>'+esc(r.year)+'</b><span><strong>'+esc(r.name)+'</strong> — '+esc(r.desc)+(r.src?' '+link(r.src,'출처 ↗'):'')+'</span></li>'}).join('')+'</ol>'+
-      (L.flow?'<p class="vdx-f">'+esc(L.flow)+'</p>':'')+'</div>'}
+      (L.flow?'<p class="vdx-f">'+esc(L.flow)+'</p>':'')+'<button type="button" class="fold-btn" data-more="연도별 족보 '+L.rows.length+'줄 보기 ▼" data-less="족보 접기 ▲">연도별 족보 '+L.rows.length+'줄 보기 ▼</button></div>'}
   // 오늘의 광고 캠페인 — AI 4대장의 썰전: 관심 있는 둘이 한 이야기를 이어 가다 다른 사람이 끼어드는 대화. 각자 직접 쓴 말만 싣는다
   function debateHtml(main){var B=D.db||{}; if(!B.turns||!B.turns.length||B.url!==main.url) return '';
     var who={geum:[REPORTER_BARE,RNAME],jp:[JP_AV,JPN],gm:[GM_AV,GMN],gk:[GK_AV,GKN]};
-    return '<div class="dbt"><div class="dbt-h"><b>'+(/지필태|제민아|김그록/.test(JPN+GMN+GKN)?'AI 4대장의 썰전':'필진 4인의 썰전')+'</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+cpl('debate','이 썰전 링크 복사')+'</div><ol class="dbt-l">'+
+    return '<div class="dbt'+(B.turns.length>3?' fold':'')+'"><div class="dbt-h"><b>'+(/지필태|제민아|김그록/.test(JPN+GMN+GKN)?'AI 4대장의 썰전':'필진 4인의 썰전')+'</b>'+(B.topic?'<span>'+esc(B.topic)+'</span>':'')+cpl('debate','이 썰전 링크 복사')+'</div><ol class="dbt-l">'+
       B.turns.map(function(t,ix){var w=who[t.who]||['',''];var sep=(t.tag==='마무리'&&ix>0&&B.turns[ix-1].tag!=='마무리')?'<li class="dbt-sep"><span>마무리 한마디</span></li>':((t.tag==='등장'||t.tag==='정리')&&ix>0)?'<li class="dbt-sep"><span>'+esc(w[1])+' 등장</span></li>':'';var to=(t.to||[]).concat([]).map(function(x){return (who[x]||['',''])[1]}).filter(Boolean);
-        return sep+'<li class="dbt-t '+esc(t.who)+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b><span class="dbt-n">'+esc(w[1])+'</span>'+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+(to.length?'<em class="dbt-to">→ '+esc(to.join('·'))+'</em>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
-      '</ol>'+(B.note?'<p class="dbt-note">'+esc(B.note)+'</p>':'')+'</div>'}
+        var fx=ix>=2?' dbt-x':''; if(fx&&sep)sep=sep.replace('class="dbt-sep"','class="dbt-sep dbt-x"');
+        return sep+'<li class="dbt-t '+esc(t.who)+fx+'"><span class="dbt-ph">'+w[0]+'</span><div class="dbt-b"><b><span class="dbt-n">'+esc(w[1])+'</span>'+(t.tag?'<i>'+esc(t.tag)+'</i>':'')+(to.length?'<em class="dbt-to">→ '+esc(to.join('·'))+'</em>':'')+'</b><p>'+esc(t.text)+'</p></div></li>'}).join('')+
+      '</ol>'+(B.note?'<p class="dbt-note">'+esc(B.note)+'</p>':'')+(B.turns.length>3?'<button type="button" class="fold-btn" data-more="썰전 이어 보기 · '+(B.turns.length-2)+'마디 더 ▼" data-less="썰전 접기 ▲">썰전 이어 보기 · '+(B.turns.length-2)+'마디 더 ▼</button>':'')+'</div>'}
   // 김그록 사원의 X 반응 체크: 오늘의 캠페인에 대한 X 반응 온도와 한 줄 촌평
   function xPulse(main){var X=(D.gk||{}).xpulse; if(!X||X.url!==main.url||!X.summary) return '';
     return '<div class="xp"><span class="xp-h">X 반응 체크 <i>'+esc(X.temp||'')+'</i></span><p class="xp-s">'+esc(X.summary)+'</p>'+
@@ -1813,7 +1825,7 @@ function boot(D){
   function shKey(sh,d){var m=sh.match(/^meme(\d)$/); if(m)return 'meme-'+d+'-'+m[1]; if(/^mini-/.test(sh))return 'mini-'+d+'-'+sh.slice(5); return sh+'-'+d}
   document.addEventListener('click',function(e){var b=e.target.closest('[data-sh]');if(!b)return;e.preventDefault();var sh=b.getAttribute('data-sh'),d=shDate(sh);shareTo(shKey(sh,d),d,sh,b)});
   setTimeout(function(){['mini-jp','mini-gm','strip','debate','lineage','meme1','meme2','meme3'].forEach(function(sh){if(document.querySelector('[data-sh="'+sh+'"]'))probe(shKey(sh,shDate(sh)))});probe('tn-'+tnDate()+'-2')},1200);
-  function goTo(sel){var el=document.querySelector(sel);if(!el)return;var go=function(){el.scrollIntoView({block:'start'})};go();[300,900,1800].forEach(function(t){setTimeout(go,t)})}
+  function goTo(sel){var el=document.querySelector(sel);if(!el)return;if(el.classList.contains('fold')){el.classList.add('open');var fb=el.querySelector('.fold-btn');if(fb)fb.textContent=fb.getAttribute('data-less')}var go=function(){el.scrollIntoView({block:'start'})};go();[300,900,1800].forEach(function(t){setTimeout(go,t)})}
   function openHash(){
     var h=decodeURIComponent(location.hash.slice(1)),m;
     if(!h)return;
@@ -1841,15 +1853,16 @@ function boot(D){
   var gmByline='<div class="rep gm"><span class="rep-ph">'+GM_AV+'</span><span class="rep-t"><b>'+esc(GMN)+'</b><span>AI 기자</span><span class="rep-m">'+esc(((D.gm||{}).author||{}).email||'gemini@adsnews')+'</span></span></div>';
   (function(){var el=$('jped'); if(!JP_ON||!el) return;
     function mini(E,name,av,byline,id){
-      if(!(E&&E.date===ED_DATE&&E.body)) return '<article class="mini pend"><p class="mini-k">'+esc(name)+'</p><p class="jp-pend"><span class="jp-av">'+av+'</span><span><b>'+name+'</b>의 미니 사설은 준비 중이에요.</span></p></article>';
+      if(!(E&&E.date===ED_DATE&&E.body)) return window.__ED?'':'<article class="mini pend"><p class="mini-k">'+esc(name)+'</p><p class="jp-pend"><span class="jp-av">'+av+'</span><span><b>'+name+'</b>의 미니 사설은 준비 중이에요.</span></p></article>';
       var C=E.cartoon, Cin=C?toonInner(C):'';
       return '<article class="mini" id="mini-'+id+'"><div class="mini-hd"><p class="mini-k">'+esc(name)+'</p>'+cpl('mini-'+id,'이 미니 사설 링크 복사')+'</div><h3>'+esc(E.headline)+'</h3>'+(E.lede?'<p class="mini-l">'+esc(E.lede)+'</p>':'')+
         (Cin?'<figure class="toon mini-toon">'+Cin+'<figcaption>'+(C.caption?esc(C.caption)+' ':'')+'<span class="toon-by">삽화 '+esc(C.by||JPN)+'</span></figcaption></figure>':'')+
         '<p class="mini-b">'+esc(E.body)+'</p>'+jpSrc(E.sources)+byline+'</article>';
     }
     var GE=(D.gm||{}).editorial;
-    el.innerHTML='<div class="minis-h"><b>미니 사설</b><span>두 대리가 하나씩 · 메인 사설의 절반 분량</span></div><div class="minis-g">'+
-      mini(JP.editorial,JPN,JP_AV,jpByline,'jp')+mini(GE,GMN,GM_AV,gmByline,'gm')+'</div>';
+    var m1=mini(JP.editorial,JPN,JP_AV,jpByline,'jp'), m2=mini(GE,GMN,GM_AV,gmByline,'gm');
+    if(!m1&&!m2){el.innerHTML='';el.hidden=true;return;}   // 지난 호: 둘 다 없으면 칸을 통째로 숨김
+    el.innerHTML='<div class="minis-h"><b>미니 사설</b><span>'+((m1&&m2)?'두 대리가 하나씩 · 메인 사설의 절반 분량':'메인 사설의 절반 분량')+'</span></div><div class="minis-g'+((m1&&m2)?'':' one')+'">'+m1+m2+'</div>';
     [].forEach.call(el.querySelectorAll('.mini-toon'),function(f){f.addEventListener('click',function(){var a=f.closest('.mini');openModal('<span class="t">미니 사설</span><h3>'+a.querySelector('h3').innerHTML+'</h3><figure class="toon">'+f.innerHTML+'</figure><p class="mcols">'+a.querySelector('.mini-b').innerHTML+'</p>',true)});
       var im=f.querySelector('img'); if(im) im.addEventListener('load',function(){if(typeof balance==='function')setTimeout(balance,30)});});
     el.hidden=false; layoutEditorial();})();
@@ -1990,7 +2003,7 @@ function boot(D){
       L.push(J&&J.date===td&&J.body?Object.assign({by:'j'},J):{by:'j',pending:1});}
     el.style.gridTemplateColumns='repeat('+Math.min(L.length,3)+',minmax(0,1fr))';
     el.innerHTML=L.slice(0,3).map(function(t,i){
-      if(t.pending) return '<article class="tn jp" id="tn-'+(i+1)+'"><div class="tn-x"><p class="tn-by"><b>'+JPN+'</b></p>'+jpPending('트렌드 노트')+'</div></article>';
+      if(t.pending) return window.__ED?'':'<article class="tn jp" id="tn-'+(i+1)+'"><div class="tn-x"><p class="tn-by"><b>'+JPN+'</b></p>'+jpPending('트렌드 노트')+'</div></article>';
       var by=t.by==='j'?'<p class="tn-by"><b>'+JPN+'</b></p>':t.by==='g'?'<p class="tn-by"><b>'+RNAME+'</b></p>':'';
       var sv=t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.alt||t.tag)+'" loading="lazy">':safeSvg(t.svg);
       var cr=t.img&&(t.by==='j'||t.art)?'<figcaption class="tn-cr">그림 · '+JPN+'</figcaption>':'';
@@ -2041,19 +2054,22 @@ function boot(D){
     campRest=rest;
     var yt=function(c){return c.yt?'<a class="cyt" href="https://www.youtube.com/results?search_query='+encodeURIComponent(c.yt)+'" target="_blank" rel="noopener">영상 보기 ↗</a>':''};
     var rv=main.review||main.why||'';
+    var jpRvOk=!!(JP.campaign&&JP.campaign.url===main.url&&JP.campaign.review);
+    // 지난 호에서 끝내 실리지 않은 분석은 '준비 중' 대신 칸을 뺀다
+    var jpRvSec=(jpRvOk||!window.__ED)?'<section class="rvb jp"><b class="cm-rv-h">'+JPN+'의 분석</b>'+(jpRvOk?'<p>'+esc(JP.campaign.review)+'</p>':'<p class="jp-pend-t">'+JPN+'의 분석은 준비 중이에요.</p>')+'<span class="rvby">'+JP_AV+'<b>'+JPN+'</b></span></section>':'';
     var mainHtml='<article class="cm">'+
       '<a class="cm-img" href="'+esc(main.url)+'" target="_blank" rel="noopener" style="--c:'+esc(main.color||'#333')+'">'+(main.photo?'<img src="'+esc(main.photo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(main.brand)+'</span></a>'+
       '<div class="cm-t"><span class="cm-k"><b>'+esc(main.brand)+'</b><i>'+esc(main.date)+'</i>'+(medArr(main).length?'<i>'+esc(medArr(main).join(' · '))+'</i>':'')+'</span>'+
       '<h3>'+link(main.url,esc(main.title))+'</h3>'+(main.metric?'<span class="cm-m">'+esc(main.metric)+'</span>':'')+
       '<p class="cm-s">'+esc(main.story||'')+'</p>'+yt(main)+'</div>'+
       (JP_ON?
-        (debateHtml(main)?debateHtml(main)+lineageHtml(main)+'<details class="rv-more"><summary>각자의 분석 전문 보기</summary><div class="cm-rv cm-rv2"><div class="rv2">'+
-          '<section class="rvb"><b class="cm-rv-h">'+RNAME+'의 분석</b>'+(rv?'<p>'+esc(rv)+'</p>':'<p class="jp-pend-t">분석 준비 중</p>')+'<span class="rvby">'+REPORTER_BARE+'<b>'+RNAME+'</b></span></section>'+
-          '<section class="rvb jp"><b class="cm-rv-h">'+JPN+'의 분석</b>'+((JP.campaign&&JP.campaign.url===main.url&&JP.campaign.review)?'<p>'+esc(JP.campaign.review)+'</p>':'<p class="jp-pend-t">'+JPN+'의 분석은 준비 중이에요.</p>')+'<span class="rvby">'+JP_AV+'<b>'+JPN+'</b></span></section>'+
+        (debateHtml(main)?debateHtml(main)+lineageHtml(main)+'<details class="rv-more"><summary>각자의 분석 전문 보기</summary><div class="cm-rv cm-rv2"><div class="rv2'+(jpRvSec?'':' one')+'">'+
+          '<section class="rvb"><b class="cm-rv-h">'+RNAME+'의 분석</b>'+(rv?'<p>'+esc(rv)+'</p>':'<p class="jp-pend-t">'+(window.__ED?'이날은 분석이 실리지 않았어요.':'분석 준비 중')+'</p>')+'<span class="rvby">'+REPORTER_BARE+'<b>'+RNAME+'</b></span></section>'+
+          jpRvSec+
         '</div>'+xPulse(main)+'</div></details>':
-        '<div class="cm-rv cm-rv2"><div class="rv2">'+
-          '<section class="rvb"><b class="cm-rv-h">'+RNAME+'의 분석</b>'+(rv?'<p>'+esc(rv)+'</p>':'<p class="jp-pend-t">분석 준비 중</p>')+'<span class="rvby">'+REPORTER_BARE+'<b>'+RNAME+'</b></span></section>'+
-          '<section class="rvb jp"><b class="cm-rv-h">'+JPN+'의 분석</b>'+((JP.campaign&&JP.campaign.url===main.url&&JP.campaign.review)?'<p>'+esc(JP.campaign.review)+'</p>':'<p class="jp-pend-t">'+JPN+'의 분석은 준비 중이에요.</p>')+'<span class="rvby">'+JP_AV+'<b>'+JPN+'</b></span></section>'+
+        '<div class="cm-rv cm-rv2"><div class="rv2'+(jpRvSec?'':' one')+'">'+
+          '<section class="rvb"><b class="cm-rv-h">'+RNAME+'의 분석</b>'+(rv?'<p>'+esc(rv)+'</p>':'<p class="jp-pend-t">'+(window.__ED?'이날은 분석이 실리지 않았어요.':'분석 준비 중')+'</p>')+'<span class="rvby">'+REPORTER_BARE+'<b>'+RNAME+'</b></span></section>'+
+          jpRvSec+
         '</div>'+xPulse(main)+'</div>'+lineageHtml(main))
       :(rv?'<div class="cm-rv"><b class="cm-rv-h">'+RNAME+'의 한마디</b><div class="rv-cols"><p>'+esc(rv)+'</p>'+bylineHtml+'</div></div>':''))+
       '</article>';
@@ -2140,7 +2156,7 @@ function boot(D){
   // 오늘의 4컷 만평: 글(각본) 김그록 사원, 그림 지필태 대리(또는 그록). 원고는 grok.json에만 있다
   (function(){var sec=$('a-strip'), el=$('strip'); if(!sec||!el) return; var G=D.gk||{}, S=G.strip, GK_START='2026-10-02';
     if(!(ED_DATE>=GK_START)) return;
-    if(!S||S.date!==ED_DATE||!(S.panels||[]).length){ el.innerHTML='<p class="jp-pend-t">'+esc(GKN)+'의 4컷 만평은 준비 중이에요.</p>'; sec.hidden=false; return; }
+    if(!S||S.date!==ED_DATE||!(S.panels||[]).length){ if(window.__ED){sec.hidden=true;return;} el.innerHTML='<p class="jp-pend-t">'+esc(GKN)+'의 4컷 만평은 준비 중이에요.</p>'; sec.hidden=false; return; }
     var P=S.panels.slice(0,4);
     el.innerHTML='<h3 class="st-h">'+esc(S.title||'')+'</h3>'+
       '<div class="strip-g">'+P.map(function(p,i){
@@ -2148,7 +2164,7 @@ function boot(D){
         return '<figure class="st-p"><span class="st-n">'+(i+1)+'</span><span class="st-pic'+(p.img?'':' conti')+'">'+pic+'</span><figcaption>'+
           (p.dialogue||[]).map(function(d){return '<span class="st-l"><b>'+esc(d.who||'')+'</b> '+esc(d.line||'')+'</span>'}).join('')+'</figcaption></figure>'}).join('')+'</div>'+
       (S.punchline?'<p class="st-punch">'+esc(S.punchline)+'</p>':'')+
-      '<p class="st-cr">'+(S.issue&&S.issue.url?link(S.issue.url,'이슈: '+esc(S.issue.title||'원문')+' ↗')+' · ':'')+'글 '+esc(GKN)+(S.artBy?' · 그림 '+esc(S.artBy):(P.some(function(p){return p.img})?'':' · 그림 준비 중'))+'</p>';
+      '<p class="st-cr">'+(S.issue&&S.issue.url?link(S.issue.url,'이슈: '+esc(S.issue.title||'원문')+' ↗')+' · ':'')+'글 '+esc(GKN)+(S.artBy?' · 그림 '+esc(S.artBy):((P.some(function(p){return p.img})||window.__ED)?'':' · 그림 준비 중'))+'</p>';
     sec.hidden=false;
   })();
   (function(){var el=$('staffg'); if(!el) return; var A=JP.author||{};
@@ -2283,7 +2299,7 @@ function boot(D){
     items.forEach(function(n){n.classList.remove('over')});
     var btn=$('livemore'), all=document.body.classList.contains('live-all'), hid=0;
     // 실시간 이슈는 PC·모바일 모두 같은 개수(LIVE_N)만 보여 주고, 나머지는 '더 보기'로
-    var LIVE_N=liveCount(items);
+    var LIVE_N=liveCount(items); if(window.innerWidth<=620)LIVE_N=Math.min(LIVE_N,5);   // 모바일은 5건만, 나머지는 더 보기
     items.forEach(function(n,k){if(k>=LIVE_N){n.classList.add('over');hid++}});
     var lad=$('livead'); lad.classList.add('measure');
     if(!two){lad.classList.remove('measure');btn.hidden=!hid;btn.textContent=all?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';return;}
@@ -2296,6 +2312,7 @@ function boot(D){
     lad.classList.remove('measure');
     btn.hidden=!hid; btn.textContent=all?'접기 ▲':'실시간 이슈 '+hid+'건 더 보기 ▼';
   }
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fold-btn');if(!b)return;var box=b.parentNode,op=box.classList.toggle('open');b.textContent=b.getAttribute(op?'data-less':'data-more');if(!op)backTo(box)});
   $('livemore').addEventListener('click',function(){document.body.classList.toggle('live-all');balance();if(!document.body.classList.contains('live-all'))backTo(document.querySelector('.a-live'))});
   window.addEventListener('load',function(){setTimeout(balance,50)});
   document.addEventListener('load',function(e){if(e.target.tagName==='IMG')setTimeout(balance,50)},true);
@@ -2608,7 +2625,7 @@ function boot(D){
     h.svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+h.w+' '+h.h+'" role="img" aria-label="'+esc(h.title||'숨은그림찾기')+'"><image href="'+esc(h.img)+'" x="0" y="0" width="'+h.w+'" height="'+h.h+'"/></svg>';
     var A=J.author||{};h.by='그림·출제 '+(A.name||'지필태')+' '+(A.title||'대리'); return h;
   }).catch(function(){return getJ('hidden.json').then(function(h){if(!h||!h.svg||!/^<svg[\s>]/.test(h.svg)||/<script|on\w+=|javascript:|<foreignObject/i.test(h.svg))throw 0;
-    h.by='그림·출제 금로동 과장 · '+md(h.date)+((window.__ED&&window.__ED<'2026-10-02')?'':' (새 판 준비 중)'); return h;})
+    h.by='그림·출제 금로동 과장 · '+md(h.date)+(window.__ED?'':' (새 판 준비 중)'); return h;})
   }).then(function(h){H=h;KEY='adsnews-hidden-'+h.date+(h.img?'-jp':'');
     try{found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
     $('hdsub').textContent=h.by;
