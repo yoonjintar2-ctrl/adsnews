@@ -15,7 +15,7 @@ if 'cartoon' in what:
 if 'strip' in what:
     for i,p in enumerate(k['strip']['panels'],1):
         put(f'strip-{i}.jpg',f'img/gk/strip-{D}-{i}.jpg',900); p['img']=f'img/gk/strip-{D}-{i}.jpg?v=gpt'
-    k['strip']['model']=M
+    k['strip']['model']=M; k['strip']['artBy']='도안나 대리(GPT 이미지)'
 if 'jped' in what:
     put('jped.jpg',f'img/jp/edcartoon-{D}.jpg',1400); c=j['editorial']['cartoon']; c['img']=f'img/jp/edcartoon-{D}.jpg?v=gpt'; j['editorial']['model']=M
 if 'gmed' in what:
