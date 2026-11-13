@@ -84,7 +84,7 @@ h1,h2,h3,h4,p{margin:0}
 .pts[hidden]{display:none!important}
 .lead .dek{word-break:break-all;display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;margin-top:0;color:var(--ink);text-align:justify;cursor:default;font-size:.95rem;line-height:1.75}
 .lead .dek::first-letter{font-weight:900}
-.toon{margin:0;border:1px solid var(--ink);background:#f4f4f2;padding:4px;cursor:zoom-in}
+.toon{margin:0;border:1px solid var(--ink);background:#f4f4f2;padding:4px;cursor:default}
 .lead .dek{cursor:pointer}
 .modal-box.wide{max-width:900px}
 .modal-box .toon{cursor:default;margin-top:10px}
@@ -1836,7 +1836,7 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
   }
   window.addEventListener('hashchange',openHash);
   if(document.readyState==='complete')setTimeout(openHash,60);else window.addEventListener('load',function(){setTimeout(openHash,60)});
-  $('toon').addEventListener('click',openEditorial);
+  /* 삽화 눌러 크게 보기는 막음(발행인 11/13) */
   $('mclose').addEventListener('click',function(){$('modal').hidden=true});
   $('modal').addEventListener('click',function(e){if(e.target.id==='modal')$('modal').hidden=true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')$('modal').hidden=true});
@@ -1863,7 +1863,7 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
     var m1=mini(JP.editorial,JPN,JP_AV,jpByline,'jp'), m2=mini(GE,GMN,GM_AV,gmByline,'gm');
     if(!m1&&!m2){el.innerHTML='';el.hidden=true;return;}   // 지난 호: 둘 다 없으면 칸을 통째로 숨김
     el.innerHTML='<div class="minis-h"><b>미니 사설</b><span>'+((m1&&m2)?'두 대리가 하나씩 · 메인 사설의 절반 분량':'메인 사설의 절반 분량')+'</span></div><div class="minis-g'+((m1&&m2)?'':' one')+'">'+m1+m2+'</div>';
-    [].forEach.call(el.querySelectorAll('.mini-toon'),function(f){f.addEventListener('click',function(){var a=f.closest('.mini');openModal('<span class="t">미니 사설</span><h3>'+a.querySelector('h3').innerHTML+'</h3><figure class="toon">'+f.innerHTML+'</figure><p class="mcols">'+a.querySelector('.mini-b').innerHTML+'</p>',true)});
+    [].forEach.call(el.querySelectorAll('.mini-toon'),function(f){false&&f.addEventListener('click',function(){var a=f.closest('.mini');openModal('<span class="t">미니 사설</span><h3>'+a.querySelector('h3').innerHTML+'</h3><figure class="toon">'+f.innerHTML+'</figure><p class="mcols">'+a.querySelector('.mini-b').innerHTML+'</p>',true)});
       var im=f.querySelector('img'); if(im) im.addEventListener('load',function(){if(typeof balance==='function')setTimeout(balance,30)});});
     el.hidden=false; layoutEditorial();})();
 
