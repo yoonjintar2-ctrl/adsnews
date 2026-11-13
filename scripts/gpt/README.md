@@ -20,7 +20,7 @@
 5. `python3 scripts/gpt/stitch_grid.py out.jpg W H VW "x,y:타일.png" … --width 1400` (4컷은 --width 없이 만든 뒤 `split4.py out.jpg 폴더 strip`)
 6. 같은 파일명으로 img 교체, JSON의 img에 `?v=gpt`, model을 "ChatGPT 이미지 생성 — 그림 도안나 대리"로 (apply_example.py 참고: 날짜와 alt만 바꿔 쓴다). 두세 장마다 커밋·푸시.
 7. 탭 닫기. 숨은그림찾기는 SVG 그대로. 한도·오류면 남은 그림은 SVG로 두고 보고.
-넓은 창(뷰포트 1400 이상)이면 stitch.py(세로 타일)도 쓸 수 있다.
+넓은 창(뷰포트 1400×700, 11/14 확인)이면: 가로 3:2 → `__gptShow(1400)` 타일 (0,0)·`__gptAt(0,700)`→"0,263" / 정사각 → `__gptShow(1254)` (0,0)·(0,584) / 세로 4:5 → `__gptShow(1122)` (0,0)·(0,700)·(0,732). zoom은 [0,0,1400,700] scale 1(낮추면 저장 파일도 작아짐), stitch_grid.py의 VW는 1400.
 
 ## 사진 빈칸 채우기 (11/12 추가 — 같은 07:20 작업에서 GPT 그림 다음에 한다)
 data.json의 campaigns·live 가운데 photo가 비었거나 `img/jp/thumb-…`(SVG 대체 그림)인 항목을 진짜 기사 사진으로 바꾼다.
