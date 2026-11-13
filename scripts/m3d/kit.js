@@ -12,7 +12,7 @@ export function setup({ w = 960, h = 640, bg = 0x6e6e6e, fog = [0x7a7a7a, 35, 11
   const cam = new THREE.PerspectiveCamera(fov, w / h, 0.1, 300);
   scene.add(new THREE.AmbientLight(0xffffff, 0.9));
   const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(-6, 14, 10); scene.add(key);
-  // 신문 후처리: 감마 → 45° 망점 + 어두운 곳 사선 해칭 + 깊이 라플라시안 윤곽선
+  // 신문 후처리: 감마 → 먹 농담 단계 + 깊이 라플라시안 윤곽선 (망점 없음: 움직이면 무늬가 어지러움)
   const rt = new THREE.WebGLRenderTarget(w, h, { depthTexture: new THREE.DepthTexture(w, h) });
   const post = new THREE.ShaderMaterial({
     uniforms: { tC: { value: rt.texture }, tD: { value: rt.depthTexture }, res: { value: new THREE.Vector2(w, h) }, near: { value: 0.1 }, far: { value: 300 }, dsz: { value: 3.6 } },
@@ -22,13 +22,12 @@ export function setup({ w = 960, h = 640, bg = 0x6e6e6e, fog = [0x7a7a7a, 35, 11
  float L(vec2 o){vec3 c=texture2D(tC,v+o/res).rgb;return pow(dot(c,vec3(.299,.587,.114)),1./2.2);}
  float D(vec2 o){return lin(texture2D(tD,v+o/res).r);}
  void main(){float l=L(vec2(0));
-  vec2 p=gl_FragCoord.xy; float a=.7853; mat2 rot=mat2(cos(a),-sin(a),sin(a),cos(a)); vec2 q=rot*p/dsz; vec2 f=fract(q)-.5;
-  float r=sqrt(clamp(1.-l,0.,1.))*.62; float ink=1.-smoothstep(r-.08,r+.08,length(f));
-  ink=max(ink,step(.62,fract((p.x+p.y)/6.))*step(l,.1)*.9);
+  // 망점·해칭은 움직일 때 무늬가 일렁여 어지럽다(발행인 11/13) → 먹 농담 4단(부드러운 경계)으로
+  float t=1.-l; float k=t*3.; float ink=(floor(k)+smoothstep(.35,.65,fract(k)))/3.; ink=pow(ink,1.15)*.82;
   float d0=D(vec2(0));
   float lap=abs(D(vec2(1.5,0))+D(vec2(-1.5,0))+D(vec2(0,1.5))+D(vec2(0,-1.5))-4.*d0)/d0;
   ink=max(ink,smoothstep(.015,.04,lap));
-  if(l>.86) ink*=.15;
+  if(l>.86) ink*=.2;
   gl_FragColor=vec4(mix(vec3(.957,.945,.918),vec3(.09),clamp(ink,0.,1.)),1.);}`
   });
   const pscene = new THREE.Scene(); pscene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), post)); const pcam = new THREE.Camera();
@@ -52,16 +51,16 @@ export function line(points, parent) { const l = new THREE.Line(new THREE.Buffer
 export function win(ph, a, b, soft = 0.08) { const u = ((ph / (Math.PI * 2)) % 1 + 1) % 1; const s = x => Math.min(1, Math.max(0, x)); const e = x => x * x * (3 - 2 * x); return e(s((u - a) / soft)) * e(s((b - u) / soft)); }
 
 // ---------- 배경 ----------
-export function ground(scene, { color = '#b8b8b2', line = '#4a4a48', tiles = 16, repeat = 10 } = {}) {
-  const t = canvasTex(1024, 1024, (g, w, h) => { g.fillStyle = color; g.fillRect(0, 0, w, h); g.strokeStyle = line; g.lineWidth = 3; for (let i = 0; i <= tiles; i++) { g.beginPath(); g.moveTo(i * w / tiles, 0); g.lineTo(i * w / tiles, h); g.stroke(); g.beginPath(); g.moveTo(0, i * h / tiles); g.lineTo(w, i * h / tiles); g.stroke(); } });
+export function ground(scene, { color = '#b8b8b2', line = '#9a9a95', tiles = 8, repeat = 10 } = {}) {
+  const t = canvasTex(1024, 1024, (g, w, h) => { g.fillStyle = color; g.fillRect(0, 0, w, h); g.strokeStyle = line; g.lineWidth = 2; for (let i = 0; i <= tiles; i++) { g.beginPath(); g.moveTo(i * w / tiles, 0); g.lineTo(i * w / tiles, h); g.stroke(); g.beginPath(); g.moveTo(0, i * h / tiles); g.lineTo(w, i * h / tiles); g.stroke(); } });
   t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(repeat, repeat);
   const m = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshLambertMaterial({ map: t })); m.rotation.x = -Math.PI / 2; scene.add(m); return m;
 }
-export function windowsTex(cols, rows, seed = 1, wall = '#707070') {
+export function windowsTex(cols, rows, seed = 1, wall = '#8c8c8a') {
   let s = seed; const rnd = () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
   return canvasTex(512, 1024, (g, w, h) => { g.fillStyle = wall; g.fillRect(0, 0, w, h); const cw = w / cols, rh = h / rows;
-    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) { const on = rnd() > 0.45; const v = on ? 215 + rnd() * 40 | 0 : 90; g.fillStyle = `rgb(${v},${v},${v - 4})`; g.fillRect(c * cw + cw * 0.18, r * rh + rh * 0.2, cw * 0.64, rh * 0.55); }
-    g.strokeStyle = '#111'; g.lineWidth = 3; for (let c = 0; c <= cols; c++) { g.beginPath(); g.moveTo(c * cw, 0); g.lineTo(c * cw, h); g.stroke(); } });
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) { const on = rnd() > 0.45; const v = on ? 175 + rnd() * 20 | 0 : 128; g.fillStyle = `rgb(${v},${v},${v - 4})`; g.fillRect(c * cw + cw * 0.18, r * rh + rh * 0.2, cw * 0.64, rh * 0.55); }
+    g.strokeStyle = '#6a6a68'; g.lineWidth = 2; for (let c = 0; c <= cols; c += 2) { g.beginPath(); g.moveTo(c * cw, 0); g.lineTo(c * cw, h); g.stroke(); } });
 }
 export function building(scene, x, z, w, d, h, seed = 1, rot = 0) {
   const tex = windowsTex(Math.max(2, Math.round(w * 1.2)), Math.max(3, Math.round(h * 0.9)), seed);
@@ -92,7 +91,7 @@ export function lanternString(scene, { x0 = -10, x1 = 10, y = 10.5, z = 2, n = 9
   return { ls, update(ph, amp = 0.22) { ls.forEach((g, i) => { g.rotation.z = Math.sin(ph + i * 0.8) * amp; g.rotation.x = Math.cos(ph * 2 + i * 0.5) * amp * 0.35; g.rotation.y = Math.sin(ph + i) * 0.4; }); } };
 }
 // 떠다니는 먼지·눈
-export function motes(scene, { n = 220, box: B = [40, 22, 18], z0 = -8, size = 0.12 } = {}) {
+export function motes(scene, { n = 45, box: B = [40, 22, 18], z0 = -8, size = 0.12 } = {}) {
   const p = new Float32Array(n * 3), sd = []; for (let i = 0; i < n; i++) { p[i * 3] = (Math.random() - 0.5) * B[0]; p[i * 3 + 1] = Math.random() * B[1]; p[i * 3 + 2] = z0 + Math.random() * B[2]; sd.push(Math.random() * 6.28); }
   const base = p.slice(); const pts = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(p, 3)), new THREE.PointsMaterial({ color: 0xffffff, size, transparent: true, opacity: 0.85 })); scene.add(pts);
   return { update(ph) { for (let i = 0; i < n; i++) { p[i * 3 + 1] = base[i * 3 + 1] + Math.sin(ph + sd[i]) * 0.6; p[i * 3] = base[i * 3] + Math.cos(ph + sd[i]) * 0.3; } pts.geometry.attributes.position.needsUpdate = true; } };

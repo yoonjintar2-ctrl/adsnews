@@ -18,7 +18,7 @@ export default function (K) {
   cam.position.set(0, 3.6, 17.4); cam.lookAt(0.3, 7.2, -8);
   return (t, ph) => {
     const W = (a, b) => K.win(ph, a, b, 0.1);
-    scr.update(ph); lan.update(ph, 0.2); mo.update(ph); b1.update(ph); b2.update(ph, 2.4);
+    scr.update(ph, 0); lan.update(ph, 0.2); mo.update(ph); b1.update(ph); b2.update(ph, 2.4);
     bb.material.color.setScalar(0.75 + 0.25 * Math.max(0, Math.sin(ph * 2)));
     const point = W(0.1, 0.62), look1 = W(0.42, 0.88), look2 = W(0.3, 0.86), wow = W(0.5, 0.86);
     // 왼쪽 사람: 화면을 손가락으로 가리켰다가 → 옆 사람을 돌아본다
