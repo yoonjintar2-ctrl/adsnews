@@ -115,6 +115,52 @@ h1{font-size:46px;font-weight:900;line-height:1.28;letter-spacing:-1.5px}
 </div></body></html>"""
 
 
+# 호 전체 공유(상단 '광고늬우스 제N호 공유하기'): 현관 매트 위에 배달된 신문 한 부 (발행인 11/14)
+ISSUE = """<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&display=swap">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;position:relative;font-family:"Noto Serif KR","Noto Serif CJK KR",serif;color:#1a1a1a;word-break:keep-all;
+ background:repeating-linear-gradient(90deg,#d9cdb8 0 118px,#cfc2ab 118px 120px),#d9cdb8}
+body:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.10))}
+.door{position:absolute;right:0;top:0;width:640px;height:118px;background:#5a4a3a;box-shadow:0 6px 0 #3e3226}
+.door:after{content:"";position:absolute;left:40px;right:40px;bottom:-6px;height:6px;background:#2c241b}
+.mat{position:absolute;right:46px;top:150px;width:560px;height:440px;background:#6b5d4c;border-radius:10px;
+ background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.13) 0 2px,transparent 2px 6px),repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 2px,transparent 2px 6px);
+ box-shadow:0 10px 24px rgba(0,0,0,.25), inset 0 0 0 10px #5d5041}
+.np{position:absolute;right:88px;top:178px;width:480px;height:384px;background:#f4f2ec;transform:rotate(-4deg);
+ box-shadow:0 14px 22px rgba(0,0,0,.35),6px 6px 0 #e4e1d8;padding:18px 22px;overflow:hidden}
+.np .mh{font-size:44px;font-weight:900;text-align:center;letter-spacing:-1px;line-height:1}
+.np .dl{display:flex;justify-content:space-between;font-size:13px;font-weight:700;border-top:3px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:3px 0;margin:8px 0 10px}
+.np .row{display:flex;gap:14px}
+.np .hd{flex:1;font-size:25px;font-weight:900;line-height:1.3;letter-spacing:-.5px}
+.np .pic{width:190px;height:128px;flex:none;border:2px solid #1a1a1a;background:#ddd center/cover;filter:grayscale(1)}
+.np .ln{margin-top:12px;height:120px;background:repeating-linear-gradient(180deg,#bdbab2 0 3px,transparent 3px 14px);
+ -webkit-mask:linear-gradient(90deg,#000 48%,transparent 48% 52%,#000 52%);mask:linear-gradient(90deg,#000 48%,transparent 48% 52%,#000 52%)}
+.st{position:absolute;right:70px;top:430px;transform:rotate(-14deg);border:5px solid #b3211e;color:#b3211e;border-radius:10px;
+ padding:6px 18px;font-size:34px;font-weight:900;letter-spacing:3px;opacity:.88;background:rgba(244,242,236,.35)}
+.st small{display:block;font-size:15px;letter-spacing:1px;text-align:center;margin-top:-2px}
+.l{position:absolute;left:56px;top:70px;width:520px;bottom:56px;display:flex;flex-direction:column}
+.k{display:inline-block;align-self:flex-start;background:#1a1a1a;color:#f4f2ec;font-size:24px;font-weight:900;padding:6px 16px;letter-spacing:1px;margin-bottom:22px}
+h1{font-size:54px;font-weight:900;line-height:1.25;letter-spacing:-1.5px}
+h1 em{font-style:normal;color:#a01e1e}
+.d{font-size:21px;line-height:1.6;color:#3a3530;margin-top:20px}
+.by{margin-top:auto;font-size:19px;font-weight:700;color:#3a3530}
+</style></head><body>
+<div class="door"></div><div class="mat"></div>
+<div class="np"><div class="mh">광고늬우스</div><div class="dl"><span>__DATE__</span><span>제__NO__호</span></div>
+<div class="row"><div class="hd">__HEAD__</div><div class="pic" style="__PIC__"></div></div><div class="ln"></div></div>
+<div class="st">배달 완료<small>__MD__</small></div>
+<div class="l"><div class="k">딩동 · 신문 왔어요</div><h1>__MD__ <em>제__NO__호</em> 신문이 도착했습니다</h1><p class="d">__LEDE__</p><div class="by">금로동 기자 · 발행인 SM C&amp;C 윤석진</div></div>
+</body></html>"""
+
+
+def issue_no(d):
+    from datetime import date
+    y, m, dd = map(int, d.split("-"))
+    return (date(y, m, dd) - date(2026, 9, 29)).days + 1
+
+
 def render_cards(jobs):
     if not jobs:
         return
@@ -286,6 +332,50 @@ def main():
         jobs.append((card, f"{OUT}/{key}.png"))
         pages.append((hp, body))
 
+    # 호 전체 공유 페이지: s/issue-YYYY-MM-DD.html (+ .png)
+    issue_keep = set()
+    camp_by = {f.get("date"): (f.get("main") or {}) for f in feats}
+    for e in eds:
+        d = e.get("date")
+        if not d or not e.get("headline"):
+            continue
+        base = "" if not os.path.isdir(os.path.join("archive", d)) else os.path.join("archive", d, "")
+        dj = load_json(base + "data.json") if base else load_json("data.json")
+        if not base and ((dj.get("brief") or {}).get("cartoon") or {}).get("date") != d:
+            dj = {}
+        gk = load_json(base + "grok.json") if base else load_json("grok.json")
+        c = camp_by.get(d) or {}
+        bits = [f"사설 「{clip(e['headline'], 28)}」"]
+        if c.get("title"):
+            bits.append(f"캠페인 「{clip((c.get('brand', '') + ' ' + c['title']).strip(), 24)}」")
+        st = gk.get("strip") or {}
+        if st.get("date") == d and st.get("title"):
+            bits.append(f"4컷 「{clip(st['title'], 16)}」")
+        pn = (dj.get("person") or {}).get("name")
+        if pn:
+            bits.append(f"오늘의 광고인 {clip(pn, 12)}")
+        bits = [staff_rename(x, d) for x in bits]
+        no = issue_no(d)
+        title = f"📰 광고늬우스 {md(d)} 제{no}호 신문이 도착했습니다"
+        desc = " · ".join(bits) + " — 금로동 기자가 오늘 아침 신문을 문 앞에 두고 갔어요. 펼쳐 보세요."
+        jt = jp_toon.get(d) or ("", "")
+        cimg = jt[0] or (e.get("cartoon") or {}).get("img")
+        pic = f"background-image:url('{data_uri(cimg)}')" if cimg and data_uri(cimg) else ""
+        key = f"issue-{d}"
+        issue_keep.add(key)
+        sig = hashlib.md5(json.dumps([title, desc, e["headline"], pic[:200], len(pic), 1], ensure_ascii=False).encode()).hexdigest()[:12]
+        hp = f"{OUT}/{key}.html"
+        body = page(key, title, desc, SITE + f"{OUT}/{key}.png?v={sig[:6]}", 1200, 630, f"?d={d}", sig, SITE + f"e/{d}.html")
+        if old_sig(hp) == sig and os.path.exists(f"{OUT}/{key}.png"):
+            if old_body(hp) != body:
+                keep_pages.append((hp, body))
+            continue
+        card = (ISSUE.replace("__DATE__", esc(md(d)) + "자").replace("__NO__", str(no)).replace("__MD__", esc(md(d)))
+                .replace("__HEAD__", esc(clip(e["headline"], 40))).replace("__PIC__", pic)
+                .replace("__LEDE__", esc(clip(" · ".join(bits), 110))))
+        jobs.append((card, f"{OUT}/{key}.png"))
+        pages.append((hp, body))
+
     for f in feats:
         d, c = f.get("date"), f.get("main") or {}
         if not d or not c.get("title"):
@@ -429,7 +519,7 @@ def main():
     # 오래된 공유 페이지 정리
     keep = {f"ed-{e.get('date')}" for e in eds} | {f"camp-{f.get('date')}" for f in feats} | {f"person-{d}" for d in persons}
     keep |= {f"tn-{d}-{i}" for d, items in trends.items() for i in range(1, len(items) + 1)}
-    keep |= extra_keep
+    keep |= extra_keep | issue_keep
     for fn in os.listdir(OUT):
         if os.path.splitext(fn)[0] not in keep:
             os.remove(os.path.join(OUT, fn))

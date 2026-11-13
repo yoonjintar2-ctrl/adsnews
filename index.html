@@ -460,6 +460,9 @@ body,button,input,select,textarea{font-family:var(--serif)}
 
 .subbtn{display:inline-flex;align-items:center;gap:6px;background:#FEE500;color:#191919;border:1px solid #191919;padding:5px 11px;font-family:var(--serif);font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap}
 .subbtn:hover{filter:brightness(.95)}
+.issbtn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:5px 11px;font-family:var(--serif);font-weight:700;font-size:.82rem;white-space:nowrap;cursor:pointer}
+.issbtn:hover{opacity:.88}.issbtn.ok{background:#a01e1e;border-color:#a01e1e}
+@media (max-width:620px){.issm{display:flex;justify-content:center;margin-top:10px}.issm .issbtn{padding:8px 16px;font-size:.92rem;max-width:100%}}
 .subtoast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;font-family:var(--serif);font-size:.85rem;z-index:99}
 @media (max-width:620px){.mast .r{flex-wrap:wrap;justify-content:center}}
 
@@ -1481,7 +1484,7 @@ window.__keep=function(fn){return fn()};
     <aside class="ear" aria-label="광고"><div class="adslot" data-slot="top"><b>AD</b><span>광고 지면</span></div></aside>
     <div class="mt"><h1>광고늬우스</h1><p class="slogan">광고계 노른자 소식들, 한 입에 떠-먹여 드려요.</p></div>
     
-    <div class="r"><div class="rbtns"><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v19l-7-4.5L5 22V3a1 1 0 0 1 1-1z"/></svg><span id="subtxt">구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
+    <div class="r"><div class="rbtns"><button type="button" class="issbtn" id="issbtn" title="오늘 신문 전체를 메신저로 보내기"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/></svg><span id="isstxt">광고늬우스 공유하기</span></button><button type="button" class="subbtn" id="subbtn"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v19l-7-4.5L5 22V3a1 1 0 0 1 1-1z"/></svg><span id="subtxt">구독</span></button><div class="zoom" role="group" aria-label="글자 크기"><button type="button" id="zout" aria-label="글자 작게">가−</button><button type="button" id="zin" aria-label="글자 크게">가+</button></div></div><div class="clock"><span class="liveu"><span class="live-dot" aria-hidden="true"></span>실시간 업데이트 · <span id="ago"></span><i>·</i><span id="clock">--:--</span></span><small id="today" hidden></small></div><button class="setbtn" type="button" id="openSet" aria-haspopup="dialog" hidden style="display:none">⚙ 설정</button></div>
   </header>
   <div class="dateline"><span id="dl-left"></span><span class="dl-mid" id="dl-mid"></span><span class="pref" id="dl-pref"></span><span class="dl-ed" id="dl-ed"></span><span id="dl-right">광고 · 미디어 기획자의 신문</span></div>
   <div class="bar2">
@@ -2718,6 +2721,25 @@ window.__vidUp=function(D){
     im.replaceWith(v); if(io)io.observe(v); else v.autoplay=true;
   });
 };
+</script>
+<script>
+/* 상단 '광고늬우스 제N호 공유하기' — 호 전체 공유(s/issue-날짜.html: 배달된 신문 썸네일) (발행인 11/14) */
+(function(){var b=document.getElementById('issbtn');if(!b)return;
+  if(window.matchMedia&&matchMedia('(max-width:620px)').matches){var mt=document.querySelector('.mast .mt');if(mt){var w=document.createElement('div');w.className='issm';w.appendChild(b);mt.appendChild(w)}}
+  var today=new Date(Date.now()+9*36e5).toISOString().slice(0,10),d=window.__ED||today;
+  var n=Math.round((Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))-Date.UTC(2026,8,29))/864e5)+1;
+  var md=(+d.slice(5,7))+'월 '+(+d.slice(8,10))+'일',sp=document.getElementById('isstxt'),lab='광고늬우스 제'+n+'호 공유하기';sp.textContent=lab;
+  var base=location.origin+location.pathname.replace(/[^\/]*$/,''),page=base+'s/issue-'+d+'.html',ok=false;
+  if(window.fetch)fetch(page,{method:'HEAD',cache:'no-store'}).then(function(r){ok=r.ok},function(){});
+  function flash(t){sp.textContent=t;b.classList.add('ok');setTimeout(function(){sp.textContent=lab;b.classList.remove('ok')},1800)}
+  b.addEventListener('click',function(){
+    var u=ok?page:base+'?d='+d,t='📰 광고늬우스 '+md+' 제'+n+'호 신문이 도착했습니다';
+    if(navigator.share&&window.matchMedia&&matchMedia('(pointer:coarse)').matches){navigator.share({title:t,text:t,url:u}).catch(function(){});return}
+    var all=t+'\n'+u;
+    function legacy(){var ta=document.createElement('textarea');ta.value=all;ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();var r=false;try{r=document.execCommand('copy')}catch(e){}ta.remove();if(r)flash('링크 복사됨 ✓');else window.prompt('아래 내용을 복사해 보내 주세요',all)}
+    if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(all).then(function(){flash('링크 복사됨 ✓ 메신저에 붙여 넣으세요')},legacy);else legacy();
+  });
+})();
 </script>
 </body>
 </html>
