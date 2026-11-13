@@ -1598,7 +1598,7 @@ window.__keep=function(fn){return fn()};
 </div>
 
 <script>
-function boot(D){
+function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}catch(e){}},0);
   window.AD_DATA=D;
   var $ = function(id){return document.getElementById(id)};
   var esc = function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
@@ -2694,6 +2694,30 @@ function boot(D){
   }
   if(link) link.addEventListener('click',function(e){e.preventDefault();if(ss('ads-stat-ok')==='1')stats();else ask();});
 })();
+</script>
+
+<script>
+/* 11/13: 움직이는 3D 삽화 — JSON에서 img 옆에 video가 있으면 그 그림 자리를 소리 없는 반복 영상으로 바꾼다.
+   데이터 절약·'동작 줄이기' 설정이면 그림 그대로. 화면에 보일 때만 재생한다. */
+window.__vidUp=function(D){
+  var low=false;try{low=(navigator.connection&&navigator.connection.saveData)||matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+  if(low)return;
+  var map={};
+  (function walk(o,d){if(!o||typeof o!=='object'||d>6)return;if(Array.isArray(o)){o.forEach(function(x){walk(x,d+1)});return}
+    if(typeof o.img==='string'&&typeof o.video==='string')map[o.img.split('?')[0]]=o.video;
+    for(var k in o)if(o.hasOwnProperty(k)&&typeof o[k]==='object')walk(o[k],d+1)})({jp:D.jp,gm:D.gm,gk:D.gk,brief:D.brief,person:D.person},0);
+  if(!Object.keys(map).length)return;
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{rootMargin:'100px'}):null;
+  [].slice.call(document.images).forEach(function(im){
+    var src=(im.getAttribute('src')||'').split('?')[0].replace(/^\.?\//,''),vs=map[src]; if(!vs||im.__vid)return; im.__vid=1;
+    var cs=getComputedStyle(im),v=document.createElement('video');
+    v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.preload='metadata';
+    v.poster=vs.replace(/\.mp4(\?.*)?$/,'.jpg');v.src=vs;v.className=im.className+' anim3d';v.setAttribute('aria-label',im.alt||'');v.title=im.alt||'';
+    ['position','top','left','right','bottom','width','height','objectFit','filter','display','aspectRatio','borderRadius','border','maxWidth'].forEach(function(k){v.style[k]=cs[k]});
+    if(cs.position==='static'){v.style.width='100%';v.style.height='auto'}
+    im.replaceWith(v); if(io)io.observe(v); else v.autoplay=true;
+  });
+};
 </script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#f4f1ea}canvas{display:block}</style></head><body>
+<script type="module">
+import * as K from './kit.js';
+const q=new URLSearchParams(location.search);
+const mod=await import('./'+q.get('scene'));
+const opts=Object.assign({w:+(q.get('w')||960),h:+(q.get('h')||640)},mod.opts||{});
+const S=K.setup(opts); const ctx=Object.assign({},K,S);
+const upd=await mod.default(ctx);
+window.SECS=mod.secs||3;
+window.frame=t=>{const ph=t/window.SECS*Math.PI*2;upd(t,ph);S.render();return S.R.domElement.toDataURL('image/jpeg',0.93)};
+await new Promise(r=>{const c=()=>K.K_waits.every(f=>f())?r():setTimeout(c,50);c()});
+window.ready=true;
+</script></body></html>
