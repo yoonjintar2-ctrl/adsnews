@@ -137,7 +137,7 @@ export function person(scene, { x = 0, z = 0, rot = 0, coat = 0x6a6a6a, pants = 
     const finger = new THREE.Mesh(new THREE.CapsuleGeometry(0.04, 0.24, 3, 6), lam(skin)); finger.position.y = -1.0; finger.visible = false; el.add(finger);
     return { sp, el, finger }; };
   const A = { L: arm(-1), R: arm(1) };
-  function setArm(a, o = {}, sd) { a.sp.rotation.x = o.fwd || 0; a.sp.rotation.z = sd * (0.1 + (o.out || 0)); a.el.rotation.x = o.elbow || 0; a.finger.visible = !!o.point; }
+  function setArm(a, o = {}, sd) { a.sp.rotation.x = o.fwd || 0; a.sp.rotation.z = sd * (0.1 + (o.out || 0)); a.el.rotation.x = Math.abs(o.elbow || 0); /* 팔꿈치는 앞으로만 굽는다(음수도 양수로) */ a.finger.visible = !!o.point; }
   return { root, torso, headG,
     pose(o = {}) { headG.rotation.y = o.headYaw || 0; headG.rotation.x = o.headPitch || 0; headG.rotation.z = o.headTilt || 0;
       torso.rotation.y = o.torsoYaw || 0; torso.rotation.x = o.lean || 0; root.position.y = o.bob || 0;

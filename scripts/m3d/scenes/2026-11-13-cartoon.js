@@ -26,6 +26,6 @@ export default function (K) {
       armR: { fwd: 2.45 * point, out: -0.15 * point, elbow: 0.15 * point, point: point > 0.3 }, armL: { fwd: 0.05 }, bob: Math.abs(Math.sin(ph * 2)) * 0.02 });
     // 오른쪽 사람: 고개를 돌려 마주 보고, 놀라서 손을 입가로
     P2.pose({ headPitch: 0.38 * (1 - look2) + 0.05, headYaw: 1.3 * look2, torsoYaw: 0.5 * look2, headTilt: 0.12 * wow,
-      armL: { fwd: 1.2 * wow, out: 0.2 * wow, elbow: -2.1 * wow }, armR: { fwd: 0.05 } });
+      armL: { fwd: 0.85 * wow, out: 0.2 * wow, elbow: 2.4 * wow }, armR: { fwd: 0.05 } });
   };
 }
