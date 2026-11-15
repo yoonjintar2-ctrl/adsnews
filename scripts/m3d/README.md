@@ -14,7 +14,7 @@ three.js로 장면을 세우고 신문 망점·윤곽선 후처리를 입혀 흑
 3. 본 렌더(약 30초): `node scripts/m3d/render.cjs scenes/<파일>.js img/jp/<칸>-<날짜>-3d.mp4` → 같은 이름 .jpg 포스터도 생긴다. 1MB 안팎.
 4. JSON의 그 칸에 `"video": "img/jp/<칸>-<날짜>-3d.mp4"` 추가(img는 그대로).
    - 사설 삽화 jipiltae.json `cartoon`, 도안나 미니 사설 `editorial.cartoon`, 안광주 미니 사설 gemini.json `editorial.cartoon`(파일은 img/gm/),
-     광고인 `person`, 트렌드 `trend`·`trendArt`, 4컷 grok.json `strip.panels[n]`(파일은 img/gk/, 칸마다 하나).
+     광고인 `person`, 트렌드 `trend`·`trendArt`. 4컷은 영상으로 만들지 않는다(작은 칸에서 3D 인물이 안 읽힘, 발행인 11/16).
    - ingest 스크립트가 덮어쓸 수 있으니 ingest가 끝난 뒤 마지막에 넣는다.
 NODE_PATH=$(npm root -g) 로 playwright를 찾는다. 크로미움은 /opt/pw-browsers/chromium 이 있으면 그것을 쓴다(소프트웨어 WebGL, swiftshader).
 
