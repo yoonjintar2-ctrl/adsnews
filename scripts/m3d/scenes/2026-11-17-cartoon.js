@@ -1,39 +1,42 @@
-// 11/17 금로동 사설 「홍대 거리 광고에 매출 영수증이 붙었다」 — 벽 광고를 가리키는 두 청년, 긴 영수증을 펼치는 직원
+// 11/17 금로동 사설 「홍대 거리 광고에 매출 영수증이 붙었다」
+// 밤 횡단보도, 아래에서 올려다본 구도: 가게 2층 창에서 영수증이 끝없이 풀려 내려와 인도까지 닿고,
+// 퇴근길 청년이 멈춰 서서 고개를 젖혀 올려다보며 가리킨다. 가로등이 깜박인다.
 export const secs = 3;
+export const meta = { place: '밤 횡단보도 앞 가게 2층 창', where: 'outdoor', time: 'night', camera: 'low', floor: 'asphalt', figures: 'solo-side', motion: ['receipt-unroll', 'lamp-flicker', 'head-tilt-up'] };
 export default function (K) {
   const { THREE, scene, cam } = K;
-  K.ground(scene, { color: '#b4b4ae', tiles: 6 });
-  K.building(scene, -14, -14, 10, 6, 22, 3); K.building(scene, 14, -14, 10, 6, 18, 5);
-  K.box(18, 20, 1, 0x8e8e8a, 0, 10, -10, scene);
-  // 벽 광고: 버거 + 달력(글자 없음)
-  const tx = K.canvasTex(640, 360, (g, w, h) => { g.fillStyle = '#eeeee8'; g.fillRect(0, 0, w, h);
-    g.fillStyle = '#9a9a96'; g.beginPath(); g.ellipse(200, 160, 120, 80, 0, Math.PI, 0); g.fill(); g.fillStyle = '#333'; g.fillRect(85, 175, 230, 34); g.fillStyle = '#777'; g.fillRect(90, 215, 220, 40);
-    g.fillStyle = '#fff'; g.fillRect(400, 80, 160, 190); g.fillStyle = '#222'; g.fillRect(400, 80, 160, 40); [0, 1, 2, 3].forEach(i => g.fillRect(425 + i * 32, 145, 14, 100)); });
-  K.screen(scene, { tex: tx, x: 0, y: 12.5, z: -9.3, w: 13, h: 7.3, frame: 0x161616, border: 0.6 });
-  // 가게 문과 차양
-  K.box(8, 0.5, 2.2, 0x3a3a38, 8.5, 6.4, -8.4, scene); K.box(3.2, 6, 0.3, 0x2a2a2a, 8.5, 3, -9.3, scene);
-  const sign = K.box(2.2, 2.2, 0.25, 0xeeeeea, 13.5, 8.5, -8, scene);
-  const lan = K.lanternString(scene, { x0: -12, x1: 12, y: 16.5, z: -4, n: 9, sag: 1.4 });
-  // 두 청년과 직원
-  const A = K.person(scene, { x: -4.6, z: 2, rot: Math.PI - 0.15, coat: 0x6a6a68, hair: 'cap', scale: 1.1 });
-  const B = K.person(scene, { x: -1.4, z: 2.6, rot: Math.PI + 0.15, coat: 0xd8d8d2, hair: 'long', scale: 1.05 });
-  const C = K.person(scene, { x: 6.2, z: -0.5, rot: Math.PI - 0.4, coat: 0xeeeeea, pants: 0x3a3a38, scale: 1.05 });
-  // 영수증: 손에서 바닥까지 늘어지는 종이(마디)
-  const rc = new THREE.Group(); scene.add(rc); const segs = []; for (let i = 0; i < 9; i++) { const m = K.box(0.9, 0.62, 0.04, 0xf4f4f0, 0, 0, 0, rc); segs.push(m); }
-  const mo = K.motes(scene, { n: 22, box: [24, 12, 6], z0: -2, size: 0.14 });
-  cam.position.set(0, 6.2, 17); cam.lookAt(0, 7.2, -6);
+  K.sky(scene, { time: 'night', moon: true, stars: 18 });
+  K.floor(scene, { style: 'asphalt' });
+  // 인도와 횡단보도
+  K.box(60, 0.3, 6, 0x9a9894, 0, 0.15, -6, scene);
+  for (let i = 0; i < 7; i++) K.box(1.2, 0.02, 5, 0xe8e6e0, -7 + i * 2.2, 0.02, 2.5, scene);
+  // 2층 가게 정면(창 하나, 간판은 도형만)
+  const wall = K.box(12, 13, 1, 0x7c7a76, 3, 7, -10, scene);
+  const winF = K.box(6.4, 4.4, 0.4, 0x2a2a2a, 3, 10.5, -9.4, scene);
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(6, 4), K.flat(0xf1eee4)); glow.position.set(3, 10.5, -9.15); scene.add(glow);
+  K.box(9, 1.6, 0.5, 0x2c2c2c, 3, 7.4, -9.3, scene);
+  [0, 1, 2].forEach(i => K.cyl(0.45, 0.45, 0.2, 0xdedcd4, 0 + i * 3, 7.4, -9.0, scene).rotation.x = Math.PI / 2);
+  K.box(10, 9, 1, 0x5e5d5a, -12, 4.5, -14, scene); K.box(9, 16, 1, 0x6a6966, 16, 8, -16, scene);
+  const bulb0 = K.streetLamp(scene, { x: -8, z: -4.5, h: 7.5 });
+  // 영수증: 창에서 내려와 인도에 접혀 쌓이는 종이 띠(마디마다 살랑)
+  const segs = []; const N = 26;
+  for (let i = 0; i < N; i++) { const m = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.42), new THREE.MeshLambertMaterial({ color: 0xf6f4ee, side: THREE.DoubleSide })); scene.add(m); segs.push(m);
+    const ln = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 0.04), K.flat(0x555555)); ln.position.z = 0.01; m.add(ln); }
+  // 청년(옆모습, 가방)
+  const P = K.person(scene, { x: -3.2, z: -3.2, rot: -Math.PI / 2 + 0.35, coat: 0x5a5a58, hair: 'short', backpack: true, scale: 1.05 });
+  // 지나가는 차(반복: 왼→오, 한 번에 지나감)
+  const bulb = K.streetLamp(scene, { x: 10, z: -5, h: 6.5 });
+  K.shot(cam, 'low', [0, 4.5, -5], 16); cam.position.set(-7, 0.9, 7); cam.lookAt(1, 7.5, -8);
   return (t, ph) => {
-    const W = (a, b) => K.win(ph, a, b, 0.1);
-    lan.update ? lan.update(ph) : null; mo.update(ph);
-    sign.rotation.y = Math.sin(ph) * 0.5;
-    const p = W(0.1, 0.8);
-    A.pose({ headPitch: -0.5, headYaw: -0.3 * p, armR: { fwd: 2.6 * p + 0.2, out: -0.2, point: p > 0.4 }, armL: { fwd: 0.2 }, bob: 0.05 * Math.abs(Math.sin(ph * 4)) });
-    const q = W(0.35, 0.95);
-    B.pose({ headYaw: 1.0 * (1 - q) - 0.1, headPitch: -0.45 * q, torsoYaw: 0.3 * (1 - q), armL: { fwd: 2.4 * q + 0.1, out: 0.1, point: q > 0.4 }, armR: { fwd: 0.3, elbow: 1.8 } });
-    const u = 0.5 + 0.5 * Math.sin(ph);
-    C.pose({ headPitch: 0.25 * u, headYaw: 0.4, armL: { fwd: 1.3, elbow: 0.6 }, armR: { fwd: 1.1, elbow: 0.4 } });
-    // 영수증 마디를 손 앞에서 바닥 쪽으로
-    C.root.updateMatrixWorld(true); const base = new THREE.Vector3(); C.torso.localToWorld(base.set(0, 0.7, -1.6));
-    segs.forEach((m, i) => { const k = i / 8; m.position.set(base.x - 0.2 * i * u, base.y - i * 0.55 * (0.7 + 0.3 * u), base.z + i * 0.5 * u); m.rotation.x = -0.4 - k * 0.8 * u; m.visible = i < 3 + Math.round(6 * u); });
+    const W = (a, b) => K.win(ph, a, b, 0.12);
+    const u = ph / (Math.PI * 2);
+    // 영수증: 창(높이 10)에서 내려와 바닥(0.4)까지, 바닥에 닿은 뒤로는 앞으로 접혀 나온다
+    for (let i = 0; i < N; i++) { const s = (i + u * 2) % N; const y = 10 - s * 0.42; const m = segs[i];
+      if (y > 0.4) { m.position.set(3 + Math.sin(s * 0.5 + ph) * 0.35, y, -9.0 + s * 0.04); m.rotation.set(0, Math.sin(s * 0.7 + ph) * 0.3, 0); }
+      else { const k = (0.4 - y) / 0.42; m.position.set(3 + Math.sin(k) * 0.4, 0.35 + (k % 2) * 0.05, -8.6 + k * 0.42); m.rotation.set(-Math.PI / 2, 0, (k % 2 ? 0.2 : -0.2)); } }
+    bulb0.scale.setScalar(1 + 0.25 * Math.max(0, Math.sin(ph * 3)));
+    const look = W(0.15, 0.85);
+    P.pose({ headPitch: 0.75 * look, headYaw: 0.25 * look, lean: -0.08 * look,
+      armL: { fwd: 0.15 }, armR: { fwd: 1.9 * W(0.35, 0.75), out: 0.15, point: true }, bob: 0 });
   };
 }

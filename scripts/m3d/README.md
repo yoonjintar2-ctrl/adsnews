@@ -8,7 +8,7 @@ three.js로 장면을 세우고 신문 망점·윤곽선 후처리를 입혀 흑
 - 포스터는 영상과 같은 이름의 .jpg(렌더러가 첫 프레임으로 자동 생성).
 
 ## 만들기
-1. 장면 파일 `scripts/m3d/scenes/<날짜>-<칸>.js` 를 쓴다(예: `2026-11-13-cartoon.js`를 복사해 고친다).
+1. 장면 파일 `scripts/m3d/scenes/<날짜>-<칸>.js` 를 새로 쓴다(지난 장면을 복사해 소품만 바꾸지 않는다 — 아래 다양성 규칙).
 2. 검수용 정지 컷 3장(움직임이 가장 많은 순간): 
    `node scripts/m3d/render.cjs scenes/<파일>.js /tmp/s1.jpg --still 0.3` (0.3·1.2·2.1초 등) → Read로 직접 본다.
 3. 본 렌더(약 30초): `node scripts/m3d/render.cjs scenes/<파일>.js img/jp/<칸>-<날짜>-3d.mp4` → 같은 이름 .jpg 포스터도 생긴다. 1MB 안팎.
@@ -17,6 +17,19 @@ three.js로 장면을 세우고 신문 망점·윤곽선 후처리를 입혀 흑
      광고인 `person`, 트렌드 `trend`·`trendArt`. 4컷은 영상으로 만들지 않는다(작은 칸에서 3D 인물이 안 읽힘, 발행인 11/16).
    - ingest 스크립트가 덮어쓸 수 있으니 ingest가 끝난 뒤 마지막에 넣는다.
 NODE_PATH=$(npm root -g) 로 playwright를 찾는다. 크로미움은 /opt/pw-browsers/chromium 이 있으면 그것을 쓴다(소프트웨어 WebGL, swiftshader).
+
+## 재활용 금지 — 다양성 규칙 (발행인 11/17: "삽화 재활용 하지 마라. 매번 건물이나 등이나 다 비슷하냐. 같은 것도 다르게 그려야 할 마당에")
+11/13~16 장면이 거의 다 '회색 벽 + 타일 바닥 + 천장 매달린 등/줄 등 + 뒷모습 둘 + 정면 눈높이 카메라'였다. 본보기를 복사해 소품만 바꾸지 않는다.
+- 장면 파일마다 `export const meta = { place, where, time, camera, floor, figures, motion:[…] }` 를 쓴다(variety.py 맨 위 설명).
+- 렌더 전에 반드시: `python3 scripts/m3d/variety.py <날짜> --sheet` → 통과해야 본 렌더. 시트(/tmp/m3d-variety.jpg)를 Read로 보고 지난 날과 닮았으면 다시 그린다.
+  (정지 컷을 /tmp/m3d-still-<칸>.jpg 로 저장하면 시트 맨 윗줄에 같이 나온다.)
+- 하루 장면들: 장소 모두 다르게, 카메라 4종류 이상(wide·high·low·close·ots·side·top·dutch — `K.shot`), 야외 2개 이상, 낮 아닌 시간대 1개 이상.
+- 최근 7일에 쓴 장소 다시 쓰지 않기. 상투 소품(줄 등 `lanternString`, 창문 빌딩 `building`, 타일 `ground`, 천장 매달린 등)은 7일에 2번까지.
+- 새 도구: `K.sky({time:'day|sunset|night|dawn|overcast', moon, sun, clouds, stars})`, `K.floor({style:'wood|grass|asphalt|carpet|sand|water|plain'})`,
+  `K.room({wall:'plain|stripe|brick|panel', floorStyle, windowAt:[x,y,w,h]})`(커튼 흔들림), `K.tree({kind:'round|pine|bare|palm'})`,
+  `K.weather({kind:'rain|snow|leaves|petals|confetti|bubbles'})`, `K.car`, `K.bench`, `K.streetLamp`, `K.shot(cam, kind, target)`.
+- 인물이 꼭 둘일 필요 없다: 손만(hands-only), 한 사람 옆모습, 군중, 사람 없이 사물만도 좋다. 사람 키보다 사물을 크게 잡는 클로즈업도 쓴다.
+- 본보기: scenes/2026-11-17-*.js (밤 횡단보도 로우앵글 / 책상 하이앵글 / 새벽 강변 측면 / 숲 책상 클로즈업 / 파라솔 어깨너머 / 해 질 녘 방 더치앵글).
 
 ## 장면 파일 규칙
 ```js

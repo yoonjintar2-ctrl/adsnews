@@ -1,36 +1,41 @@
-// 11/17 도안나 미니 사설 「두꺼비에게 산타 옷을 입히면 생기는 일」 — 산타 모자·루돌프 뿔을 쓴 동그란 캐릭터 인형을 알아보고 가리키는 손님(실제 캐릭터 아님)
+// 11/17 도안나 미니 사설 「두꺼비에게 산타 옷을 입히면 생기는 일」 — 새로 그리지 않고 옷만 갈아입힌다
+// 책상 위를 높은 곳에서 비스듬히 내려다본 구도: 동그란 캐릭터 인형(가상의 캐릭터)에 두 손이 작은 산타 모자를 씌우고,
+// 옆 스케치북 위 같은 얼굴 그림 석 장에 모자·뿔·목도리만 다르게 그려져 있다. 연필이 굴러가고 종이 귀가 들린다.
 export const secs = 3;
+export const meta = { place: '디자이너 책상 위(내려다봄)', where: 'indoor', time: 'day', camera: 'high', floor: 'wood', figures: 'hands-only', motion: ['hat-placing', 'pencil-roll', 'page-curl'] };
 export default function (K) {
   const { THREE, scene, cam } = K;
-  K.ground(scene, { color: '#b8b8b2', tiles: 5 });
-  K.box(40, 20, 1, 0xa2a29e, 0, 10, -9, scene);
-  K.box(14, 3.4, 2.4, 0x5a5a58, 0, 1.7, -6, scene); K.box(14.4, 0.3, 2.8, 0x1a1a1a, 0, 3.5, -6, scene);
-  const masc = (x, s, acc) => { const g = new THREE.Group(); g.position.set(x, 3.65, -6); scene.add(g);
-    const b = K.inked(new THREE.Mesh(new THREE.SphereGeometry(1.3 * s, 22, 16), K.lam(0xeeeeea))); b.scale.y = 0.85; b.position.y = 1.1 * s; g.add(b);
-    [-1, 1].forEach(sd => { const e = new THREE.Mesh(new THREE.SphereGeometry(0.13 * s, 8, 6), K.flat(0x111111)); e.position.set(sd * 0.45 * s, 1.35 * s, 1.18 * s); g.add(e); });
-    const hat = new THREE.Group(); hat.position.y = 2.0 * s; g.add(hat);
-    if (acc === 'santa') { const c = K.inked(new THREE.Mesh(new THREE.ConeGeometry(0.9 * s, 1.8 * s, 16), K.lam(0x4a4a48))); c.position.y = 0.9 * s; c.rotation.z = -0.25; hat.add(c); K.cyl(1.0 * s, 1.0 * s, 0.3 * s, 0xf4f4f0, 0, 0, 0, hat);
-      const p = K.inked(new THREE.Mesh(new THREE.SphereGeometry(0.25 * s, 10, 8), K.lam(0xf4f4f0))); p.position.set(0.45 * s, 1.75 * s, 0); hat.add(p); }
-    if (acc === 'deer') [-1, 1].forEach(sd => { K.cyl(0.08, 0.1, 1.2 * s, 0x2a2a2a, sd * 0.5 * s, 0.4 * s, 0, hat, 6).rotation.z = -sd * 0.4; K.cyl(0.07, 0.08, 0.6 * s, 0x2a2a2a, sd * 0.75 * s, 0.6 * s, 0, hat, 6).rotation.z = -sd * 1.1; });
-    return { g, hat }; };
-  const Ms = [masc(-4.2, 0.85, 'deer'), masc(0, 1.15, 'santa'), masc(4.2, 0.85, 'none')];
-  const lan = K.lanternString(scene, { x0: -12, x1: 12, y: 15, z: -5, n: 9, sag: 1.4 });
-  const P = K.person(scene, { x: -4.2, z: 2.2, rot: -1.1, coat: 0x6a6a68, scale: 1.1 });
-  const F = K.person(scene, { x: -7.4, z: 3.0, rot: -1.6, coat: 0xd8d8d2, hair: 'long', scale: 1.05 });
-  const D = K.person(scene, { x: 6.0, z: 1.5, rot: 1.3, coat: 0xeeeeea, hair: 'bun', scale: 1.08 });
-  const mini = K.inked(new THREE.Mesh(new THREE.ConeGeometry(0.35, 0.8, 12), K.lam(0x4a4a48))); scene.add(mini);
-  const mo = K.motes(scene, { n: 20, box: [20, 10, 6], z0: -3, size: 0.14 });
-  cam.position.set(-0.5, 6.2, 14.5); cam.lookAt(-0.5, 5.6, -4);
+  scene.background = new THREE.Color(0x9a958e);
+  K.floor(scene, { style: 'wood', color: '#a59a88', size: 60 });
+  // 스케치북 석 장: 같은 얼굴 + 다른 옷(모자/뿔/목도리) — 글자 없음
+  const draw = (kind) => K.canvasTex(256, 256, (g, w, h) => { g.fillStyle = '#f4f2ec'; g.fillRect(0, 0, w, h); g.strokeStyle = '#222'; g.lineWidth = 6;
+    g.beginPath(); g.arc(128, 140, 70, 0, 7); g.stroke(); g.fillStyle = '#222'; g.beginPath(); g.arc(102, 130, 8, 0, 7); g.arc(154, 130, 8, 0, 7); g.fill(); g.beginPath(); g.arc(128, 160, 22, 0.2, Math.PI - 0.2); g.stroke();
+    if (kind === 0) { g.beginPath(); g.moveTo(70, 90); g.lineTo(128, 20); g.lineTo(186, 90); g.closePath(); g.stroke(); g.beginPath(); g.arc(128, 20, 10, 0, 7); g.stroke(); }
+    if (kind === 1) { [[90, 80, 60, 20], [166, 80, 196, 20]].forEach(([a, b, c, d]) => { g.beginPath(); g.moveTo(a, b); g.lineTo(c, d); g.moveTo((a + c) / 2, (b + d) / 2); g.lineTo((a + c) / 2 + (c > a ? 20 : -20), (b + d) / 2 + 5); g.stroke(); }); }
+    if (kind === 2) { g.beginPath(); g.moveTo(60, 205); g.quadraticCurveTo(128, 240, 196, 205); g.stroke(); g.strokeRect(150, 210, 22, 40); } });
+  const pages = [0, 1, 2].map(i => { const m = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 3.2), new THREE.MeshLambertMaterial({ map: draw(i), side: THREE.DoubleSide })); m.rotation.x = -Math.PI / 2; m.position.set(-5.4, 0.05 + i * 0.01, -3.6 + i * 3.6); scene.add(m); return m; });
+  // 동그란 캐릭터 인형(가상)
+  const toy = new THREE.Group(); toy.position.set(2, 0, 0); scene.add(toy);
+  const body = K.inked(new THREE.Mesh(new THREE.SphereGeometry(1.9, 28, 20), K.lam(0x9fa29a)), 50); body.scale.y = 0.8; body.position.y = 1.5; toy.add(body);
+  [-0.7, 0.7].forEach(x => { const e = new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 10), K.flat(0x161616)); e.position.set(x, 1.9, 1.45); toy.add(e); });
+  // 산타 모자(콘 + 방울 + 테두리)를 든 두 손
+  const hat = new THREE.Group(); scene.add(hat);
+  const cone = K.inked(new THREE.Mesh(new THREE.ConeGeometry(1.3, 2.4, 20), K.lam(0x3e3e3c)), 40); cone.position.y = 1.2; hat.add(cone);
+  const rim = K.inked(new THREE.Mesh(new THREE.TorusGeometry(1.25, 0.28, 10, 24), K.lam(0xf0eee8)), 40); rim.rotation.x = Math.PI / 2; hat.add(rim);
+  const pom = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 10), K.lam(0xf0eee8)); pom.position.y = 2.5; hat.add(pom);
+  const hand = (sd) => { const g = new THREE.Group(); scene.add(g); K.cyl(0.42, 0.5, 10, 0x5a5a58, 0, 0, 5.2, g, 12).rotation.x = Math.PI / 2; const p = K.inked(new THREE.Mesh(new THREE.SphereGeometry(0.55, 14, 10), K.lam(0xb8b4ae)), 40); p.scale.set(1, 0.6, 1.2); g.add(p); return g; };
+  const HL = hand(-1), HR = hand(1);
+  // 연필(굴러감)과 지우개 가루
+  const pen = K.cyl(0.18, 0.18, 4.4, 0x6a6a68, 4.6, 0.2, 4.2, scene, 6); pen.rotation.z = Math.PI / 2;
+  K.box(1.2, 0.4, 0.7, 0xdedcd4, -1.2, 0.2, 5, scene);
+  cam.position.set(-1, 11.5, 10.5); cam.lookAt(0.2, 1.2, -0.5);
   return (t, ph) => {
-    const W = (a, b) => K.win(ph, a, b, 0.1);
-    lan.update(ph); mo.update(ph);
-    Ms.forEach((m, i) => { m.g.rotation.y = Math.sin(ph + i * 2) * 0.25; m.g.position.y = 3.65 + 0.15 * Math.abs(Math.sin(ph * 2 + i)); m.hat.rotation.z = Math.sin(ph * 2 + i) * 0.15; });
-    const p = W(0.1, 0.75);
-    P.pose({ headYaw: 1.2 * W(0.55, 0.85), headPitch: -0.3 * p, torsoYaw: 0.1, armR: { fwd: 2.1 * p + 0.2, out: 0.2 * p, point: p > 0.4 }, armL: { fwd: 0.2 }, bob: 0.05 * p * Math.abs(Math.sin(ph * 5)) });
-    const n = W(0.5, 0.95);
-    F.pose({ headYaw: -0.6 * n + 0.3, torsoYaw: -0.2 * n, headPitch: 0.15 * Math.abs(Math.sin(ph * 5)) * n, armL: { fwd: 0.4, elbow: 2.1 * n }, armR: { fwd: 0.3, elbow: 2.2 * n } });
-    const r = 0.5 + 0.5 * Math.sin(ph);
-    D.pose({ headYaw: 0.3, armL: { fwd: 1.2 + 0.6 * r, out: -0.1, elbow: 0.3 }, armR: { fwd: 0.3, elbow: 0.6 } });
-    D.root.updateMatrixWorld(true); const v = new THREE.Vector3(-0.8, 2.2 + 0.5 * r, -1.9); D.torso.localToWorld(v); mini.position.copy(v); mini.rotation.z = Math.sin(ph * 3) * 0.3;
+    const W = (a, b) => K.win(ph, a, b, 0.12);
+    const down = W(0.2, 0.75);
+    const hy = 6.2 - 2.7 * down; hat.position.set(2, hy, 0.1); hat.rotation.z = Math.sin(ph * 2) * 0.08 * (1 - down);
+    HL.position.set(2 - 1.6, hy + 0.5, 0.1); HL.rotation.y = -0.45; HR.position.set(2 + 1.6, hy + 0.5, 0.1); HR.rotation.y = 0.45;
+    toy.rotation.z = Math.sin(ph * 2) * 0.06 * down; toy.position.y = 0.1 * Math.max(0, Math.sin(ph * 4)) * down;
+    pen.position.x = 4.6 + Math.sin(ph) * 1.2; pen.rotation.x = -Math.sin(ph) * 1.2 / 0.18;
+    pages[2].rotation.x = -Math.PI / 2 + 0.25 * Math.max(0, Math.sin(ph));
   };
 }
