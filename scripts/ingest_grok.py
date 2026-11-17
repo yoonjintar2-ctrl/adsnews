@@ -8,7 +8,7 @@
   그림폴더에는 panel1.png ~ panel4.png (또는 strip.png 한 장을 4등분) 를 둔다.
   python scripts/ingest_grok.py 밈.json [--art 그림폴더]      # '요즘 밈' 코너 ({"memes": [...]})
 """
-import argparse, json, os, shutil, sys
+import argparse, json, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from jp_common import now_kst, load, dump
 GK_AUTHOR = {"name": "최신상", "title": "사원", "role": "잘파세대 신입", "ai": "Claude (Anthropic)", "email": "new@adsnews"}  # 10/25부터 grok.json 칸은 최신상 사원(Claude 1인 다역)
@@ -37,10 +37,22 @@ def main():
         errs.append(f"컷은 정확히 4개여야 해요 (지금 {len(P)}개)")
     for i, p in enumerate(P, 1):
         for d in p.get("dialogue") or []:
-            if len(d.get("line") or "") > 40:
-                errs.append(f"{i}컷 대사가 너무 길어요: {d.get('line')}")
+            if len(d.get("line") or "") > 25:
+                errs.append(f"{i}컷 대사가 너무 길어요(25자까지, grok/STRIP_GUIDE.md): {d.get('line')}")
+        if len(p.get("dialogue") or []) > 2:
+            errs.append(f"{i}컷 말풍선이 {len(p.get('dialogue'))}개 — 2개까지")
         if not (p.get("scene") or "").strip():
             errs.append(f"{i}컷 장면 설명이 비었어요")
+    # 웃음 점검(발행인 11/17 "만평은 진짜 재미없어") — grok/STRIP_GUIDE.md
+    if len(P) == 4:
+        last = "".join(re.sub(r"\([^)]*\)", "", d.get("line") or "") for d in (P[3].get("dialogue") or []))
+        if len(last.replace(" ", "")) > 15:
+            errs.append(f"4컷째 대사는 15자 이내 한마디(또는 무언)여야 해요: {last}")
+        if re.search(r"(그래도|역시|결국|시대|교훈|진짜 주인|정답은|~?인 법|아닐까)", last):
+            errs.append(f"4컷째가 교훈·감상·정리로 끝나요 — 예상을 뒤집는 한마디나 그림으로: {last}")
+    g = M.get("gag") or {}
+    if P and not (g.get("premise") and g.get("technique") and len(g.get("candidates") or []) >= 3):
+        errs.append("gag 칸(technique·premise·candidates 3개 이상)을 채워 주세요 — 후보 5개 중 가장 의외인 것을 고른 기록")
     iss = M.get("issue") or {}
     if not iss.get("url", "").startswith("http"):
         errs.append("issue.url(출처)이 필요해요")
@@ -80,7 +92,7 @@ def main():
         img = imgs[i] or ((prev.get("panels") or [{}] * 4)[i].get("img") if prev.get("date") == date and prev.get("title") == M.get("title") else None)
         panels.append({"scene": " ".join(p["scene"].split()), "dialogue": [{"who": d.get("who", ""), "line": d.get("line", "")} for d in p.get("dialogue") or []], "img": img})
     gk["strip"] = {"date": date, "title": M.get("title", ""), "issue": {"id": iss.get("id", ""), "title": iss.get("title", ""), "url": iss["url"]},
-                   "cast": M.get("cast") or [], "panels": panels, "punchline": (M.get("punchline") or "").strip(),
+                   "cast": M.get("cast") or [], "gag": M.get("gag") or {}, "panels": panels, "punchline": (M.get("punchline") or "").strip(),
                    "artBy": a.art_by or (prev.get("artBy") if prev.get("date") == date else ""), "model": M.get("model", "Grok"), "at": stamp}
     gk["updatedAt"] = stamp
     dump(GK_FILE, gk)
