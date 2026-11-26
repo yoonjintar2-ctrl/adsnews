@@ -90,7 +90,7 @@ def shell(SITE, CSS, path, title, desc, body, depth, ld=None, kind="website", im
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
 {"".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in lds)}
 <style>{CSS}</style></head><body><div class="w">
-<header><a class="m" href="{up}">광고늬우스</a><p>광고·마케팅 업계 뉴스 · 발행인 SM C&amp;C 윤석진</p></header>
+<header><a class="m" href="{up}">광고늬우스</a><p>광고·마케팅 업계 뉴스 · 발행인 금로동 기자</p></header>
 {nav(depth)}
 {body}
 <a class="go" href="{up}">오늘의 광고늬우스 보기 →</a>

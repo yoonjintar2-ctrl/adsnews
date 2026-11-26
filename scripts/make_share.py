@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from staff_names import rename as staff_rename  # noqa: E402
 
 SITE = "https://news.jintar.co.kr/"
-BY_GEUM = "금로동 기자 · 발행인 SM C&amp;C 윤석진"
+BY_GEUM = "발행인 금로동 기자"
 OUT = "s"
 KEEP_DAYS = 60
 
@@ -111,7 +111,7 @@ h1{font-size:46px;font-weight:900;line-height:1.28;letter-spacing:-1.5px}
 </style></head><body><div class="p">
 <div class="top"><span>광고늬우스</span><span>__DATE__</span></div>
 <div class="ph">__IMG__<b>__BRAND__</b></div>
-<div class="l"><div class="k">오늘의 광고 캠페인</div><div class="b">__BRAND__</div><h1>__HEAD__</h1><p class="d">__LEDE__</p><div class="by">금로동 기자 · 발행인 SM C&amp;C 윤석진</div></div>
+<div class="l"><div class="k">오늘의 광고 캠페인</div><div class="b">__BRAND__</div><h1>__HEAD__</h1><p class="d">__LEDE__</p><div class="by">발행인 금로동 기자</div></div>
 </div></body></html>"""
 
 
@@ -151,7 +151,7 @@ h1 em{font-style:normal;color:#a01e1e}
 <div class="np"><div class="mh">광고늬우스</div><div class="dl"><span>__DATE__</span><span>제__NO__호</span></div>
 <div class="row"><div class="hd">__HEAD__</div><div class="pic" style="__PIC__"></div></div><div class="ln"></div></div>
 <div class="st">배달 완료<small>__MD__</small></div>
-<div class="l"><div class="k">딩동 · 신문 왔어요</div><h1>__MD__ <em>제__NO__호</em> 신문이 도착했습니다</h1><p class="d">__LEDE__</p><div class="by">금로동 기자 · 발행인 SM C&amp;C 윤석진</div></div>
+<div class="l"><div class="k">딩동 · 신문 왔어요</div><h1>__MD__ <em>제__NO__호</em> 신문이 도착했습니다</h1><p class="d">__LEDE__</p><div class="by">발행인 금로동 기자</div></div>
 </body></html>"""
 
 

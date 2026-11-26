@@ -123,7 +123,7 @@ def page_html(d, D, prev_d, next_d, has_card, J=None, hubs=frozenset()):
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{CSS}</style></head><body><div class="w">
-<header><a class="m" href="../">광고늬우스</a><p>제{no}호 · {esc(md(d))} · 발행인 SM C&amp;C 윤석진</p></header>
+<header><a class="m" href="../">광고늬우스</a><p>제{no}호 · {esc(md(d))} · 발행인 금로동 기자</p></header>
 <article>
 <span class="k">{esc(kick)} · 금로동 과장</span>
 <h1>{esc(head)}</h1>"""]
@@ -261,7 +261,7 @@ def main():
 <meta name="description" content="광고늬우스 지난 호를 날짜별로 모았습니다. 매일 아침 광고·마케팅 업계 뉴스 사설, 오늘의 광고 캠페인, 오늘의 광고인, 트렌드 노트.">
 <link rel="canonical" href="{SITE}e/"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>{CSS}</style></head><body><div class="w">
-<header><a class="m" href="../">광고늬우스</a><p>지난 호 모아보기 · 발행인 SM C&amp;C 윤석진</p></header>
+<header><a class="m" href="../">광고늬우스</a><p>지난 호 모아보기 · 발행인 금로동 기자</p></header>
 {seo_hubs.nav(1)}
 <h1>광고 뉴스 지난 호 모아보기</h1>
 <p>매일 아침 금로동 과장이 쓰는 사설과 두 대리의 미니 사설, 삽화, 오늘의 광고 캠페인, 오늘의 광고인을 날짜별로 모았어요.</p>
