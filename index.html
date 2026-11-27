@@ -1452,6 +1452,10 @@ window.__keep=function(fn){return fn()};
   window.__BASE='';
   if(q&&/^\d{4}-\d\d-\d\d$/.test(q)&&q<t){window.__ED=q;window.__BASE='archive/'+q+'/';window.__NOW=Date.UTC(+q.slice(0,4),+q.slice(5,7)-1,+q.slice(8,10),14,59);document.documentElement.classList.add('past');}
   window.nowMs=function(){return window.__NOW||Date.now()};})();
+/* 발행일 기준 날짜(발행인 11/27): 신문이 새로 발행돼야(사설 brief.cartoon.date) 날짜·호수가 넘어간다 */
+(function(){window.pubDate=function(){var D=window.AD_DATA,d=D&&D.brief&&D.brief.cartoon&&D.brief.cartoon.date,t=new Date(Date.now()+9*36e5).toISOString().slice(0,10);return window.__ED||((d&&/^\d{4}-\d\d-\d\d$/.test(d)&&d<=t)?d:t)};
+  window.pubMs=function(){return window.__ED?nowMs():Date.parse(pubDate()+'T12:00:00+09:00')};
+  window.onData=function(cb){var n=0;(function w(){if(window.AD_DATA||n++>150)cb();else setTimeout(w,100)})()};})();
 </script>
 <script>
 /* 광고 지면: 크기 가이드 + ads.json 소재 표시.
@@ -1616,13 +1620,13 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
   function tick(){
     var d = new Date(nowMs());
     $('clock').textContent = new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',hour12:false}).format(d);
-    $('today').textContent = new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'long',day:'numeric',weekday:'short'}).format(d);
+    $('today').textContent = new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'long',day:'numeric',weekday:'short'}).format(new Date(pubMs()));
     var up = new Date(D.updatedAt).getTime();
     if(window.__ED){$('ago').textContent='그날 마감';return;}
     if(up){var m=Math.max(0,Math.round((d-up)/60000));$('ago').textContent = m<1?'방금 갱신':m<60?m+'분 전 갱신':Math.floor(m/60)+'시간 '+(m%60)+'분 전 갱신';}
   }
   (function(){
-    var now=new Date(nowMs()), tz={timeZone:'Asia/Seoul'};
+    var now=new Date(pubMs()), tz={timeZone:'Asia/Seoul'};
     var ymd=new Intl.DateTimeFormat('ko-KR',Object.assign({year:'numeric',month:'long',day:'numeric',weekday:'long'},tz)).format(now);
     var lunar='';try{var pt=new Intl.DateTimeFormat('ko-KR-u-ca-dangi',Object.assign({month:'numeric',day:'numeric'},tz)).formatToParts(now);var mo=(pt.filter(function(x){return x.type==='month'})[0]||{}).value,da=(pt.filter(function(x){return x.type==='day'})[0]||{}).value;if(mo&&da)lunar='음력 '+String(mo).replace(/bis$/,'(윤)')+'월 '+da+'일'}catch(e){}
     var kstY=+new Intl.DateTimeFormat('en',Object.assign({year:'numeric'},tz)).format(now);
@@ -2419,9 +2423,9 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
   if(!window.__ED)setInterval(function(){get('live.json').then(function(L){if(newer(L.updatedAt,curLive)&&window.__renderX){curLive=L.updatedAt;window.__renderX(L)}}).catch(function(){})},30000);
 })();
 /* 지난 호 보기: 날짜줄의 ‹ 제N호 › 와 지난 호 목록 */
-(function(){
+onData(function(){
   var el=document.getElementById('dl-ed'); if(!el) return;
-  var ED=window.__ED, today=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
+  var ED=window.__ED, today=pubDate();
   function iss(d){return Math.round((Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))-Date.UTC(2026,8,29))/864e5)+1}
   function md(d){var w='일월화수목금토'[new Date(Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))).getUTCDay()];return (+d.slice(5,7))+'월 '+(+d.slice(8,10))+'일('+w+')'}
   function url(d){return d===today?location.pathname:location.pathname+'?d='+d}
@@ -2447,7 +2451,7 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
     dl.insertAdjacentHTML('afterend','<div class="pastbar"><b>지난 호</b> '+md(ED)+'자 신문을 그날 23:59 기준으로 보고 있어요. <a href="'+location.pathname+'">오늘 신문 보기 →</a></div>');
     document.title=md(ED)+'자 · '+document.title;
   }
-})();
+});
 </script>
 
 <script>
@@ -2723,9 +2727,9 @@ window.__vidUp=function(D){
 </script>
 <script>
 /* 상단 '광고늬우스 제N호 공유하기' — 호 전체 공유(s/issue-날짜.html: 배달된 신문 썸네일) (발행인 11/14) */
-(function(){var b=document.getElementById('issbtn');if(!b)return;
+onData(function(){var b=document.getElementById('issbtn');if(!b)return;
   if(window.matchMedia&&matchMedia('(max-width:620px)').matches){var mt=document.querySelector('.mast .mt');if(mt){var w=document.createElement('div');w.className='issm';w.appendChild(b);mt.appendChild(w)}}
-  var today=new Date(Date.now()+9*36e5).toISOString().slice(0,10),d=window.__ED||today;
+  var today=pubDate(),d=window.__ED||today;
   var n=Math.round((Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))-Date.UTC(2026,8,29))/864e5)+1;
   var md=(+d.slice(5,7))+'월 '+(+d.slice(8,10))+'일',sp=document.getElementById('isstxt'),lab='광고늬우스 제'+n+'호 공유하기';sp.textContent=lab;
   var base=location.origin+location.pathname.replace(/[^\/]*$/,''),page=base+'s/issue-'+d+'.html',ok=false;
@@ -2738,7 +2742,7 @@ window.__vidUp=function(D){
     function legacy(){var ta=document.createElement('textarea');ta.value=all;ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();var r=false;try{r=document.execCommand('copy')}catch(e){}ta.remove();if(r)flash('링크 복사됨 ✓');else window.prompt('아래 내용을 복사해 보내 주세요',all)}
     if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(all).then(function(){flash('링크 복사됨 ✓ 메신저에 붙여 넣으세요')},legacy);else legacy();
   });
-})();
+});
 </script>
 </body>
 </html>
