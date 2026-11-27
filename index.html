@@ -1402,6 +1402,45 @@ body:not(.r4-ok) .np-row4 .r4{max-height:26rem;overflow:hidden}
 .dbt-b b .dbt-to{font-style:normal;font-weight:700;font-size:.66rem;color:var(--red);margin-left:2px}
 .dbt-t.gm .dbt-b{background:#f9f9f6}
 @media (max-width:980px){.staff-g{column-gap:22px!important}.staff-g .staff,.staff-g .staff+.staff,.staff-g .staff:nth-child(n){border-left:0!important;padding-left:0!important;padding-right:0!important}}
+
+/* v40 하단 4칸 단 맞춤 — 로딩 뒤 재지 않고 CSS만으로 (발행인 11/27)
+   카드 높이를 고정하고, 칸마다 보이는 개수를 고정한다: 리포트·업계 5개 + 광고(카드 2개 높이) = 매체·팔로잉 7개 */
+.np-row4{--ci:5.1rem;--kh:2rem;align-items:start}
+.np-row4 .np-sec{gap:9px}
+.np-row4 .r4>.kick{height:var(--kh);flex:none;margin:0;overflow:hidden}
+.np-row4 .lst{flex:none;overflow:hidden}
+.np-row4 #reps,.np-row4 #anews{height:calc(5*var(--ci))}
+.np-row4 #plat,.np-row4 #fol{height:calc(7*var(--ci))}
+.np-row4 .ci{height:var(--ci)!important;box-sizing:border-box;overflow:hidden;padding:8px 0!important;align-content:start}
+.np-row4 .ci strong{-webkit-line-clamp:2!important}
+.np-row4 .ci-d{display:none!important}
+.np-row4 .lst>*,.np-row4 #fitems>*{flex-shrink:0}
+.np-row4 #fol{display:flex;flex-direction:column}
+.np-row4 #fol .ftabs{flex:none;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding-bottom:2px}
+.np-row4 #fol .ftabs::-webkit-scrollbar{display:none}
+.np-row4 #fol .ftabs>*{flex:none}
+.np-row4 #fitems{flex:1 1 auto;min-height:0;overflow:hidden;-webkit-mask-image:linear-gradient(#000 calc(100% - 2.2rem),transparent);mask-image:linear-gradient(#000 calc(100% - 2.2rem),transparent)}
+.np-row4 .mlab{display:block;text-align:center;margin-top:0!important;height:2.3rem;box-sizing:border-box;line-height:1.3;flex:none}
+.np-row4 .mlab[hidden]{display:block;visibility:hidden}
+.np-row4 .m-less{display:none}
+.np-row4 .r4:has(.mtog:checked) .lst{height:auto!important;max-height:none!important;overflow:visible}
+.np-row4 .r4:has(.mtog:checked) #fitems{-webkit-mask-image:none;mask-image:none;overflow:visible}
+.np-row4 .r4:has(.mtog:checked) .m-more{display:none}
+.np-row4 .r4:has(.mtog:checked) .m-less{display:inline}
+.np-row4 .cut{display:revert!important}
+.np-row4 .fill-ad{display:none!important}
+.np-row4 .r4-ad{align-self:start;height:calc(2*var(--ci));padding:0 0 0 16px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.np-row4 .r4-ad .adslot[data-slot="bottom"]{height:100%!important;width:auto!important;max-width:100%;aspect-ratio:640/200;margin:0}
+.mtog{position:absolute;opacity:0;pointer-events:none}
+@media (max-width:1180px){
+  .np-row4 .r4-ad{height:auto;padding:0}
+  .np-row4 .r4-ad .adslot[data-slot="bottom"]{height:auto!important;width:100%!important}
+}
+@media (max-width:620px){
+  .np-row4{--ci:5.4rem}
+  .np-row4 #fol{height:auto;max-height:calc(7*var(--ci))}
+  .np-row4 .mlab[hidden]{display:none}
+}
 </style>
 
 <meta name="description" content="광고 뉴스·마케팅 뉴스를 매일 아침 한 장에. 오늘의 광고 캠페인 분석, 신규 광고·광고 모델 소식, 마케팅 트렌드, 월별 마케팅 캘린더, 광고 용어 사전까지 — 노른자만 골라 떠먹여 드리는 광고인의 신문.">
@@ -1547,11 +1586,12 @@ window.__keep=function(fn){return fn()};
       <section class="np-sec a-fol r4 r4-fol" data-list="fitems" aria-labelledby="k-fol">
         <div class="kick"><h2 id="k-fol">팔로잉 브랜드 소식</h2><span id="fcount"></span></div>
         <div class="modal fpop" id="fpop" hidden role="dialog" aria-modal="true" aria-labelledby="fpop-h"><div class="modal-box fpop-box"><button type="button" id="fpclose" aria-label="닫기">✕</button><span class="t">팔로잉</span><h3 id="fpop-h">브랜드 추가</h3><p class="fpop-d">담당 광고주나 관심 브랜드 이름을 넣으면 여러 매체의 소식을 모아 드려요.</p><form class="fform" id="fform" autocomplete="off"><label for="fin" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">브랜드 이름</label><input id="fin" type="text" placeholder="예: 하나은행, 뚜레쥬르" maxlength="30"><button type="submit">팔로우</button></form><p class="ferr" id="ferr" hidden></p></div></div>
-        <div class="fol" id="fol"></div>
+        <div class="fol lst" id="fol"></div>
+        <input type="checkbox" class="mtog" id="mt-fol" hidden><label for="mt-fol" class="more-btn mlab" id="ml-fol" hidden><span class="m-more"></span><span class="m-less">접기 ▲</span></label>
       </section>
-      <section class="np-sec r4 r4-plat" data-list="plat"><div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div><div id="plat"></div></section>
-      <section class="np-sec r4 r4-reps" data-list="reps"><div class="kick"><h2>리포트</h2><span>렙사 · 광고회사 · 기관</span></div><div class="blist" id="reps"></div></section>
-      <section class="np-sec r4 r4-news" data-list="anews"><div class="kick"><h2>업계 소식</h2><span>광고회사 · 매체</span></div><div class="blist" id="anews"></div></section>
+      <section class="np-sec r4 r4-plat" data-list="plat"><div class="kick"><h2>매체·플랫폼 소식</h2><span>광고 상품 변경</span></div><div class="lst" id="plat"></div><input type="checkbox" class="mtog" id="mt-plat" hidden><label for="mt-plat" class="more-btn mlab" id="ml-plat" hidden><span class="m-more"></span><span class="m-less">접기 ▲</span></label></section>
+      <section class="np-sec r4 r4-reps" data-list="reps"><div class="kick"><h2>리포트</h2><span>렙사 · 광고회사 · 기관</span></div><div class="blist lst" id="reps"></div><input type="checkbox" class="mtog" id="mt-reps" hidden><label for="mt-reps" class="more-btn mlab" id="ml-reps" hidden><span class="m-more"></span><span class="m-less">접기 ▲</span></label></section>
+      <section class="np-sec r4 r4-news" data-list="anews"><div class="kick"><h2>업계 소식</h2><span>광고회사 · 매체</span></div><div class="blist lst" id="anews"></div><input type="checkbox" class="mtog" id="mt-anews" hidden><label for="mt-anews" class="more-btn mlab" id="ml-anews" hidden><span class="m-more"></span><span class="m-less">접기 ▲</span></label></section>
       <aside class="r4-ad" aria-label="광고"><div class="adslot" data-slot="bottom"><b>AD</b><span>광고 지면</span></div></aside>
     </div>
   </main>
@@ -2042,7 +2082,9 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
   function card(o){var g=ogOf(o.url),img=o.img||g.i,d=cleanDesc(o.desc||g.d||'');
     var pic=img?'<span class="ci-ph"><img src="'+esc(img)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<span>'+esc(String(o.ph||'').slice(0,2))+'</span>\'"></span>':ph(o.ph,o.dark);
     return '<a class="ci" href="'+esc(o.url||'#')+'" target="_blank" rel="noopener">'+pic+'<span class="ci-t"><span class="ci-k">'+(o.kick?'<b>'+esc(o.kick)+'</b>':'')+(o.date?'<i>'+esc(o.date)+'</i>':'')+(o.src?'<i>'+esc(o.src)+'</i>':'')+'</span><strong>'+esc(o.title)+'</strong>'+(d&&d.replace(/\s/g,'')!==String(o.title).replace(/\s/g,'')?'<span class="ci-d">'+esc(d)+'</span>':'')+'</span></a>'}
-  function renderReps(){$('reps').innerHTML=(D.reports||[]).slice(0,6).map(function(r){var pdf=/\.pdf($|\?)/i.test(r.url||'');return card({url:r.url,title:r.title.replace(/\s*\(PDF\)\s*$/,''),kick:r.org,date:r.date,ph:r.org,dark:true})}).join('');}
+  /* 하단 4칸: 보이는 개수는 CSS가 고정(카드 높이 고정), 여기서는 '더 보기' 글자만 정함 (발행인 11/27) */
+  function moreLab(id,total,show){var l=$('ml-'+id);if(!l)return;var n=total-show;l.hidden=n<=0;l.querySelector('.m-more').textContent=n>0?n+'건 더 보기 ▼':'';}
+  function renderReps(){var L=(D.reports||[]).slice(0,14);moreLab('reps',L.length,5);$('reps').innerHTML=L.map(function(r){var pdf=/\.pdf($|\?)/i.test(r.url||'');return card({url:r.url,title:r.title.replace(/\s*\(PDF\)\s*$/,''),kick:r.org,date:r.date,ph:r.org,dark:true})}).join('');}
 
   function medArr(c){var m=c&&c.media;return Array.isArray(m)?m:(m?String(m).split(/\s*[·,\/]\s*/).filter(Boolean):[])}
   function campCard(c,f){
@@ -2126,11 +2168,12 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
 
 
   var A = D.agencies;
-  function renderANews(){$('anews').innerHTML = A.news.slice(0,6).map(function(n){var host=(String(n.url||'').match(/\/\/(?:www\.)?([^\/]+)/)||[])[1]||'';return card({url:n.url,title:n.title,date:n.date,kick:SRCN[host]||host.replace(/\.(co\.kr|com|kr|net|or\.kr)$/,''),ph:SRCN[host]||n.title})}).join('');}
+  function renderANews(){var L=A.news.slice(0,12);moreLab('anews',L.length,5);$('anews').innerHTML = L.map(function(n){var host=(String(n.url||'').match(/\/\/(?:www\.)?([^\/]+)/)||[])[1]||'';return card({url:n.url,title:n.title,date:n.date,kick:SRCN[host]||host.replace(/\.(co\.kr|com|kr|net|or\.kr)$/,''),ph:SRCN[host]||n.title})}).join('');}
   var SRCN={'madtimes.co.kr':'매드타임스','the-pr.co.kr':'더피알','i-boss.co.kr':'아이보스','brandbrief.co.kr':'브랜드브리프','adic.co.kr':'애드아이','newsis.com':'뉴시스','yna.co.kr':'연합뉴스','openads.co.kr':'오픈애즈','nextdaily.co.kr':'넥스트데일리','hankyung.com':'한국경제','mk.co.kr':'매일경제','edaily.co.kr':'이데일리','etnews.com':'전자신문','zdnet.co.kr':'지디넷','newspim.com':'뉴스핌','heraldcorp.com':'헤럴드경제','adnews.co.kr':'애드뉴스','ddaily.co.kr':'디지털데일리','bloter.net':'블로터'};
   function renderPlat(){var rows=[];D.platforms.forEach(function(p){p.items.forEach(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));rows.push({p:p.name,t:t,u:u})})});
     // 매체별로 번갈아 보여주기(한 매체가 칸을 독차지하지 않게)
     var by={},order=[];rows.forEach(function(r){if(!by[r.p]){by[r.p]=[];order.push(r.p)}by[r.p].push(r)});var mix=[];for(var k=0;mix.length<rows.length;k++){order.forEach(function(n){if(by[n][k])mix.push(by[n][k])})}
+    moreLab('plat',mix.length,7);
     $('plat').innerHTML=mix.map(function(r){return card({url:r.u,title:r.t,kick:r.p,ph:r.p})}).join('');}
   function renderPlatOld(){$('plat').innerHTML = D.platforms.map(function(p){return '<div class="pl"><b>'+esc(p.name)+'</b>'+p.items.map(function(it){var t=typeof it==='string'?it:it.t, u=(typeof it==='object'&&it.url)||('https://search.naver.com/search.naver?where=news&sort=1&query='+encodeURIComponent(p.name+' '+t.replace(/[()~\d\/·,']+/g,' ').replace(/\s+/g,' ').trim().split(' ').slice(0,5).join(' ')));return link(u,esc(t))}).join(' · ')+'</div>'}).join('');}
 
@@ -2230,6 +2273,7 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
     var list=rows.map(function(r){var x=r.x;return card({url:x.url,title:x.title,kick:folTab==='*'?r.f.name:'',date:x.date,src:x.src,ph:r.f.name,img:x.photo})}).join('');
     var nm=folTab==='*'?'':(follows.filter(function(f){return f.id===folTab})[0]||{}).name;
     var more=nm?'<p class="fmore">'+esc(nm)+' 더 찾아보기 · '+['https://search.naver.com/search.naver?where=news&sort=1&query=','https://search.naver.com/search.naver?ssc=tab.blog.all&query=','https://x.com/search?f=live&q='].map(function(u,i){return '<a href="'+u+encodeURIComponent(nm)+'" target="_blank" rel="noopener">'+['뉴스','블로그','X'][i]+'</a>'}).join(' · ')+'</p>':'';
+    moreLab('fol',rows.length,6);var _l=$('ml-fol');if(_l&&rows.length>6)_l.querySelector('.m-more').textContent='전체 보기 ▼';
     $('fol').innerHTML=tabs+'<div class="fb fitems" id="fitems">'+(list||'<span class="empty">소식을 모으는 중이에요. 몇 분 안에 채워져요.</span>')+'</div>'+more;
     fitAll();
   }
@@ -2254,7 +2298,7 @@ function boot(D){ setTimeout(function(){try{window.__vidUp&&window.__vidUp(D)}ca
 
   function backTo(el){var r=el.getBoundingClientRect();if(r.top<0)window.scrollTo(0,window.pageYOffset+r.top-8)}
   function balanceRow4(){
-    document.body.classList.add('r4-ok');
+    document.body.classList.add('r4-ok'); return; // 11/27: 높이 맞춤은 CSS(고정 카드 높이·고정 개수)로. 로딩 뒤 재는 방식은 쓰지 않음
     var secs=[].slice.call(document.querySelectorAll('.np-row4 .r4'));
     secs.forEach(function(sec){[].forEach.call(sec.querySelectorAll('.cut'),function(e){e.classList.remove('cut')});var b=sec.querySelector('.more-btn');if(b)b.remove();});
     function items(sec){var el=document.getElementById(sec.getAttribute('data-list'));return el?[].slice.call(el.children):[]}
